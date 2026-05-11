@@ -577,9 +577,17 @@ select:focus {
 .pill.warn { background: var(--soft-warn); color: var(--warn); }
 .pill.cool { background: var(--soft-cool); color: var(--cool); }
 .statusText {
+  display: grid;
+  gap: 2px;
   font-size: 12px;
   font-weight: 700;
   color: var(--muted);
+}
+.statusText em {
+  color: var(--muted);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
 }
 .statusText.good { color: var(--good); }
 .statusText.warn { color: var(--warn); }

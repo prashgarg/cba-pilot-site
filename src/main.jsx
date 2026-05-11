@@ -54,6 +54,43 @@ const provisionStatus = (record, score) => {
   return labels[status] ?? [status.replaceAll("_", " "), "muted", "other"];
 };
 
+const recordedOnlySubtype = (record) => {
+  const status = record.scoreability?.status ?? "";
+  const reason = (record.scoreability?.reason ?? "").toLowerCase();
+  const missing = (record.scoreability?.missing_or_external_inputs ?? []).join(" ").toLowerCase();
+  const role = (record.aggregation_role ?? "").toLowerCase();
+  const text = [status, reason, missing, role].join(" ");
+
+  if (status === "not_scoreable_external" || text.includes("external") || text.includes("spd") || text.includes("plan document")) {
+    return "Requires external info";
+  }
+  if (status === "normalization_required" || text.includes("normalization") || text.includes("inflation") || text.includes("wage table")) {
+    return "Needs normalization";
+  }
+  if (status === "requires_agentic_review" || text.includes("review") || text.includes("disentangle") || text.includes("exact")) {
+    return "Needs review";
+  }
+  if (text.includes("duplicate") || text.includes("prevents duplicate") || text.includes("already scored under")) {
+    return "Avoids double counting";
+  }
+  if (text.includes("statutory") || text.includes("baseline comparison")) {
+    return "Statutory baseline unclear";
+  }
+  if (text.includes("no calibrated") || text.includes("not calibrated") || text.includes("scalar-ready") || text.includes("no scalar") || text.includes("framework") || text.includes("proxy") || text.includes("frozen scalar") || text.includes("scoring rubric") || text.includes("scalar rubric") || text.includes("scalar module")) {
+    return "Scoring rule not set";
+  }
+  if (text.includes("committee") || text.includes("governance") || text.includes("advisory") || text.includes("context") || text.includes("scope")) {
+    return "Context";
+  }
+  if (text.includes("separately") || text.includes("not mechanically averaged") || text.includes("subobjects")) {
+    return "Kept separate";
+  }
+  if (text.includes("does not state") || text.includes("lacks") || text.includes("not enough") || text.includes("not stated") || text.includes("no employer contribution") || text.includes("withheld pending detailed")) {
+    return "Too little entitlement detail";
+  }
+  return null;
+};
+
 const STATUS_FILTERS = [
   ["All", "All statuses"],
   ["scored", "Scored"],
@@ -534,6 +571,7 @@ function RecordCard({ record, score }) {
   const fields = record.fields ?? [];
   const status = record.scoreability?.status ?? "unknown";
   const [statusLabel, statusClass] = provisionStatus(record, score);
+  const statusDetail = recordedOnlySubtype(record);
   const shownFields = fields.slice(0, 3);
   const hiddenFields = fields.slice(3);
   const scoreShown = scoreValue(record, score);
@@ -545,7 +583,10 @@ function RecordCard({ record, score }) {
             <h4>{record.concept_label}</h4>
             <p>{record.covered_group || record.beneficiary_or_affected_group || "No covered group stated."}</p>
           </div>
-          <span className={`statusText ${statusClass}`}>{statusLabel}</span>
+          <span className={`statusText ${statusClass}`}>
+            {statusLabel}
+            {statusDetail ? <em>{statusDetail}</em> : null}
+          </span>
           <strong>{format(scoreShown)}</strong>
         </div>
       </summary>
