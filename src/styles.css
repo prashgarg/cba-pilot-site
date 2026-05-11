@@ -138,6 +138,54 @@ select:focus {
   outline: 2px solid rgba(182, 64, 44, .16);
   border-color: var(--accent);
 }
+.compactSelect {
+  width: auto;
+  min-width: 132px;
+  max-width: 150px;
+  padding: 5px 8px;
+  align-self: center;
+  justify-self: end;
+}
+.selectedDoc {
+  padding: 4px 3px 12px;
+  border-bottom: 1px solid var(--line);
+}
+.selectedDoc span {
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 11px;
+}
+.selectedDoc strong {
+  display: block;
+  margin: 3px 0;
+  font-size: 14px;
+  line-height: 1.25;
+}
+.selectedDoc em {
+  color: var(--muted);
+  font-style: normal;
+  font-size: 12px;
+}
+.docBrowser {
+  min-height: 0;
+  margin-top: 10px;
+}
+.docBrowser[open] {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.docBrowser summary {
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+.docControls {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
 .docList {
   overflow: auto;
   margin-top: 8px;
@@ -692,10 +740,10 @@ td small {
   border-radius: 50%;
   color: var(--faint);
   background: transparent;
-  font-family: Georgia, serif;
+  font-family: inherit;
   font-size: 11px;
-  font-style: italic;
-  font-weight: 700;
+  font-style: normal;
+  font-weight: 800;
   cursor: help;
   vertical-align: text-top;
 }

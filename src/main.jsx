@@ -58,6 +58,23 @@ const STATUS_FILTERS = [
   ["not_scored", "Not scored"]
 ];
 
+const DOCUMENT_FILTERS = [
+  ["All", "All documents"],
+  ["scored", "Has scored provisions"],
+  ["withheld", "Structured, no score"],
+  ["review", "Needs review"],
+  ["rejected", "Has rejected values"]
+];
+
+const documentStats = (doc, recordsByDocument, scoresByDocument) => {
+  const rows = recordsByDocument[doc.document_id] ?? [];
+  const scores = new Map((scoresByDocument[doc.document_id] ?? []).map((score) => [score.concept_record_id, score]));
+  const scored = rows.filter((record) => hasNumericScore(scoreValue(record, scores.get(record.concept_record_id)))).length;
+  const withheld = rows.filter((record) => provisionStatus(record, scores.get(record.concept_record_id))[2] === "withheld").length;
+  const review = rows.filter((record) => provisionStatus(record, scores.get(record.concept_record_id))[2] === "review").length;
+  return { scored, withheld, review, rejected: doc.rejected_value_count ?? 0 };
+};
+
 const groupByFamily = (records) => {
   const groups = new Map();
   records.forEach((record) => {
@@ -106,6 +123,7 @@ function App() {
   const { loading, error, data } = useSiteData();
   const [selectedId, setSelectedId] = useState(null);
   const [query, setQuery] = useState("");
+  const [docFilter, setDocFilter] = useState("All");
   const [view, setView] = useState(() => new URLSearchParams(window.location.search).get("view") || "documents");
   const [domainFilter, setDomainFilter] = useState("All");
 
@@ -123,10 +141,18 @@ function App() {
   const novelty = data.novelty[selected.document_id] ?? [];
 
   const filteredDocs = data.documents.filter((doc) => {
+    const stats = documentStats(doc, data.records, data.scores);
     const haystack = [doc.document_id, doc.employer, doc.union, doc.industry, doc.sector, doc.location]
       .join(" ")
       .toLowerCase();
-    return haystack.includes(query.toLowerCase());
+    const matchesQuery = haystack.includes(query.toLowerCase());
+    const matchesFilter =
+      docFilter === "All" ||
+      (docFilter === "scored" && stats.scored > 0) ||
+      (docFilter === "withheld" && stats.withheld > 0 && stats.scored === 0) ||
+      (docFilter === "review" && stats.review > 0) ||
+      (docFilter === "rejected" && stats.rejected > 0);
+    return matchesQuery && matchesFilter;
   });
 
   return (
@@ -158,25 +184,38 @@ function App() {
         {view === "documents" && (
         <section className="workspace">
           <aside className="sidebar">
-            <input
-              className="search"
-              value={query}
-              placeholder="Search documents"
-              onChange={(event) => setQuery(event.target.value)}
-            />
-            <div className="docList">
-              {filteredDocs.map((doc) => (
-                <button
-                  key={doc.document_id}
-                  className={`docButton ${doc.document_id === selected.document_id ? "selected" : ""}`}
-                  onClick={() => setSelectedId(doc.document_id)}
-                >
-                  <span>{doc.document_id}</span>
-                  <strong>{doc.employer}</strong>
-                  <em>{doc.year || "year unknown"} · {doc.sector || "sector unknown"}</em>
-                </button>
-              ))}
+            <div className="selectedDoc">
+              <span>{selected.document_id}</span>
+              <strong>{selected.employer}</strong>
+              <em>{selected.year || "year unknown"} · {selected.sector || "sector unknown"}</em>
             </div>
+            <details className="docBrowser">
+              <summary>Browse documents</summary>
+              <div className="docControls">
+                <input
+                  className="search"
+                  value={query}
+                  placeholder="Search documents"
+                  onChange={(event) => setQuery(event.target.value)}
+                />
+                <select value={docFilter} onChange={(event) => setDocFilter(event.target.value)}>
+                  {DOCUMENT_FILTERS.map(([value, label]) => <option key={value} value={value}>{label}</option>)}
+                </select>
+              </div>
+              <div className="docList">
+                {filteredDocs.map((doc) => (
+                  <button
+                    key={doc.document_id}
+                    className={`docButton ${doc.document_id === selected.document_id ? "selected" : ""}`}
+                    onClick={() => setSelectedId(doc.document_id)}
+                  >
+                    <span>{doc.document_id}</span>
+                    <strong>{doc.employer}</strong>
+                    <em>{doc.year || "year unknown"} · {doc.sector || "sector unknown"}</em>
+                  </button>
+                ))}
+              </div>
+            </details>
           </aside>
           <DocumentPanel doc={selected} records={records} scores={scores} rejected={rejected} novelty={novelty} />
         </section>
@@ -406,13 +445,15 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
 
       {panelView === "audit" && (
         <div className="singlePanel">
-          <details className="auditBox" open>
-            <summary>Rejected values <Info text={HELP.rejected} /> and novelty queue <Info text={HELP.novelty} /></summary>
-            <div className="auditGrid">
-              <AuditList title="Rejected values" rows={rejected} />
-              <AuditList title="Novelty items" rows={novelty} />
+          <div className="paneHeader">
+            <div>
+              <h3>Review notes</h3>
             </div>
-          </details>
+          </div>
+          <div className="auditGrid">
+            <AuditList title="Rejected values" rows={rejected} help={HELP.rejected} />
+            <AuditList title="Novelty items" rows={novelty} help={HELP.novelty} />
+          </div>
         </div>
       )}
     </section>
@@ -526,10 +567,10 @@ function RecordCard({ record, score }) {
   );
 }
 
-function AuditList({ title, rows }) {
+function AuditList({ title, rows, help }) {
   return (
     <div>
-      <h4>{title}</h4>
+      <h4>{title} {help ? <Info text={help} /> : null}</h4>
       {!rows.length && <p className="mutedText">None recorded.</p>}
       {rows.slice(0, 30).map((row, index) => (
         <div className="auditItem" key={index}>
@@ -553,7 +594,7 @@ function DomainExplorer({ documents, status, matrix, domainFilter, setDomainFilt
           <h2>Domain explorer</h2>
           <p>Score-ready concepts across documents.</p>
         </div>
-        <select value={domainFilter} onChange={(event) => setDomainFilter(event.target.value)}>
+        <select className="compactSelect" value={domainFilter} onChange={(event) => setDomainFilter(event.target.value)}>
           {domainOptions.map((option) => <option key={option}>{option}</option>)}
         </select>
       </div>
