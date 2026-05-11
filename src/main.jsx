@@ -20,6 +20,8 @@ const format = (value, digits = 2) => {
   return String(value);
 };
 
+const formatFieldLabel = (value = "") => humanizeId(value).replace(/\bOop\b/g, "OOP").replace(/\bCola\b/g, "COLA");
+
 const humanizeId = (value = "") =>
   String(value)
     .replace(/^C_/, "")
@@ -100,6 +102,19 @@ const STATUS_FILTERS = [
   ["normalization", "Needs normalization"],
   ["review", "Needs review"],
   ["not_scored", "Not scored"]
+];
+
+const SUBTYPE_FILTERS = [
+  ["All", "All subtypes"],
+  ["Context", "Context"],
+  ["Requires external info", "Requires external info"],
+  ["Scoring rule not set", "Scoring rule not set"],
+  ["Needs normalization", "Needs normalization"],
+  ["Needs review", "Needs review"],
+  ["Statutory baseline unclear", "Statutory baseline unclear"],
+  ["Avoids double counting", "Avoids double counting"],
+  ["Too little entitlement detail", "Too little entitlement detail"],
+  ["Kept separate", "Kept separate"]
 ];
 
 const DOCUMENT_FILTERS = [
@@ -316,6 +331,7 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
   const [panelView, setPanelView] = useState(() => new URLSearchParams(window.location.search).get("panel") || "overview");
   const [recordQuery, setRecordQuery] = useState("");
   const [recordStatus, setRecordStatus] = useState("All");
+  const [recordSubtype, setRecordSubtype] = useState("All");
   const [selectedFamily, setSelectedFamily] = useState(null);
 
   const scoreByRecord = useMemo(() => {
@@ -327,18 +343,21 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
   const filteredRecords = records.filter((record) => {
     const score = scoreByRecord.get(record.concept_record_id);
     const category = provisionStatus(record, score)[2];
+    const subtype = recordedOnlySubtype(record);
     const haystack = [
       record.concept_id,
       record.concept_label,
       record.family_label,
       record.covered_group,
-      record.beneficiary_or_affected_group
+      record.beneficiary_or_affected_group,
+      subtype
     ]
       .join(" ")
       .toLowerCase();
     return (
       haystack.includes(recordQuery.toLowerCase()) &&
-      (recordStatus === "All" || category === recordStatus)
+      (recordStatus === "All" || category === recordStatus) &&
+      (recordSubtype === "All" || subtype === recordSubtype)
     );
   });
 
@@ -472,6 +491,17 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
                 </button>
               ))}
             </div>
+            <div className="statusChipRail subtypeRail" aria-label="Non-scored provision subtype filter">
+              {SUBTYPE_FILTERS.map(([status, label]) => (
+                <button
+                  key={status}
+                  className={recordSubtype === status ? "active" : ""}
+                  onClick={() => setRecordSubtype(status)}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
           </div>
           <div className="provisionBrowser">
             <aside className="provisionFamilyNav">
@@ -591,12 +621,17 @@ function RecordCard({ record, score }) {
         </div>
       </summary>
       {score?.explanation && <p className="explain">{score.explanation}</p>}
-      {record.scoreability?.reason && <p className="mutedText">{record.scoreability.reason}</p>}
+      {record.scoreability?.reason && (
+        <p className="whyLine">
+          <strong>{statusDetail ? `Why ${statusDetail.toLowerCase()}:` : "Why:"}</strong>{" "}
+          {record.scoreability.reason}
+        </p>
+      )}
       <div className="fields">
         {shownFields.map((field, index) => (
           <div className="field" key={`${field.field_name}-${index}`}>
-            <strong>{field.field_name}</strong>
-            <span>{typeof field.value === "object" ? JSON.stringify(field.value) : String(field.value ?? "—")}</span>
+            <strong>{formatFieldLabel(field.field_name)}</strong>
+            <FieldValue value={field.value} />
             <em>{field.evidence?.quote_or_pointer || field.evidence?.page || "No evidence pointer"}</em>
           </div>
         ))}
@@ -605,8 +640,8 @@ function RecordCard({ record, score }) {
             <summary>Show {hiddenFields.length} more fields</summary>
             {hiddenFields.map((field, index) => (
               <div className="field" key={`${field.field_name}-hidden-${index}`}>
-                <strong>{field.field_name}</strong>
-                <span>{typeof field.value === "object" ? JSON.stringify(field.value) : String(field.value ?? "—")}</span>
+                <strong>{formatFieldLabel(field.field_name)}</strong>
+                <FieldValue value={field.value} />
                 <em>{field.evidence?.quote_or_pointer || field.evidence?.page || "No evidence pointer"}</em>
               </div>
             ))}
@@ -624,6 +659,61 @@ function RecordCard({ record, score }) {
       </details>
     </details>
   );
+}
+
+function FieldValue({ value }) {
+  if (value === null || value === undefined || value === "") return <span>—</span>;
+
+  if (Array.isArray(value)) {
+    return (
+      <div className="valueChips">
+        {value.map((item, index) => <span key={index}>{String(item)}</span>)}
+      </div>
+    );
+  }
+
+  if (typeof value === "object") {
+    const entries = Object.entries(value);
+    const childKeys = entries
+      .filter(([, child]) => child && typeof child === "object" && !Array.isArray(child))
+      .map(([, child]) => Object.keys(child));
+    const tableKeys = Array.from(new Set(childKeys.flat()));
+    const isTable = entries.length > 1 && childKeys.length === entries.length && tableKeys.length > 0 && tableKeys.length <= 6;
+
+    if (isTable) {
+      return (
+        <table className="valueTable">
+          <thead>
+            <tr>
+              <th>Period</th>
+              {tableKeys.map((key) => <th key={key}>{formatFieldLabel(key)}</th>)}
+            </tr>
+          </thead>
+          <tbody>
+            {entries.map(([rowLabel, child]) => (
+              <tr key={rowLabel}>
+                <td>{formatFieldLabel(rowLabel)}</td>
+                {tableKeys.map((key) => <td key={key}>{format(child[key])}</td>)}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      );
+    }
+
+    return (
+      <div className="keyValueGrid">
+        {entries.map(([key, child]) => (
+          <React.Fragment key={key}>
+            <b>{formatFieldLabel(key)}</b>
+            <span>{typeof child === "object" ? JSON.stringify(child) : format(child)}</span>
+          </React.Fragment>
+        ))}
+      </div>
+    );
+  }
+
+  return <span>{String(value)}</span>;
 }
 
 function AuditList({ title, rows, help }) {
@@ -757,6 +847,7 @@ function DomainExplorer({ documents, status, matrix, domainFilter, setDomainFilt
 
 function Diagnostics({ documents, records, scores, rejected }) {
   const dispositionCounts = new Map();
+  const subtypeCounts = new Map();
   const rejectedCounts = new Map();
   const documentRows = documents.map((doc) => {
     const rows = records[doc.document_id] ?? [];
@@ -783,6 +874,8 @@ function Diagnostics({ documents, records, scores, rejected }) {
     rows.forEach((record) => {
       const key = provisionStatus(record, scoreByRecord.get(record.concept_record_id))[2];
       dispositionCounts.set(key, (dispositionCounts.get(key) ?? 0) + 1);
+      const subtype = recordedOnlySubtype(record);
+      if (subtype) subtypeCounts.set(subtype, (subtypeCounts.get(subtype) ?? 0) + 1);
     });
   });
   Object.values(rejected).flat().forEach((row) => {
@@ -808,6 +901,7 @@ function Diagnostics({ documents, records, scores, rejected }) {
       </div>
       <div className="diagnosticGrid">
         <CountCard title="Provision disposition" counts={dispositionCounts} />
+        <CountCard title="Why provisions are not scored" counts={subtypeCounts} />
         <CountCard title="Rejected-value reasons" counts={rejectedCounts} />
       </div>
       <div className="docAuditWrap">
