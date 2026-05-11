@@ -1,0 +1,965 @@
+{
+  "CBA_01": [
+    {
+      "document_id": "CBA_01",
+      "source_pointer": "pages 47-48 Attachment 9 Virtual Office",
+      "candidate_object": "Virtual Office/work-at-home program",
+      "reason_no_frozen_concept_fit": "The letter concerns discretionary telework eligibility and program governance; it is not schedule notice, no-cancellation security, regular hours, or a concrete remote-work benefit concept in the frozen library.",
+      "evidence_summary": "Virtual Office is a cooperative manager-employee agreement, not an entitlement, and may be terminated by employee, manager, or Company at any time."
+    },
+    {
+      "document_id": "CBA_01",
+      "source_pointer": "page 48 Attachment 10 Travel Card Process",
+      "candidate_object": "Travel card fee, delinquency, and credit-reporting protections",
+      "reason_no_frozen_concept_fit": "The provision creates employee financial/credit protections for business travel cards; it is not a wage, reimbursement amount, privacy-records concept, or grievance concept as currently defined.",
+      "evidence_summary": "Employees are not required to pay card company before reimbursement when delay is not their fault; employee neglect can trigger 2.5% plus $10 fee; credit-bureau reporting limited."
+    },
+    {
+      "document_id": "CBA_01",
+      "source_pointer": "page 49 Attachment 11 Frequent Flier Mileage",
+      "candidate_object": "Personal retention of frequent flier mileage and travel-related benefits",
+      "reason_no_frozen_concept_fit": "The provision is a travel-related perquisite/reimbursement-adjacent right not covered by current wage, allowance, or benefit concepts.",
+      "evidence_summary": "Frequent flier mileage and travel-related benefits incurred on Company business are credited to personal employee accounts and may be applied to personal travel."
+    }
+  ],
+  "CBA_02": [],
+  "CBA_03": [
+    {
+      "document_id": "CBA_03",
+      "source_provision_id": "CBA_03_GP_029",
+      "candidate_label": "Conscientious objection to therapeutic abortion participation",
+      "source_pointer": "p.59 Article XXVIII paras 275-277",
+      "reason_for_novelty": "The frozen concept library lacks a precise concept for moral/religious objection to direct participation in specified medical procedures with protection from coercion, unreasonable transfer/assignment, or discipline. It is related to safety/working conditions and discipline but does not fit existing safety/PPE, assault, leave, or discipline concepts cleanly.",
+      "suggested_review_area": "worker conscience/religious objection rights in health-care CBAs",
+      "evidence_status": "directly_supported"
+    }
+  ],
+  "CBA_04": [
+    {
+      "document_id": "CBA_04",
+      "novelty_id": "CBA_04_NOV001",
+      "source_pointer": "pages 66-67 Adoption Assistance MOA",
+      "candidate_object": "Adoption assistance reimbursement",
+      "why_no_frozen_concept_fits": "The frozen library has child/dependent-care and parental/family leave concepts, but no adoption-expense reimbursement concept. The MOA provides up to $10,000 per adopted child but is not child care, dependent-care reimbursement, or leave.",
+      "evidence": "Effective July 1, 2003, regular full or part-time CBA-covered employees may claim reimbursement of adoption expenses up to $10,000 per adopted child; plan administration and disputes rest with Company and are not grievable/arbitrable.",
+      "suggested_future_concept": "C_ADOPTION_ASSISTANCE_OR_FAMILY_FORMATION_BENEFIT",
+      "scoreability_note": "CBA-contained reimbursement cap is present, but full plan terms and administration are external/company-discretionary."
+    },
+    {
+      "document_id": "CBA_04",
+      "novelty_id": "CBA_04_NOV002",
+      "source_pointer": "pages 151-155 Public Communications Incentive Compensation Plan; pages 156-157 Retail Sales Consultant Compensation Plan",
+      "candidate_object": "Sales/incentive compensation plan",
+      "why_no_frozen_concept_fits": "The wage concepts capture base rates, wage progression, and scheduled increases, but these MOAs define incentive/commission compensation structures and plan administration rather than base wage or wage increase terms.",
+      "evidence": "Public Communications Incentive Compensation Plan describes base wage plus commission and objective-based quarterly commissions; Retail Sales Consultant plan appears as a separate compensation plan MOA.",
+      "suggested_future_concept": "C_INCENTIVE_COMMISSION_COMPENSATION",
+      "scoreability_note": "Requires separate treatment from base wage and premium pay; central review should decide whether to normalize incentive compensation."
+    },
+    {
+      "document_id": "CBA_04",
+      "novelty_id": "CBA_04_NOV003",
+      "source_pointer": "pages 48 Article 16 Concession Telephone Service",
+      "candidate_object": "Employee telephone-service concession benefit",
+      "why_no_frozen_concept_fits": "The frozen library has health, retirement, leave, wage, premium, scheduling, safety, union, mobility, and dependent-care concepts, but no employee product/service discount or concession concept.",
+      "evidence": "Regular employees with six or more months of accredited service are eligible for 50% concession rates for telephone service subject to tariffs and limitations.",
+      "suggested_future_concept": "C_EMPLOYEE_SERVICE_DISCOUNT_CONCESSION",
+      "scoreability_note": "Worker-facing fringe benefit but outside current concept library and scoring modules."
+    }
+  ],
+  "CBA_05": [
+    {
+      "document_id": "CBA_05",
+      "novelty_id": "CBA_05_NQ_001",
+      "candidate_label": "none identified in direct Wave 2 pass",
+      "source_pointer": "CBA_05 direct Wave 2 review",
+      "why_not_mapped": "No recurring worker-facing object was identified that clearly required a new frozen concept ID for this narrow Wave 2 stress test.",
+      "proposed_action": "no_action",
+      "review_status": "ready_for_central_review"
+    }
+  ],
+  "CBA_06": [],
+  "CBA_07": [],
+  "CBA_08": [
+    {
+      "candidate_label": "Fringe-benefit delinquency enforcement and job-stoppage remedy",
+      "current_protocol_disposition": "kept_in_novelty_queue",
+      "document_id": "CBA_08",
+      "recommended_action": "Add a concept under enforcement or wage/fringe security if recurring in construction CBAs.",
+      "source_pointer": "Section 33.30, pages 58-60",
+      "why_not_in_core_library": "Current library has grievance/arbitration and union rights, but not a clean concept for benefit-fund collection enforcement."
+    },
+    {
+      "candidate_label": "Tool and clothing loss reimbursement",
+      "current_protocol_disposition": "defer_recurrence_check_for_possible_equipment_uniform_concept",
+      "document_id": "CBA_08",
+      "recommended_action": "Queue for recurrence check before adding a concept.",
+      "source_pointer": "Section 33.1, page 46",
+      "why_not_in_core_library": "Current library does not include small equipment-loss reimbursement protections."
+    },
+    {
+      "candidate_label": "Retiree return-to-work with continued pension benefits where permitted",
+      "current_protocol_disposition": "kept_in_novelty_queue",
+      "document_id": "CBA_08",
+      "recommended_action": "Treat as novelty until recurrence is known.",
+      "source_pointer": "Article XXXII, page 46",
+      "why_not_in_core_library": "Current retirement concepts do not include post-retirement work rights."
+    }
+  ],
+  "CBA_09": [
+    {
+      "schema_version": "novelty_queue_v0_1",
+      "document_id": "CBA_09",
+      "novelty_id": "NQ_001",
+      "source_pointer": {
+        "quote_or_pointer": "Side letter on agricultural workers",
+        "page": null,
+        "section_id": null,
+        "heading": "AGRICULTURAL WORKERS SIDE LETTER",
+        "source_role": "side_letter"
+      },
+      "candidate_label": "agricultural workers side letter",
+      "related_taxonomy_family": "scope_or_coverage_only",
+      "why_existing_concepts_do_not_fit": "This attachment looks like a subgroup-coverage or carve-out note rather than one of the frozen concept objects.",
+      "measurement_relevance": "scope_or_coverage_only",
+      "suggested_fields": [
+        "covered_group",
+        "scope_basis",
+        "carve-out_or_exclusion"
+      ],
+      "recommended_action": "treat_as_family_context",
+      "notes": "Keep separate from core scoring."
+    },
+    {
+      "schema_version": "novelty_queue_v0_1",
+      "document_id": "CBA_09",
+      "novelty_id": "NQ_002",
+      "source_pointer": {
+        "quote_or_pointer": "CAP side letter",
+        "page": null,
+        "section_id": null,
+        "heading": "CAP SIDE LETTER",
+        "source_role": "side_letter"
+      },
+      "candidate_label": "CAP side letter",
+      "related_taxonomy_family": "worker_voice",
+      "why_existing_concepts_do_not_fit": "The side letter is attachment-specific governance context and does not map cleanly to a frozen scored entitlement.",
+      "measurement_relevance": "administrative_only",
+      "suggested_fields": [
+        "governance_topic",
+        "scope_of_commitment",
+        "review_frequency"
+      ],
+      "recommended_action": "exclude_from_generosity_measurement",
+      "notes": "Probably context only."
+    },
+    {
+      "schema_version": "novelty_queue_v0_1",
+      "document_id": "CBA_09",
+      "novelty_id": "NQ_003",
+      "source_pointer": {
+        "quote_or_pointer": "Contracting guidelines side letter",
+        "page": null,
+        "section_id": null,
+        "heading": "CONTRACTING GUIDELINES SIDE LETTER",
+        "source_role": "side_letter"
+      },
+      "candidate_label": "contracting guidelines side letter",
+      "related_taxonomy_family": "subcontracting",
+      "why_existing_concepts_do_not_fit": "It relates to subcontracting/work-preservation, but the side-letter format suggests a separate branch rather than the main article object.",
+      "measurement_relevance": "possibly_generosity_relevant",
+      "suggested_fields": [
+        "guideline_branch",
+        "notice_process",
+        "exceptions"
+      ],
+      "recommended_action": "map_to_existing_concept_after_review",
+      "notes": "Do not collapse into the main contracting-out record automatically."
+    },
+    {
+      "schema_version": "novelty_queue_v0_1",
+      "document_id": "CBA_09",
+      "novelty_id": "NQ_004",
+      "source_pointer": {
+        "quote_or_pointer": "Hours of Work - Overtime Compensation for Alternative Schedules",
+        "page": null,
+        "section_id": null,
+        "heading": "HOURS OF WORK - OVERTIME COMPENSATION FOR ALTERNATIVE SCHEDULES",
+        "source_role": "heading_only"
+      },
+      "candidate_label": "alternative-schedule overtime side letter",
+      "related_taxonomy_family": "premium_pay",
+      "why_existing_concepts_do_not_fit": "The page shard is heading-only, so the entitlement text is not stable enough to map to the overtime module.",
+      "measurement_relevance": "possibly_generosity_relevant",
+      "suggested_fields": [
+        "alternative_schedule_rule",
+        "overtime_trigger",
+        "premium_rate"
+      ],
+      "recommended_action": "requires_human_review",
+      "notes": "Heading-only source risk."
+    },
+    {
+      "schema_version": "novelty_queue_v0_1",
+      "document_id": "CBA_09",
+      "novelty_id": "NQ_005",
+      "source_pointer": {
+        "quote_or_pointer": "Probationary Period side letter",
+        "page": null,
+        "section_id": null,
+        "heading": "PROBATIONARY PERIOD SIDE LETTER",
+        "source_role": "side_letter"
+      },
+      "candidate_label": "probationary period side letter",
+      "related_taxonomy_family": "employment_status",
+      "why_existing_concepts_do_not_fit": "It is a subgroup-status attachment and not a stand-alone frozen concept in the library.",
+      "measurement_relevance": "scope_or_coverage_only",
+      "suggested_fields": [
+        "probation_length",
+        "extension_rule",
+        "rights_during_probation"
+      ],
+      "recommended_action": "treat_as_family_context",
+      "notes": "Keep as context for seniority and discipline, not a separate score."
+    },
+    {
+      "schema_version": "novelty_queue_v0_1",
+      "document_id": "CBA_09",
+      "novelty_id": "NQ_006",
+      "source_pointer": {
+        "quote_or_pointer": "University benefits side letter",
+        "page": null,
+        "section_id": null,
+        "heading": "UNIVERSITY BENEFITS SIDE LETTER",
+        "source_role": "side_letter"
+      },
+      "candidate_label": "university benefits side letter",
+      "related_taxonomy_family": "health",
+      "why_existing_concepts_do_not_fit": "The operative terms appear to live in external plan materials, so this is a boundary marker rather than a scored benefit object.",
+      "measurement_relevance": "administrative_only",
+      "suggested_fields": [
+        "benefit_category",
+        "external_plan_reference",
+        "administrative_role"
+      ],
+      "recommended_action": "exclude_from_generosity_measurement",
+      "notes": "External-plan boundary only."
+    },
+    {
+      "schema_version": "novelty_queue_v0_1",
+      "document_id": "CBA_09",
+      "novelty_id": "NQ_007",
+      "source_pointer": {
+        "quote_or_pointer": "Wages side letter",
+        "page": null,
+        "section_id": null,
+        "heading": "WAGES SIDE LETTER",
+        "source_role": "side_letter"
+      },
+      "candidate_label": "wages side letter",
+      "related_taxonomy_family": "wages",
+      "why_existing_concepts_do_not_fit": "The side letter is a wage-schedule attachment and should not be forced into the raw wage table or increase module.",
+      "measurement_relevance": "possibly_generosity_relevant",
+      "suggested_fields": [
+        "wage_schedule_branch",
+        "coverage_group",
+        "administrative_role"
+      ],
+      "recommended_action": "map_to_existing_concept_after_review",
+      "notes": "Treat as schedule/context until reviewed."
+    }
+  ],
+  "CBA_10": [
+    {
+      "schema_version": "novelty_queue_v0_1",
+      "document_id": "CBA_10",
+      "source_pointer": "pages 38-39 Article 11 Employee Expenses",
+      "candidate_object": "employee travel and meal reimbursements",
+      "reason_no_frozen_concept": "The frozen concept library does not contain a general allowance/reimbursement concept. Mileage, lodging, meal, and overtime-meal reimbursements are worker-facing economic terms but should not be mapped to wages or premium pay.",
+      "suggested_review": "Consider a future allowance/reimbursement concept or keep as expense context."
+    },
+    {
+      "schema_version": "novelty_queue_v0_1",
+      "document_id": "CBA_10",
+      "source_pointer": "page 104 MBTA Passes MOU",
+      "candidate_object": "pre-tax MBTA pass payroll deduction",
+      "reason_no_frozen_concept": "The frozen concept library does not contain a transportation fringe/pre-tax payroll deduction concept. It is not a wage increase, premium, dependent care, or health benefit.",
+      "suggested_review": "Consider whether commuter benefits should be a future optional/context benefit concept."
+    }
+  ],
+  "CBA_11": [],
+  "CBA_12": [
+    {
+      "candidate_label": "PRN Nurse subgroup classification with carve-outs",
+      "current_protocol_disposition": "kept_in_novelty_queue",
+      "document_id": "CBA_12",
+      "measurement_relevance": "scope_or_coverage_only",
+      "notes": "Keep separate from the main bargaining-unit record.",
+      "novelty_id": "nov_04",
+      "recommended_action": "treat_as_family_context",
+      "related_taxonomy_family": "scope",
+      "schema_version": "novelty_queue_v0_1",
+      "source_pointer": {
+        "heading": "ARTICLE 41, PRN NURSE",
+        "page": "75",
+        "quote_or_pointer": "ARTICLE 41, PRN NURSE ARTICLE 41, PRN NURSE page 75",
+        "section_id": "ARTICLE 41, PRN NURSE",
+        "source_role": "main_article"
+      },
+      "suggested_fields": [
+        "subgroup_status",
+        "excluded_articles",
+        "wage_rate",
+        "schedule_cap"
+      ],
+      "why_existing_concepts_do_not_fit": "The article creates a separate subgroup with its own wage and scheduling rules and excludes many other articles."
+    },
+    {
+      "candidate_label": "Successor-employer placement obligation",
+      "current_protocol_disposition": "kept_in_novelty_queue",
+      "document_id": "CBA_12",
+      "measurement_relevance": "possibly_generosity_relevant",
+      "notes": "Potentially important in public-sector transfers.",
+      "novelty_id": "nov_05",
+      "recommended_action": "review_for_new_concept",
+      "related_taxonomy_family": "job_security",
+      "schema_version": "novelty_queue_v0_1",
+      "source_pointer": {
+        "heading": "ARTICLE 42, SUCCESSORS",
+        "page": "76",
+        "quote_or_pointer": "ARTICLE 42, SUCCESSORS ARTICLE 42, SUCCESSORS page 76",
+        "section_id": "ARTICLE 42, SUCCESSORS",
+        "source_role": "main_article"
+      },
+      "suggested_fields": [
+        "advance_notice",
+        "good_faith_placement_effort",
+        "affected_facility_scope"
+      ],
+      "why_existing_concepts_do_not_fit": "The frozen library does not include a successors concept, and the language is about placement after divestiture rather than ordinary recall."
+    }
+  ],
+  "CBA_13": [],
+  "CBA_14": [
+    {
+      "document_id": "CBA_14",
+      "status": "empty",
+      "note": "No novel measurement object was identified that lacked a frozen concept-library fit."
+    }
+  ],
+  "CBA_15": [
+    {
+      "candidate_label": "Uniforms and laundering",
+      "current_protocol_disposition": "defer_recurrence_check_for_possible_equipment_uniform_concept",
+      "document_id": "CBA_15",
+      "measurement_relevance": "likely_generosity_relevant",
+      "notes": "Worker equipment and cleanliness benefit.",
+      "novelty_id": "NQ_002",
+      "recommended_action": "review_for_new_concept",
+      "related_taxonomy_family": "other",
+      "schema_version": "novelty_queue_v0_1",
+      "source_pointer": {
+        "heading": "Article 25 Uniforms",
+        "page": "51",
+        "quote_or_pointer": "Article 25",
+        "section_id": "CBA_15_SEC_026",
+        "source_role": "main_article"
+      },
+      "suggested_fields": [
+        "uniform count",
+        "replacement policy",
+        "laundering",
+        "fitting time"
+      ],
+      "why_existing_concepts_do_not_fit": "The frozen library has no apparel or laundering-benefit concept."
+    },
+    {
+      "candidate_label": "Comprehensive general liability coverage",
+      "current_protocol_disposition": "kept_in_novelty_queue",
+      "document_id": "CBA_15",
+      "measurement_relevance": "possibly_context_relevant",
+      "notes": "Named insured coverage while acting within scope of duties.",
+      "novelty_id": "NQ_003",
+      "recommended_action": "review_for_new_concept",
+      "related_taxonomy_family": "other",
+      "schema_version": "novelty_queue_v0_1",
+      "source_pointer": {
+        "heading": "Article 23 Employee Benefit Plan",
+        "page": "48",
+        "quote_or_pointer": "Article 23.D",
+        "section_id": "CBA_15_SEC_024",
+        "source_role": "main_article"
+      },
+      "suggested_fields": [
+        "coverage type",
+        "limit",
+        "scope of employment",
+        "insured status"
+      ],
+      "why_existing_concepts_do_not_fit": "The library has health and retirement concepts, but not a liability-insurance concept."
+    },
+    {
+      "candidate_label": "Outside employment approval procedure",
+      "current_protocol_disposition": "kept_in_novelty_queue",
+      "document_id": "CBA_15",
+      "measurement_relevance": "possibly_generosity_relevant",
+      "notes": "Controls outside professional work.",
+      "novelty_id": "NQ_004",
+      "recommended_action": "review_for_new_concept",
+      "related_taxonomy_family": "other",
+      "schema_version": "novelty_queue_v0_1",
+      "source_pointer": {
+        "heading": "Article 16 Outside Employment",
+        "page": "24-25",
+        "quote_or_pointer": "Article 16",
+        "section_id": "CBA_15_SEC_018",
+        "source_role": "main_article"
+      },
+      "suggested_fields": [
+        "approval route",
+        "eligibility",
+        "liability requirement",
+        "grievability"
+      ],
+      "why_existing_concepts_do_not_fit": "The library has training and scope concepts, but no moonlighting or outside-work approval object."
+    },
+    {
+      "candidate_label": "No-strike / slowdown ban",
+      "current_protocol_disposition": "kept_in_novelty_queue",
+      "document_id": "CBA_15",
+      "measurement_relevance": "context_relevant",
+      "notes": "Clear labor-relations restriction, but not a scored library concept.",
+      "novelty_id": "NQ_005",
+      "recommended_action": "review_for_new_concept",
+      "related_taxonomy_family": "union_voice",
+      "schema_version": "novelty_queue_v0_1",
+      "source_pointer": {
+        "heading": "Article 18 Dues Checkoff and Article 20 Rights Of The Council",
+        "page": "40-44",
+        "quote_or_pointer": "Article 18 / Article 20",
+        "section_id": "CBA_15_SEC_019",
+        "source_role": "main_article"
+      },
+      "suggested_fields": [
+        "scope of ban",
+        "covered conduct",
+        "duration",
+        "enforcement"
+      ],
+      "why_existing_concepts_do_not_fit": "The frozen library does not include a no-strike or no-work-stoppage concept."
+    },
+    {
+      "candidate_label": "Parking fees and permits",
+      "current_protocol_disposition": "kept_in_novelty_queue",
+      "document_id": "CBA_15",
+      "measurement_relevance": "possibly_generosity_relevant",
+      "notes": "Worker cost provision tied to campus access.",
+      "novelty_id": "NQ_006",
+      "recommended_action": "review_for_new_concept",
+      "related_taxonomy_family": "other",
+      "schema_version": "novelty_queue_v0_1",
+      "source_pointer": {
+        "heading": "Employee Benefit Plan and Facilities",
+        "page": "48, 54",
+        "quote_or_pointer": "Article 23 / Article 28",
+        "section_id": "CBA_15_SEC_024 and CBA_15_SEC_029",
+        "source_role": "main_article"
+      },
+      "suggested_fields": [
+        "annual fee",
+        "extra permit fee",
+        "campus assignment rule"
+      ],
+      "why_existing_concepts_do_not_fit": "The frozen library has no parking or commuting-cost concept."
+    },
+    {
+      "candidate_label": "Meal allotment for overnight call",
+      "current_protocol_disposition": "kept_in_novelty_queue",
+      "document_id": "CBA_15",
+      "measurement_relevance": "likely_generosity_relevant",
+      "notes": "Distinct worker-support benefit tied to overnight call.",
+      "novelty_id": "NQ_007",
+      "recommended_action": "review_for_new_concept",
+      "related_taxonomy_family": "other",
+      "schema_version": "novelty_queue_v0_1",
+      "source_pointer": {
+        "heading": "Article 12 Leaves",
+        "page": "18",
+        "quote_or_pointer": "Article 12.X",
+        "section_id": "CBA_15_SEC_013",
+        "source_role": "main_article"
+      },
+      "suggested_fields": [
+        "eligibility",
+        "cash value",
+        "frequency",
+        "implementation"
+      ],
+      "why_existing_concepts_do_not_fit": "The frozen library does not include a meal-credit or meal-allotment concept."
+    },
+    {
+      "candidate_label": "Long-range beepers",
+      "current_protocol_disposition": "defer_recurrence_check_for_possible_equipment_uniform_concept",
+      "document_id": "CBA_15",
+      "measurement_relevance": "possibly_context_relevant",
+      "notes": "Equipment provision tied to one campus.",
+      "novelty_id": "NQ_008",
+      "recommended_action": "review_for_new_concept",
+      "related_taxonomy_family": "other",
+      "schema_version": "novelty_queue_v0_1",
+      "source_pointer": {
+        "heading": "Article 23 Employee Benefit Plan",
+        "page": "48",
+        "quote_or_pointer": "Article 23.I",
+        "section_id": "CBA_15_SEC_024",
+        "source_role": "main_article"
+      },
+      "suggested_fields": [
+        "device type",
+        "eligible campus",
+        "replacement policy"
+      ],
+      "why_existing_concepts_do_not_fit": "The library has no work-tool or communication-device concept for beepers."
+    },
+    {
+      "candidate_label": "Special licenses and learner-permit reimbursement",
+      "current_protocol_disposition": "kept_in_novelty_queue",
+      "document_id": "CBA_15",
+      "measurement_relevance": "possibly_generosity_relevant",
+      "notes": "Small but specific worker-cost benefit.",
+      "novelty_id": "NQ_009",
+      "recommended_action": "review_for_new_concept",
+      "related_taxonomy_family": "other",
+      "schema_version": "novelty_queue_v0_1",
+      "source_pointer": {
+        "heading": "Article 39 Special Licenses",
+        "page": "63",
+        "quote_or_pointer": "Article 39",
+        "section_id": "CBA_15_SEC_040",
+        "source_role": "main_article"
+      },
+      "suggested_fields": [
+        "license type",
+        "reimbursement",
+        "training assignment",
+        "classification"
+      ],
+      "why_existing_concepts_do_not_fit": "The library has training, but not a license-reimbursement concept."
+    },
+    {
+      "candidate_label": "Work-year tables and duty-day counts",
+      "current_protocol_disposition": "kept_in_novelty_queue",
+      "document_id": "CBA_15",
+      "measurement_relevance": "context_relevant",
+      "notes": "Classification-specific calendar table.",
+      "novelty_id": "NQ_010",
+      "recommended_action": "review_for_new_concept",
+      "related_taxonomy_family": "scheduling",
+      "schema_version": "novelty_queue_v0_1",
+      "source_pointer": {
+        "heading": "Article 41 Work Year",
+        "page": "64",
+        "quote_or_pointer": "Article 41",
+        "section_id": "CBA_15_SEC_042",
+        "source_role": "main_article"
+      },
+      "suggested_fields": [
+        "classification",
+        "duty days",
+        "paid days",
+        "minimum-guarantee language"
+      ],
+      "why_existing_concepts_do_not_fit": "The library has schedule structure, but not a standalone work-year/duty-day table concept."
+    }
+  ],
+  "CBA_16": [],
+  "CBA_17": [
+    {
+      "schema_version": "novelty_queue_v0_1",
+      "document_id": "CBA_17",
+      "source_pointer": "Article 28, pages 36-37",
+      "candidate_object": "academic freedom",
+      "why_not_mapped": "The CBA guarantees academic freedom and limits censorship/restraints on inquiry, but the frozen concept library has no academic-freedom or professional-autonomy concept. It is not mapped to discipline or grievance because the provision is a separate professional-rights object.",
+      "suggested_review": "Consider whether academic freedom/professional autonomy should become a sector-specific optional context concept for education CBAs."
+    },
+    {
+      "schema_version": "novelty_queue_v0_1",
+      "document_id": "CBA_17",
+      "source_pointer": "Article 18, page 27",
+      "candidate_object": "student discipline authority and student removal conference",
+      "why_not_mapped": "The article gives teachers primary disciplinary responsibility, right to recommend suspension, and ability to send disruptive students to the principal with a follow-up conference. It is related to safety/working conditions but does not fit the frozen assault, PPE/unsafe-work, or discipline-of-worker concepts cleanly.",
+      "suggested_review": "Consider an education-sector classroom authority/student discipline working-condition concept if recurring."
+    }
+  ],
+  "CBA_18": [],
+  "CBA_19": [
+    {
+      "candidate_label": "No-strike / no-lockout pledge",
+      "current_protocol_disposition": "kept_in_novelty_queue",
+      "document_id": "CBA_19",
+      "measurement_relevance": "administrative_only",
+      "notes": "Relevant for labor-relations structure, not direct generosity measurement.",
+      "novelty_id": "CBA_19_NQ_002",
+      "recommended_action": "review_for_new_concept",
+      "related_taxonomy_family": "labor_peace",
+      "schema_version": "novelty_queue_v0_1",
+      "source_pointer": {
+        "heading": "ARTICLE III NO STRIKE--NO LOCKOUT",
+        "page": "1",
+        "quote_or_pointer": "There shall be no strike, stoppage of work, or lockout during the term of the Agreement.",
+        "section_id": "CBA_19_SEC_004",
+        "source_role": "main_article"
+      },
+      "suggested_fields": [
+        "strike_ban",
+        "lockout_ban",
+        "exceptions",
+        "injunctive_or_disciplinary_remedy"
+      ],
+      "why_existing_concepts_do_not_fit": "The library has grievance and discipline concepts, but not a standalone labor-peace or work-stoppage prohibition concept."
+    },
+    {
+      "candidate_label": "Favored nations clause",
+      "current_protocol_disposition": "kept_in_novelty_queue",
+      "document_id": "CBA_19",
+      "measurement_relevance": "unclear",
+      "notes": "Could affect wages or benefits indirectly, but the operative object is contract comparison rather than a direct entitlement.",
+      "novelty_id": "CBA_19_NQ_003",
+      "recommended_action": "review_for_new_concept",
+      "related_taxonomy_family": "contract_governance",
+      "schema_version": "novelty_queue_v0_1",
+      "source_pointer": {
+        "heading": "ARTICLE XVII FAVORED NATIONS CLAUSE",
+        "page": "9",
+        "quote_or_pointer": "Favored nations clause allows adoption of more advantageous terms from comparator employers in the same business.",
+        "section_id": "CBA_19_SEC_018",
+        "source_role": "main_article"
+      },
+      "suggested_fields": [
+        "comparator_pool",
+        "triggering_terms",
+        "exclusions",
+        "duration"
+      ],
+      "why_existing_concepts_do_not_fit": "The concept library does not contain a comparability-trigger or favored-nations governance object."
+    },
+    {
+      "candidate_label": "Savings clause / severability",
+      "current_protocol_disposition": "kept_in_novelty_queue",
+      "document_id": "CBA_19",
+      "measurement_relevance": "administrative_only",
+      "notes": "Pure governance language.",
+      "novelty_id": "CBA_19_NQ_004",
+      "recommended_action": "exclude_from_generosity_measurement",
+      "related_taxonomy_family": "contract_governance",
+      "schema_version": "novelty_queue_v0_1",
+      "source_pointer": {
+        "heading": "ARTICLE XVIII SAVINGS CLAUSE",
+        "page": "9",
+        "quote_or_pointer": "If part of the Agreement is invalidated, the remainder stays in full force and effect.",
+        "section_id": "CBA_19_SEC_019",
+        "source_role": "main_article"
+      },
+      "suggested_fields": [
+        "invalidity_trigger",
+        "survival_scope",
+        "reformation_rule"
+      ],
+      "why_existing_concepts_do_not_fit": "This is a severability rule, not a worker-facing entitlement or protection in the current library."
+    },
+    {
+      "candidate_label": "IRA payroll deduction administration",
+      "current_protocol_disposition": "kept_in_novelty_queue",
+      "document_id": "CBA_19",
+      "measurement_relevance": "administrative_only",
+      "notes": "Do not treat this as a substantive retirement-plan generosity object.",
+      "novelty_id": "CBA_19_NQ_005",
+      "recommended_action": "exclude_from_generosity_measurement",
+      "related_taxonomy_family": "retirement_administration",
+      "schema_version": "novelty_queue_v0_1",
+      "source_pointer": {
+        "heading": "ARTICLE XX INDIVIDUAL RETIREMENT ACCOUNT (IRA)",
+        "page": "10",
+        "quote_or_pointer": "Employer shall deduct employee-designated amounts and forward them to a single individual retirement account at no cost other than payroll deduction.",
+        "section_id": "CBA_19_SEC_021",
+        "source_role": "main_article"
+      },
+      "suggested_fields": [
+        "designation_authority",
+        "deduction_flow",
+        "account_establishment",
+        "employer_cost_rule"
+      ],
+      "why_existing_concepts_do_not_fit": "The retirement concept library covers pension/annuity benefit design, but this clause is only a payroll-deduction mechanism for a single IRA."
+    }
+  ],
+  "CBA_20": [
+    {
+      "schema_version": "novelty_queue_v0_1",
+      "document_id": "CBA_20",
+      "novelty_id": "CBA_20_NQ_001",
+      "source_pointer": {
+        "quote_or_pointer": "Association agrees not to call, instigate, engage in, encourage, or sanction strikes or related work stoppages; Employer agrees not to lock out covered employees.",
+        "page": "35",
+        "section_id": null,
+        "heading": "ARTICLE XXVII - NO STRIKE, NO LOCKOUT",
+        "source_role": "main_article"
+      },
+      "candidate_label": "No-strike / no-lockout and narrowed strike-discipline review",
+      "related_taxonomy_family": "labor_peace",
+      "why_existing_concepts_do_not_fit": "The frozen library has grievance, discipline, and union-access concepts, but no standalone labor-peace/no-strike/no-lockout concept. The narrowed review exception is carried inside the just-cause record, but the labor-peace obligation itself remains outside the library.",
+      "measurement_relevance": "administrative_or_governance_context",
+      "suggested_fields": [
+        "strike_ban",
+        "lockout_ban",
+        "association_notice_deadline",
+        "discipline_exception",
+        "limited_grievance_scope"
+      ],
+      "recommended_action": "review_for_new_concept_or_keep_context_only",
+      "notes": "Do not score as union access or grievance generosity; it mostly restricts concerted activity and employer lockout."
+    }
+  ],
+  "HELDOUT_01": [
+    {
+      "candidate_label": "Hepatitis B screening and vaccine",
+      "current_protocol_disposition": "kept_in_novelty_queue",
+      "document_id": "HELDOUT_01",
+      "measurement_relevance": "likely_generosity_relevant",
+      "notes": "No-cost preventive benefit available on request.",
+      "novelty_id": "NQ_002",
+      "recommended_action": "review_for_new_concept",
+      "related_taxonomy_family": "health",
+      "schema_version": "novelty_queue_v0_1",
+      "source_pointer": {
+        "heading": "Article IX BENEFIT PROGRAMS",
+        "page": "18",
+        "quote_or_pointer": "Article IX.H",
+        "section_id": "HELDOUT_01_SEC_011",
+        "source_role": "main_article"
+      },
+      "suggested_fields": [
+        "vaccine coverage",
+        "screening coverage",
+        "cost to employee",
+        "eligibility",
+        "administration site"
+      ],
+      "why_existing_concepts_do_not_fit": "The current frozen library has no ancillary vaccine or preventive-screening concept."
+    },
+    {
+      "candidate_label": "Meal allotment for overnight call",
+      "current_protocol_disposition": "kept_in_novelty_queue",
+      "document_id": "HELDOUT_01",
+      "measurement_relevance": "likely_generosity_relevant",
+      "notes": "Distinct worker-support benefit tied to overnight call.",
+      "novelty_id": "NQ_003",
+      "recommended_action": "review_for_new_concept",
+      "related_taxonomy_family": "other",
+      "schema_version": "novelty_queue_v0_1",
+      "source_pointer": {
+        "heading": "Article X MEALS",
+        "page": "18",
+        "quote_or_pointer": "Article X",
+        "section_id": "HELDOUT_01_SEC_012",
+        "source_role": "main_article"
+      },
+      "suggested_fields": [
+        "eligibility",
+        "per-call credit",
+        "cash equivalent",
+        "implementation variability"
+      ],
+      "why_existing_concepts_do_not_fit": "The frozen library does not include a meal-credit or meal-allotment concept for overnight call."
+    },
+    {
+      "candidate_label": "Uniforms and laundering",
+      "current_protocol_disposition": "defer_recurrence_check_for_possible_equipment_uniform_concept",
+      "document_id": "HELDOUT_01",
+      "measurement_relevance": "likely_generosity_relevant",
+      "notes": "Uniform provision includes no-cost laundering and replacement expectations.",
+      "novelty_id": "NQ_004",
+      "recommended_action": "review_for_new_concept",
+      "related_taxonomy_family": "other",
+      "schema_version": "novelty_queue_v0_1",
+      "source_pointer": {
+        "heading": "Article XI UNIFORMS",
+        "page": "18",
+        "quote_or_pointer": "Article XI",
+        "section_id": "HELDOUT_01_SEC_013",
+        "source_role": "main_article"
+      },
+      "suggested_fields": [
+        "quantity",
+        "laundering",
+        "replacement responsibility",
+        "employee damage risk"
+      ],
+      "why_existing_concepts_do_not_fit": "The frozen library has no apparel or laundry-benefit concept."
+    },
+    {
+      "candidate_label": "Professional liability coverage",
+      "current_protocol_disposition": "kept_in_novelty_queue",
+      "document_id": "HELDOUT_01",
+      "measurement_relevance": "likely_generosity_relevant",
+      "notes": "Operative coverage is described in an external letter, not in the CBA text.",
+      "novelty_id": "NQ_005",
+      "recommended_action": "review_for_new_concept",
+      "related_taxonomy_family": "other",
+      "schema_version": "novelty_queue_v0_1",
+      "source_pointer": {
+        "heading": "Article XII PROFESSIONAL LIABILITY",
+        "page": "18",
+        "quote_or_pointer": "Article XII",
+        "section_id": "HELDOUT_01_SEC_014",
+        "source_role": "main_article"
+      },
+      "suggested_fields": [
+        "coverage type",
+        "employer obligation",
+        "external source status",
+        "employee scope"
+      ],
+      "why_existing_concepts_do_not_fit": "The provision is an external-reference-only malpractice/coverage benefit and is not covered by a frozen concept ID."
+    },
+    {
+      "candidate_label": "Outside employment approval procedure",
+      "current_protocol_disposition": "kept_in_novelty_queue",
+      "document_id": "HELDOUT_01",
+      "measurement_relevance": "possibly_generosity_relevant",
+      "notes": "Controls worker ability to take outside professional work.",
+      "novelty_id": "NQ_006",
+      "recommended_action": "review_for_new_concept",
+      "related_taxonomy_family": "other",
+      "schema_version": "novelty_queue_v0_1",
+      "source_pointer": {
+        "heading": "Article XVI OUTSIDE EMPLOYMENT",
+        "page": "24-25",
+        "quote_or_pointer": "Article XVI",
+        "section_id": "HELDOUT_01_SEC_018",
+        "source_role": "main_article"
+      },
+      "suggested_fields": [
+        "approval route",
+        "committee role",
+        "licensed-physician eligibility",
+        "grievability",
+        "liability requirement"
+      ],
+      "why_existing_concepts_do_not_fit": "The library has training and scope concepts, but no frozen concept for moonlighting or extra-mural work approval."
+    },
+    {
+      "candidate_label": "On-call rooms and lockers",
+      "current_protocol_disposition": "kept_in_novelty_queue",
+      "document_id": "HELDOUT_01",
+      "measurement_relevance": "likely_generosity_relevant",
+      "notes": "Material work-support provision for housestaff on duty.",
+      "novelty_id": "NQ_007",
+      "recommended_action": "review_for_new_concept",
+      "related_taxonomy_family": "other",
+      "schema_version": "novelty_queue_v0_1",
+      "source_pointer": {
+        "heading": "Article XVIII ON-CALL ROOMS",
+        "page": "25-26",
+        "quote_or_pointer": "Article XVIII",
+        "section_id": "HELDOUT_01_SEC_020",
+        "source_role": "main_article"
+      },
+      "suggested_fields": [
+        "room provision",
+        "health and sanitation standards",
+        "keys",
+        "alternate rooms",
+        "secured lockers"
+      ],
+      "why_existing_concepts_do_not_fit": "The frozen library does not include facilities-support or lodging-like workplace-accommodation concepts."
+    },
+    {
+      "candidate_label": "Parking fees and permits",
+      "current_protocol_disposition": "kept_in_novelty_queue",
+      "document_id": "HELDOUT_01",
+      "measurement_relevance": "possibly_generosity_relevant",
+      "notes": "Worker-cost provision with explicit annual fee and supplemental permit pricing.",
+      "novelty_id": "NQ_008",
+      "recommended_action": "review_for_new_concept",
+      "related_taxonomy_family": "other",
+      "schema_version": "novelty_queue_v0_1",
+      "source_pointer": {
+        "heading": "Article XIX PARKING",
+        "page": "26",
+        "quote_or_pointer": "Article XIX",
+        "section_id": "HELDOUT_01_SEC_021",
+        "source_role": "main_article"
+      },
+      "suggested_fields": [
+        "annual fee",
+        "proration",
+        "extra permit fee",
+        "campus assignment rule"
+      ],
+      "why_existing_concepts_do_not_fit": "The frozen library has no parking or commuting-cost concept."
+    },
+    {
+      "candidate_label": "Long-range beepers",
+      "current_protocol_disposition": "defer_recurrence_check_for_possible_equipment_uniform_concept",
+      "document_id": "HELDOUT_01",
+      "measurement_relevance": "possibly_generosity_relevant",
+      "notes": "Equipment provision tied to a specific campus.",
+      "novelty_id": "NQ_009",
+      "recommended_action": "review_for_new_concept",
+      "related_taxonomy_family": "other",
+      "schema_version": "novelty_queue_v0_1",
+      "source_pointer": {
+        "heading": "Article IX BENEFIT PROGRAMS",
+        "page": "18",
+        "quote_or_pointer": "Article IX.I",
+        "section_id": "HELDOUT_01_SEC_011",
+        "source_role": "main_article"
+      },
+      "suggested_fields": [
+        "device type",
+        "eligible campus",
+        "coverage scope",
+        "replacement policy"
+      ],
+      "why_existing_concepts_do_not_fit": "The library has no work-tool or communication-device concept for beeper provision."
+    }
+  ],
+  "HELDOUT_02": [
+    {
+      "candidate_label": "Mileage reimbursement at IRS rate",
+      "current_protocol_disposition": "kept_in_novelty_queue",
+      "document_id": "HELDOUT_02",
+      "measurement_relevance": "administrative_only",
+      "notes": "Administrative reimbursement rather than a generosity concept.",
+      "novelty_id": "HELDOUT_02_NOV_001",
+      "recommended_action": "exclude_from_generosity_measurement",
+      "related_taxonomy_family": "wages",
+      "schema_version": "novelty_queue_v0_1",
+      "source_pointer": {
+        "heading": "Article X longevity pay and mileage",
+        "page": "22",
+        "quote_or_pointer": "Mileage reimbursement at the IRS business-mileage rate",
+        "section_id": "10.6",
+        "source_role": "main_article"
+      },
+      "suggested_fields": [
+        "reimbursement_rate",
+        "external_index_link",
+        "effective_date"
+      ],
+      "why_existing_concepts_do_not_fit": "This is an expense-reimbursement rule tied to the IRS mileage rate, not a wage floor, progression rule, premium-pay concept, or leave entitlement in the frozen library."
+    }
+  ],
+  "HELDOUT_03": [],
+  "HELDOUT_04": [],
+  "HELDOUT_05": [],
+  "HELDOUT_06": [
+    {
+      "document_id": "HELDOUT_06",
+      "queue_status": "no_items",
+      "note": "No new concept IDs proposed. All extracted objects fit the frozen concept library or were recorded as context/external under existing IDs."
+    }
+  ],
+  "HELDOUT_07": [],
+  "HELDOUT_08": []
+}

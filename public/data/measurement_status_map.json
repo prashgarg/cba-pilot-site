@@ -1,0 +1,132 @@
+[
+  {
+    "domain": "Leave",
+    "empirical_object": "paid and protected time away from work: vacation, sick leave, holidays, parental/family leave, personal/miscellaneous leave",
+    "current_status": "score_ready",
+    "documents_with_records": "28",
+    "documents_with_score_or_candidate_signal": "23",
+    "current_output": "core domain profile",
+    "why_not_more_final": "some personal/miscellaneous leave subobjects require central aggregation and a few records remain review-flagged",
+    "next_production_step": "keep as core scored domain; audit repeated leave aggregation on a larger sample"
+  },
+  {
+    "domain": "Premium pay",
+    "empirical_object": "extra compensation for overtime, shift work, call-in/reporting, standby/on-call, and responsibility/specialty assignments",
+    "current_status": "score_ready",
+    "documents_with_records": "26",
+    "documents_with_score_or_candidate_signal": "21",
+    "current_output": "core domain profile",
+    "why_not_more_final": "some premiums depend on tables, occupation-specific triggers, or unsupported fragments",
+    "next_production_step": "keep as core scored domain; expand table checks for occupation-specific premiums"
+  },
+  {
+    "domain": "Due process",
+    "empirical_object": "procedural protections around grievance, arbitration, discipline, just cause, progressive discipline, and investigation/appeal rights",
+    "current_status": "score_ready",
+    "documents_with_records": "28",
+    "documents_with_score_or_candidate_signal": "23",
+    "current_output": "core domain profile",
+    "why_not_more_final": "some grievance/arbitration records remain central-review cases",
+    "next_production_step": "keep as core scored domain; audit whether procedural scores behave consistently across sectors"
+  },
+  {
+    "domain": "Job security",
+    "empirical_object": "layoff order, recall rights, benefit continuation, severance, and related displacement protections",
+    "current_status": "score_ready",
+    "documents_with_records": "25",
+    "documents_with_score_or_candidate_signal": "23",
+    "current_output": "core domain profile",
+    "why_not_more_final": "severance and benefit-continuation terms sometimes require numeric normalization or context",
+    "next_production_step": "keep as core scored domain; refine severance normalization and benefit-continuation rules"
+  },
+  {
+    "domain": "Active health contribution",
+    "empirical_object": "worker-facing contribution burden for active medical coverage, such as premium shares or fixed employee contributions",
+    "current_status": "candidate_score",
+    "documents_with_records": "27",
+    "documents_with_score_or_candidate_signal": "9",
+    "current_output": "candidate fifth domain profile",
+    "why_not_more_final": "this measures contribution burden only, not full health plan design",
+    "next_production_step": "use as narrow extension domain with coverage flags; do not label it full health generosity"
+  },
+  {
+    "domain": "Full health plan design",
+    "empirical_object": "medical plan design terms such as deductibles, copays, out-of-pocket maximums, dependent coverage, network design, prescription coverage, dental, vision, disability, and retiree health",
+    "current_status": "profile_only",
+    "documents_with_records": "27",
+    "documents_with_score_or_candidate_signal": "0",
+    "current_output": "profile/external records",
+    "why_not_more_final": "many terms are in attachments or external plan documents, and plan generosity is multi-dimensional",
+    "next_production_step": "separate contribution, plan design, dependent coverage, and retiree-health modules before scalar scoring"
+  },
+  {
+    "domain": "Wage growth",
+    "empirical_object": "scheduled nominal wage increases converted to pilot-relative real wage growth where timing and percentage terms are comparable",
+    "current_status": "pilot_relative_only",
+    "documents_with_records": "27",
+    "documents_with_score_or_candidate_signal": "10",
+    "current_output": "pilot-relative real wage-growth score",
+    "why_not_more_final": "excludes lump sums, wage/fringe packages, incomplete COLA formulas, and table-only changes",
+    "next_production_step": "fix inflation date rule and treatment of lump sums, COLA, and wage/fringe allocations before production scoring"
+  },
+  {
+    "domain": "Wage level",
+    "empirical_object": "classification-specific base wage level with date, unit, worker group, and benchmark step preserved",
+    "current_status": "not_ready_normalization",
+    "documents_with_records": "27",
+    "documents_with_score_or_candidate_signal": "5",
+    "current_output": "readiness/normalization table",
+    "why_not_more_final": "only two documents are cleanly ready; three more need table/OCR review; raw wages require occupation, year, geography, hours, and step normalization",
+    "next_production_step": "define benchmark occupation/step and table repair protocol before adding any wage-level score"
+  },
+  {
+    "domain": "External benefit funds",
+    "empirical_object": "pension, annuity, welfare, trust, and other external fund contributions or formula fragments stated in the CBA",
+    "current_status": "proxy_only",
+    "documents_with_records": "20",
+    "documents_with_score_or_candidate_signal": "8",
+    "current_output": "external-fund proxy profile",
+    "why_not_more_final": "CBA often states funding flow but worker-facing benefits depend on external plan documents",
+    "next_production_step": "keep as total-compensation or funding proxy; do not fold into wage, health, or retirement generosity"
+  },
+  {
+    "domain": "Scheduling and workload",
+    "empirical_object": "regular schedules, schedule notice/change rules, hours frameworks, workload and staffing rules",
+    "current_status": "profile_only",
+    "documents_with_records": "17",
+    "documents_with_score_or_candidate_signal": "0",
+    "current_output": "profile/framework records",
+    "why_not_more_final": "many records define governance frameworks rather than directly comparable generosity quantities",
+    "next_production_step": "develop separate scoreability rules for notice, predictability, employer discretion, and worker control"
+  },
+  {
+    "domain": "Union voice and access",
+    "empirical_object": "union business access, dues/security, representation time, and related institutional voice provisions",
+    "current_status": "profile_or_partial",
+    "documents_with_records": "27",
+    "documents_with_score_or_candidate_signal": "0",
+    "current_output": "profile/context records",
+    "why_not_more_final": "current records are partly institutional context and partly worker-facing protections; scoring object is not yet settled",
+    "next_production_step": "separate worker-facing voice protections from institutional union-security context"
+  },
+  {
+    "domain": "Scope, seniority, and mobility",
+    "empirical_object": "recognition scope, bargaining-unit coverage, seniority systems, classification mobility, transfer and promotion frameworks",
+    "current_status": "profile_only",
+    "documents_with_records": "16",
+    "documents_with_score_or_candidate_signal": "0",
+    "current_output": "profile/context records",
+    "why_not_more_final": "these define who is covered and how rights attach, but are not yet calibrated as generosity scores",
+    "next_production_step": "treat as modifiers/context unless a specific scoreable worker-facing object is defined"
+  },
+  {
+    "domain": "Safety",
+    "empirical_object": "PPE, unsafe-work refusal, assault/violence protections, and related safety provisions",
+    "current_status": "candidate_score",
+    "documents_with_records": "24",
+    "documents_with_score_or_candidate_signal": "0",
+    "current_output": "outside initial scoring layer/profile records",
+    "why_not_more_final": "many safety records look scoreable, but the domain has not yet been promoted into central domain profiles",
+    "next_production_step": "consider as next candidate scored domain after auditing examples and score variation"
+  }
+]

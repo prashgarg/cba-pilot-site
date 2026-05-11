@@ -1,0 +1,3911 @@
+{
+  "CBA_01": [
+    {
+      "candidate_field": "paid_holiday_count_or_list",
+      "candidate_value": "Article 7 Holidays page 10",
+      "concept_id": "C_LEAVE_HOLIDAYS",
+      "concept_record_id": "CBA_01_CR_006",
+      "document_id": "CBA_01",
+      "error_class": [
+        "insufficient_entailment",
+        "context_only_number"
+      ],
+      "error_classes": [
+        "insufficient_entailment",
+        "context_only_number"
+      ],
+      "evidence_pointer": "page 3 table of contents; page 125 index",
+      "reason_rejected": "Table of contents/index confirms a holiday article but does not state operative holiday count, paid status, eligibility, or holiday-work rule.",
+      "source_pointer": "page 3 table of contents; page 125 index"
+    },
+    {
+      "candidate_field": "medical_lifetime_maximum",
+      "candidate_value": "$500,000",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "concept_record_id": "CBA_01_CR_018",
+      "document_id": "CBA_01",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 62 Attachment A Section 6 Life Insurance Plan",
+      "reason_rejected": "The value is the life insurance maximum, not a medical coverage maximum.",
+      "source_pointer": "page 62 Attachment A Section 6 Life Insurance Plan"
+    },
+    {
+      "candidate_field": "medical_benefit_amount_or_oop_limit",
+      "candidate_value": "$25,000",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "concept_record_id": "CBA_01_CR_018",
+      "document_id": "CBA_01",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 63 Attachment A Section 7 AD&D Plan",
+      "reason_rejected": "The value is the AD&D principal sum, not a medical plan design value.",
+      "source_pointer": "page 63 Attachment A Section 7 AD&D Plan"
+    },
+    {
+      "candidate_field": "active_medical_employer_contribution",
+      "candidate_value": "$3,000",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION",
+      "concept_record_id": "CBA_01_CR_017",
+      "document_id": "CBA_01",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 33 Article 16.1 Health Care Reimbursement Account Plan",
+      "reason_rejected": "The value is a pre-tax HCRA employee contribution limit for qualifying expenses, not an employer medical premium contribution or worker premium share.",
+      "source_pointer": "page 33 Article 16.1 Health Care Reimbursement Account Plan"
+    },
+    {
+      "candidate_field": "wage_increase_or_cola",
+      "candidate_value": "$59/$60 per month per year of credited service",
+      "concept_id": "C_WAGE_INCREASES_COLA",
+      "concept_record_id": "CBA_01_CR_016",
+      "document_id": "CBA_01",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 36 Article 17.5 Basic Benefit",
+      "reason_rejected": "The values are pension basic-benefit formula components, not wage increases or COLA.",
+      "source_pointer": "page 36 Article 17.5 Basic Benefit"
+    },
+    {
+      "candidate_field": "active_medical_contribution_or_plan_cap",
+      "candidate_value": "$75 per year",
+      "concept_id": "C_SAFETY_PPE_UNSAFE_WORK",
+      "concept_record_id": "CBA_01_CR_027",
+      "document_id": "CBA_01",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 43 Attachment 4 Work Environment and Health and Safety",
+      "reason_rejected": "The value is a steel-toed safety-shoe reimbursement cap, not a health insurance contribution or medical plan cap.",
+      "source_pointer": "page 43 Attachment 4 Work Environment and Health and Safety"
+    },
+    {
+      "candidate_field": "overtime_multiplier",
+      "candidate_value": "$2.00 per hour",
+      "concept_id": "C_PREMIUM_OVERTIME",
+      "concept_record_id": "CBA_01_CR_011",
+      "document_id": "CBA_01",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 24 Section 11.2(b); page 50 Attachment 15 AOG Assignments",
+      "reason_rejected": "The value is a weekend premium/additive, not the overtime multiplier. It is accepted under shift/weekend premium instead.",
+      "source_pointer": "page 24 Section 11.2(b); page 50 Attachment 15 AOG Assignments"
+    },
+    {
+      "candidate_field": "general_just_cause_standard",
+      "candidate_value": "just cause",
+      "concept_id": "C_DISCIPLINE_JUST_CAUSE",
+      "concept_record_id": "CBA_01_CR_031",
+      "document_id": "CBA_01",
+      "error_class": [
+        "subgroup_specific_value",
+        "insufficient_entailment"
+      ],
+      "error_classes": [
+        "subgroup_specific_value",
+        "insufficient_entailment"
+      ],
+      "evidence_pointer": "pages 51-52 Attachment 17 Sex Crimes",
+      "reason_rejected": "The letter deems a narrow sex-crimes category just cause and expressly says it does not define just cause generally.",
+      "source_pointer": "pages 51-52 Attachment 17 Sex Crimes"
+    },
+    {
+      "candidate_field": "active_medical_office_visit_copay",
+      "candidate_value": "$15 co-payment for eye examination",
+      "concept_id": "C_HEALTH_VISION",
+      "concept_record_id": "CBA_01_CR_020",
+      "document_id": "CBA_01",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 69 Attachment A vision examination co-payment; page 86 vision care schedule",
+      "reason_rejected": "This is a vision-care copayment/ancillary vision term, not a general active medical office visit copay.",
+      "source_pointer": "page 69 Attachment A vision examination co-payment; page 86 vision care schedule"
+    },
+    {
+      "candidate_field": "pension_benefit_formula",
+      "candidate_value": "75% of first 8% of base pay",
+      "concept_id": "C_RETIREMENT_SAVINGS_ANNUITY",
+      "concept_record_id": "CBA_01_CR_025",
+      "document_id": "CBA_01",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 33 Article 15.4 VIP",
+      "reason_rejected": "The value is a savings-plan employer match formula, not a defined-benefit pension formula.",
+      "source_pointer": "page 33 Article 15.4 VIP"
+    }
+  ],
+  "CBA_02": [
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_02",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION",
+      "candidate_value": "Article 26 benefit-plan language for Communication Services Installers",
+      "candidate_field": "active medical contribution or full active health object",
+      "evidence_pointer": "pages 151-157 Article 26",
+      "error_class": [
+        "subgroup_specific_value",
+        "insufficient_entailment"
+      ],
+      "reason_rejected": "Article 26 is a local/classification-specific modification and carveout; it does not state the full active medical premium/contribution object."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_02",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "candidate_value": "Retiree healthcare cap amounts under age/family branches",
+      "candidate_field": "active medical out-of-pocket maximum or active employer contribution",
+      "evidence_pointer": "page 279 lines 8-18",
+      "error_class": "wrong_object",
+      "reason_rejected": "The cap and Medicare Part B amounts are retiree-health funding components, not active employee medical plan-design or contribution terms."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_02",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "candidate_value": "OCC buy-up $50,000/$100,000/$200,000 and $9/$18/$27 annual costs",
+      "candidate_field": "active medical coverage maximum or active health premium",
+      "evidence_pointer": "page 299 lines 6-19",
+      "error_class": "wrong_object",
+      "reason_rejected": "The values apply to retiree OCC buy-up under Exhibit B, not active medical plan design or active contribution."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_02",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "candidate_value": "Retiree prescription OCR fragment '10/25/357$40'",
+      "candidate_field": "active prescription formulary copay",
+      "evidence_pointer": "page 298 retiree Exhibit B prescription section",
+      "error_class": [
+        "wrong_object",
+        "ocr_or_table_fragment"
+      ],
+      "reason_rejected": "The fragment is both retiree-only and OCR-corrupted; active prescription copays were taken from clean active Attachment A text on page 275 instead."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_02",
+      "concept_id": "C_HEALTH_DENTAL",
+      "candidate_value": "semiannual updates in January and July",
+      "candidate_field": "dental benefit amount or generosity score",
+      "evidence_pointer": "page 277 lines 10-12",
+      "error_class": "context_only_number",
+      "reason_rejected": "The number is a vendor/R&C table update cadence, not a dental coverage amount, maximum, copay, or contribution."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_02",
+      "concept_id": "C_HEALTH_LIFE_AD_D",
+      "candidate_value": "Domestic Partner Benefit Coverage memorandum",
+      "candidate_field": "active medical dependent coverage",
+      "evidence_pointer": "page 306",
+      "error_class": [
+        "wrong_object",
+        "insufficient_entailment"
+      ],
+      "reason_rejected": "The memorandum adds LTC, Dependent Group Life, and Dependent Accident Loss Insurance and changes eligibility/beneficiary order; it does not directly state active medical dependent coverage."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_02",
+      "concept_id": "C_LABOR_MANAGEMENT_COMMITTEE",
+      "candidate_value": "4 union and 4 company members",
+      "candidate_field": "active medical plan-design generosity amount",
+      "evidence_pointer": "page 348 lines 18-23",
+      "error_class": [
+        "context_only_number",
+        "wrong_object"
+      ],
+      "reason_rejected": "Committee composition is external-plan governance context and cannot be treated as a participant-cost or benefit amount."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_02",
+      "concept_id": "C_WAGE_BASE_RATE",
+      "candidate_value": "Communication Services Installer wage table cells",
+      "candidate_field": "document-wide base wage rate",
+      "evidence_pointer": "page 157 Article 26",
+      "error_class": [
+        "subgroup_specific_value",
+        "ocr_or_table_fragment"
+      ],
+      "reason_rejected": "The table is classification-specific to Article 26 local modifications and OCR/table-fragile; it is not a document-wide base wage benchmark."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_02",
+      "concept_id": "C_WAGE_INCREASES_COLA",
+      "candidate_value": "70%",
+      "candidate_field": "standalone wage increase amount",
+      "evidence_pointer": "page 43 lines 2-24",
+      "error_class": "formula_component_not_entitlement",
+      "reason_rejected": "The 70% value is only the share of a net positive CPI-W difference added to the GWI, not a standalone wage increase."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_02",
+      "concept_id": "C_SAFETY_PPE_UNSAFE_WORK",
+      "candidate_value": "not more than three representatives each and at least three meetings per year",
+      "candidate_field": "PPE or unsafe-work right",
+      "evidence_pointer": "page 228 lines 11-16",
+      "error_class": "context_only_number",
+      "reason_rejected": "The values describe safety advisory committee composition and meeting frequency, not PPE, protective equipment, unsafe-work refusal, or hazard-response entitlement."
+    }
+  ],
+  "CBA_03": [
+    {
+      "candidate_field": "severance_formula",
+      "candidate_value": "vacation pay prorated at termination",
+      "concept_id": "C_JOB_SECURITY_SEVERANCE",
+      "concept_record_id": "CBA_03_CR_008",
+      "document_id": "CBA_03",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "p.37-38 Article XIII Section 5",
+      "reason_rejected": "Vacation payout is a separate vacation entitlement, not severance.",
+      "source_pointer": "p.37-38 Article XIII Section 5"
+    },
+    {
+      "candidate_field": "unit_wide_daily_overtime_threshold",
+      "candidate_value": "ninth and tenth hours not premium-paid under 4/40 schedule",
+      "concept_id": "C_PREMIUM_OVERTIME",
+      "concept_record_id": "CBA_03_CR_016",
+      "document_id": "CBA_03",
+      "error_class": [
+        "subgroup_specific_value"
+      ],
+      "error_classes": [
+        "subgroup_specific_value"
+      ],
+      "evidence_pointer": "p.189 4/40 workweek schedule",
+      "reason_rejected": "This is a subgroup voluntary 4/40 variant, not the document-wide overtime threshold.",
+      "source_pointer": "p.189 4/40 workweek schedule"
+    },
+    {
+      "candidate_field": "premium_amount",
+      "candidate_value": "bilingual translating/interpreting may be requested voluntarily",
+      "concept_id": "C_PREMIUM_RESPONSIBILITY_SPECIALTY",
+      "concept_record_id": "CBA_03_CR_020",
+      "document_id": "CBA_03",
+      "error_class": [
+        "insufficient_entailment"
+      ],
+      "error_classes": [
+        "insufficient_entailment"
+      ],
+      "evidence_pointer": "p.174 Appendix G",
+      "reason_rejected": "The bilingual assignment letter provides voluntariness but no premium amount, so it cannot populate a responsibility/specialty premium amount.",
+      "source_pointer": "p.174 Appendix G"
+    },
+    {
+      "candidate_field": "base_wage_rate",
+      "candidate_value": "$1.00/$1.25/$1.45/$1.95",
+      "concept_id": "C_WAGE_BASE_RATE",
+      "concept_record_id": "CBA_03_CR_021",
+      "document_id": "CBA_03",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "p.23 and pp.171-172 Appendix E",
+      "reason_rejected": "These values are shift differentials, not base wage rates.",
+      "source_pointer": "p.23 and pp.171-172 Appendix E"
+    },
+    {
+      "candidate_field": "wage_increase_amount",
+      "candidate_value": "service thresholds 3 years and 5 years",
+      "concept_id": "C_WAGE_PROGRESSION",
+      "concept_record_id": "CBA_03_CR_022",
+      "document_id": "CBA_03",
+      "error_class": [
+        "formula_component_not_entitlement"
+      ],
+      "error_classes": [
+        "formula_component_not_entitlement"
+      ],
+      "evidence_pointer": "p.27 Section 6",
+      "reason_rejected": "Service thresholds are placement eligibility conditions, not monetary wage increases by themselves.",
+      "source_pointer": "p.27 Section 6"
+    },
+    {
+      "candidate_field": "overtime_multiplier",
+      "candidate_value": "1.5%, 2.0%, 2.5%",
+      "concept_id": "C_WAGE_INCREASES_COLA",
+      "concept_record_id": "CBA_03_CR_023",
+      "document_id": "CBA_03",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "p.176 Appendix I",
+      "reason_rejected": "Appendix I percentages are service-performance lump-sum percentages of total wage compensation, not overtime or premium-pay multipliers.",
+      "source_pointer": "p.176 Appendix I"
+    },
+    {
+      "candidate_field": "vacation_entitlement_schedule",
+      "candidate_value": "one floating holiday added to vacation if date agreement not reached",
+      "concept_id": "C_LEAVE_VACATION",
+      "concept_record_id": "CBA_03_CR_025",
+      "document_id": "CBA_03",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "p.32 para 146",
+      "reason_rejected": "The floating holiday fallback is a holiday entitlement administered through vacation, not an additional annual vacation tier.",
+      "source_pointer": "p.32 para 146"
+    },
+    {
+      "candidate_field": "sick_leave_accrual",
+      "candidate_value": "UCD or Workers Compensation benefit amount",
+      "concept_id": "C_LEAVE_SICK",
+      "concept_record_id": "CBA_03_CR_026",
+      "document_id": "CBA_03",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "p.41 paras 192-193",
+      "reason_rejected": "UCD/workers compensation benefits are offsets/integration rules, not sick-leave accrual amounts.",
+      "source_pointer": "p.41 paras 192-193"
+    },
+    {
+      "candidate_field": "employer_premium_share",
+      "candidate_value": "75%",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION",
+      "concept_record_id": "CBA_03_CR_032",
+      "document_id": "CBA_03",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object",
+        "subgroup_specific_value"
+      ],
+      "evidence_pointer": "pp.52-53 para 246",
+      "reason_rejected": "75% is a participation threshold for Short-Hour coverage continuation, not an employer premium share.",
+      "source_pointer": "pp.52-53 para 246"
+    },
+    {
+      "candidate_field": "worker_premium_share",
+      "candidate_value": "$5.00",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION",
+      "concept_record_id": "CBA_03_CR_032",
+      "document_id": "CBA_03",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "p.49 para 231",
+      "reason_rejected": "$5.00 is a drug copay plan-design/cost-sharing component, not the employee premium share or payroll contribution.",
+      "source_pointer": "p.49 para 231"
+    },
+    {
+      "candidate_field": "medical_out_of_pocket_maximum",
+      "candidate_value": "$5,000",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "concept_record_id": "CBA_03_CR_033",
+      "document_id": "CBA_03",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "p.51 para 240",
+      "reason_rejected": "$5,000 is life/AD&D face amount, not active medical out-of-pocket maximum or cap.",
+      "source_pointer": "p.51 para 240"
+    },
+    {
+      "candidate_field": "medical_coinsurance",
+      "candidate_value": "90% dental reimbursement",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "concept_record_id": "CBA_03_CR_033",
+      "document_id": "CBA_03",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "p.52 para 242",
+      "reason_rejected": "90% is dental reimbursement rate, not active medical coinsurance.",
+      "source_pointer": "p.52 para 242"
+    },
+    {
+      "candidate_field": "active_medical_employer_premium_share",
+      "candidate_value": "50%-100% employer monthly payments",
+      "concept_id": "C_HEALTH_RETIREE",
+      "concept_record_id": "CBA_03_CR_034",
+      "document_id": "CBA_03",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "p.51 para 239",
+      "reason_rejected": "This is a retiree medical cost-sharing schedule, not active-worker medical contribution.",
+      "source_pointer": "p.51 para 239"
+    },
+    {
+      "candidate_field": "active_medical_waiting_period",
+      "candidate_value": "6 months",
+      "concept_id": "C_HEALTH_DENTAL",
+      "concept_record_id": "CBA_03_CR_036",
+      "document_id": "CBA_03",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "p.52 para 242",
+      "reason_rejected": "Six months is dental eligibility, not active medical coverage waiting period.",
+      "source_pointer": "p.52 para 242"
+    },
+    {
+      "candidate_field": "wage_increase_percent",
+      "candidate_value": "1.2%",
+      "concept_id": "C_RETIREMENT_PENSION",
+      "concept_record_id": "CBA_03_CR_037",
+      "document_id": "CBA_03",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object",
+        "formula_component_not_entitlement"
+      ],
+      "evidence_pointer": "p.56 para 258",
+      "reason_rejected": "1.2% is a pension accrual formula component, not a wage increase or COLA.",
+      "source_pointer": "p.56 para 258"
+    },
+    {
+      "candidate_field": "employer_child_care_payment",
+      "candidate_value": "licensed provider list",
+      "concept_id": "C_CHILD_DEPENDENT_CARE",
+      "concept_record_id": "CBA_03_CR_039",
+      "document_id": "CBA_03",
+      "error_class": [
+        "insufficient_entailment"
+      ],
+      "error_classes": [
+        "insufficient_entailment"
+      ],
+      "evidence_pointer": "p.59 para 274",
+      "reason_rejected": "Provider list is informational and expressly not an endorsement/payment benefit.",
+      "source_pointer": "p.59 para 274"
+    }
+  ],
+  "CBA_04": [
+    {
+      "candidate_field": "active medical annual/lifetime maximum",
+      "candidate_value": "$1,500 dental maximum",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "concept_record_id": "CBA_04_CR002",
+      "document_id": "CBA_04",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 46 Section 14.5.1 and 14.5.3",
+      "reason_rejected": "The $1,500 values are dental orthodontic/preventive/general/major service maxima, not active medical plan maxima.",
+      "source_pointer": "page 46 Section 14.5.1 and 14.5.3"
+    },
+    {
+      "candidate_field": "employer medical premium contribution",
+      "candidate_value": "$25/$75 PIC deductibles and 20% PIC copayment",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION",
+      "concept_record_id": "CBA_04_CR001",
+      "document_id": "CBA_04",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 148 PIC MOA",
+      "reason_rejected": "PIC deductible/copayment values are medical/pharmacy plan-design worker cost-sharing terms, not employer premium contribution percentages.",
+      "source_pointer": "page 148 PIC MOA"
+    },
+    {
+      "candidate_field": "medical plan design generosity",
+      "candidate_value": "$500 annual opt-out credit",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "concept_record_id": "CBA_04_CR002",
+      "document_id": "CBA_04",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 46 Section 14.2.4",
+      "reason_rejected": "The $500 value is an opt-out credit for declining coverage, a contribution/cost-sharing layer fact, not covered-service or cost-sharing design of the plan.",
+      "source_pointer": "page 46 Section 14.2.4"
+    },
+    {
+      "candidate_field": "base wage rate",
+      "candidate_value": "$0.75 dispatch/order/in-charge differentials",
+      "concept_id": "C_WAGE_BASE_RATE",
+      "concept_record_id": "CBA_04_CR009",
+      "document_id": "CBA_04",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "pages 56, 79, 132",
+      "reason_rejected": "The $0.75 values are responsibility/specialty premiums for in-charge or named clerk duties, not base wage rates or scheduled wage increases.",
+      "source_pointer": "pages 56, 79, 132"
+    },
+    {
+      "candidate_field": "wage increase/COLA",
+      "candidate_value": "HSP match increases to 75 cents and 82 cents per $1",
+      "concept_id": "C_WAGE_INCREASES_COLA",
+      "concept_record_id": "CBA_04_CR011",
+      "document_id": "CBA_04",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 104 Hourly Savings Plan MOA",
+      "reason_rejected": "The HSP match is a retirement/savings plan contribution, not wage-only increase, COLA, premium pay, or base wage.",
+      "source_pointer": "page 104 Hourly Savings Plan MOA"
+    },
+    {
+      "candidate_field": "base wage schedule or severance amount",
+      "candidate_value": "$4,900 to $12,200 pension minimums",
+      "concept_id": "C_RETIREMENT_PENSION",
+      "concept_record_id": "CBA_04_CR007",
+      "document_id": "CBA_04",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 134 Pensions MOA",
+      "reason_rejected": "The dollar values are pension-plan minimum benefits by service tier; they are not wages or severance payments.",
+      "source_pointer": "page 134 Pensions MOA"
+    },
+    {
+      "candidate_field": "ordinary Article 9 termination allowance cap",
+      "candidate_value": "$36,750 combined ISP maximum",
+      "concept_id": "C_JOB_SECURITY_SEVERANCE",
+      "concept_record_id": "CBA_04_CR028",
+      "document_id": "CBA_04",
+      "error_class": [
+        "subgroup_specific_value"
+      ],
+      "error_classes": [
+        "subgroup_specific_value"
+      ],
+      "evidence_pointer": "pages 107 and 110 ISP MOAs",
+      "reason_rejected": "The $36,750 maximum belongs to the ISP technological-change/surplus variant, not the ordinary Article 9 termination allowance formula.",
+      "source_pointer": "pages 107 and 110 ISP MOAs"
+    },
+    {
+      "candidate_field": "holiday-work premium multiplier",
+      "candidate_value": "holiday-work premium shown as '%' the basic straight time",
+      "concept_id": "C_LEAVE_HOLIDAYS",
+      "concept_record_id": "CBA_04_CR019",
+      "document_id": "CBA_04",
+      "error_class": [
+        "ocr_or_table_fragment"
+      ],
+      "error_classes": [
+        "ocr_or_table_fragment",
+        "insufficient_entailment"
+      ],
+      "evidence_pointer": "page 36 Section 10.4",
+      "reason_rejected": "The OCR around the holiday-work premium appears damaged; the exact multiplier is not safe for scalar use without central page review.",
+      "source_pointer": "page 36 Section 10.4"
+    },
+    {
+      "candidate_field": "union-access generosity amount",
+      "candidate_value": "15 x 18 inches bulletin-board maximum size",
+      "concept_id": "C_UNION_ACCESS_BUSINESS",
+      "concept_record_id": "CBA_04_CR035",
+      "document_id": "CBA_04",
+      "error_class": [
+        "context_only_number"
+      ],
+      "error_classes": [
+        "context_only_number"
+      ],
+      "evidence_pointer": "page 52 Section 20.3",
+      "reason_rejected": "Bulletin-board dimensions are administrative context, not a worker-facing paid-time/access generosity amount.",
+      "source_pointer": "page 52 Section 20.3"
+    },
+    {
+      "candidate_field": "active-worker medical out-of-pocket maximum",
+      "candidate_value": "$6,314/$12,628/$14,144/$1,642 capped retiree medical premiums",
+      "concept_id": "C_HEALTH_RETIREE",
+      "concept_record_id": "CBA_04_CR006",
+      "document_id": "CBA_04",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 174 VEBA MOA",
+      "reason_rejected": "The values are retiree medical premium caps for retiree coverage categories, not active-worker medical OOP maxima.",
+      "source_pointer": "page 174 VEBA MOA"
+    },
+    {
+      "candidate_field": "general grievance exclusion scope",
+      "candidate_value": "POS/PIC/LTD/HSP plan disputes excluded from grievance/arbitration",
+      "concept_id": "C_GRIEVANCE_PROCEDURE",
+      "concept_record_id": "CBA_04_CR033",
+      "document_id": "CBA_04",
+      "error_class": [
+        "subgroup_specific_value"
+      ],
+      "error_classes": [
+        "subgroup_specific_value",
+        "wrong_object"
+      ],
+      "evidence_pointer": "pages 143, 149, 117, 102",
+      "reason_rejected": "These exclusions are plan-specific and should not be treated as a general exclusion from Article 4 grievances across all CBA provisions.",
+      "source_pointer": "pages 143, 149, 117, 102"
+    },
+    {
+      "candidate_field": "Article 4 default arbitrator cost allocation",
+      "candidate_value": "losing party pays all cost of arbitrator",
+      "concept_id": "C_ARBITRATION",
+      "concept_record_id": "CBA_04_CR034",
+      "document_id": "CBA_04",
+      "error_class": [
+        "insufficient_entailment"
+      ],
+      "error_classes": [
+        "insufficient_entailment"
+      ],
+      "evidence_pointer": "page 133 Payment of Arbitrator MOA",
+      "reason_rejected": "The MOA may modify cost allocation, but it is cancelable/extendable and its interaction with Article 4 equal sharing needs central review before replacing the default Article 4 field.",
+      "source_pointer": "page 133 Payment of Arbitrator MOA"
+    }
+  ],
+  "CBA_05": [
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_05",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "candidate_value": "deductible $250/$500, 25% copay, OOP $1,000/$2,000 and related Traditional Medical Plan table values",
+      "candidate_field": "active medical plan-design bridge score",
+      "source_pointer": "page 57 Article VII",
+      "reason_rejected": "The CBA states the official Plan document governs interpretation/application of Traditional Medical Plan terms; table values are profile evidence, not enough for scalar plan-design generosity under v3.1.",
+      "error_classes": [
+        "external_plan_value"
+      ]
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_05",
+      "concept_id": "C_LEAVE_VACATION",
+      "candidate_value": "up to 5 purchased vacation days",
+      "candidate_field": "employer-paid vacation entitlement",
+      "source_pointer": "page 28 Article V Vacation Option Plan",
+      "reason_rejected": "Purchased vacation is employee-paid and cannot be counted as employer-provided vacation generosity.",
+      "error_classes": [
+        "wrong_object",
+        "formula_component_not_entitlement"
+      ]
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_05",
+      "concept_id": "C_LEAVE_PERSONAL_MISC",
+      "candidate_value": "Family/Medical Leave Act leave reference",
+      "candidate_field": "contractual paid family leave generosity",
+      "source_pointer": "page 31 Article V Family/Medical Leave",
+      "reason_rejected": "Text mainly recognizes statutory FMLA obligations and requires use of sick/vacation before unpaid leave; it does not establish an additional paid family leave entitlement in this pass.",
+      "error_classes": [
+        "insufficient_entailment"
+      ]
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_05",
+      "concept_id": "C_JOB_SECURITY_BENEFIT_CONTINUATION",
+      "candidate_value": "rights under insurance, retirement, medical, dental, surviving-spouse annuity and prescription plans while on recall list or leave",
+      "candidate_field": "CBA-contained benefit continuation score",
+      "source_pointer": "pages 32 and 97",
+      "reason_rejected": "The agreement says these rights are governed by the provisions of such plans; it does not give complete CBA-contained continuation duration and payment responsibility.",
+      "error_classes": [
+        "external_plan_value",
+        "insufficient_entailment"
+      ]
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_05",
+      "concept_id": "C_PREMIUM_OVERTIME",
+      "candidate_value": "1-? OCR fraction",
+      "candidate_field": "Saturday/Sunday premium multiplier",
+      "source_pointer": "page 24 Article IV(1)(c)",
+      "reason_rejected": "OCR garbles the fraction. Context suggests one and one-quarter, but exact scalar use should flag OCR/table risk.",
+      "error_classes": [
+        "ocr_or_table_fragment"
+      ]
+    }
+  ],
+  "CBA_06": [
+    {
+      "candidate_field": "active medical copay",
+      "candidate_value": "Vision $10 exam and $10 lenses/frames copays, maximum $20/person",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "concept_record_id": "CBA_06_CR_003",
+      "document_id": "CBA_06",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 42 Article VIII Section B Vision Care",
+      "reason_rejected": "The copays are vision-plan cost-sharing terms, not active medical plan-design copays.",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 42 Article VIII Section B Vision Care"
+    },
+    {
+      "candidate_field": "premium pay amount",
+      "candidate_value": "$500,000 flight insurance and $150,000 additional flight coverage",
+      "concept_id": "C_PREMIUM_RESPONSIBILITY_SPECIALTY",
+      "concept_record_id": "CBA_06_CR_016",
+      "document_id": "CBA_06",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 56 Article XIII Section C Flight Insurance",
+      "reason_rejected": "Insurance coverage amounts are life/AD&D benefit values, not worker premium-pay compensation.",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 56 Article XIII Section C Flight Insurance"
+    },
+    {
+      "candidate_field": "parental/family leave duration",
+      "candidate_value": "24 months approved medical leave",
+      "concept_id": "C_LEAVE_PARENTAL_FAMILY",
+      "concept_record_id": "CBA_06_CR_023",
+      "document_id": "CBA_06",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object",
+        "insufficient_entailment"
+      ],
+      "evidence_pointer": "page 66 Article XX Section C Medical Leave of Absence",
+      "reason_rejected": "The 24-month duration applies to approved medical disability leave generally; the text does not establish it as a distinct parental/family leave entitlement.",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 66 Article XX Section C Medical Leave of Absence"
+    },
+    {
+      "candidate_field": "wage increase or base wage",
+      "candidate_value": "$30/$31 per month per year of union benefit service",
+      "concept_id": "C_RETIREMENT_PENSION",
+      "concept_record_id": "CBA_06_CR_008",
+      "document_id": "CBA_06",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 51 Article IX Section B Guaranteed Pension Formula",
+      "reason_rejected": "The value is a pension formula component, not base wages, wage progression, or wage increase.",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 51 Article IX Section B Guaranteed Pension Formula"
+    },
+    {
+      "candidate_field": "base wage rate",
+      "candidate_value": "1.2308 x (base rate plus 8 cents)",
+      "concept_id": "C_WAGE_BASE_RATE",
+      "concept_record_id": "CBA_06_CR_010",
+      "document_id": "CBA_06",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 17 Article III Section D Shift Differentials",
+      "reason_rejected": "The formula is a graveyard shift premium formula, not a base wage rate.",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 17 Article III Section D Shift Differentials"
+    },
+    {
+      "candidate_field": "active medical worker contribution",
+      "candidate_value": "Dental low/high/DMO bi-weekly deductions",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION",
+      "concept_record_id": "CBA_06_CR_002",
+      "document_id": "CBA_06",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "pages 53-54 Article XI Dental Plans",
+      "reason_rejected": "Dental deductions are ancillary dental contribution terms, not active medical premium contribution terms.",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "pages 53-54 Article XI Dental Plans"
+    },
+    {
+      "candidate_field": "full severance formula/cap",
+      "candidate_value": "Balance of full severance less weeks already paid",
+      "concept_id": "C_JOB_SECURITY_SEVERANCE",
+      "concept_record_id": "CBA_06_CR_029",
+      "document_id": "CBA_06",
+      "error_class": [
+        "formula_component_not_entitlement"
+      ],
+      "error_classes": [
+        "formula_component_not_entitlement",
+        "external_plan_value"
+      ],
+      "evidence_pointer": "page 107 Supplemental Agreement #10",
+      "reason_rejected": "The sentence explains recall interaction with an external plan but does not state the full severance formula, eligibility, or cap.",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 107 Supplemental Agreement #10"
+    },
+    {
+      "candidate_field": "active layoff/leave benefit continuation amount",
+      "candidate_value": "Retiree medical contribution amounts on Supplemental Agreement #21",
+      "concept_id": "C_JOB_SECURITY_BENEFIT_CONTINUATION",
+      "concept_record_id": "CBA_06_CR_030",
+      "document_id": "CBA_06",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 124 Supplemental Agreement #21",
+      "reason_rejected": "The amounts relate to retiree medical coverage, not active-worker benefit continuation during layoff or leave.",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 124 Supplemental Agreement #21"
+    }
+  ],
+  "CBA_07": [
+    {
+      "candidate_field": "shift_premium_amount",
+      "candidate_value": "F1BN wage table rates $13.87-$15.12",
+      "concept_id": "C_PREMIUM_SHIFT",
+      "concept_record_id": "CBA_07_CR_008",
+      "document_id": "CBA_07",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 51 Section 33(H)",
+      "reason_rejected": "F1BN table rates are base wage schedule values, not the differential amount.",
+      "rejected_value_id": "CBA_07_RV_001",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 51 Section 33(H)"
+    },
+    {
+      "candidate_field": "minimum reporting pay",
+      "candidate_value": "arbitrator/reporting costs",
+      "concept_id": "C_PREMIUM_CALL_IN_REPORTING",
+      "concept_record_id": "CBA_07_CR_010",
+      "document_id": "CBA_07",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 43 Section 31(M)",
+      "reason_rejected": "Reporting costs are arbitration expenses, not employee reporting-pay guarantee.",
+      "rejected_value_id": "CBA_07_RV_002",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 43 Section 31(M)"
+    },
+    {
+      "candidate_field": "CBA-paid parental leave amount",
+      "candidate_value": "up to 6 weeks partially paid leave under Paid Family Care Leave Act",
+      "concept_id": "C_LEAVE_PARENTAL_FAMILY",
+      "concept_record_id": "CBA_07_CR_018",
+      "document_id": "CBA_07",
+      "error_class": [
+        "external_plan_value"
+      ],
+      "error_classes": [
+        "external_plan_value",
+        "insufficient_entailment"
+      ],
+      "evidence_pointer": "page 79 Appendix D",
+      "reason_rejected": "The text references statutory Family Temporary Disability Insurance/benefit brochure, not a CBA-paid parental leave entitlement.",
+      "rejected_value_id": "CBA_07_RV_003",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 79 Appendix D"
+    },
+    {
+      "candidate_field": "layoff order strength",
+      "candidate_value": "86 full-time merchandise handling positions",
+      "concept_id": "C_JOB_SECURITY_LAYOFF_ORDER",
+      "concept_record_id": "CBA_07_CR_019",
+      "document_id": "CBA_07",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object",
+        "context_only_number"
+      ],
+      "evidence_pointer": "page 12 Section 8(P)(1)",
+      "reason_rejected": "Minimum headcount is staffing/schedule context, not a layoff-order value.",
+      "rejected_value_id": "CBA_07_RV_004",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 12 Section 8(P)(1)"
+    },
+    {
+      "candidate_field": "severance amount",
+      "candidate_value": "60 days advance notice to Union",
+      "concept_id": "C_JOB_SECURITY_SEVERANCE",
+      "concept_record_id": "CBA_07_CR_021",
+      "document_id": "CBA_07",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 55 Section 35",
+      "reason_rejected": "Notice to Union before transfer/removal of work is not a severance payment formula.",
+      "rejected_value_id": "CBA_07_RV_005",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 55 Section 35"
+    },
+    {
+      "candidate_field": "dependent coverage design",
+      "candidate_value": "qualified dependents",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "concept_record_id": "CBA_07_CR_029",
+      "document_id": "CBA_07",
+      "error_class": [
+        "insufficient_entailment"
+      ],
+      "error_classes": [
+        "insufficient_entailment"
+      ],
+      "evidence_pointer": "page 36 Section 28(A)",
+      "reason_rejected": "This identifies possible dependent eligibility but not plan-design generosity, dependent premium, or coverage terms.",
+      "rejected_value_id": "CBA_07_RV_006",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 36 Section 28(A)"
+    },
+    {
+      "candidate_field": "life insurance benefit amount",
+      "candidate_value": "SECTION 28 - HEALTH AND LIFE INSURANCE PLAN",
+      "concept_id": "C_HEALTH_LIFE_AD_D",
+      "concept_record_id": "CBA_07_CR_030",
+      "document_id": "CBA_07",
+      "error_class": [
+        "insufficient_entailment"
+      ],
+      "error_classes": [
+        "insufficient_entailment"
+      ],
+      "evidence_pointer": "page 36 heading",
+      "reason_rejected": "Heading mentions life insurance but no operative amount, coverage or eligibility is stated in body text.",
+      "rejected_value_id": "CBA_07_RV_007",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 36 heading"
+    },
+    {
+      "candidate_field": "wage increase",
+      "candidate_value": "34.5 cents per mile",
+      "concept_id": "C_WAGE_INCREASES_COLA",
+      "concept_record_id": "CBA_07_CR_034",
+      "document_id": "CBA_07",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 32 Section 23",
+      "reason_rejected": "Mileage allowance is reimbursement, not wage increase/COLA.",
+      "rejected_value_id": "CBA_07_RV_008",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 32 Section 23"
+    }
+  ],
+  "CBA_08": [
+    {
+      "candidate_field": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION.premium_or_cost_sharing",
+      "candidate_value": 28.5,
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION",
+      "document_id": "CBA_08",
+      "downstream_risk_if_accepted": "Would conflate wages with health generosity.",
+      "error_class": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "Article VII standard payment, page 14",
+      "reason_rejected": "This is the base wage rate, not a medical insurance premium, employer health contribution, deductible, or copay.",
+      "source_pointer": "Article VII standard payment, page 14"
+    },
+    {
+      "candidate_field": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION.employer_contribution_amount",
+      "candidate_value": 2.38,
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION",
+      "document_id": "CBA_08",
+      "downstream_risk_if_accepted": "Would understate or mislabel health funding and distort pension/health comparison.",
+      "error_class": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "Article VII standard payment, page 14",
+      "reason_rejected": "This is the pension contribution, not the health/welfare contribution.",
+      "source_pointer": "Article VII standard payment, page 14"
+    },
+    {
+      "candidate_field": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION.cost_sharing_terms",
+      "candidate_value": 1,
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION",
+      "document_id": "CBA_08",
+      "downstream_risk_if_accepted": "Would create false worker burden.",
+      "error_class": [
+        "insufficient_entailment"
+      ],
+      "evidence_pointer": "Section 33.30 liquidated damages, page 58",
+      "reason_rejected": "One percent per month is an employer delinquency penalty, not worker medical cost-sharing.",
+      "source_pointer": "Section 33.30 liquidated damages, page 58"
+    },
+    {
+      "candidate_field": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN.medical_coverage_cap",
+      "candidate_value": [
+        5000,
+        15000,
+        30000,
+        45000
+      ],
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "document_id": "CBA_08",
+      "downstream_risk_if_accepted": "Would badly overstate or misclassify benefit generosity.",
+      "error_class": [
+        "insufficient_entailment"
+      ],
+      "evidence_pointer": "Section 33.32 payment bond, pages 62-63",
+      "reason_rejected": "Bond amounts secure payment of wages, contributions, and deducted dues; they are not medical coverage caps.",
+      "source_pointer": "Section 33.32 payment bond, pages 62-63"
+    },
+    {
+      "candidate_field": "C_WAGE_BASE_RATE.base_wage_rate",
+      "candidate_value": [
+        0.12,
+        0.16
+      ],
+      "concept_id": "C_WAGE_BASE_RATE",
+      "document_id": "CBA_08",
+      "downstream_risk_if_accepted": "Would corrupt base-wage measurement.",
+      "error_class": [
+        "insufficient_entailment"
+      ],
+      "evidence_pointer": "Section 33.8 shift differentials, page 50",
+      "reason_rejected": "These are shift premiums, not base wage rates.",
+      "source_pointer": "Section 33.8 shift differentials, page 50"
+    }
+  ],
+  "CBA_09": [
+    {
+      "candidate_value": "dental, vision, life, AD&D, disability, legal, savings, retirement",
+      "candidate_field": "active medical plan terms",
+      "source_pointer": "GP_027 / Appendix C benefits and GP_030 University benefits side letter",
+      "reason_rejected": "These are ancillary or external-plan benefit categories, not active medical plan design terms.",
+      "error_classes": [
+        "wrong_object",
+        "external_plan_value"
+      ]
+    },
+    {
+      "candidate_value": "2024 salary step table amounts",
+      "candidate_field": "wage increases / COLA",
+      "source_pointer": "GP_025 / Appendix A salary tables",
+      "reason_rejected": "The value is a raw table number and needs normalization before it can be used as a bridge score.",
+      "error_classes": [
+        "ocr_or_table_fragment",
+        "formula_component_not_entitlement"
+      ]
+    },
+    {
+      "candidate_value": "travel time",
+      "candidate_field": "overtime multiplier",
+      "source_pointer": "GP_013 / Article 12 hours of work",
+      "reason_rejected": "Travel time is a schedule/pay component, not the overtime multiplier itself.",
+      "error_classes": [
+        "wrong_object",
+        "formula_component_not_entitlement"
+      ]
+    },
+    {
+      "candidate_value": "personal holiday at some medical centers",
+      "candidate_field": "holiday count",
+      "source_pointer": "GP_012 / Article 11 holidays",
+      "reason_rejected": "This is a subgroup-specific holiday branch, not a document-wide holiday count.",
+      "error_classes": [
+        "subgroup_specific_value",
+        "insufficient_entailment"
+      ]
+    },
+    {
+      "candidate_value": "hours of work - overtime compensation for alternative schedules",
+      "candidate_field": "regular overtime rate",
+      "source_pointer": "GP_028 / heading-only side letter",
+      "reason_rejected": "The side letter is only a heading in the page shard and does not support a stable entitlement value.",
+      "error_classes": [
+        "insufficient_entailment",
+        "context_only_number"
+      ]
+    },
+    {
+      "document_id": "CBA_09",
+      "rejected_value_id": "CBA_09_agentB_RV_001",
+      "concept_record_id": "CBA_09_agentB_HEALTH_002",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "candidate_value": "Medical Program list of HMOs, fee-for-service plans, and CORE major medical plan",
+      "candidate_field": "active_medical_plan_design_score",
+      "source_pointer": "page_179 lines 4-11",
+      "reason_rejected": "Benefit-category and plan-option presence alone does not provide CBA-contained deductibles, copays, coinsurance, OOP limits, or comparable design terms required for v0.4 plan-design scoring.",
+      "error_classes": [
+        "insufficient_entailment",
+        "external_plan_value"
+      ]
+    },
+    {
+      "document_id": "CBA_09",
+      "rejected_value_id": "CBA_09_agentB_RV_002",
+      "concept_record_id": "CBA_09_agentB_HEALTH_002",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "candidate_value": "12 workweeks health plan coverage continuation during Family Care and/or Medical Leave",
+      "candidate_field": "active_medical_plan_design_generosity",
+      "source_pointer": "page_017 lines 40-50; page_053 lines 47-56",
+      "reason_rejected": "This is benefit-continuation timing during leave, not medical plan design cost-sharing or service coverage.",
+      "error_classes": [
+        "wrong_object"
+      ]
+    },
+    {
+      "document_id": "CBA_09",
+      "rejected_value_id": "CBA_09_agentB_RV_003",
+      "concept_record_id": "CBA_09_agentB_HEALTH_005",
+      "concept_id": "C_HEALTH_LIFE_AD_D",
+      "candidate_value": "$100,000 accidental death and scheduled dismemberment insurance for official University business travel",
+      "candidate_field": "active_medical_plan_design_cap_or_oop_maximum",
+      "source_pointer": "page_179 lines 33-35",
+      "reason_rejected": "Business travel accident insurance is a life/AD&D benefit, not a medical coverage cap or out-of-pocket maximum.",
+      "error_classes": [
+        "wrong_object"
+      ]
+    },
+    {
+      "document_id": "CBA_09",
+      "rejected_value_id": "CBA_09_agentB_RV_004",
+      "concept_record_id": "CBA_09_agentB_HEALTH_005",
+      "concept_id": "C_HEALTH_LIFE_AD_D",
+      "candidate_value": "one month regular salary death payment after employee death",
+      "candidate_field": "active_medical_plan_design_cap",
+      "source_pointer": "page_181 lines 18-25",
+      "reason_rejected": "Death payment is a survivor/death benefit, not active medical cost-sharing or plan design.",
+      "error_classes": [
+        "wrong_object"
+      ]
+    },
+    {
+      "document_id": "CBA_09",
+      "rejected_value_id": "CBA_09_agentB_RV_005",
+      "concept_record_id": "CBA_09_agentB_HEALTH_006",
+      "concept_id": "C_HEALTH_DISABILITY_INCOME",
+      "candidate_value": "temporary disability payments and extended sick leave terms in Article 44",
+      "candidate_field": "short_term_disability_insurance_formula",
+      "source_pointer": "page_094 lines 1-50",
+      "reason_rejected": "Article 44 concerns work-incurred injury/illness leave, workers' compensation, and sick leave supplementation, not the short-term disability insurance plan listed in Appendix C.",
+      "error_classes": [
+        "wrong_object",
+        "insufficient_entailment"
+      ]
+    },
+    {
+      "document_id": "CBA_09",
+      "rejected_value_id": "CBA_09_agentB_RV_006",
+      "concept_record_id": "CBA_09_agentB_HEALTH_001",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION",
+      "candidate_value": "7.5% Safe Harbor contributions to DC Plan Pretax Account",
+      "candidate_field": "active_medical_worker_premium_share",
+      "source_pointer": "page_180 lines 39-42",
+      "reason_rejected": "The 7.5% value is a retirement/Social Security replacement contribution, not a medical premium share.",
+      "error_classes": [
+        "wrong_object"
+      ]
+    }
+  ],
+  "CBA_10": [
+    {
+      "candidate_field": "worker premium share percentage",
+      "candidate_value": "unspecified General Court percentage",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION",
+      "concept_record_id": "CBA_10_CR_001",
+      "document_id": "CBA_10",
+      "error_class": [
+        "insufficient_entailment"
+      ],
+      "error_classes": [
+        "insufficient_entailment"
+      ],
+      "evidence_pointer": "page 44 Article 13",
+      "reason_rejected": "The text states the percentage source but not the actual employee/employer shares.",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 44 Article 13"
+    },
+    {
+      "candidate_field": "medical plan design generosity",
+      "candidate_value": "Health and Welfare Fund trustee discretion",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "concept_record_id": "CBA_10_CR_002",
+      "document_id": "CBA_10",
+      "error_class": [
+        "external_plan_value"
+      ],
+      "error_classes": [
+        "external_plan_value",
+        "insufficient_entailment"
+      ],
+      "evidence_pointer": "page 45 Article 13A.1",
+      "reason_rejected": "Trustee discretion establishes external governance, not CBA-contained plan design terms.",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 45 Article 13A.1"
+    },
+    {
+      "candidate_field": "base wage amount",
+      "candidate_value": "empty Appendix A/B page shards",
+      "concept_id": "C_WAGE_BASE_RATE",
+      "concept_record_id": "CBA_10_CR_003",
+      "document_id": "CBA_10",
+      "error_class": [
+        "ocr_or_table_fragment"
+      ],
+      "error_classes": [
+        "ocr_or_table_fragment",
+        "insufficient_entailment"
+      ],
+      "evidence_pointer": "pages 76-94",
+      "reason_rejected": "The required wage table values are not present in the supplied text shards.",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "pages 76-94"
+    },
+    {
+      "candidate_field": "severance formula",
+      "candidate_value": "10 working days notice",
+      "concept_id": "C_JOB_SECURITY_SEVERANCE",
+      "concept_record_id": "CBA_10_CR_025",
+      "document_id": "CBA_10",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 55 Section 18.1B",
+      "reason_rejected": "Advance layoff notice is a layoff-order field, not severance or income-security payment.",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 55 Section 18.1B"
+    },
+    {
+      "candidate_field": "wage increase",
+      "candidate_value": "$0.75 per hour",
+      "concept_id": "C_WAGE_INCREASES_COLA",
+      "concept_record_id": "CBA_10_CR_005",
+      "document_id": "CBA_10",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 19 Section 7.7",
+      "reason_rejected": "The $0.75 amount is a shift differential, not an across-the-board wage increase.",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 19 Section 7.7"
+    },
+    {
+      "candidate_field": "overtime premium multiplier",
+      "candidate_value": "3%, 3%, 2.5%",
+      "concept_id": "C_PREMIUM_OVERTIME",
+      "concept_record_id": "CBA_10_CR_006",
+      "document_id": "CBA_10",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 40 Section 12.1",
+      "reason_rejected": "The percentages are salary-rate increases, not overtime multipliers.",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 40 Section 12.1"
+    },
+    {
+      "candidate_field": "specialty premium",
+      "candidate_value": "$0.25/$0.27 per mile",
+      "concept_id": "C_PREMIUM_RESPONSIBILITY_SPECIALTY",
+      "concept_record_id": "CBA_10_CR_010",
+      "document_id": "CBA_10",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 38 Section 11.1",
+      "reason_rejected": "Mileage reimbursement is an expense reimbursement, not premium pay or base wage.",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 38 Section 11.1"
+    },
+    {
+      "candidate_field": "medical plan coverage cap",
+      "candidate_value": "20% sick leave payout",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "concept_record_id": "CBA_10_CR_002",
+      "document_id": "CBA_10",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 23 Section 8.1N",
+      "reason_rejected": "Sick-leave retirement/death payout is a leave cashout term, not a medical plan cap.",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 23 Section 8.1N"
+    },
+    {
+      "candidate_field": "health/welfare contribution amount",
+      "candidate_value": "Section 13A.2 contribution amount",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION",
+      "concept_record_id": "CBA_10_CR_001",
+      "document_id": "CBA_10",
+      "error_class": [
+        "insufficient_entailment"
+      ],
+      "error_classes": [
+        "insufficient_entailment",
+        "ocr_or_table_fragment"
+      ],
+      "evidence_pointer": "page 45 Section 13A.4 references Section 13A.2",
+      "reason_rejected": "Section 13A.2 is referenced but not present in the supplied text, so no contribution amount is entailed.",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 45 Section 13A.4 references Section 13A.2"
+    },
+    {
+      "candidate_field": "worker grievance remedy amount",
+      "candidate_value": "$45,000 ADR fund",
+      "concept_id": "C_GRIEVANCE_PROCEDURE",
+      "concept_record_id": "CBA_10_CR_030",
+      "document_id": "CBA_10",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object",
+        "context_only_number"
+      ],
+      "evidence_pointer": "page 69 Section 23A.12D",
+      "reason_rejected": "The $45,000 fund pays Commonwealth share of ADR costs, not an employee remedy or benefit amount.",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 69 Section 23A.12D"
+    },
+    {
+      "candidate_field": "wage increase or training benefit amount",
+      "candidate_value": "$500,000 essential-functions study amount",
+      "concept_id": "C_TRAINING_TUITION_CERTIFICATION",
+      "concept_record_id": "CBA_10_CR_035",
+      "document_id": "CBA_10",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object",
+        "context_only_number"
+      ],
+      "evidence_pointer": "page 107 Essential Functions MOU",
+      "reason_rejected": "The $500,000 amount funds job grade placement issues from an essential-functions study, not a direct wage increase or worker training entitlement.",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 107 Essential Functions MOU"
+    },
+    {
+      "candidate_field": "dependent-care reimbursement amount",
+      "candidate_value": "federal tax deductibility",
+      "concept_id": "C_CHILD_DEPENDENT_CARE",
+      "concept_record_id": "CBA_10_CR_036",
+      "document_id": "CBA_10",
+      "error_class": [
+        "insufficient_entailment"
+      ],
+      "error_classes": [
+        "insufficient_entailment"
+      ],
+      "evidence_pointer": "page 46 Section 13C.2",
+      "reason_rejected": "Tax deductibility describes DCAP compliance, not an employer reimbursement or contribution amount.",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 46 Section 13C.2"
+    }
+  ],
+  "CBA_11": [
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_11",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "candidate_value": "$50/$100 deductible and $1/$5 prescription co-pays",
+      "candidate_field": "full active medical plan design score inputs",
+      "evidence_pointer": "page 17 Article XVI Section 1",
+      "error_class": "external_plan_value",
+      "reason_rejected": "Retained as plan-design context, but not used for scalar plan-design score because the CBA says detailed provisions are in the SPD."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_11",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION",
+      "candidate_value": "retiree employee/county premium shares by service years",
+      "candidate_field": "active-worker medical premium share",
+      "evidence_pointer": "page 18 Article XVI Section 5",
+      "error_class": "wrong_object",
+      "reason_rejected": "The table applies to retiree group coverage, not active-worker medical contribution."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_11",
+      "concept_id": "C_PREMIUM_SHIFT",
+      "candidate_value": "$.55 per hour",
+      "candidate_field": "third-shift differential",
+      "evidence_pointer": "page 16 Article XV Section 13",
+      "error_class": "ocr_or_table_fragment",
+      "reason_rejected": "Parenthetical OCR conflicts with written words 'thirty-five cents'; accepted value is conservatively treated as $0.35 with OCR flag."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_11",
+      "concept_id": "C_PREMIUM_CALL_IN_REPORTING",
+      "candidate_value": "4 hours pay",
+      "candidate_field": "document-wide call-in minimum",
+      "evidence_pointer": "page 16 Article XV Section 17",
+      "error_class": "subgroup_specific_value",
+      "reason_rejected": "Four-hour guarantee applies only to employees already receiving that guarantee; the general minimum is two hours."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_11",
+      "concept_id": "C_JOB_SECURITY_SEVERANCE",
+      "candidate_value": "accumulated vacation paid at layoff",
+      "candidate_field": "severance formula",
+      "evidence_pointer": "page 20 Article XXI Section 8",
+      "error_class": "wrong_object",
+      "reason_rejected": "The value is accrued vacation payout, not severance or layoff allowance."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_11",
+      "concept_id": "C_LEAVE_PERSONAL_MISC",
+      "candidate_value": "26 paid days",
+      "candidate_field": "paid union leave amount",
+      "evidence_pointer": "page 9 Article VII(e)",
+      "error_class": "wrong_object",
+      "reason_rejected": "Association officer/delegate leave is expressly not paid by the County; it may be charged to accrued leave."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_11",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "candidate_value": "$100/$150/$200 flexible spending account deposits",
+      "candidate_field": "active medical plan design generosity",
+      "evidence_pointer": "page 21 Article XXIV",
+      "error_class": "wrong_object",
+      "reason_rejected": "FSA deposits are limited optical/dental care account contributions, not active medical plan design."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_11",
+      "concept_id": "C_RETIREMENT_PENSION",
+      "candidate_value": "1/60th plan, Plan 75-G, Riders 41-J and 60-B, Plan 75-I",
+      "candidate_field": "pension generosity score",
+      "evidence_pointer": "page 18 Article XVI Section 5",
+      "error_class": [
+        "external_plan_value",
+        "insufficient_entailment"
+      ],
+      "reason_rejected": "The CBA names New York retirement plan options but does not provide enough pension formula/vesting/benefit details for a pension generosity score."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_11",
+      "concept_id": "C_ARBITRATION",
+      "candidate_value": "grievance and arbitration mechanism",
+      "candidate_field": "complete general arbitration access",
+      "evidence_pointer": "page 23 Article XXVI",
+      "error_class": "insufficient_entailment",
+      "reason_rejected": "The phrase appears in issue-specific reasonable-suspicion testing review and cannot support full general arbitration fields while Article VIII is incomplete."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_11",
+      "concept_id": "C_WAGE_BASE_RATE",
+      "candidate_value": "Appendix A-H wage schedules",
+      "candidate_field": "base wage amount",
+      "evidence_pointer": "page 6 TOC and page 16 Article XV Section 11",
+      "error_class": "ocr_or_table_fragment",
+      "reason_rejected": "The schedules are referenced as appendices but absent from supplied page shards; no base wage amounts extracted."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_11",
+      "concept_id": "C_DISCIPLINE_PROGRESSIVE",
+      "candidate_value": "drug/alcohol positive-test consequence schedule",
+      "candidate_field": "general progressive discipline system",
+      "evidence_pointer": "pages 22-23 Article XXVI",
+      "error_class": "wrong_object",
+      "reason_rejected": "The progressive schedule applies only to drug/alcohol testing policy violations and cannot substitute for the missing general discharge/discipline article."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_11",
+      "concept_id": "C_HEALTH_DENTAL",
+      "candidate_value": "Doctor and Dental Visits excluded benefits for part-time employees",
+      "candidate_field": "dental coverage generosity",
+      "evidence_pointer": "page 7 Article I regular part-time benefits list",
+      "error_class": "insufficient_entailment",
+      "reason_rejected": "The phrase appears in an excluded-benefits list for regular part-time employees, not as operative dental coverage terms."
+    }
+  ],
+  "CBA_12": [
+    {
+      "candidate_field": "medical_plan_benefit_amount",
+      "candidate_value": [
+        235,
+        270,
+        275,
+        300
+      ],
+      "concept_id": "C_UNKNOWN_REQUIRES_REVIEW",
+      "document_id": "CBA_12",
+      "error_class": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "Article 21 Section 1.c",
+      "reason_rejected": "Employer contribution amounts to the PEBTF fund, not the medical plan benefit amount or worker premium share.",
+      "source_pointer": "Article 21 Section 1.c"
+    },
+    {
+      "candidate_field": "medical_deductible_or_oop_cost",
+      "candidate_value": [
+        0.5,
+        1.0
+      ],
+      "concept_id": "C_UNKNOWN_REQUIRES_REVIEW",
+      "document_id": "CBA_12",
+      "error_class": [
+        "insufficient_entailment"
+      ],
+      "evidence_pointer": "Article 21 Section 3.a-c",
+      "reason_rejected": "Premium-sharing rates, not deductibles or out-of-pocket caps.",
+      "source_pointer": "Article 21 Section 3.a-c"
+    },
+    {
+      "candidate_field": "medical_out_of_pocket_maximum",
+      "candidate_value": 40000,
+      "concept_id": "C_UNKNOWN_REQUIRES_REVIEW",
+      "document_id": "CBA_12",
+      "error_class": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "Article 20 Section 1",
+      "reason_rejected": "A life-insurance face amount, not a medical spending cap.",
+      "source_pointer": "Article 20 Section 1"
+    },
+    {
+      "candidate_field": "health_plan_deductible_or_medical_cap",
+      "candidate_value": 10000,
+      "concept_id": "C_UNKNOWN_REQUIRES_REVIEW",
+      "document_id": "CBA_12",
+      "error_class": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "Article 20 Section 3",
+      "reason_rejected": "A work-related accidental death benefit, not a health-plan cost-sharing term.",
+      "source_pointer": "Article 20 Section 3"
+    }
+  ],
+  "CBA_13": [
+    {
+      "document_id": "CBA_13",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION",
+      "candidate_value": "$818 monthly composite",
+      "candidate_field": "worker_premium_share",
+      "evidence_pointer": "page 13 Article 12 Section 1a",
+      "error_class": [
+        "wrong_object",
+        "context_only_number"
+      ],
+      "reason_rejected": "The $818 amount is the employer contribution/current statewide monthly composite cost context for eligible full-time employees, not a worker premium share or medical plan design value."
+    },
+    {
+      "document_id": "CBA_13",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "candidate_value": "same level of benefits for non-preferred provider as preferred provider",
+      "candidate_field": "full_active_medical_plan_design_score",
+      "evidence_pointer": "page 13 Article 12 Section 2 PEBB Petition",
+      "error_class": [
+        "external_plan_value",
+        "subgroup_specific_value",
+        "insufficient_entailment"
+      ],
+      "reason_rejected": "This is a petitioned PEBB network parity item for employees in certain counties, not a complete CBA-contained plan design with cost-sharing and coverage terms."
+    },
+    {
+      "document_id": "CBA_13",
+      "concept_id": "C_WAGE_INCREASES_COLA",
+      "candidate_value": "6% employee contribution pickup",
+      "candidate_field": "scheduled_wage_increase",
+      "evidence_pointer": "pages 13-14 Article 13 Sections 1-3",
+      "error_class": [
+        "wrong_object",
+        "formula_component_not_entitlement"
+      ],
+      "reason_rejected": "The 6% amount is a PERS/IAP employee contribution paid by the State, with a contingent salary substitute if law changes; it is not an ordinary scheduled wage increase for the current wage-increase record."
+    },
+    {
+      "document_id": "CBA_13",
+      "concept_id": "C_PREMIUM_SHIFT",
+      "candidate_value": "5% of base pay",
+      "candidate_field": "shift_differential_amount",
+      "evidence_pointer": "page 18 Article 16 Section 3 Institution Staff Deployment Differential",
+      "error_class": "wrong_object",
+      "reason_rejected": "The 5% rate is an ISD/staff-relief differential in lieu of other penalty pay, not the Article 16 night shift cents-per-hour differential."
+    },
+    {
+      "document_id": "CBA_13",
+      "concept_id": "C_LEAVE_PERSONAL_MISC",
+      "candidate_value": "100 hours leave with pay",
+      "candidate_field": "document_wide_personal_leave_amount",
+      "evidence_pointer": "page 7 Article 2 Section 2 bargaining team leave",
+      "error_class": [
+        "wrong_object",
+        "subgroup_specific_value"
+      ],
+      "reason_rejected": "The 100 hours applies to designated bargaining-team representatives for actual negotiations and may be increased by mutual agreement; it is not a document-wide personal leave entitlement."
+    },
+    {
+      "document_id": "CBA_13",
+      "concept_id": "C_JOB_SECURITY_SEVERANCE",
+      "candidate_value": "15 days written layoff notice",
+      "candidate_field": "severance_formula",
+      "evidence_pointer": "page 44 Article 44 Section 1",
+      "error_class": "wrong_object",
+      "reason_rejected": "The 15-day term is advance layoff notice, not severance or separation pay."
+    },
+    {
+      "document_id": "CBA_13",
+      "concept_id": "C_JOB_SECURITY_SEVERANCE",
+      "candidate_value": "accrued compensatory time paid before demotion in lieu of layoff",
+      "candidate_field": "severance_payment",
+      "evidence_pointer": "page 45 Article 44 Section 6",
+      "error_class": "wrong_object",
+      "reason_rejected": "Payment of already-accrued compensatory time at the prior rate is not a severance formula or additional income-security benefit."
+    },
+    {
+      "document_id": "CBA_13",
+      "concept_id": "C_LEAVE_PARENTAL_FAMILY",
+      "candidate_value": "all rights under FMLA/OFLA",
+      "candidate_field": "contractual_paid_family_leave_duration",
+      "evidence_pointer": "page 41 Article 35 Family Leave",
+      "error_class": [
+        "external_plan_value",
+        "insufficient_entailment"
+      ],
+      "reason_rejected": "The article incorporates statutory rights and requirements but does not state a CBA-added paid duration, wage replacement, or contractual increment."
+    },
+    {
+      "document_id": "CBA_13",
+      "concept_id": "C_WAGE_BASE_RATE",
+      "candidate_value": "2633-4408",
+      "candidate_field": "scalar_base_wage_generosity_score",
+      "evidence_pointer": "page 62 Comp Plan table",
+      "error_class": [
+        "ocr_or_table_fragment",
+        "insufficient_entailment"
+      ],
+      "reason_rejected": "The OCR table values are usable wage parameters with classification/date/step context, but cannot by themselves support a scalar generosity score without table validation and central normalization."
+    }
+  ],
+  "CBA_14": [
+    {
+      "candidate_field": "medical plan design generosity",
+      "candidate_value": "$479.00 per month",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "concept_record_id": "CBA_14_CR_002",
+      "document_id": "CBA_14",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 120, Appendix 2-1; page 130, Appendix 4 item 4",
+      "reason_rejected": "The value is a District contribution/cafeteria benefit amount, not a deductible, copay, coinsurance, OOP maximum, covered-service rule, or other plan-design term.",
+      "source_pointer": "page 120, Appendix 2-1; page 130, Appendix 4 item 4"
+    },
+    {
+      "candidate_field": "worker premium share or medical plan design",
+      "candidate_value": "$160 per month waiver payment",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "concept_record_id": "CBA_14_CR_002",
+      "document_id": "CBA_14",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 120, Appendix 2-2",
+      "reason_rejected": "The waiver payment is an opt-out/taxable-income amount for teachers waiving medical insurance; it does not state worker premium burden or plan design for enrolled teachers.",
+      "source_pointer": "page 120, Appendix 2-2"
+    },
+    {
+      "candidate_field": "document-wide active medical contribution",
+      "candidate_value": "$239.50 per month",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION",
+      "concept_record_id": "CBA_14_CR_001",
+      "document_id": "CBA_14",
+      "error_class": [
+        "subgroup_specific_value"
+      ],
+      "error_classes": [
+        "subgroup_specific_value"
+      ],
+      "evidence_pointer": "page 26, Article 10-2-1-G",
+      "reason_rejected": "The amount applies only to part-time non-contracted teachers, not the full-time main covered group; it is retained as subgroup variation, not document-wide contribution.",
+      "source_pointer": "page 26, Article 10-2-1-G"
+    },
+    {
+      "candidate_field": "top salary or wage score input",
+      "candidate_value": "$70,267",
+      "concept_id": "C_WAGE_BASE_RATE",
+      "concept_record_id": "CBA_14_CR_005",
+      "document_id": "CBA_14",
+      "error_class": [
+        "ocr_or_table_fragment"
+      ],
+      "error_classes": [
+        "ocr_or_table_fragment",
+        "insufficient_entailment"
+      ],
+      "evidence_pointer": "page 116, Appendix 1 salary table",
+      "reason_rejected": "The amount is visible in an OCR-fragile table but row/step context is incomplete; it is retained only as a salary-table parameter, not used for scalar scoring.",
+      "source_pointer": "page 116, Appendix 1 salary table"
+    },
+    {
+      "candidate_field": "wage increase",
+      "candidate_value": "$1.3 million",
+      "concept_id": "C_WAGE_INCREASES_COLA",
+      "concept_record_id": "CBA_14_CR_007",
+      "document_id": "CBA_14",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 130, Appendix 4 item 5",
+      "reason_rejected": "The amount funds class-size relief at the elementary level; it is a workload/resource amount, not an individual wage increase.",
+      "source_pointer": "page 130, Appendix 4 item 5"
+    },
+    {
+      "candidate_field": "experience-step progression",
+      "candidate_value": "3.5% of step 1 level 1 salary",
+      "concept_id": "C_WAGE_PROGRESSION",
+      "concept_record_id": "CBA_14_CR_006",
+      "document_id": "CBA_14",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 113, Article 44-6-9",
+      "reason_rejected": "The value is a doctorate/National Board supplement, not movement through experience steps or educational levels; it is routed to premium/supplement context, not wage progression.",
+      "source_pointer": "page 113, Article 44-6-9"
+    },
+    {
+      "candidate_field": "sick leave waiting period",
+      "candidate_value": "120 calendar day waiting period",
+      "concept_id": "C_LEAVE_SICK",
+      "concept_record_id": "CBA_14_CR_009",
+      "document_id": "CBA_14",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 87, Article 35-2-3-4",
+      "reason_rejected": "The 120-day waiting period belongs to Long-Term Disability Insurance becoming effective, not to sick-leave accrual or sick-leave entitlement.",
+      "source_pointer": "page 87, Article 35-2-3-4"
+    },
+    {
+      "candidate_field": "independent paid bereavement bank",
+      "candidate_value": "up to five bereavement days",
+      "concept_id": "C_LEAVE_PERSONAL_MISC",
+      "concept_record_id": "CBA_14_CR_011",
+      "document_id": "CBA_14",
+      "error_class": [
+        "formula_component_not_entitlement"
+      ],
+      "error_classes": [
+        "formula_component_not_entitlement"
+      ],
+      "evidence_pointer": "page 88, Article 35-6-1",
+      "reason_rejected": "The bereavement days are deducted from personal leave or accrued sick leave, so they are not an additive independent paid-leave bank.",
+      "source_pointer": "page 88, Article 35-6-1"
+    },
+    {
+      "candidate_field": "employer-paid benefit continuation",
+      "candidate_value": "full cost of fringe benefit programs",
+      "concept_id": "C_JOB_SECURITY_BENEFIT_CONTINUATION",
+      "concept_record_id": "CBA_14_CR_018",
+      "document_id": "CBA_14",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 102, Article 39-11-3; page 92, Article 35-10-6",
+      "reason_rejected": "The CBA gives continuation participation only if the teacher contributes the full cost; it does not support an employer-paid continuation field.",
+      "source_pointer": "page 102, Article 39-11-3; page 92, Article 35-10-6"
+    },
+    {
+      "candidate_field": "pension benefit formula",
+      "candidate_value": "$9 million",
+      "concept_id": "C_RETIREMENT_PENSION",
+      "concept_record_id": "CBA_14_CR_020",
+      "document_id": "CBA_14",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 108, Article 42-1",
+      "reason_rejected": "The $9 million is a budget allocation for the supplemental retirement program, not an individual pension benefit, accrual formula, vesting rule, or contribution rate.",
+      "source_pointer": "page 108, Article 42-1"
+    },
+    {
+      "candidate_field": "teacher wage or individual workload payment",
+      "candidate_value": "$1.3 million",
+      "concept_id": "C_WORKLOAD_CLASS_SIZE_STAFFING",
+      "concept_record_id": "CBA_14_CR_025",
+      "document_id": "CBA_14",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 45, Article 18-3-2; page 130, Appendix 4 item 5",
+      "reason_rejected": "The amount is a class-size relief fund, not an individual teacher payment or wage increase.",
+      "source_pointer": "page 45, Article 18-3-2; page 130, Appendix 4 item 5"
+    }
+  ],
+  "CBA_15": [
+    {
+      "candidate_field": "C_WAGE_INCREASES_COLA.scheduled_increase",
+      "candidate_value": 95,
+      "concept_id": "C_WAGE_INCREASES_COLA",
+      "document_id": "CBA_15",
+      "error_class": [
+        "wrong_object",
+        "context_only_number"
+      ],
+      "error_classes": [
+        "wrong_object",
+        "context_only_number"
+      ],
+      "evidence_pointer": "Article 23.A.2.d HMO premium share",
+      "reason_rejected": "The 95 percent figure is a health premium share, not a wage increase.",
+      "source_pointer": "Article 23.A.2.d HMO premium share"
+    },
+    {
+      "candidate_field": "C_WAGE_INCREASES_COLA.scheduled_increase",
+      "candidate_value": 90,
+      "concept_id": "C_WAGE_INCREASES_COLA",
+      "document_id": "CBA_15",
+      "error_class": [
+        "wrong_object",
+        "context_only_number"
+      ],
+      "error_classes": [
+        "wrong_object",
+        "context_only_number"
+      ],
+      "evidence_pointer": "Article 23.A.2.e POS premium share",
+      "reason_rejected": "The 90 percent figure is a POS health premium share, not a wage adjustment.",
+      "source_pointer": "Article 23.A.2.e POS premium share"
+    },
+    {
+      "candidate_field": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN.out_of_pocket_max",
+      "candidate_value": 1000000,
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "document_id": "CBA_15",
+      "error_class": [
+        "wrong_object",
+        "insufficient_entailment"
+      ],
+      "error_classes": [
+        "wrong_object",
+        "insufficient_entailment"
+      ],
+      "evidence_pointer": "Article 23.D general liability policy",
+      "reason_rejected": "The liability limit belongs to insurance coverage, not to active medical plan cost-sharing.",
+      "source_pointer": "Article 23.D general liability policy"
+    },
+    {
+      "candidate_field": "C_LEAVE_PERSONAL_MISC.personal_leave_cap",
+      "candidate_value": 2000,
+      "concept_id": "C_LEAVE_PERSONAL_MISC",
+      "document_id": "CBA_15",
+      "error_class": [
+        "wrong_object",
+        "context_only_number"
+      ],
+      "error_classes": [
+        "wrong_object",
+        "context_only_number"
+      ],
+      "evidence_pointer": "Article 20.A.5.d council business bank",
+      "reason_rejected": "The 2,000 hours are a council-business leave bank, not a personal-leave entitlement.",
+      "source_pointer": "Article 20.A.5.d council business bank"
+    },
+    {
+      "candidate_field": "C_WAGE_INCREASES_COLA.lump_sum_bonus",
+      "candidate_value": 50,
+      "concept_id": "C_WAGE_INCREASES_COLA",
+      "document_id": "CBA_15",
+      "error_class": [
+        "wrong_object",
+        "formula_component_not_entitlement"
+      ],
+      "error_classes": [
+        "wrong_object",
+        "formula_component_not_entitlement"
+      ],
+      "evidence_pointer": "Article 26.C tuition reimbursement",
+      "reason_rejected": "The 50 percent figure is tuition reimbursement, not a wage bonus or COLA.",
+      "source_pointer": "Article 26.C tuition reimbursement"
+    }
+  ],
+  "CBA_16": [
+    {
+      "candidate_field": "medical coverage cap or out-of-pocket maximum",
+      "candidate_value": "annual salary or $7,500, whichever greater",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "concept_record_id": "CBA_16_CR_002",
+      "document_id": "CBA_16",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 54 Article XIX.B.1 life insurance",
+      "reason_rejected": "This amount is a life/AD&D face amount, not an active medical plan-design cap.",
+      "rejected_value_id": "CBA_16_RV_001",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 54 Article XIX.B.1 life insurance"
+    },
+    {
+      "candidate_field": "medical benefit maximum",
+      "candidate_value": "$10,000 term life and $10,000 AD&D",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "concept_record_id": "CBA_16_CR_002",
+      "document_id": "CBA_16",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 53 Article XIX.A.9 alternative to health insurance",
+      "reason_rejected": "The values are life/AD&D components of a voluntary alternative package, not medical plan generosity fields.",
+      "rejected_value_id": "CBA_16_RV_002",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 53 Article XIX.A.9 alternative to health insurance"
+    },
+    {
+      "candidate_field": "active medical employer contribution amount",
+      "candidate_value": "$150 per year",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION",
+      "concept_record_id": "CBA_16_CR_001",
+      "document_id": "CBA_16",
+      "error_class": [
+        "insufficient_entailment"
+      ],
+      "error_classes": [
+        "insufficient_entailment",
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 59 Article XIX.O multi-option insurance program",
+      "reason_rejected": "The $150 is a multi-option insurance allowance usable for several ancillary coverages; it is not the main active medical premium contribution rule.",
+      "rejected_value_id": "CBA_16_RV_003",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 59 Article XIX.O multi-option insurance program"
+    },
+    {
+      "candidate_field": "wage increase formula",
+      "candidate_value": "2/24 of regular salary",
+      "concept_id": "C_WAGE_INCREASES_COLA",
+      "concept_record_id": "CBA_16_CR_005",
+      "document_id": "CBA_16",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object",
+        "formula_component_not_entitlement"
+      ],
+      "evidence_pointer": "page 47 Article XVIII.E.2 deferred pay",
+      "reason_rejected": "The fraction describes deferred pay installment timing, not a wage increase or COLA amount.",
+      "rejected_value_id": "CBA_16_RV_004",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 47 Article XVIII.E.2 deferred pay"
+    },
+    {
+      "candidate_field": "wage increase amount",
+      "candidate_value": "$50 per day",
+      "concept_id": "C_WAGE_INCREASES_COLA",
+      "concept_record_id": "CBA_16_CR_005",
+      "document_id": "CBA_16",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 46 Article XVII.P new-teacher orientation stipend",
+      "reason_rejected": "The amount is a stipend for required orientation attendance, not a scheduled wage increase.",
+      "rejected_value_id": "CBA_16_RV_005",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 46 Article XVII.P new-teacher orientation stipend"
+    },
+    {
+      "candidate_field": "general overtime multiplier",
+      "candidate_value": "1.10 times regular salary",
+      "concept_id": "C_PREMIUM_OVERTIME",
+      "concept_record_id": "CBA_16_CR_006",
+      "document_id": "CBA_16",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object",
+        "subgroup_specific_value"
+      ],
+      "evidence_pointer": "page 99 Appendix G.A.6 irregular schedule premium",
+      "reason_rejected": "The multiplier applies to irregular night/weekend/split schedules, not a general overtime threshold.",
+      "rejected_value_id": "CBA_16_RV_006",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 99 Appendix G.A.6 irregular schedule premium"
+    },
+    {
+      "candidate_field": "ordinary sick leave accrual cap",
+      "candidate_value": "100 paid sick leave days",
+      "concept_id": "C_LEAVE_SICK",
+      "concept_record_id": "CBA_16_CR_015",
+      "document_id": "CBA_16",
+      "error_class": [
+        "subgroup_specific_value"
+      ],
+      "error_classes": [
+        "subgroup_specific_value",
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 58 Article XIX.K.7 sick leave bank",
+      "reason_rejected": "The value is a conditional sick leave bank maximum for participating members after own leave is exhausted, not ordinary annual accrual or a cap.",
+      "rejected_value_id": "CBA_16_RV_007",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 58 Article XIX.K.7 sick leave bank"
+    },
+    {
+      "candidate_field": "severance cap or severance duration",
+      "candidate_value": "3 years",
+      "concept_id": "C_JOB_SECURITY_SEVERANCE",
+      "concept_record_id": "CBA_16_CR_023",
+      "document_id": "CBA_16",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 38 Article XIII.C.6 recall list duration",
+      "reason_rejected": "Three years is the duration of recall eligibility, not a severance payment or income-protection cap.",
+      "rejected_value_id": "CBA_16_RV_008",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 38 Article XIII.C.6 recall list duration"
+    },
+    {
+      "candidate_field": "vacation or annual leave entitlement",
+      "candidate_value": "6 paid holidays / 9 paid holidays",
+      "concept_id": "C_LEAVE_VACATION",
+      "concept_record_id": "CBA_16_CR_018",
+      "document_id": "CBA_16",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 44 Article XVII.C-D holidays",
+      "reason_rejected": "Holiday counts are separate from annual/vacation leave and cannot populate vacation entitlement fields.",
+      "rejected_value_id": "CBA_16_RV_009",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 44 Article XVII.C-D holidays"
+    },
+    {
+      "candidate_field": "early-retirement annuity amount",
+      "candidate_value": "35%-75% of daily rate times accumulated sick leave",
+      "concept_id": "C_RETIREMENT_INCENTIVE",
+      "concept_record_id": "CBA_16_CR_040",
+      "document_id": "CBA_16",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 55 Article XIX.I terminal pay",
+      "reason_rejected": "Terminal sick-leave payout is a separate retirement/leave payout formula, not the Article XIX.M early-retirement annuity formula.",
+      "rejected_value_id": "CBA_16_RV_010",
+      "schema_version": "rejected_value_v0_1",
+      "source_pointer": "page 55 Article XIX.I terminal pay"
+    }
+  ],
+  "CBA_17": [
+    {
+      "document_id": "CBA_17",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION",
+      "candidate_value": 2500,
+      "candidate_field": "medical out-of-pocket maximum or cap",
+      "evidence_pointer": "Article 27-2.3, page 36",
+      "error_class": "wrong_object",
+      "reason_rejected": "The $2,500 amounts are life insurance and death/dismemberment face amounts, not medical contribution or medical plan-design fields."
+    },
+    {
+      "document_id": "CBA_17",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION",
+      "candidate_value": "12 months",
+      "candidate_field": "medical waiting period",
+      "evidence_pointer": "Article 27-2.1:1, page 35",
+      "error_class": "wrong_object",
+      "reason_rejected": "The twelve-month phrase describes premium coverage continuity for full-school-year employees, not a waiting period."
+    },
+    {
+      "document_id": "CBA_17",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "candidate_value": "full premium",
+      "candidate_field": "deductible, copay, coinsurance, or OOP maximum",
+      "evidence_pointer": "Article 27-2.1, page 35",
+      "error_class": "wrong_object",
+      "reason_rejected": "Full premium payment is an employer contribution/cost-sharing term, not a medical plan-design cost-sharing amount."
+    },
+    {
+      "document_id": "CBA_17",
+      "concept_id": "C_WAGE_BASE_RATE",
+      "candidate_value": 2500,
+      "candidate_field": "base wage or salary",
+      "evidence_pointer": "Article 27-2.3, page 36",
+      "error_class": "wrong_object",
+      "reason_rejected": "The amount is a life/AD&D insurance face amount, not a wage rate."
+    },
+    {
+      "document_id": "CBA_17",
+      "concept_id": "C_WAGE_PROGRESSION",
+      "candidate_value": "September 1, 1979 incremental increases will be granted",
+      "candidate_field": "automatic step progression speed",
+      "evidence_pointer": "Schedules A-D, pages 54-57",
+      "error_class": "insufficient_entailment",
+      "reason_rejected": "The phrase supports wage-increase/effective-date context but does not by itself specify an individual automatic movement rule or progression speed."
+    },
+    {
+      "document_id": "CBA_17",
+      "concept_id": "C_WAGE_INCREASES_COLA",
+      "candidate_value": "4% to 16%",
+      "candidate_field": "across-the-board wage increase",
+      "evidence_pointer": "Schedules I-J, pages 59-60",
+      "error_class": [
+        "wrong_object",
+        "subgroup_specific_value"
+      ],
+      "reason_rejected": "Coach percentages are role-specific extra-compensation formulas based on Schedule A first step, not general wage increases."
+    },
+    {
+      "document_id": "CBA_17",
+      "concept_id": "C_WAGE_INCREASES_COLA",
+      "candidate_value": 500,
+      "candidate_field": "across-the-board wage increase",
+      "evidence_pointer": "Prior Service-Longevity, page 58",
+      "error_class": [
+        "wrong_object",
+        "subgroup_specific_value"
+      ],
+      "reason_rejected": "The $500 values are longevity increments at service thresholds, not across-the-board wage increases."
+    },
+    {
+      "document_id": "CBA_17",
+      "concept_id": "C_LEAVE_VACATION",
+      "candidate_value": "Christmas Vacation Dec. 24-Jan. 1; Spring Recess Apr. 4-Apr. 11",
+      "candidate_field": "individual vacation leave entitlement",
+      "evidence_pointer": "School calendar page 62",
+      "error_class": "wrong_object",
+      "reason_rejected": "These are school-calendar closures/recesses, not an individual annual vacation leave bank controlled by teachers."
+    },
+    {
+      "document_id": "CBA_17",
+      "concept_id": "C_LEAVE_PERSONAL_MISC",
+      "candidate_value": "unused personal business days transferred to sick leave bank",
+      "candidate_field": "additional paid personal days",
+      "evidence_pointer": "Article 37-2, page 46",
+      "error_class": "formula_component_not_entitlement",
+      "reason_rejected": "The transfer is a non-additive conversion into the sick bank, not extra personal leave on top of the two paid personal days."
+    },
+    {
+      "document_id": "CBA_17",
+      "concept_id": "C_PREMIUM_OVERTIME",
+      "candidate_value": "one sick leave bank day for every five coverage periods/days",
+      "candidate_field": "overtime premium multiplier",
+      "evidence_pointer": "Article 20-4, page 29",
+      "error_class": "wrong_object",
+      "reason_rejected": "The formula compensates class coverage by adding sick-bank days; it is not an overtime threshold, multiplier, or cash premium."
+    },
+    {
+      "document_id": "CBA_17",
+      "concept_id": "C_JOB_SECURITY_SEVERANCE",
+      "candidate_value": "one-half substitute per diem pay for unused sick days on resignation/retirement",
+      "candidate_field": "severance amount",
+      "evidence_pointer": "Article 33-1, page 40",
+      "error_class": "wrong_object",
+      "reason_rejected": "This is an accumulated sick-leave payout formula, not severance or separation pay."
+    },
+    {
+      "document_id": "CBA_17",
+      "concept_id": "C_JOB_SECURITY_LAYOFF_ORDER",
+      "candidate_value": "seniority in voluntary/involuntary transfer",
+      "candidate_field": "layoff order or bumping rule",
+      "evidence_pointer": "Article 17-2, page 25",
+      "error_class": "wrong_object",
+      "reason_rejected": "The seniority language governs transfers, not layoffs, reductions in force, or bumping."
+    },
+    {
+      "document_id": "CBA_17",
+      "concept_id": "C_JOB_SECURITY_BENEFIT_CONTINUATION",
+      "candidate_value": "full twelve-month health premiums September 1-August 31",
+      "candidate_field": "layoff benefit continuation duration",
+      "evidence_pointer": "Article 27-2.1:1, page 35",
+      "error_class": "wrong_object",
+      "reason_rejected": "This is ordinary active-employee premium coverage for full-school-year employees, not layoff/closure/leave benefit continuation."
+    },
+    {
+      "document_id": "CBA_17",
+      "concept_id": "C_LEAVE_HOLIDAYS",
+      "candidate_value": 180,
+      "candidate_field": "holiday count",
+      "evidence_pointer": "School calendar page 62",
+      "error_class": "wrong_object",
+      "reason_rejected": "The 180 value is total number of school days, not the count of holidays or paid closures."
+    }
+  ],
+  "CBA_18": [
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_18",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION",
+      "candidate_value": "$0.10/$0.11 per hour welfare fund contribution",
+      "candidate_field": "worker premium share or active medical contribution scalar score",
+      "evidence_pointer": "page 19 Article XI Section 1",
+      "error_class": [
+        "wrong_object",
+        "external_plan_value"
+      ],
+      "reason_rejected": "This is an employer contribution to an external Welfare Fund, not a worker premium share or approved active-medical contribution score input."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_18",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "candidate_value": "$0.10/$0.11 per hour welfare fund contribution",
+      "candidate_field": "active medical plan design generosity",
+      "evidence_pointer": "page 19 Article XI Section 1",
+      "error_class": [
+        "wrong_object",
+        "external_plan_value"
+      ],
+      "reason_rejected": "A fund contribution rate is not a deductible, copay, covered service, out-of-pocket maximum, dependent-coverage term, or other plan-design field."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_18",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "candidate_value": "physical examination or health permit expenses paid by Company",
+      "candidate_field": "medical insurance plan design",
+      "evidence_pointer": "page 9 Article V Section 8",
+      "error_class": "wrong_object",
+      "reason_rejected": "The health permit/exam cost is an occupational or local-government work requirement expense, not active medical insurance design."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_18",
+      "concept_id": "C_RETIREMENT_PENSION",
+      "candidate_value": "$0.05 per hour pension contribution",
+      "candidate_field": "pension benefit formula or pension generosity score",
+      "evidence_pointer": "page 20 Article XIII Section 1",
+      "error_class": [
+        "wrong_object",
+        "external_plan_value"
+      ],
+      "reason_rejected": "The value is employer contribution intensity to an external pension fund; it does not state benefit formula, vesting, accrual, or replacement rate."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_18",
+      "concept_id": "C_JOB_SECURITY_SEVERANCE",
+      "candidate_value": "one week's normal straight-time pay for missing layoff notice",
+      "candidate_field": "severance formula",
+      "evidence_pointer": "page 7 Article IV Section 7(a)",
+      "error_class": "wrong_object",
+      "reason_rejected": "The payment substitutes for missing layoff notice and is recorded as layoff-notice remedy, not severance or income security based on tenure/separation."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_18",
+      "concept_id": "C_JOB_SECURITY_SEVERANCE",
+      "candidate_value": "vacation payout of one-twelfth annual vacation grant for each full month worked",
+      "candidate_field": "severance formula",
+      "evidence_pointer": "page 18 Article IX Section 2 paragraph 12",
+      "error_class": "wrong_object",
+      "reason_rejected": "The value is earned vacation payout on termination, except dishonesty discharge, not severance or layoff allowance."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_18",
+      "concept_id": "C_WAGE_BASE_RATE",
+      "candidate_value": "sample Exhibit A hourly rates",
+      "candidate_field": "document-local wage generosity score",
+      "evidence_pointer": "pages 23-24 Exhibit A Wage Scales",
+      "error_class": [
+        "ocr_or_table_fragment",
+        "insufficient_entailment"
+      ],
+      "reason_rejected": "The rates are real base-wage values but cannot support a local scalar score without central normalization and cleaned table row/column extraction."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_18",
+      "concept_id": "C_WAGE_INCREASES_COLA",
+      "candidate_value": "$3.00 per week night-shift in-charge premium; $4.00/$3.00 per day replacement premiums; $1.00 after-6 p.m. in-charge premium",
+      "candidate_field": "scheduled wage increase amount",
+      "evidence_pointer": "page 25 Exhibit A paragraphs 2-5",
+      "error_class": "wrong_object",
+      "reason_rejected": "These values are responsibility/replacement premiums, not across-the-board or classification wage increases."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_18",
+      "concept_id": "C_PREMIUM_SHIFT",
+      "candidate_value": "triple time for Sunday work",
+      "candidate_field": "shift differential amount",
+      "evidence_pointer": "page 5 Article III Section 3",
+      "error_class": "wrong_object",
+      "reason_rejected": "Sunday work premium is an enhanced overtime/weekend-work premium, not the regular night-shift differential."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_18",
+      "concept_id": "C_JOB_SECURITY_LAYOFF_ORDER",
+      "candidate_value": "layoffs at management discretion during sixty-day new-store trial period",
+      "candidate_field": "document-wide layoff order rule",
+      "evidence_pointer": "page 4 Article II Section 2",
+      "error_class": "subgroup_specific_value",
+      "reason_rejected": "The management-discretion layoff language applies only to new employees staffing newly opened stores during the trial period; it cannot be treated as the general layoff rule."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_18",
+      "concept_id": "C_LEAVE_SICK",
+      "candidate_value": "paid in full for all straight-time hours scheduled on day of injury",
+      "candidate_field": "paid sick leave bank or accrual",
+      "evidence_pointer": "page 20 Article XII",
+      "error_class": "wrong_object",
+      "reason_rejected": "Day-of-injury pay is a narrow injury-pay provision, not a general paid sick leave accrual, bank, or sick-day entitlement."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_18",
+      "concept_id": "C_LEAVE_PERSONAL_MISC",
+      "candidate_value": "one-year extensions of union leave",
+      "candidate_field": "paid union leave amount",
+      "evidence_pointer": "page 10 Article V Section 14(b)",
+      "error_class": "context_only_number",
+      "reason_rejected": "The one-year value is a possible extension period by mutual consent, not a paid-leave amount."
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "CBA_18",
+      "concept_id": "C_HEALTH_DISABILITY_INCOME",
+      "candidate_value": "ninety days",
+      "candidate_field": "disability income benefit duration",
+      "evidence_pointer": "page 20 Article XI Section 3",
+      "error_class": [
+        "wrong_object",
+        "external_plan_value"
+      ],
+      "reason_rejected": "The ninety-day value caps continued employer contributions to the Welfare Fund; it does not state the disability income benefit duration or replacement formula."
+    }
+  ],
+  "CBA_19": [
+    {
+      "candidate_field": "full_time_holiday_count",
+      "candidate_value": 8,
+      "concept_id": "C_LEAVE_HOLIDAYS",
+      "concept_record_id": "CBA_19_CR_LEAVE_HOLIDAYS",
+      "document_id": "CBA_19",
+      "downstream_risk_if_accepted": "Would understate the holiday package and distort holiday scoring.",
+      "error_class": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "ARTICLE VIII HOLIDAYS, page 4",
+      "reason_rejected": "The source text supports six fixed holidays plus three personal holidays and a birthday holiday; 8 undercounts the holiday package and is not the correct semantic object.",
+      "source_pointer": "ARTICLE VIII HOLIDAYS, page 4"
+    },
+    {
+      "candidate_field": "part_time_holiday_core_count",
+      "candidate_value": 4,
+      "concept_id": "C_LEAVE_HOLIDAYS",
+      "concept_record_id": "CBA_19_CR_LEAVE_HOLIDAYS",
+      "document_id": "CBA_19",
+      "downstream_risk_if_accepted": "Would materially understate part-time holiday coverage.",
+      "error_class": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "ARTICLE VIII HOLIDAYS, page 4",
+      "reason_rejected": "The part-time list contains ten paid holidays, not four; 4 was a wrong-object carryover from earlier extraction.",
+      "source_pointer": "ARTICLE VIII HOLIDAYS, page 4"
+    },
+    {
+      "candidate_field": "minimum_work_for_holiday_eligibility",
+      "candidate_value": 5,
+      "concept_id": "C_LEAVE_HOLIDAYS",
+      "concept_record_id": "CBA_19_CR_LEAVE_HOLIDAYS",
+      "document_id": "CBA_19",
+      "downstream_risk_if_accepted": "Would convert a pay-formula divisor into a nonexistent eligibility threshold.",
+      "error_class": [
+        "formula_component_not_entitlement"
+      ],
+      "evidence_pointer": "ARTICLE VIII HOLIDAYS, page 4",
+      "reason_rejected": "The source says holiday pay is divided by five; 5 is a divisor in the formula, not a minimum-work threshold.",
+      "source_pointer": "ARTICLE VIII HOLIDAYS, page 4"
+    },
+    {
+      "candidate_field": "outside_window_premium",
+      "candidate_value": 15,
+      "concept_id": "C_PREMIUM_SHIFT",
+      "concept_record_id": "CBA_19_CR_PREMIUM_SHIFT",
+      "document_id": "CBA_19",
+      "downstream_risk_if_accepted": "Would materially understate the shift differential.",
+      "error_class": [
+        "ocr_or_table_fragment"
+      ],
+      "evidence_pointer": "ARTICLE VI HOURS OF WORK, page 3",
+      "reason_rejected": "The operative text says thirty-five cents per hour, not fifteen cents; 15 is a wrong-object OCR carryover.",
+      "source_pointer": "ARTICLE VI HOURS OF WORK, page 3"
+    },
+    {
+      "candidate_field": "union_or_maintenance_break",
+      "candidate_value": 15,
+      "concept_id": "C_SAFETY_PPE_UNSAFE_WORK",
+      "concept_record_id": "CBA_19_CR_SAFETY_PPE_UNSAFE_WORK",
+      "document_id": "CBA_19",
+      "downstream_risk_if_accepted": "Would import a nonexistent break term into working-conditions scoring.",
+      "error_class": [
+        "insufficient_entailment"
+      ],
+      "evidence_pointer": "ARTICLE XI WORKING CONDITIONS, page 7",
+      "reason_rejected": "No 15-minute union/maintenance break appears in Article XI; the clause speaks to monthly first-aid maintenance, 10 hours off duty, and polygraph limits.",
+      "source_pointer": "ARTICLE XI WORKING CONDITIONS, page 7"
+    },
+    {
+      "candidate_field": "appendix_a_ocr_fragment",
+      "candidate_value": "97.50 7.50 8.00",
+      "concept_id": "C_WAGE_BASE_RATE",
+      "concept_record_id": "CBA_19_CR_WAGE_BASE_RATE",
+      "document_id": "CBA_19",
+      "downstream_risk_if_accepted": "Would introduce a spurious wage number into the base-rate record.",
+      "error_class": [
+        "ocr_or_table_fragment"
+      ],
+      "evidence_pointer": "APPENDIX A, page 10 OCR fragment",
+      "reason_rejected": "This is an OCR spillover fragment, not a stable wage value or table cell.",
+      "source_pointer": "APPENDIX A, page 10 OCR fragment"
+    }
+  ],
+  "CBA_20": [
+    {
+      "document_id": "CBA_20",
+      "concept_id": "C_WAGE_PROGRESSION",
+      "concept_record_id": "CBA_20_CR_WAGE_PROGRESSION",
+      "candidate_value": "Code 106 salary ranges",
+      "candidate_field": "automatic step progression",
+      "evidence_pointer": "page 8 Article VII wage table",
+      "source_pointer": "page 8 Article VII wage table",
+      "error_class": [
+        "wrong_object",
+        "insufficient_entailment"
+      ],
+      "reason_rejected": "The table gives minimum and maximum salary ranges, not movement across steps or automatic increments.",
+      "downstream_risk_if_accepted": "Would convert classification salary bands into unsupported wage progression."
+    },
+    {
+      "document_id": "CBA_20",
+      "concept_id": "C_PREMIUM_RESPONSIBILITY_SPECIALTY",
+      "concept_record_id": "CBA_20_CR_PREMIUM_RESPONSIBILITY_SPECIALTY",
+      "candidate_value": "$5.00 per week",
+      "candidate_field": "general wage increase",
+      "evidence_pointer": "page 9 Article VII higher-rated temporary assignment clause",
+      "source_pointer": "page 9 Article VII",
+      "error_class": [
+        "wrong_object",
+        "subgroup_specific_value"
+      ],
+      "reason_rejected": "The amount applies only to qualifying higher-rated temporary assignments of twenty work days or more, not to all employees as a wage increase.",
+      "downstream_risk_if_accepted": "Would inflate wage-increase record with assignment-specific premium pay."
+    },
+    {
+      "document_id": "CBA_20",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "concept_record_id": "CBA_20_CR_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "candidate_value": "$5.00 per month",
+      "candidate_field": "plan design generosity",
+      "evidence_pointer": "page 15 Article XIV family contribution clause",
+      "source_pointer": "page 15 Article XIV",
+      "error_class": [
+        "wrong_object"
+      ],
+      "reason_rejected": "The $5 monthly family amount is an employee contribution/cost-sharing term, not a deductible, copay, OOP cap, or covered-service design term.",
+      "downstream_risk_if_accepted": "Would mix health contribution/cost-sharing with medical plan design."
+    },
+    {
+      "document_id": "CBA_20",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "concept_record_id": "CBA_20_CR_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "candidate_value": "$3,000",
+      "candidate_field": "active medical lifetime maximum",
+      "evidence_pointer": "page 17 Article XV group life insurance",
+      "source_pointer": "page 17 Article XV",
+      "error_class": [
+        "wrong_object"
+      ],
+      "reason_rejected": "The $3,000 value is employer-paid group life insurance coverage, not a medical plan maximum.",
+      "downstream_risk_if_accepted": "Would import life-insurance amount into active medical plan-design score."
+    },
+    {
+      "document_id": "CBA_20",
+      "concept_id": "C_LEAVE_HOLIDAYS",
+      "concept_record_id": "CBA_20_CR_LEAVE_HOLIDAYS",
+      "candidate_value": "Appendix B count alone",
+      "candidate_field": "holiday count",
+      "evidence_pointer": "page 41 Appendix B OCR holiday schedule",
+      "source_pointer": "page 41 Appendix B",
+      "error_class": [
+        "ocr_or_table_fragment",
+        "insufficient_entailment"
+      ],
+      "reason_rejected": "Appendix B is an OCR-fragile 1981-82 schedule and cannot alone establish the operative holiday package without Article XVII's count/list.",
+      "downstream_risk_if_accepted": "Would risk under- or over-counting holidays from a damaged table."
+    },
+    {
+      "document_id": "CBA_20",
+      "concept_id": "C_LEAVE_VACATION",
+      "concept_record_id": "CBA_20_CR_LEAVE_VACATION",
+      "candidate_value": "first-year fractional vacation table values",
+      "candidate_field": "core vacation generosity score input",
+      "evidence_pointer": "page 24 Article XVIII new-hire fractional schedule",
+      "source_pointer": "page 24 Article XVIII",
+      "error_class": [
+        "ocr_or_table_fragment",
+        "subgroup_specific_value"
+      ],
+      "reason_rejected": "The new-hire fractional table is OCR-fragile and applies only to first-year hire-date subgroups; the main service-tier schedule supports the core record.",
+      "downstream_risk_if_accepted": "Would use damaged subgroup table values as document-wide vacation generosity inputs."
+    },
+    {
+      "document_id": "CBA_20",
+      "concept_id": "C_LEAVE_SICK",
+      "concept_record_id": "CBA_20_CR_LEAVE_SICK",
+      "candidate_value": "26 weeks",
+      "candidate_field": "CBA paid sick leave duration",
+      "evidence_pointer": "page 27 Article XIX disability-law integration",
+      "source_pointer": "page 27 Article XIX",
+      "error_class": [
+        "wrong_object",
+        "formula_component_not_entitlement"
+      ],
+      "reason_rejected": "The 26-week period is the New York State disability-law period, not a CBA-paid sick leave entitlement.",
+      "downstream_risk_if_accepted": "Would convert statutory disability duration into a CBA sick-pay benefit."
+    },
+    {
+      "document_id": "CBA_20",
+      "concept_id": "C_LEAVE_PERSONAL_MISC",
+      "concept_record_id": "CBA_20_CR_LEAVE_MEDICAL_DISABILITY_UNPAID",
+      "candidate_value": "three months",
+      "candidate_field": "paid sick leave duration",
+      "evidence_pointer": "page 27 Article XX illness leave",
+      "source_pointer": "page 27 Article XX",
+      "error_class": [
+        "wrong_object"
+      ],
+      "reason_rejected": "The three-month period is unpaid illness leave after accumulated sick pay is exhausted, not paid sick leave.",
+      "downstream_risk_if_accepted": "Would overstate paid sick leave by adding unpaid leave duration."
+    }
+  ],
+  "HELDOUT_01": [
+    {
+      "candidate_field": "C_WAGE_BASE_RATE.base_rate",
+      "candidate_value": 85,
+      "concept_id": "C_WAGE_BASE_RATE",
+      "document_id": "HELDOUT_01",
+      "error_class": [
+        "wrong_object",
+        "context_only_number"
+      ],
+      "error_classes": [
+        "wrong_object",
+        "context_only_number"
+      ],
+      "evidence_pointer": "Article II.B.1 representation fee cap",
+      "reason_rejected": "The 85 percent cap is a union agency-fee deduction rule, not a wage or benefit entitlement.",
+      "source_pointer": "Article II.B.1 representation fee cap"
+    },
+    {
+      "candidate_field": "C_WAGE_INCREASES_COLA.scheduled_increases",
+      "candidate_value": 204,
+      "concept_id": "C_WAGE_INCREASES_COLA",
+      "document_id": "HELDOUT_01",
+      "error_class": [
+        "wrong_object",
+        "context_only_number"
+      ],
+      "error_classes": [
+        "wrong_object",
+        "context_only_number"
+      ],
+      "evidence_pointer": "Article XIX.A parking fee",
+      "reason_rejected": "The annual parking fee is a commuting-cost provision, not a wage increase or compensation amount.",
+      "source_pointer": "Article XIX.A parking fee"
+    },
+    {
+      "candidate_field": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN.coverage_cap",
+      "candidate_value": "3 times annual salary",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "document_id": "HELDOUT_01",
+      "error_class": [
+        "wrong_object",
+        "insufficient_entailment"
+      ],
+      "error_classes": [
+        "wrong_object",
+        "insufficient_entailment"
+      ],
+      "evidence_pointer": "Article IX.G life insurance",
+      "reason_rejected": "The multiplier belongs to life insurance, not to active medical coverage.",
+      "source_pointer": "Article IX.G life insurance"
+    },
+    {
+      "candidate_field": "C_HEALTH_LIFE_AD_D.coverage_cap",
+      "candidate_value": "5 coats and 5 trousers or skirts",
+      "concept_id": "C_HEALTH_LIFE_AD_D",
+      "document_id": "HELDOUT_01",
+      "error_class": [
+        "wrong_object",
+        "context_only_number"
+      ],
+      "error_classes": [
+        "wrong_object",
+        "context_only_number"
+      ],
+      "evidence_pointer": "Article XI uniforms",
+      "reason_rejected": "The uniform quantity is an apparel provision, not a health or life-insurance amount.",
+      "source_pointer": "Article XI uniforms"
+    },
+    {
+      "candidate_field": "C_WAGE_INCREASES_COLA.lump_sum_bonus",
+      "candidate_value": 50,
+      "concept_id": "C_WAGE_INCREASES_COLA",
+      "document_id": "HELDOUT_01",
+      "error_class": [
+        "wrong_object",
+        "formula_component_not_entitlement"
+      ],
+      "error_classes": [
+        "wrong_object",
+        "formula_component_not_entitlement"
+      ],
+      "evidence_pointer": "Article IX.C dental cost share",
+      "reason_rejected": "The 50 percent figure is a dental salary deduction cap, not a wage increase or bonus amount.",
+      "source_pointer": "Article IX.C dental cost share"
+    }
+  ],
+  "HELDOUT_02": [
+    {
+      "candidate_field": "medical_coverage_cap",
+      "candidate_value": "1/60",
+      "concept_id": "C_UNKNOWN_REQUIRES_REVIEW",
+      "document_id": "HELDOUT_02",
+      "error_class": [
+        "wrong_object",
+        "external_plan_value"
+      ],
+      "error_classes": [
+        "wrong_object",
+        "external_plan_value"
+      ],
+      "evidence_pointer": "p25 art XI sec 11.2",
+      "reason_rejected": "This is a retirement-formula fragment, not a medical plan term.",
+      "source_pointer": "p25 art XI sec 11.2"
+    },
+    {
+      "candidate_field": "medical_out_of_pocket_max",
+      "candidate_value": "three (3) times an employee's annual salary",
+      "concept_id": "C_UNKNOWN_REQUIRES_REVIEW",
+      "document_id": "HELDOUT_02",
+      "error_class": [
+        "wrong_object",
+        "external_plan_value"
+      ],
+      "error_classes": [
+        "wrong_object",
+        "external_plan_value"
+      ],
+      "evidence_pointer": "p26 art XI sec 11.2",
+      "reason_rejected": "This is a death-benefit rider, not active medical coverage.",
+      "source_pointer": "p26 art XI sec 11.2"
+    },
+    {
+      "candidate_field": "vacation_entitlement",
+      "candidate_value": "five (5) consecutive days",
+      "concept_id": "C_UNKNOWN_REQUIRES_REVIEW",
+      "document_id": "HELDOUT_02",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "p22 art X sec 10.8",
+      "reason_rejected": "Bereavement leave is a distinct leave object and cannot be counted as vacation.",
+      "source_pointer": "p22 art X sec 10.8"
+    },
+    {
+      "candidate_field": "holiday_count",
+      "candidate_value": "one (1) day per month",
+      "concept_id": "C_UNKNOWN_REQUIRES_REVIEW",
+      "document_id": "HELDOUT_02",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "p18 art X sec 10.2",
+      "reason_rejected": "This is sick-leave accrual, not holidays.",
+      "source_pointer": "p18 art X sec 10.2"
+    },
+    {
+      "candidate_field": "personal_leave_days",
+      "candidate_value": "ten (10) sick leave days per year for illness in the employee's family",
+      "concept_id": "C_UNKNOWN_REQUIRES_REVIEW",
+      "document_id": "HELDOUT_02",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "p22 art X sec 10.7",
+      "reason_rejected": "Family-illness use belongs to sick leave, not personal leave.",
+      "source_pointer": "p22 art X sec 10.7"
+    },
+    {
+      "candidate_field": "employer_premium_share",
+      "candidate_value": "20",
+      "concept_id": "C_UNKNOWN_REQUIRES_REVIEW",
+      "document_id": "HELDOUT_02",
+      "error_class": [
+        "formula_component_not_entitlement",
+        "insufficient_entailment"
+      ],
+      "error_classes": [
+        "formula_component_not_entitlement",
+        "insufficient_entailment"
+      ],
+      "evidence_pointer": "p26 art XII sec 12.1",
+      "reason_rejected": "This is a part-time threshold / ratio input, not a premium-share number.",
+      "source_pointer": "p26 art XII sec 12.1"
+    },
+    {
+      "candidate_field": "dependent_coverage",
+      "candidate_value": "23 FT Student",
+      "concept_id": "C_UNKNOWN_REQUIRES_REVIEW",
+      "document_id": "HELDOUT_02",
+      "error_class": [
+        "ocr_or_table_fragment",
+        "insufficient_entailment"
+      ],
+      "error_classes": [
+        "ocr_or_table_fragment",
+        "insufficient_entailment"
+      ],
+      "evidence_pointer": "p23 art XI sec 11.1(a)",
+      "reason_rejected": "OCR/table fragment; not a stable entitlement value.",
+      "source_pointer": "p23 art XI sec 11.1(a)"
+    },
+    {
+      "candidate_field": "plan_option",
+      "candidate_value": "Sinsle Policy",
+      "concept_id": "C_UNKNOWN_REQUIRES_REVIEW",
+      "document_id": "HELDOUT_02",
+      "error_class": [
+        "ocr_or_table_fragment"
+      ],
+      "error_classes": [
+        "ocr_or_table_fragment"
+      ],
+      "evidence_pointer": "p24 art XI sec 11.1(b)",
+      "reason_rejected": "OCR fragment of a plan label; not a safe structured value on its own.",
+      "source_pointer": "p24 art XI sec 11.1(b)"
+    },
+    {
+      "candidate_field": "holiday_pay_rate",
+      "candidate_value": "20%",
+      "concept_id": "C_UNKNOWN_REQUIRES_REVIEW",
+      "document_id": "HELDOUT_02",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "p24 art XI sec 11.1(b)",
+      "reason_rejected": "This is a health-insurance premium share, not holiday pay.",
+      "source_pointer": "p24 art XI sec 11.1(b)"
+    }
+  ],
+  "HELDOUT_03": [
+    {
+      "document_id": "HELDOUT_03",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "candidate_value": "$10,000",
+      "candidate_field": "medical coverage cap or active medical value",
+      "evidence_pointer": "Article 23 Section 1.B/D page 54",
+      "error_class": "wrong_object",
+      "reason_rejected": "The value is life insurance coverage during first 90 days/default coverage, not an active medical plan-design or contribution value."
+    },
+    {
+      "document_id": "HELDOUT_03",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "candidate_value": "$100 per eligible person per month",
+      "candidate_field": "active medical cap",
+      "evidence_pointer": "Article 22 Section 2 page 52",
+      "error_class": "wrong_object",
+      "reason_rejected": "The value is a retiree-health employer-paid cap, not active-worker medical plan design."
+    },
+    {
+      "document_id": "HELDOUT_03",
+      "concept_id": "C_WAGE_BASE_RATE",
+      "candidate_value": "sample Appendix A dollar rates such as $7.78, $35.62",
+      "candidate_field": "base wage scalar input",
+      "evidence_pointer": "Appendix A pages 65-71",
+      "error_class": "ocr_or_table_fragment",
+      "reason_rejected": "Appendix A is a damaged multi-page OCR table; individual rates require row/column/classification repair before scalar use."
+    },
+    {
+      "document_id": "HELDOUT_03",
+      "concept_id": "C_WAGE_INCREASES_COLA",
+      "candidate_value": "6% and $0.25 per grade",
+      "candidate_field": "across-the-board wage increase",
+      "evidence_pointer": "Article 14 Section 3 page 31",
+      "error_class": "wrong_object",
+      "reason_rejected": "These values are promotion placement floors, not general wage increases or COLA."
+    },
+    {
+      "document_id": "HELDOUT_03",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION",
+      "candidate_value": "$1.50 per hour",
+      "candidate_field": "employee medical premium share",
+      "evidence_pointer": "Article 5 Sections 3-5 pages 14-15",
+      "error_class": "wrong_object",
+      "reason_rejected": "This is a premium in lieu of benefits for short-hour/temporary/on-call workers, not a worker medical premium share or active medical plan contribution."
+    },
+    {
+      "document_id": "HELDOUT_03",
+      "concept_id": "C_PREMIUM_CALL_IN_REPORTING",
+      "candidate_value": "$2.50 per hour / $3.00 holiday",
+      "candidate_field": "reporting-pay guarantee",
+      "evidence_pointer": "Article 15 Section 7 page 34; Float Pool LOU page 92",
+      "error_class": "wrong_object",
+      "reason_rejected": "These are standby/pager availability rates; Article 15 expressly waives reporting pay when pager provision is invoked."
+    },
+    {
+      "document_id": "HELDOUT_03",
+      "concept_id": "C_WAGE_INCREASES_COLA",
+      "candidate_value": "$400",
+      "candidate_field": "wage increase or bonus",
+      "evidence_pointer": "Article 19 Section 6.A page 46",
+      "error_class": "wrong_object",
+      "reason_rejected": "The value is a career/job counseling or work-skills assessment use of tuition reimbursement, not wage growth."
+    },
+    {
+      "document_id": "HELDOUT_03",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION",
+      "candidate_value": "20+ hours",
+      "candidate_field": "employer premium contribution amount",
+      "evidence_pointer": "National Agreement page 137",
+      "error_class": "context_only_number",
+      "reason_rejected": "The value is an eligibility threshold, not an employer contribution amount or worker premium share."
+    },
+    {
+      "document_id": "HELDOUT_03",
+      "concept_id": "C_WAGE_INCREASES_COLA",
+      "candidate_value": "1.3%",
+      "candidate_field": "wage increase",
+      "evidence_pointer": "Article 22 Section 1 page 52",
+      "error_class": "wrong_object",
+      "reason_rejected": "The value is a pension formula multiplier, not a wage increase or COLA."
+    },
+    {
+      "document_id": "HELDOUT_03",
+      "concept_id": "C_LEAVE_SICK",
+      "candidate_value": "48 months",
+      "candidate_field": "sick leave cap",
+      "evidence_pointer": "Article 23 Section 7 page 56",
+      "error_class": "wrong_object",
+      "reason_rejected": "The value is Extended Income Protection duration, not paid sick leave accrual or cap."
+    },
+    {
+      "document_id": "HELDOUT_03",
+      "concept_id": "C_JOB_SECURITY_SEVERANCE",
+      "candidate_value": "three days notice or pay",
+      "candidate_field": "full severance formula",
+      "evidence_pointer": "Article 10 Section 5 page 27",
+      "error_class": "wrong_object",
+      "reason_rejected": "This is notice-or-pay for one/two-week layoff status, not the richer severance package formula in the side letter."
+    },
+    {
+      "document_id": "HELDOUT_03",
+      "concept_id": "C_HEALTH_RETIREE",
+      "candidate_value": "Basic medical coverage comparable to active employees",
+      "candidate_field": "retiree plan-design scalar score",
+      "evidence_pointer": "Article 22 Section 2 page 53",
+      "error_class": "external_plan_value",
+      "reason_rejected": "Comparability points to active plan design, whose operative details are external; it cannot support a retiree plan-design scalar by itself."
+    }
+  ],
+  "HELDOUT_04": [
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "HELDOUT_04",
+      "rejected_value_id": "HELDOUT_04_RV001",
+      "concept_record_id": "HELDOUT_04_CR003",
+      "concept_id": "C_WAGE_BASE_RATE",
+      "candidate_value": "wages and other supplements",
+      "candidate_field": "base_wage_amount",
+      "source_pointer": {
+        "page": "5",
+        "section_id": "ARTICLE III",
+        "quote_or_pointer": "Wages and other supplements ... shall be in accordance with the respective Determinations of the Comptroller."
+      },
+      "reason_rejected": "The phrase points to an external source and does not state any wage amount, schedule, or increase.",
+      "error_classes": [
+        "external_plan_value",
+        "insufficient_entailment"
+      ],
+      "semantic_role_check": "External source reference is not a base wage rate.",
+      "evidence_pointer": "Wages and other supplements ... shall be in accordance with the respective Determinations of the Comptroller.",
+      "error_class": "external_plan_value"
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "HELDOUT_04",
+      "rejected_value_id": "HELDOUT_04_RV002",
+      "concept_record_id": "HELDOUT_04_CR004",
+      "concept_id": "C_PREMIUM_OVERTIME",
+      "candidate_value": "Article VIII - OVERTIME",
+      "candidate_field": "overtime_multiplier",
+      "source_pointer": {
+        "page": "13-14",
+        "section_id": "ARTICLE VIII",
+        "quote_or_pointer": "Overtime article states equitable distribution, record inspection, notice, and return-to-work guarantee."
+      },
+      "reason_rejected": "The heading and assignment-fairness provisions do not state a premium rate or threshold.",
+      "error_classes": [
+        "insufficient_entailment"
+      ],
+      "semantic_role_check": "A concept heading is not evidence of time-and-one-half or another multiplier.",
+      "evidence_pointer": "Overtime article states equitable distribution, record inspection, notice, and return-to-work guarantee.",
+      "error_class": "insufficient_entailment"
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "HELDOUT_04",
+      "rejected_value_id": "HELDOUT_04_RV003",
+      "concept_record_id": "HELDOUT_04_CR006",
+      "concept_id": "C_JOB_POSTING_BIDDING_TRANSFER",
+      "candidate_value": "five working days",
+      "candidate_field": "schedule_change_notice",
+      "source_pointer": {
+        "page": "14",
+        "section_id": "ARTICLE IX Section 5",
+        "quote_or_pointer": "Vacancies ... shall be posted ... five working days in advance of the effective date prior to filling."
+      },
+      "reason_rejected": "The five-day value is a vacancy posting period, not a schedule-change notice protection.",
+      "error_classes": [
+        "wrong_object"
+      ],
+      "semantic_role_check": "Posting a vacancy before filling it is a mobility object, not regular schedule-change notice.",
+      "evidence_pointer": "Vacancies ... shall be posted ... five working days in advance of the effective date prior to filling.",
+      "error_class": "wrong_object"
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "HELDOUT_04",
+      "rejected_value_id": "HELDOUT_04_RV004",
+      "concept_record_id": "HELDOUT_04_CR008",
+      "concept_id": "C_UNION_ACCESS_BUSINESS",
+      "candidate_value": "Executive Order No. 75",
+      "candidate_field": "cba_contained_paid_union_time",
+      "source_pointer": {
+        "page": "13",
+        "section_id": "ARTICLE VI Section 1",
+        "quote_or_pointer": "Time spent by Union Officials and representatives ... shall be governed by Executive Order No. 75."
+      },
+      "reason_rejected": "The CBA incorporates an external executive order but does not state the paid/protected union time terms.",
+      "error_classes": [
+        "external_plan_value",
+        "insufficient_entailment"
+      ],
+      "semantic_role_check": "External executive-order reference is not CBA-contained paid union business time.",
+      "evidence_pointer": "Time spent by Union Officials and representatives ... shall be governed by Executive Order No. 75.",
+      "error_class": "external_plan_value"
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "HELDOUT_04",
+      "rejected_value_id": "HELDOUT_04_RV005",
+      "concept_record_id": "HELDOUT_04_CR009",
+      "concept_id": "C_LABOR_MANAGEMENT_COMMITTEE",
+      "candidate_value": "recommendations to the agency head in writing",
+      "candidate_field": "binding_decision_authority",
+      "source_pointer": {
+        "page": "16",
+        "section_id": "ARTICLE XII Sections 2-3",
+        "quote_or_pointer": "Committee shall consider and recommend changes; recommendations to agency head in writing."
+      },
+      "reason_rejected": "Written recommendations are advisory and do not entail binding authority, required implementation, or enforceable remedy.",
+      "error_classes": [
+        "insufficient_entailment"
+      ],
+      "semantic_role_check": "Recommendation procedure is not decision authority.",
+      "evidence_pointer": "Committee shall consider and recommend changes; recommendations to agency head in writing.",
+      "error_class": "insufficient_entailment"
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "HELDOUT_04",
+      "rejected_value_id": "HELDOUT_04_RV006",
+      "concept_record_id": "HELDOUT_04_CR010",
+      "concept_id": "C_SAFETY_PPE_UNSAFE_WORK",
+      "candidate_value": "alleged unsafe conditions may become the subject of a grievance",
+      "candidate_field": "explicit_stop_work_right",
+      "source_pointer": {
+        "page": "17",
+        "section_id": "ARTICLE XIII Section 2",
+        "quote_or_pointer": "All alleged unsafe conditions not acted upon expeditiously may become the subject of a grievance."
+      },
+      "reason_rejected": "A grievance hook is an enforcement process but does not entail worker refusal or stop-work authority.",
+      "error_classes": [
+        "wrong_object",
+        "insufficient_entailment"
+      ],
+      "semantic_role_check": "Grievability is not a stop-work remedy.",
+      "evidence_pointer": "All alleged unsafe conditions not acted upon expeditiously may become the subject of a grievance.",
+      "error_class": "wrong_object"
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "HELDOUT_04",
+      "rejected_value_id": "HELDOUT_04_RV007",
+      "concept_record_id": "HELDOUT_04_CR010",
+      "concept_id": "C_SAFETY_PPE_UNSAFE_WORK",
+      "candidate_value": "50 degrees Fahrenheit",
+      "candidate_field": "safety_score_high_anchor",
+      "source_pointer": {
+        "page": "15",
+        "section_id": "ARTICLE XI Section 1",
+        "quote_or_pointer": "Where practicable a minimum temperature of 50 degrees Fahrenheit shall be maintained."
+      },
+      "reason_rejected": "The temperature standard is a valid safety field but not enough to infer a high safety score, PPE entitlement, or stop-work remedy.",
+      "error_classes": [
+        "insufficient_entailment"
+      ],
+      "semantic_role_check": "Temperature minimum is not a PPE or refusal-right value.",
+      "evidence_pointer": "Where practicable a minimum temperature of 50 degrees Fahrenheit shall be maintained.",
+      "error_class": "insufficient_entailment"
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "HELDOUT_04",
+      "rejected_value_id": "HELDOUT_04_RV008",
+      "concept_record_id": "HELDOUT_04_CR011",
+      "concept_id": "C_DISCIPLINE_INVESTIGATION_APPEAL",
+      "candidate_value": "Section 75 of the Civil Service Law or HHC Rules",
+      "candidate_field": "cba_contained_just_cause_or_progressive_discipline",
+      "source_pointer": {
+        "page": "9",
+        "section_id": "ARTICLE V Section 4 Step B(i)",
+        "quote_or_pointer": "Employer shall proceed in accordance with disciplinary procedures set forth in Section 75 or HHC Rules."
+      },
+      "reason_rejected": "External/statutory discipline procedures cannot be treated as CBA-contained just-cause or progressive-discipline terms.",
+      "error_classes": [
+        "external_plan_value",
+        "insufficient_entailment"
+      ],
+      "semantic_role_check": "Reference to external procedures is not an observed CBA substantive discipline standard.",
+      "evidence_pointer": "Employer shall proceed in accordance with disciplinary procedures set forth in Section 75 or HHC Rules.",
+      "error_class": "external_plan_value"
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "HELDOUT_04",
+      "rejected_value_id": "HELDOUT_04_RV009",
+      "concept_record_id": "HELDOUT_04_CR012",
+      "concept_id": "C_GRIEVANCE_PROCEDURE",
+      "candidate_value": "six years prior to date of filing",
+      "candidate_field": "general_backpay_remedy",
+      "source_pointer": {
+        "page": "7",
+        "section_id": "ARTICLE V pre-Step I paragraph",
+        "quote_or_pointer": "salary-rate payroll error award may cover only period up to six years prior to grievance filing if timely filed."
+      },
+      "reason_rejected": "The six-year lookback applies only to continuing payroll-error salary miscalculation grievances, not a general grievance remedy.",
+      "error_classes": [
+        "subgroup_specific_value",
+        "wrong_object"
+      ],
+      "semantic_role_check": "Payroll-error lookback is not a document-wide make-whole remedy.",
+      "evidence_pointer": "salary-rate payroll error award may cover only period up to six years prior to grievance filing if timely filed.",
+      "error_class": "subgroup_specific_value"
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "HELDOUT_04",
+      "rejected_value_id": "HELDOUT_04_RV010",
+      "concept_record_id": "HELDOUT_04_CR013",
+      "concept_id": "C_ARBITRATION",
+      "candidate_value": "final and binding arbitration",
+      "candidate_field": "broad_individual_no_waiver_access",
+      "source_pointer": {
+        "page": "8",
+        "section_id": "ARTICLE V Sections 2-3",
+        "quote_or_pointer": "Step IV may be brought solely by Union; award final and binding; waiver required."
+      },
+      "reason_rejected": "Finality does not remove the Union gate, waiver requirement, equal cost allocation, or authority limits.",
+      "error_classes": [
+        "insufficient_entailment"
+      ],
+      "semantic_role_check": "Final and binding award is not broad individual access.",
+      "evidence_pointer": "Step IV may be brought solely by Union; award final and binding; waiver required.",
+      "error_class": "insufficient_entailment"
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "HELDOUT_04",
+      "rejected_value_id": "HELDOUT_04_RV011",
+      "concept_record_id": "HELDOUT_04_CR013",
+      "concept_id": "C_ARBITRATION",
+      "candidate_value": "OCB Consolidated Rules",
+      "candidate_field": "cba_contained_arbitration_procedure_detail",
+      "source_pointer": {
+        "page": "8",
+        "section_id": "ARTICLE V Section 2 Step IV",
+        "quote_or_pointer": "Arbitration shall be conducted in accordance with the Consolidated Rules of the Office of Collective Bargaining."
+      },
+      "reason_rejected": "The CBA references external procedural rules but does not reproduce them.",
+      "error_classes": [
+        "external_plan_value",
+        "insufficient_entailment"
+      ],
+      "semantic_role_check": "External procedural rules cannot fill CBA-contained arbitration detail fields.",
+      "evidence_pointer": "Arbitration shall be conducted in accordance with the Consolidated Rules of the Office of Collective Bargaining.",
+      "error_class": "external_plan_value"
+    },
+    {
+      "schema_version": "rejected_value_v0_1",
+      "document_id": "HELDOUT_04",
+      "rejected_value_id": "HELDOUT_04_RV012",
+      "concept_record_id": "HELDOUT_04_CR014",
+      "concept_id": "C_LEAVE_VACATION",
+      "candidate_value": "seniority in Civil Service Title",
+      "candidate_field": "vacation_duration_or_paid_entitlement",
+      "source_pointer": {
+        "page": "18",
+        "section_id": "ARTICLE XV",
+        "quote_or_pointer": "vacation picks ... shall be by seniority in the employee's Civil Service Title."
+      },
+      "reason_rejected": "Seniority controls pick order only; it does not state paid vacation amount, accrual, carryover, or payout.",
+      "error_classes": [
+        "wrong_object",
+        "insufficient_entailment"
+      ],
+      "semantic_role_check": "Vacation scheduling priority is not vacation entitlement generosity.",
+      "evidence_pointer": "vacation picks ... shall be by seniority in the employee's Civil Service Title.",
+      "error_class": "wrong_object"
+    }
+  ],
+  "HELDOUT_05": [
+    {
+      "candidate_field": "C_WAGE_INCREASES_COLA.scheduled_increases",
+      "candidate_value": 7.14,
+      "concept_id": "C_WAGE_INCREASES_COLA",
+      "document_id": "HELDOUT_05",
+      "error_class": [
+        "wrong_object",
+        "formula_component_not_entitlement"
+      ],
+      "error_classes": [
+        "wrong_object",
+        "formula_component_not_entitlement"
+      ],
+      "evidence_pointer": "page 10 pharmacists schedule",
+      "reason_rejected": "This is the minimum salary increase needed for 35-hour pharmacists to move to a 37.5-hour schedule, not a general wage increase.",
+      "source_pointer": "page 10 pharmacists schedule"
+    },
+    {
+      "candidate_field": "C_WAGE_INCREASES_COLA.scheduled_increases",
+      "candidate_value": 6.75,
+      "concept_id": "C_WAGE_INCREASES_COLA",
+      "document_id": "HELDOUT_05",
+      "error_class": [
+        "wrong_object",
+        "context_only_number"
+      ],
+      "error_classes": [
+        "wrong_object",
+        "context_only_number"
+      ],
+      "evidence_pointer": "page 14 pension assumption letter",
+      "reason_rejected": "This is the pension contribution rate, not a wage increase or premium-pay value.",
+      "source_pointer": "page 14 pension assumption letter"
+    },
+    {
+      "candidate_field": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN.out_of_pocket_maximum",
+      "candidate_value": 3000,
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "document_id": "HELDOUT_05",
+      "error_class": [
+        "wrong_object",
+        "insufficient_entailment"
+      ],
+      "error_classes": [
+        "wrong_object",
+        "insufficient_entailment"
+      ],
+      "evidence_pointer": "page 19 annual dental allowance",
+      "reason_rejected": "The amount is an annual dental cap, not an active medical out-of-pocket maximum.",
+      "source_pointer": "page 19 annual dental allowance"
+    },
+    {
+      "candidate_field": "C_UNION_ACCESS_BUSINESS.access_entitlement",
+      "candidate_value": 30,
+      "concept_id": "C_UNION_ACCESS_BUSINESS",
+      "document_id": "HELDOUT_05",
+      "error_class": [
+        "wrong_object",
+        "context_only_number"
+      ],
+      "error_classes": [
+        "wrong_object",
+        "context_only_number"
+      ],
+      "evidence_pointer": "page 33 election information sheet",
+      "reason_rejected": "This is the showing-of-interest threshold for an NLRB election, not a union-access right or paid business entitlement.",
+      "source_pointer": "page 33 election information sheet"
+    },
+    {
+      "candidate_field": "C_WAGE_BASE_RATE.base_rate",
+      "candidate_value": 750,
+      "concept_id": "C_WAGE_BASE_RATE",
+      "document_id": "HELDOUT_05",
+      "error_class": [
+        "wrong_object",
+        "formula_component_not_entitlement"
+      ],
+      "error_classes": [
+        "wrong_object",
+        "formula_component_not_entitlement"
+      ],
+      "evidence_pointer": "page 3 lump sum payment",
+      "reason_rejected": "The amount is a one-time lump-sum retroactivity payment, not a recurring base wage rate.",
+      "source_pointer": "page 3 lump sum payment"
+    }
+  ],
+  "HELDOUT_06": [
+    {
+      "attempted_field": "active medical plan generosity scalar",
+      "candidate_field": "unknown_field",
+      "candidate_value": null,
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "concept_record_id": "CR002",
+      "document_id": "HELDOUT_06",
+      "error_class": [
+        "external_plan_value",
+        "insufficient_entailment"
+      ],
+      "error_classes": [
+        "external_plan_value",
+        "insufficient_entailment"
+      ],
+      "evidence_pointer": "page 76 lines 34-58",
+      "reason": "The CBA names plan schedules and minimum coverage references but does not reproduce the plan design values needed for scalar plan-design scoring.",
+      "reason_rejected": "Older output did not state a rejection reason.",
+      "rejected_value_id": "RV001",
+      "review_status": "ready",
+      "source_pointer": "page 76 lines 34-58",
+      "value": "Blue Cross/Blue Shield and United of Omaha Major Medical plan schedules"
+    },
+    {
+      "attempted_field": "active medical employer contribution or employee cap",
+      "candidate_field": "unknown_field",
+      "candidate_value": null,
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION",
+      "concept_record_id": "CR001",
+      "document_id": "HELDOUT_06",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 78 disability income clause",
+      "reason": "This figure is the disability-income monthly cap, not active medical contribution or cost sharing.",
+      "reason_rejected": "Older output did not state a rejection reason.",
+      "rejected_value_id": "RV002",
+      "review_status": "ready",
+      "source_pointer": "page 78 disability income clause",
+      "value": "$23,000 per month"
+    },
+    {
+      "attempted_field": "base wage increase or wage rate",
+      "candidate_field": "unknown_field",
+      "candidate_value": null,
+      "concept_id": "C_WAGE_BASE_RATE",
+      "concept_record_id": "CR006",
+      "document_id": "HELDOUT_06",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 78 retirement plan clause",
+      "reason": "These percentages describe retirement contribution formulas, not wage rates or wage increases.",
+      "reason_rejected": "Older output did not state a rejection reason.",
+      "rejected_value_id": "RV003",
+      "review_status": "ready",
+      "source_pointer": "page 78 retirement plan clause",
+      "value": "10 percent University and 5 percent employee retirement contributions"
+    },
+    {
+      "attempted_field": "base wage or general wage increase",
+      "candidate_field": "unknown_field",
+      "candidate_value": null,
+      "concept_id": "C_WAGE_BASE_RATE",
+      "concept_record_id": "CR006",
+      "document_id": "HELDOUT_06",
+      "error_class": [
+        "wrong_object",
+        "context_only_number"
+      ],
+      "error_classes": [
+        "wrong_object",
+        "context_only_number"
+      ],
+      "evidence_pointer": "pages 80-81 tuition support provisions",
+      "reason": "The figure belongs to tuition/education funding context, not wage compensation.",
+      "reason_rejected": "Older output did not state a rejection reason.",
+      "rejected_value_id": "RV004",
+      "review_status": "ready",
+      "source_pointer": "pages 80-81 tuition support provisions",
+      "value": "$235,500 educational fund"
+    },
+    {
+      "attempted_field": "overtime premium amount",
+      "candidate_field": "unknown_field",
+      "candidate_value": null,
+      "concept_id": "C_PREMIUM_OVERTIME",
+      "concept_record_id": "CR009",
+      "document_id": "HELDOUT_06",
+      "error_class": [
+        "formula_component_not_entitlement"
+      ],
+      "error_classes": [
+        "formula_component_not_entitlement"
+      ],
+      "evidence_pointer": "page 29 lines 1-54; page 40 lines 40-47",
+      "reason": "The 5 percent value is a threshold for on-call or overtime-system consequences, not an individual overtime pay rate.",
+      "reason_rejected": "Older output did not state a rejection reason.",
+      "rejected_value_id": "RV005",
+      "review_status": "ready",
+      "source_pointer": "page 29 lines 1-54; page 40 lines 40-47",
+      "value": "5 percent open-shift/overtime trigger"
+    },
+    {
+      "attempted_field": "base wage or wage increase",
+      "candidate_field": "unknown_field",
+      "candidate_value": null,
+      "concept_id": "C_TRAINING_TUITION_CERTIFICATION",
+      "concept_record_id": "CR034",
+      "document_id": "HELDOUT_06",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "pages 80-81",
+      "reason": "This is a non-University tuition support cap, not wage compensation.",
+      "reason_rejected": "Older output did not state a rejection reason.",
+      "rejected_value_id": "RV006",
+      "review_status": "ready",
+      "source_pointer": "pages 80-81",
+      "value": "$800 per term"
+    },
+    {
+      "attempted_field": "holiday count",
+      "candidate_field": "unknown_field",
+      "candidate_value": null,
+      "concept_id": "C_LEAVE_HOLIDAYS",
+      "concept_record_id": "CR017",
+      "document_id": "HELDOUT_06",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 60 lines 3-13",
+      "reason": "The 48-hour value is initial PTO credit for full-time employees, not a holiday entitlement count.",
+      "reason_rejected": "Older output did not state a rejection reason.",
+      "rejected_value_id": "RV007",
+      "review_status": "ready",
+      "source_pointer": "page 60 lines 3-13",
+      "value": "48 hours initial PTO credit"
+    },
+    {
+      "attempted_field": "vacation or PTO accrual amount",
+      "candidate_field": "unknown_field",
+      "candidate_value": null,
+      "concept_id": "C_LEAVE_VACATION",
+      "concept_record_id": "CR016",
+      "document_id": "HELDOUT_06",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "page 19 lines 29-40",
+      "reason": "The 15-minute value is a paid rest-period rule within scheduling, not a PTO accrual entitlement.",
+      "reason_rejected": "Older output did not state a rejection reason.",
+      "rejected_value_id": "RV008",
+      "review_status": "ready",
+      "source_pointer": "page 19 lines 29-40",
+      "value": "15-minute rest period"
+    },
+    {
+      "attempted_field": "severance amount",
+      "candidate_field": "unknown_field",
+      "candidate_value": null,
+      "concept_id": "C_JOB_SECURITY_LAYOFF_ORDER",
+      "concept_record_id": "CR023",
+      "document_id": "HELDOUT_06",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "pages 52-53",
+      "reason": "The 80 percent values define placement/refusal consequences in recall or RIF placement, not severance pay.",
+      "reason_rejected": "Older output did not state a rejection reason.",
+      "rejected_value_id": "RV009",
+      "review_status": "ready",
+      "source_pointer": "pages 52-53",
+      "value": "80 percent base-rate and 80 percent appointment-hours placement threshold"
+    }
+  ],
+  "HELDOUT_07": [
+    {
+      "document_id": "HELDOUT_07",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "candidate_value": "PID 10 EU 7 / KP2RX plan identifiers",
+      "candidate_field": "deductible/copay/covered-services plan design",
+      "evidence_pointer": "page 49 paragraph 2901",
+      "error_class": "external_plan_value",
+      "reason_rejected": "The CBA names external Evidence of Coverage and alternate plan identifiers but does not state operative active medical cost-sharing or plan-design terms for scalar plan-design scoring."
+    },
+    {
+      "document_id": "HELDOUT_07",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION",
+      "candidate_value": "75%",
+      "candidate_field": "worker premium share",
+      "evidence_pointer": "page 50 paragraph 2906",
+      "error_class": "wrong_object",
+      "reason_rejected": "The 75% number is a participation threshold for short-hour/temporary/casual purchase access, not the worker premium share or employer contribution."
+    },
+    {
+      "document_id": "HELDOUT_07",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "candidate_value": "$5,000",
+      "candidate_field": "medical coverage cap",
+      "evidence_pointer": "page 52 paragraph 3001",
+      "error_class": "wrong_object",
+      "reason_rejected": "The $5,000 values are group life and AD&D face amounts, not medical plan caps or active medical benefits."
+    },
+    {
+      "document_id": "HELDOUT_07",
+      "concept_id": "C_WAGE_BASE_RATE",
+      "candidate_value": "43.6721 45.8556 47.5001 ...",
+      "candidate_field": "document-wide base wage scalar",
+      "evidence_pointer": "page 63 Appendix A OCR table fragment",
+      "error_class": "ocr_or_table_fragment",
+      "reason_rejected": "The numeric row is a wage-table fragment without stable row/column association in isolation; wage values were retained as table context and withheld for central normalization/table repair."
+    },
+    {
+      "document_id": "HELDOUT_07",
+      "concept_id": "C_WAGE_INCREASES_COLA",
+      "candidate_value": "25%",
+      "candidate_field": "scheduled wage increase",
+      "evidence_pointer": "page 40 paragraph 2302",
+      "error_class": "wrong_object",
+      "reason_rejected": "The 25% figure is the short-hour/temporary/casual premium over classification/step rate, not a scheduled across-the-board wage increase."
+    },
+    {
+      "document_id": "HELDOUT_07",
+      "concept_id": "C_WAGE_PROGRESSION",
+      "candidate_value": "one year tenure credit for every two years previous experience",
+      "candidate_field": "automatic annual progression amount",
+      "evidence_pointer": "page 40 paragraph 2303",
+      "error_class": "formula_component_not_entitlement",
+      "reason_rejected": "The value is an entry-placement/comparable-experience credit rule, not an ordinary step-progression amount by itself."
+    },
+    {
+      "document_id": "HELDOUT_07",
+      "concept_id": "C_PREMIUM_SHIFT",
+      "candidate_value": "11:00 p.m. Friday to 8:00 a.m. Monday",
+      "candidate_field": "weekend premium amount",
+      "evidence_pointer": "page 15 Weekends Only Position",
+      "error_class": "wrong_object",
+      "reason_rejected": "The time window defines weekend hours for a Weekends Only position; the premium amount is the separate 10% weekend differential."
+    },
+    {
+      "document_id": "HELDOUT_07",
+      "concept_id": "C_LEAVE_VACATION",
+      "candidate_value": "one floating holiday and personal birthday",
+      "candidate_field": "vacation entitlement",
+      "evidence_pointer": "page 47 paragraphs 2803-2804",
+      "error_class": "wrong_object",
+      "reason_rejected": "Floating holiday and birthday are holiday entitlements, not vacation weeks or vacation accrual."
+    },
+    {
+      "document_id": "HELDOUT_07",
+      "concept_id": "C_JOB_SECURITY_SEVERANCE",
+      "candidate_value": "1 week / 2 weeks notice or pay",
+      "candidate_field": "general severance formula",
+      "evidence_pointer": "page 57 paragraphs 3701-3702",
+      "error_class": "insufficient_entailment",
+      "reason_rejected": "The text supports notice-or-pay-in-lieu for covered terminations, but not a richer severance or layoff allowance formula; record labelled notice_or_pay_only."
+    },
+    {
+      "document_id": "HELDOUT_07",
+      "concept_id": "C_JOB_SECURITY_BENEFIT_CONTINUATION",
+      "candidate_value": "retiree medical cost-sharing schedule",
+      "candidate_field": "layoff benefit continuation duration/payment responsibility",
+      "evidence_pointer": "page 51 paragraph 2921",
+      "error_class": "wrong_object",
+      "reason_rejected": "Retiree medical cost-sharing is a retiree-health object, not benefit continuation during layoff or leave."
+    },
+    {
+      "document_id": "HELDOUT_07",
+      "concept_id": "C_DISCIPLINE_PROGRESSIVE",
+      "candidate_value": "18 months",
+      "candidate_field": "progressive discipline step interval",
+      "evidence_pointer": "page 59 paragraph 3826",
+      "error_class": "wrong_object",
+      "reason_rejected": "The 18-month rule concerns aging/segregation of disciplinary records, not a progressive-discipline step sequence."
+    },
+    {
+      "document_id": "HELDOUT_07",
+      "concept_id": "C_SAFETY_PPE_UNSAFE_WORK",
+      "candidate_value": "30 days",
+      "candidate_field": "stop-work right or PPE entitlement",
+      "evidence_pointer": "page 57 paragraph 3601",
+      "error_class": "wrong_object",
+      "reason_rejected": "The 30-day value is a written response deadline for Safety Committee recommendations, not a stop-work right, PPE supply rule, or hazard-remediation duration."
+    },
+    {
+      "document_id": "HELDOUT_07",
+      "concept_id": "C_LEAVE_PERSONAL_MISC",
+      "candidate_value": "six months ordinary leave of absence",
+      "candidate_field": "paid personal leave amount",
+      "evidence_pointer": "page 53 paragraphs 3202-3203",
+      "error_class": "wrong_object",
+      "reason_rejected": "The six-month value is an unpaid leave-of-absence framework cap, not a paid personal-day entitlement."
+    },
+    {
+      "document_id": "HELDOUT_07",
+      "concept_id": "C_PREMIUM_RESPONSIBILITY_SPECIALTY",
+      "candidate_value": "$400 per month",
+      "candidate_field": "general responsibility premium",
+      "evidence_pointer": "page 43 paragraph 2338",
+      "error_class": "subgroup_specific_value",
+      "reason_rejected": "The $400 minimum promotional increase applies only to RN-to-Nurse-Practitioner promotions; it was not treated as a document-wide responsibility/specialty premium."
+    }
+  ],
+  "HELDOUT_08": [
+    {
+      "candidate_field": "deductible/copay/OOP or medical plan design generosity",
+      "candidate_value": "90%, 105%, 50%, and tier monthly premiums",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "concept_record_id": "HELDOUT_08_CR_002",
+      "document_id": "HELDOUT_08",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "Article VI Section 1, pages 46-47",
+      "reason_rejected": "These are contribution and worker-premium values, not plan-design terms such as deductibles, copays, coinsurance, OOP maximums, prescriptions, or covered-service limits.",
+      "source_pointer": "Article VI Section 1, pages 46-47"
+    },
+    {
+      "candidate_field": "active medical plan design score",
+      "candidate_value": "Standard Plan and alternative plans comparable in benefit levels",
+      "concept_id": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+      "concept_record_id": "HELDOUT_08_CR_002",
+      "document_id": "HELDOUT_08",
+      "error_class": [
+        "insufficient_entailment"
+      ],
+      "error_classes": [
+        "insufficient_entailment",
+        "external_plan_value"
+      ],
+      "evidence_pointer": "Article VI Section 1, page 46 lines 4-7",
+      "reason_rejected": "Comparability language is external-profile context because the Group Insurance Board approves plans and the CBA does not state scoreable design terms.",
+      "source_pointer": "Article VI Section 1, page 46 lines 4-7"
+    },
+    {
+      "candidate_field": "base wage rate",
+      "candidate_value": "$2,400 market lump sum and $250 general wage adjustment lump sum",
+      "concept_id": "C_WAGE_BASE_RATE",
+      "concept_record_id": "HELDOUT_08_CR_012",
+      "document_id": "HELDOUT_08",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "Article V Section 1, page 39 lines 29-36",
+      "reason_rejected": "The amounts are lump-sum wage adjustments, not hourly base wage levels.",
+      "source_pointer": "Article V Section 1, page 39 lines 29-36"
+    },
+    {
+      "candidate_field": "general across-the-board wage increase",
+      "candidate_value": "1.5% anniversary adjustment",
+      "concept_id": "C_WAGE_INCREASES_COLA",
+      "concept_record_id": "HELDOUT_08_CR_014",
+      "document_id": "HELDOUT_08",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object",
+        "subgroup_specific_value"
+      ],
+      "evidence_pointer": "Article V Section 1, pages 38 and 42",
+      "reason_rejected": "The value is an anniversary/progression adjustment tied to grid placement and pay range maximums, not a document-wide general wage increase.",
+      "source_pointer": "Article V Section 1, pages 38 and 42"
+    },
+    {
+      "candidate_field": "severance duration or severance cap",
+      "candidate_value": "up to five years",
+      "concept_id": "C_JOB_SECURITY_BENEFIT_CONTINUATION",
+      "concept_record_id": "HELDOUT_08_CR_022",
+      "document_id": "HELDOUT_08",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "Article X Section 12, page 98 lines 13-22",
+      "reason_rejected": "The five-year period is a health-premium credit continuation limit using converted sick leave credits, not a severance payment formula or cap.",
+      "source_pointer": "Article X Section 12, page 98 lines 13-22"
+    },
+    {
+      "candidate_field": "vacation entitlement",
+      "candidate_value": "3.5 personal holidays plus one additional paid personal holiday",
+      "concept_id": "C_LEAVE_VACATION",
+      "concept_record_id": "HELDOUT_08_CR_006",
+      "document_id": "HELDOUT_08",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "Article VI Section 14, page 63 lines 10-19",
+      "reason_rejected": "Personal holidays are contained in the holiday article and are not annual leave/vacation hours.",
+      "source_pointer": "Article VI Section 14, page 63 lines 10-19"
+    },
+    {
+      "candidate_field": "independent paid bereavement bank",
+      "candidate_value": "three days plus travel bereavement leave",
+      "concept_id": "C_LEAVE_PERSONAL_MISC",
+      "concept_record_id": "HELDOUT_08_CR_009",
+      "document_id": "HELDOUT_08",
+      "error_class": [
+        "formula_component_not_entitlement"
+      ],
+      "error_classes": [
+        "formula_component_not_entitlement"
+      ],
+      "evidence_pointer": "Article VI Section 4, page 48 lines 24-37",
+      "reason_rejected": "Bereavement time is a permitted use of accrued sick leave, not an independent additive leave bank.",
+      "source_pointer": "Article VI Section 4, page 48 lines 24-37"
+    },
+    {
+      "candidate_field": "shift/night/weekend premium",
+      "candidate_value": "$1.15 temporary supervisory responsibility pay",
+      "concept_id": "C_PREMIUM_SHIFT",
+      "concept_record_id": "HELDOUT_08_CR_016",
+      "document_id": "HELDOUT_08",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "Article VI Section 20, page 69 lines 31-39",
+      "reason_rejected": "The $1.15 value is a responsibility/supervisory premium, not a shift, night, or weekend differential.",
+      "source_pointer": "Article VI Section 20, page 69 lines 31-39"
+    },
+    {
+      "candidate_field": "document-wide layoff order generosity without flag",
+      "candidate_value": "10 percent may be exempted from layoff procedure",
+      "concept_id": "C_JOB_SECURITY_LAYOFF_ORDER",
+      "concept_record_id": "HELDOUT_08_CR_020",
+      "document_id": "HELDOUT_08",
+      "error_class": [
+        "wrong_object"
+      ],
+      "error_classes": [
+        "wrong_object"
+      ],
+      "evidence_pointer": "Article X Section 2, page 91 lines 1-6",
+      "reason_rejected": "The 10 percent exemption is an employer exception to inverse-seniority layoff order, not a worker-protective entitlement; it is recorded as a limit only.",
+      "source_pointer": "Article X Section 2, page 91 lines 1-6"
+    },
+    {
+      "candidate_field": "binding violence-protection entitlement",
+      "candidate_value": "recommendations will be addressed at Health and Safety meetings",
+      "concept_id": "C_SAFETY_ASSAULT_VIOLENCE",
+      "concept_record_id": "HELDOUT_08_CR_029",
+      "document_id": "HELDOUT_08",
+      "error_class": [
+        "insufficient_entailment"
+      ],
+      "error_classes": [
+        "insufficient_entailment"
+      ],
+      "evidence_pointer": "Article XI Section 6, page 102 lines 25-28",
+      "reason_rejected": "The text creates a discussion/recommendation process, not a concrete binding PPE, staffing, stop-work, or remedy entitlement for violence protection.",
+      "source_pointer": "Article XI Section 6, page 102 lines 25-28"
+    }
+  ]
+}

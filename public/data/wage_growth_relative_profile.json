@@ -1,0 +1,282 @@
+[
+  {
+    "document_id": "CBA_01",
+    "wage_growth_relative_score": "",
+    "annualized_real_wage_growth_pct": "",
+    "annualized_nominal_wage_growth_pct": "",
+    "wage_growth_status": "not_observed_or_not_reviewed",
+    "component_year_sequence": "",
+    "normalization_warning": "",
+    "interpretation": "No comparable wage-growth record in the current wage-growth prototype."
+  },
+  {
+    "document_id": "CBA_02",
+    "wage_growth_relative_score": "2",
+    "annualized_real_wage_growth_pct": "-0.337",
+    "annualized_nominal_wage_growth_pct": "2.178",
+    "wage_growth_status": "pilot_relative_real_growth_score",
+    "component_year_sequence": "2005; 2006; 2007; 2008; 2009; 2010; 2011",
+    "normalization_warning": "",
+    "interpretation": "Score is relative to the comparable pilot subset only; missing wage-growth records are not treated as zero."
+  },
+  {
+    "document_id": "CBA_03",
+    "wage_growth_relative_score": "",
+    "annualized_real_wage_growth_pct": "",
+    "annualized_nominal_wage_growth_pct": "",
+    "wage_growth_status": "not_observed_or_not_reviewed",
+    "component_year_sequence": "",
+    "normalization_warning": "",
+    "interpretation": "No comparable wage-growth record in the current wage-growth prototype."
+  },
+  {
+    "document_id": "CBA_04",
+    "wage_growth_relative_score": "",
+    "annualized_real_wage_growth_pct": "",
+    "annualized_nominal_wage_growth_pct": "",
+    "wage_growth_status": "not_observed_or_not_reviewed",
+    "component_year_sequence": "",
+    "normalization_warning": "",
+    "interpretation": "No comparable wage-growth record in the current wage-growth prototype."
+  },
+  {
+    "document_id": "CBA_05",
+    "wage_growth_relative_score": "",
+    "annualized_real_wage_growth_pct": "",
+    "annualized_nominal_wage_growth_pct": "",
+    "wage_growth_status": "not_observed_or_not_reviewed",
+    "component_year_sequence": "",
+    "normalization_warning": "",
+    "interpretation": "No comparable wage-growth record in the current wage-growth prototype."
+  },
+  {
+    "document_id": "CBA_06",
+    "wage_growth_relative_score": "",
+    "annualized_real_wage_growth_pct": "",
+    "annualized_nominal_wage_growth_pct": "",
+    "wage_growth_status": "not_observed_or_not_reviewed",
+    "component_year_sequence": "",
+    "normalization_warning": "",
+    "interpretation": "No comparable wage-growth record in the current wage-growth prototype."
+  },
+  {
+    "document_id": "CBA_07",
+    "wage_growth_relative_score": "",
+    "annualized_real_wage_growth_pct": "",
+    "annualized_nominal_wage_growth_pct": "",
+    "wage_growth_status": "not_observed_or_not_reviewed",
+    "component_year_sequence": "",
+    "normalization_warning": "",
+    "interpretation": "No comparable wage-growth record in the current wage-growth prototype."
+  },
+  {
+    "document_id": "CBA_08",
+    "wage_growth_relative_score": "",
+    "annualized_real_wage_growth_pct": "",
+    "annualized_nominal_wage_growth_pct": "",
+    "wage_growth_status": "not_attempted_not_converted_nominal_growth",
+    "component_year_sequence": "",
+    "normalization_warning": "",
+    "interpretation": "Real adjustment requires usable nominal percentage wage-growth components."
+  },
+  {
+    "document_id": "CBA_09",
+    "wage_growth_relative_score": "",
+    "annualized_real_wage_growth_pct": "",
+    "annualized_nominal_wage_growth_pct": "",
+    "wage_growth_status": "not_observed_or_not_reviewed",
+    "component_year_sequence": "",
+    "normalization_warning": "",
+    "interpretation": "No comparable wage-growth record in the current wage-growth prototype."
+  },
+  {
+    "document_id": "CBA_10",
+    "wage_growth_relative_score": "",
+    "annualized_real_wage_growth_pct": "",
+    "annualized_nominal_wage_growth_pct": "",
+    "wage_growth_status": "not_observed_or_not_reviewed",
+    "component_year_sequence": "",
+    "normalization_warning": "",
+    "interpretation": "No comparable wage-growth record in the current wage-growth prototype."
+  },
+  {
+    "document_id": "CBA_11",
+    "wage_growth_relative_score": "4",
+    "annualized_real_wage_growth_pct": "1.374",
+    "annualized_nominal_wage_growth_pct": "4.0",
+    "wage_growth_status": "pilot_relative_real_growth_score",
+    "component_year_sequence": "2000; 2001; 2002",
+    "normalization_warning": "",
+    "interpretation": "Score is relative to the comparable pilot subset only; missing wage-growth records are not treated as zero."
+  },
+  {
+    "document_id": "CBA_12",
+    "wage_growth_relative_score": "3",
+    "annualized_real_wage_growth_pct": "0.128",
+    "annualized_nominal_wage_growth_pct": "3.25",
+    "wage_growth_status": "pilot_relative_real_growth_score",
+    "component_year_sequence": "2005; 2007",
+    "normalization_warning": "",
+    "interpretation": "Score is relative to the comparable pilot subset only; missing wage-growth records are not treated as zero."
+  },
+  {
+    "document_id": "CBA_13",
+    "wage_growth_relative_score": "1",
+    "annualized_real_wage_growth_pct": "-1.427",
+    "annualized_nominal_wage_growth_pct": "1.749",
+    "wage_growth_status": "pilot_relative_real_growth_score",
+    "component_year_sequence": "2006; 2006; 2006",
+    "normalization_warning": "multiple_components_in_same_calendar_year",
+    "interpretation": "Score is relative to the comparable pilot subset only; missing wage-growth records are not treated as zero."
+  },
+  {
+    "document_id": "CBA_14",
+    "wage_growth_relative_score": "",
+    "annualized_real_wage_growth_pct": "",
+    "annualized_nominal_wage_growth_pct": "",
+    "wage_growth_status": "not_observed_or_not_reviewed",
+    "component_year_sequence": "",
+    "normalization_warning": "",
+    "interpretation": "No comparable wage-growth record in the current wage-growth prototype."
+  },
+  {
+    "document_id": "CBA_15",
+    "wage_growth_relative_score": "",
+    "annualized_real_wage_growth_pct": "",
+    "annualized_nominal_wage_growth_pct": "",
+    "wage_growth_status": "not_attempted_not_converted_nominal_growth",
+    "component_year_sequence": "",
+    "normalization_warning": "",
+    "interpretation": "Real adjustment requires usable nominal percentage wage-growth components."
+  },
+  {
+    "document_id": "CBA_16",
+    "wage_growth_relative_score": "",
+    "annualized_real_wage_growth_pct": "",
+    "annualized_nominal_wage_growth_pct": "",
+    "wage_growth_status": "not_observed_or_not_reviewed",
+    "component_year_sequence": "",
+    "normalization_warning": "",
+    "interpretation": "No comparable wage-growth record in the current wage-growth prototype."
+  },
+  {
+    "document_id": "CBA_17",
+    "wage_growth_relative_score": "",
+    "annualized_real_wage_growth_pct": "",
+    "annualized_nominal_wage_growth_pct": "",
+    "wage_growth_status": "not_attempted_not_converted_nominal_growth",
+    "component_year_sequence": "",
+    "normalization_warning": "",
+    "interpretation": "Real adjustment requires usable nominal percentage wage-growth components."
+  },
+  {
+    "document_id": "CBA_18",
+    "wage_growth_relative_score": "",
+    "annualized_real_wage_growth_pct": "",
+    "annualized_nominal_wage_growth_pct": "",
+    "wage_growth_status": "not_attempted_not_converted_nominal_growth",
+    "component_year_sequence": "",
+    "normalization_warning": "",
+    "interpretation": "Real adjustment requires usable nominal percentage wage-growth components."
+  },
+  {
+    "document_id": "CBA_19",
+    "wage_growth_relative_score": "",
+    "annualized_real_wage_growth_pct": "",
+    "annualized_nominal_wage_growth_pct": "",
+    "wage_growth_status": "not_attempted_not_converted_nominal_growth",
+    "component_year_sequence": "",
+    "normalization_warning": "",
+    "interpretation": "Real adjustment requires usable nominal percentage wage-growth components."
+  },
+  {
+    "document_id": "CBA_20",
+    "wage_growth_relative_score": "2",
+    "annualized_real_wage_growth_pct": "-0.343",
+    "annualized_nominal_wage_growth_pct": "10.0",
+    "wage_growth_status": "pilot_relative_real_growth_score",
+    "component_year_sequence": "1981",
+    "normalization_warning": "single_component_calendar_year_adjustment",
+    "interpretation": "Score is relative to the comparable pilot subset only; missing wage-growth records are not treated as zero."
+  },
+  {
+    "document_id": "HELDOUT_01",
+    "wage_growth_relative_score": "1",
+    "annualized_real_wage_growth_pct": "-0.816",
+    "annualized_nominal_wage_growth_pct": "1.809",
+    "wage_growth_status": "pilot_relative_real_growth_score",
+    "component_year_sequence": "2000; 2001; 2001; 2002",
+    "normalization_warning": "multiple_components_in_same_calendar_year",
+    "interpretation": "Score is relative to the comparable pilot subset only; missing wage-growth records are not treated as zero."
+  },
+  {
+    "document_id": "HELDOUT_02",
+    "wage_growth_relative_score": "3",
+    "annualized_real_wage_growth_pct": "0.203",
+    "annualized_nominal_wage_growth_pct": "3.0",
+    "wage_growth_status": "pilot_relative_real_growth_score",
+    "component_year_sequence": "1999; 2000; 2001",
+    "normalization_warning": "",
+    "interpretation": "Score is relative to the comparable pilot subset only; missing wage-growth records are not treated as zero."
+  },
+  {
+    "document_id": "HELDOUT_03",
+    "wage_growth_relative_score": "5",
+    "annualized_real_wage_growth_pct": "1.417",
+    "annualized_nominal_wage_growth_pct": "4.0",
+    "wage_growth_status": "pilot_relative_real_growth_score",
+    "component_year_sequence": "2000; 2001; 2002; 2003; 2004",
+    "normalization_warning": "",
+    "interpretation": "Score is relative to the comparable pilot subset only; missing wage-growth records are not treated as zero."
+  },
+  {
+    "document_id": "HELDOUT_04",
+    "wage_growth_relative_score": "",
+    "annualized_real_wage_growth_pct": "",
+    "annualized_nominal_wage_growth_pct": "",
+    "wage_growth_status": "not_observed_or_not_reviewed",
+    "component_year_sequence": "",
+    "normalization_warning": "",
+    "interpretation": "No comparable wage-growth record in the current wage-growth prototype."
+  },
+  {
+    "document_id": "HELDOUT_05",
+    "wage_growth_relative_score": "4",
+    "annualized_real_wage_growth_pct": "1.184",
+    "annualized_nominal_wage_growth_pct": "3.247",
+    "wage_growth_status": "pilot_relative_real_growth_score",
+    "component_year_sequence": "2002; 2002; 2003; 2004",
+    "normalization_warning": "multiple_components_in_same_calendar_year",
+    "interpretation": "Score is relative to the comparable pilot subset only; missing wage-growth records are not treated as zero."
+  },
+  {
+    "document_id": "HELDOUT_06",
+    "wage_growth_relative_score": "",
+    "annualized_real_wage_growth_pct": "",
+    "annualized_nominal_wage_growth_pct": "",
+    "wage_growth_status": "not_observed_or_not_reviewed",
+    "component_year_sequence": "",
+    "normalization_warning": "",
+    "interpretation": "No comparable wage-growth record in the current wage-growth prototype."
+  },
+  {
+    "document_id": "HELDOUT_07",
+    "wage_growth_relative_score": "5",
+    "annualized_real_wage_growth_pct": "2.925",
+    "annualized_nominal_wage_growth_pct": "5.294",
+    "wage_growth_status": "pilot_relative_real_growth_score",
+    "component_year_sequence": "2002; 2002; 2003; 2004; 2005",
+    "normalization_warning": "multiple_components_in_same_calendar_year",
+    "interpretation": "Score is relative to the comparable pilot subset only; missing wage-growth records are not treated as zero."
+  },
+  {
+    "document_id": "HELDOUT_08",
+    "wage_growth_relative_score": "",
+    "annualized_real_wage_growth_pct": "",
+    "annualized_nominal_wage_growth_pct": "",
+    "wage_growth_status": "not_observed_or_not_reviewed",
+    "component_year_sequence": "",
+    "normalization_warning": "",
+    "interpretation": "No comparable wage-growth record in the current wage-growth prototype."
+  }
+]
