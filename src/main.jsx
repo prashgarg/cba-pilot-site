@@ -91,36 +91,32 @@ function App() {
 
   return (
     <main>
-      <header className="hero">
+      <header className="masthead">
         <div>
           <p className="smallcaps">CBA measurement pilot</p>
-          <h1>Provision records, scores, and diagnostics for 28 contracts</h1>
-          <p className="lede">
-            This site is a working viewer for the pilot measurement outputs. Use it to inspect each CBA,
-            compare domain scores, read evidence-linked records, and diagnose where extraction or scoring
-            remains uncertain.
-          </p>
+          <h1>28 contracts, one controlled viewer</h1>
         </div>
-        <div className="heroStats">
+        <div className="mastStats">
           <Stat label="Documents" value={data.manifest.document_count} />
           <Stat label="Records" value={data.manifest.record_count} />
           <Stat label="PDFs" value={data.manifest.pdf_count} />
         </div>
       </header>
 
-      <nav className="tabs" aria-label="Main views">
-        {[
-          ["documents", "Documents"],
-          ["domains", "Domain explorer"],
-          ["diagnostics", "Diagnostics"]
-        ].map(([id, label]) => (
-          <button key={id} className={view === id ? "active" : ""} onClick={() => setView(id)}>
-            {label}
-          </button>
-        ))}
-      </nav>
+      <div className="shell">
+        <nav className="tabs" aria-label="Main views">
+          {[
+            ["documents", "Documents"],
+            ["domains", "Domain explorer"],
+            ["diagnostics", "Diagnostics"]
+          ].map(([id, label]) => (
+            <button key={id} className={view === id ? "active" : ""} onClick={() => setView(id)}>
+              {label}
+            </button>
+          ))}
+        </nav>
 
-      {view === "documents" && (
+        {view === "documents" && (
         <section className="workspace">
           <aside className="sidebar">
             <input
@@ -145,25 +141,26 @@ function App() {
           </aside>
           <DocumentPanel doc={selected} records={records} scores={scores} rejected={rejected} novelty={novelty} />
         </section>
-      )}
+        )}
 
-      {view === "domains" && (
-        <DomainExplorer
-          documents={data.documents}
-          status={data.status}
-          matrix={data.matrix}
-          domainFilter={domainFilter}
-          setDomainFilter={setDomainFilter}
-          onSelectDocument={(id) => {
-            setSelectedId(id);
-            setView("documents");
-          }}
-        />
-      )}
+        {view === "domains" && (
+          <DomainExplorer
+            documents={data.documents}
+            status={data.status}
+            matrix={data.matrix}
+            domainFilter={domainFilter}
+            setDomainFilter={setDomainFilter}
+            onSelectDocument={(id) => {
+              setSelectedId(id);
+              setView("documents");
+            }}
+          />
+        )}
 
-      {view === "diagnostics" && (
-        <Diagnostics documents={data.documents} status={data.status} records={data.records} rejected={data.rejected} />
-      )}
+        {view === "diagnostics" && (
+          <Diagnostics documents={data.documents} status={data.status} records={data.records} rejected={data.rejected} />
+        )}
+      </div>
     </main>
   );
 }
@@ -187,6 +184,7 @@ function Info({ text }) {
 }
 
 function DocumentPanel({ doc, records, scores, rejected, novelty }) {
+  const [panelView, setPanelView] = useState("overview");
   const [sourceView, setSourceView] = useState("pdf");
   const [recordQuery, setRecordQuery] = useState("");
   const [recordStatus, setRecordStatus] = useState("All");
@@ -243,43 +241,79 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
         </div>
       </div>
 
-      <div className="documentSummary">
-        <Stat label="Avg. scored domain" value={avgDomainScore} />
-        <Stat label="Provision records" value={records.length} />
-        <Stat label="Score-ready-ish" value={scoreableCount} />
-        <Stat label="Rejected values" value={rejected.length} />
-      </div>
-
-      <div className="scoreStrip">
-        {doc.domain_scores.map((domain) => (
-          <div className="domainScore" key={domain.domain}>
-            <span>{domain.domain} <Info text={HELP.availableScore} /></span>
-            <strong>{format(domain.available_score)}</strong>
-            <em>{format(domain.coverage_share, 1)} coverage <Info text={HELP.coverage} /></em>
-          </div>
+      <div className="panelTabs" role="tablist" aria-label="Document views">
+        {[
+          ["overview", "Overview"],
+          ["source", "Source"],
+          ["records", "Records"],
+          ["audit", "Audit"]
+        ].map(([id, label]) => (
+          <button key={id} className={panelView === id ? "active" : ""} onClick={() => setPanelView(id)}>
+            {label}
+          </button>
         ))}
       </div>
 
-      <div className="split">
-        <div className="sourcePane">
+      {panelView === "overview" && (
+        <div className="overviewGrid">
+          <section className="overviewBlock">
+            <div className="documentSummary">
+              <Stat label="Avg. scored domain" value={avgDomainScore} />
+              <Stat label="Provision records" value={records.length} />
+              <Stat label="Score-ready-ish" value={scoreableCount} />
+              <Stat label="Rejected values" value={rejected.length} />
+            </div>
+            <div className="scoreStrip compact">
+              {doc.domain_scores.map((domain) => (
+                <div className="domainScore" key={domain.domain}>
+                  <span>{domain.domain} <Info text={HELP.availableScore} /></span>
+                  <strong>{format(domain.available_score)}</strong>
+                  <em>{format(domain.coverage_share, 1)} coverage <Info text={HELP.coverage} /></em>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="overviewBlock">
+            <div className="paneHeader">
+              <div>
+                <h3>What to inspect first</h3>
+                <p>Compact preview of the most visible records. Open Records for the full list.</p>
+              </div>
+            </div>
+            <div className="overviewRecords">
+              {records.slice(0, 4).map((record) => (
+                <CompactRecord key={record.concept_record_id} record={record} score={scoreByRecord.get(record.concept_record_id)} />
+              ))}
+            </div>
+          </section>
+        </div>
+      )}
+
+      {panelView === "source" && (
+        <div className="singlePanel">
           <div className="paneHeader">
             <div>
               <h3>Source</h3>
-              <p>Fixed-height viewer. Use OCR search for quick checks; use PDF when available.</p>
+              <p>Fixed-height viewer. Use OCR for quick checks and PDF when available.</p>
             </div>
             <div className="switcher">
               <button className={sourceView === "pdf" ? "active" : ""} onClick={() => setSourceView("pdf")}>PDF</button>
               <button className={sourceView === "ocr" ? "active" : ""} onClick={() => setSourceView("ocr")}>OCR</button>
             </div>
           </div>
-          {sourceView === "pdf" ? (
-            doc.pdf_url ? <iframe title={`${doc.document_id} PDF`} src={doc.pdf_url} /> : <Empty text="No PDF copied for this document." />
-          ) : (
-            <OcrFrame url={doc.ocr_url} />
-          )}
+          <div className="viewerWrap">
+            {sourceView === "pdf" ? (
+              doc.pdf_url ? <iframe title={`${doc.document_id} PDF`} src={doc.pdf_url} /> : <Empty text="No PDF copied for this document." />
+            ) : (
+              <OcrFrame url={doc.ocr_url} />
+            )}
+          </div>
         </div>
+      )}
 
-        <div className="recordsPane">
+      {panelView === "records" && (
+        <div className="singlePanel">
           <div className="paneHeader stacked">
             <div>
               <h3>Records <Info text={HELP.scoreability} /></h3>
@@ -305,15 +339,19 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
             {!filteredRecords.length && <Empty text="No records match these filters." />}
           </div>
         </div>
-      </div>
+      )}
 
-      <details className="auditBox">
-        <summary>Rejected values <Info text={HELP.rejected} /> and novelty queue <Info text={HELP.novelty} /></summary>
-        <div className="auditGrid">
-          <AuditList title="Rejected values" rows={rejected} />
-          <AuditList title="Novelty items" rows={novelty} />
+      {panelView === "audit" && (
+        <div className="singlePanel">
+          <details className="auditBox" open>
+            <summary>Rejected values <Info text={HELP.rejected} /> and novelty queue <Info text={HELP.novelty} /></summary>
+            <div className="auditGrid">
+              <AuditList title="Rejected values" rows={rejected} />
+              <AuditList title="Novelty items" rows={novelty} />
+            </div>
+          </details>
         </div>
-      </details>
+      )}
     </section>
   );
 }
@@ -382,6 +420,29 @@ function RecordCard({ record, score }) {
           </details>
         )}
       </div>
+    </details>
+  );
+}
+
+function CompactRecord({ record, score }) {
+  const status = record.scoreability?.status ?? "unknown";
+  return (
+    <details className="compactRecord">
+      <summary>
+        <div className="compactRecordTop">
+          <div>
+            <strong>{record.concept_label}</strong>
+            <span>{record.concept_id}</span>
+          </div>
+          <div className={`pill ${statusTone(status)}`}>{status}</div>
+        </div>
+        <div className="compactFacts">
+          <span>{record.family_label || "—"}</span>
+          <span>Score {format(score?.draft_score ?? record.bridge_score?.score)}</span>
+          <span>{record.fields?.length || 0} fields</span>
+        </div>
+      </summary>
+      {score?.explanation && <p className="explain">{score.explanation}</p>}
     </details>
   );
 }
