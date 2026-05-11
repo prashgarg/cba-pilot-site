@@ -132,6 +132,28 @@ h4 { margin-bottom: 6px; }
   background: rgba(255,255,252,.74);
   box-shadow: 0 8px 22px rgba(70, 57, 31, .08), inset 0 1px 0 rgba(255,255,255,.76);
 }
+.readGuide {
+  flex: 0 0 auto;
+  width: fit-content;
+  max-width: 760px;
+  margin: -4px 0 10px;
+  padding: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+.readGuide summary {
+  cursor: pointer;
+  color: var(--muted);
+  font-weight: 800;
+}
+.readGuide p {
+  margin: 7px 0 0;
+  padding: 9px 12px;
+  border: 1px solid rgba(255,255,255,.58);
+  border-radius: 14px;
+  background: rgba(255,255,252,.38);
+  line-height: 1.4;
+}
 
 .workspace {
   display: grid;
@@ -520,14 +542,9 @@ select:focus {
 .recordTop,
 .provisionRow {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 150px 60px;
+  grid-template-columns: minmax(0, 1fr) 150px 88px;
   gap: 12px;
   align-items: start;
-}
-.provisionRow > strong {
-  font-size: 17px;
-  line-height: 1.2;
-  text-align: right;
 }
 .compactRecord strong,
 .recordCard h4 {
@@ -593,6 +610,26 @@ select:focus {
 .statusText.warn { color: var(--warn); }
 .statusText.cool { color: var(--cool); }
 .statusText.muted { color: var(--muted); }
+.scoreBadge {
+  display: grid;
+  justify-items: end;
+  gap: 2px;
+  color: var(--faint);
+}
+.scoreBadge em {
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.scoreBadge strong {
+  font-size: 15px;
+  line-height: 1.2;
+}
+.scoreBadge.scored {
+  color: var(--ink);
+}
 
 .singlePanel {
   display: flex;
@@ -635,6 +672,9 @@ select:focus {
   border-radius: 0 12px 12px 0;
   color: var(--muted);
   font-size: 13px;
+}
+.explain strong {
+  color: var(--ink);
 }
 .whyLine {
   margin: 10px 0 0;
@@ -742,7 +782,12 @@ select:focus {
   cursor: pointer;
   font-weight: 800;
 }
-.auditGrid,
+.auditGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 14px;
+}
 .diagnosticGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -779,6 +824,17 @@ select:focus {
   margin-top: 3px;
   font-size: 23px;
   line-height: 1.05;
+}
+.countCard {
+  min-width: 0;
+}
+.countCard h3 {
+  margin-bottom: 8px;
+}
+.countCard .countRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
 }
 .auditItem,
 .countRow {

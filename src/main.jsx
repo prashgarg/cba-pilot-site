@@ -243,6 +243,13 @@ function App() {
             </button>
           ))}
         </nav>
+        <details className="readGuide">
+          <summary>How to read this</summary>
+          <p>
+            Provisions are extracted contract objects. Some receive scalar scores; others are kept as structured evidence,
+            context, external-plan references, normalization cases, or future scoring candidates.
+          </p>
+        </details>
 
         {view === "documents" && (
         <section className="workspace">
@@ -605,6 +612,7 @@ function RecordCard({ record, score }) {
   const shownFields = fields.slice(0, 3);
   const hiddenFields = fields.slice(3);
   const scoreShown = scoreValue(record, score);
+  const scored = hasNumericScore(scoreShown);
   return (
     <details className="recordCard">
       <summary>
@@ -617,10 +625,17 @@ function RecordCard({ record, score }) {
             {statusLabel}
             {statusDetail ? <em>{statusDetail}</em> : null}
           </span>
-          <strong>{format(scoreShown)}</strong>
+          <span className={`scoreBadge ${scored ? "scored" : ""}`}>
+            <em>Score</em>
+            <strong>{scored ? `${format(scoreShown)} / 5` : "—"}</strong>
+          </span>
         </div>
       </summary>
-      {score?.explanation && <p className="explain">{score.explanation}</p>}
+      {score?.explanation && (
+        <p className="explain">
+          <strong>Score reason:</strong> {score.explanation}
+        </p>
+      )}
       {record.scoreability?.reason && (
         <p className="whyLine">
           <strong>{statusDetail ? `Why ${statusDetail.toLowerCase()}:` : "Why:"}</strong>{" "}
