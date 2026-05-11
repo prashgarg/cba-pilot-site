@@ -27,9 +27,36 @@ const statusTone = (status = "") => {
   return "muted";
 };
 
+const provisionStatus = (status = "") => {
+  const labels = {
+    scoreable: ["Scored", "good"],
+    scoreable_with_flags: ["Scored with caution", "warn"],
+    record_only: ["Recorded only", "muted"],
+    framework_only: ["Recorded only", "muted"],
+    not_scoreable_ambiguous: ["Not scored", "muted"],
+    not_scoreable_external: ["External inputs needed", "cool"],
+    normalization_required: ["Needs normalization", "cool"],
+    requires_agentic_review: ["Needs review", "warn"]
+  };
+  return labels[status] ?? [status.replaceAll("_", " "), "muted"];
+};
+
+const scoreValue = (record, score) => score?.draft_score ?? record.bridge_score?.score;
+const hasNumericScore = (value) => value !== null && value !== undefined && value !== "" && Number.isFinite(Number(value));
+
+const groupByFamily = (records) => {
+  const groups = new Map();
+  records.forEach((record) => {
+    const family = record.family_label || "Other provisions";
+    if (!groups.has(family)) groups.set(family, []);
+    groups.get(family).push(record);
+  });
+  return Array.from(groups.entries()).sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]));
+};
+
 const HELP = {
   domainScores: "Mean score uses concepts with enough contract evidence. Coverage is the share of expected concepts observed in that domain.",
-  scoreability: "Whether a record can be converted into a scalar score using only the CBA text. Some records are useful but intentionally not scored.",
+  scoreability: "Some extracted provisions are scored. Others are kept as context because they define scope, require outside inputs, or are not comparable enough for a scalar score.",
   rejected: "Values the protocol saw but refused to use, usually because they were the wrong object, lacked support, or came from context rather than an operative provision.",
   novelty: "Provision material that did not fit cleanly into the fixed concept library for this run."
 };
@@ -93,11 +120,11 @@ function App() {
       <header className="masthead">
         <div>
           <p className="smallcaps">CBA pilot</p>
-          <h1>Collective bargaining records</h1>
+          <h1>Collective bargaining provisions</h1>
         </div>
         <div className="mastStats">
           <Stat label="Documents" value={data.manifest.document_count} />
-          <Stat label="Records" value={data.manifest.record_count} />
+          <Stat label="Provisions" value={data.manifest.record_count} />
         </div>
       </header>
 
@@ -215,9 +242,11 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
   const statuses = ["All", ...Array.from(new Set(records.map((record) => record.scoreability?.status ?? "unknown"))).sort()];
   const families = ["All", ...Array.from(new Set(records.map((record) => record.family_label ?? "Other"))).sort()];
   const scoreableCount = records.filter((record) => (record.scoreability?.status ?? "").includes("scoreable")).length;
+  const provisionGroups = groupByFamily(filteredRecords);
+  const allProvisionGroups = groupByFamily(records);
   const domainMean = doc.domain_scores
     .map((domain) => domain.available_score)
-    .filter((score) => Number.isFinite(Number(score)));
+    .filter(hasNumericScore);
   const avgDomainScore = domainMean.length
     ? domainMean.reduce((sum, score) => sum + Number(score), 0) / domainMean.length
     : null;
@@ -242,8 +271,8 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
         {[
           ["overview", "Overview"],
           ["source", "Source"],
-          ["records", "Records"],
-          ["audit", "Audit"]
+          ["provisions", "Provisions"],
+          ["audit", "Review notes"]
         ].map(([id, label]) => (
           <button key={id} className={panelView === id ? "active" : ""} onClick={() => setPanelView(id)}>
             {label}
@@ -260,7 +289,7 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
             </div>
             <div className="documentSummary">
               <Stat label="Mean score" value={avgDomainScore} />
-              <Stat label="Records" value={records.length} />
+              <Stat label="Provisions" value={records.length} />
               <Stat label="Score-ready" value={scoreableCount} />
               <Stat label="Rejected" value={rejected.length} />
             </div>
@@ -278,12 +307,21 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
           <section className="overviewBlock">
             <div className="paneHeader">
               <div>
-                <h3>Records</h3>
+                <h3>Provision families</h3>
               </div>
             </div>
-            <div className="overviewRecords">
-              {records.slice(0, 4).map((record) => (
-                <CompactRecord key={record.concept_record_id} record={record} score={scoreByRecord.get(record.concept_record_id)} />
+            <div className="familyList">
+              {allProvisionGroups.map(([family, rows]) => (
+                <FamilySummary
+                  key={family}
+                  family={family}
+                  rows={rows}
+                  scoreByRecord={scoreByRecord}
+                  onOpen={() => {
+                    setRecordFamily(family);
+                    setPanelView("provisions");
+                  }}
+                />
               ))}
             </div>
           </section>
@@ -303,31 +341,35 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
         </div>
       )}
 
-      {panelView === "records" && (
+      {panelView === "provisions" && (
         <div className="singlePanel">
           <div className="paneHeader stacked">
             <div>
-              <h3>Records <Info text={HELP.scoreability} /></h3>
+              <h3>Extracted provisions <Info text={HELP.scoreability} /></h3>
               <p>{filteredRecords.length} shown from {records.length}</p>
             </div>
             <input
               className="search"
               value={recordQuery}
-              placeholder="Search records"
+              placeholder="Search provisions"
               onChange={(event) => setRecordQuery(event.target.value)}
             />
             <select value={recordFamily} onChange={(event) => setRecordFamily(event.target.value)}>
               {families.map((family) => <option key={family}>{family}</option>)}
             </select>
             <select value={recordStatus} onChange={(event) => setRecordStatus(event.target.value)}>
-              {statuses.map((status) => <option key={status}>{status}</option>)}
+              {statuses.map((status) => (
+                <option key={status} value={status}>
+                  {status === "All" ? "All statuses" : provisionStatus(status)[0]}
+                </option>
+              ))}
             </select>
           </div>
-          <div className="recordList">
-            {filteredRecords.map((record) => (
-              <RecordCard key={record.concept_record_id} record={record} score={scoreByRecord.get(record.concept_record_id)} />
+          <div className="provisionGroups">
+            {provisionGroups.map(([family, rows]) => (
+              <ProvisionFamily key={family} family={family} rows={rows} scoreByRecord={scoreByRecord} />
             ))}
-            {!filteredRecords.length && <Empty text="No records match these filters." />}
+            {!filteredRecords.length && <Empty text="No provisions match these filters." />}
           </div>
         </div>
       )}
@@ -366,30 +408,60 @@ function OcrFrame({ url }) {
   return <pre className="ocrText">{text}</pre>;
 }
 
+function FamilySummary({ family, rows, scoreByRecord, onOpen }) {
+  const scored = rows.filter((record) => hasNumericScore(scoreValue(record, scoreByRecord.get(record.concept_record_id))));
+  const review = rows.filter((record) => provisionStatus(record.scoreability?.status ?? "unknown")[1] === "warn").length;
+  return (
+    <button className="familyRow" onClick={onOpen}>
+      <div>
+        <strong>{family}</strong>
+        <span>{rows.length} provisions · {scored.length} scored{review ? ` · ${review} with caution` : ""}</span>
+      </div>
+      <span>{scored.length ? format(scored.reduce((sum, record) => sum + Number(scoreValue(record, scoreByRecord.get(record.concept_record_id))), 0) / scored.length) : "—"}</span>
+    </button>
+  );
+}
+
+function ProvisionFamily({ family, rows, scoreByRecord }) {
+  const scored = rows.filter((record) => hasNumericScore(scoreValue(record, scoreByRecord.get(record.concept_record_id))));
+  return (
+    <section className="provisionFamily">
+      <div className="familyHeader">
+        <div>
+          <h4>{family}</h4>
+          <p>{rows.length} provisions · {scored.length} scored</p>
+        </div>
+      </div>
+      <div className="provisionRows">
+        {rows.map((record) => (
+          <RecordCard key={record.concept_record_id} record={record} score={scoreByRecord.get(record.concept_record_id)} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function RecordCard({ record, score }) {
   const fields = record.fields ?? [];
   const status = record.scoreability?.status ?? "unknown";
+  const [statusLabel, statusClass] = provisionStatus(status);
   const shownFields = fields.slice(0, 3);
   const hiddenFields = fields.slice(3);
+  const scoreShown = scoreValue(record, score);
   return (
     <details className="recordCard">
       <summary>
-      <div className="recordTop">
-        <div>
-          <span className="concept">{record.concept_id}</span>
-          <h4>{record.concept_label}</h4>
-          <p>{record.covered_group || record.beneficiary_or_affected_group || "No covered group stated."}</p>
+        <div className="provisionRow">
+          <div>
+            <h4>{record.concept_label}</h4>
+            <p>{record.covered_group || record.beneficiary_or_affected_group || "No covered group stated."}</p>
+          </div>
+          <span className={`statusText ${statusClass}`}>{statusLabel}</span>
+          <strong>{format(scoreShown)}</strong>
         </div>
-        <div className={`pill ${statusTone(status)}`}>{status}</div>
-      </div>
-      <div className="recordFacts">
-        <span>Family: {record.family_label || "—"}</span>
-        <span>Role: {record.aggregation_role || "—"}</span>
-        <span>Score: {format(score?.draft_score ?? record.bridge_score?.score)}</span>
-        <span>{fields.length} fields</span>
-      </div>
       </summary>
       {score?.explanation && <p className="explain">{score.explanation}</p>}
+      {record.scoreability?.reason && <p className="mutedText">{record.scoreability.reason}</p>}
       <div className="fields">
         {shownFields.map((field, index) => (
           <div className="field" key={`${field.field_name}-${index}`}>
@@ -411,29 +483,15 @@ function RecordCard({ record, score }) {
           </details>
         )}
       </div>
-    </details>
-  );
-}
-
-function CompactRecord({ record, score }) {
-  const status = record.scoreability?.status ?? "unknown";
-  return (
-    <details className="compactRecord">
-      <summary>
-        <div className="compactRecordTop">
-          <div>
-            <strong>{record.concept_label}</strong>
-            <span>{record.concept_id}</span>
-          </div>
-          <div className={`pill ${statusTone(status)}`}>{status}</div>
+      <details className="technicalDetails">
+        <summary>Technical details</summary>
+        <div className="recordFacts">
+          <span>Concept ID: {record.concept_id}</span>
+          <span>Internal status: {status}</span>
+          <span>Role: {record.aggregation_role || "—"}</span>
+          <span>Class: {record.concept_reporting_class || "—"}</span>
         </div>
-        <div className="compactFacts">
-          <span>{record.family_label || "—"}</span>
-          <span>Score {format(score?.draft_score ?? record.bridge_score?.score)}</span>
-          <span>{record.fields?.length || 0} fields</span>
-        </div>
-      </summary>
-      {score?.explanation && <p className="explain">{score.explanation}</p>}
+      </details>
     </details>
   );
 }
@@ -477,7 +535,7 @@ function DomainExplorer({ documents, status, matrix, domainFilter, setDomainFilt
               <span className={`pill ${statusTone(domain.current_status)}`}>{domain.current_status}</span>
               <h3>{domain.domain}</h3>
               <p>{domain.empirical_object}</p>
-              <strong>{domain.documents_with_records} docs with records</strong>
+              <strong>{domain.documents_with_records} docs with provisions</strong>
             </div>
           ))}
         </div>
@@ -541,8 +599,8 @@ function Diagnostics({ documents, status, records, rejected }) {
         <thead>
           <tr>
             <th>Document</th>
-            <th>Records</th>
-            <th>Scored records</th>
+            <th>Provisions</th>
+            <th>Scored provisions</th>
             <th>Rejected values</th>
             <th>Novelty</th>
           </tr>
@@ -564,7 +622,12 @@ function Diagnostics({ documents, status, records, rejected }) {
 }
 
 function CountCard({ title, counts }) {
-  const rows = Array.from(counts.entries()).sort((a, b) => b[1] - a[1]);
+  const displayCounts = new Map();
+  Array.from(counts.entries()).forEach(([label, count]) => {
+    const displayLabel = title === "Scoreability" ? provisionStatus(label)[0] : label.replaceAll("_", " ");
+    displayCounts.set(displayLabel, (displayCounts.get(displayLabel) ?? 0) + count);
+  });
+  const rows = Array.from(displayCounts.entries()).sort((a, b) => b[1] - a[1]);
   return (
     <div className="countCard">
       <h3>{title}</h3>

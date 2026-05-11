@@ -301,6 +301,71 @@ select:focus {
   min-height: 0;
   border-top: 1px solid var(--line);
 }
+.familyList,
+.provisionGroups {
+  display: grid;
+  gap: 0;
+  overflow: auto;
+  min-height: 0;
+  border-top: 1px solid var(--line);
+}
+.familyRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 60px;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  padding: 12px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+.familyRow strong {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 15px;
+}
+.familyRow span {
+  color: var(--muted);
+  font-size: 12px;
+}
+.familyRow > span {
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 800;
+  text-align: right;
+}
+.provisionGroups {
+  flex: 1;
+  border-top: 0;
+}
+.provisionFamily {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line-strong);
+}
+.provisionFamily + .provisionFamily {
+  padding-top: 14px;
+}
+.familyHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 8px;
+}
+.familyHeader h4 {
+  margin: 0 0 2px;
+  font-size: 15px;
+}
+.familyHeader p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+.provisionRows {
+  border-top: 1px solid var(--line);
+}
 .compactRecord,
 .recordCard {
   border: 0;
@@ -318,11 +383,17 @@ select:focus {
   display: none;
 }
 .compactRecordTop,
-.recordTop {
+.recordTop,
+.provisionRow {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) 150px 60px;
   gap: 12px;
   align-items: start;
+}
+.provisionRow > strong {
+  font-size: 17px;
+  line-height: 1.2;
+  text-align: right;
 }
 .compactRecord strong,
 .recordCard h4 {
@@ -371,6 +442,15 @@ select:focus {
 .pill.good { background: var(--soft-good); color: var(--good); }
 .pill.warn { background: var(--soft-warn); color: var(--warn); }
 .pill.cool { background: var(--soft-cool); color: var(--cool); }
+.statusText {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+}
+.statusText.good { color: var(--good); }
+.statusText.warn { color: var(--warn); }
+.statusText.cool { color: var(--cool); }
+.statusText.muted { color: var(--muted); }
 
 .singlePanel {
   display: flex;
@@ -438,6 +518,17 @@ select:focus {
   color: var(--accent);
   font-weight: 800;
   cursor: pointer;
+}
+.technicalDetails {
+  margin-top: 8px;
+  border-top: 1px solid var(--line);
+  padding-top: 8px;
+}
+.technicalDetails summary {
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
 }
 .auditBox {
   margin-top: 0;
