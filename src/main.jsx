@@ -44,7 +44,6 @@ const provisionStatus = (record, score) => {
   const numeric = hasNumericScore(scoreValue(record, score));
   if (numeric && status === "scoreable_with_flags") return ["Scored with caution", "warn", "scored"];
   if (numeric) return ["Scored", "good", "scored"];
-  if (status.includes("scoreable")) return ["Structured, no score", "warn", "withheld"];
   const labels = {
     record_only: ["Recorded only", "muted", "recorded"],
     framework_only: ["Recorded only", "muted", "recorded"],
@@ -53,6 +52,8 @@ const provisionStatus = (record, score) => {
     normalization_required: ["Needs normalization", "cool", "normalization"],
     requires_agentic_review: ["Needs review", "warn", "review"]
   };
+  if (labels[status]) return labels[status];
+  if (status.includes("scoreable")) return ["Structured, no score", "warn", "withheld"];
   return labels[status] ?? [status.replaceAll("_", " "), "muted", "other"];
 };
 
