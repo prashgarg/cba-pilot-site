@@ -106,7 +106,7 @@ h4 { margin-bottom: 6px; }
 
 .workspace {
   display: grid;
-  grid-template-columns: 285px minmax(0, 1fr);
+  grid-template-columns: 255px minmax(0, 1fr);
   gap: 18px;
   flex: 1;
   min-height: 0;
@@ -121,16 +121,17 @@ h4 { margin-bottom: 6px; }
   display: flex;
   flex-direction: column;
   min-height: 0;
-  padding: 14px;
+  padding: 12px;
 }
 .search,
 select {
   width: 100%;
   border: 1px solid var(--line);
   border-radius: 6px;
-  padding: 9px 10px;
+  padding: 8px 9px;
   background: var(--surface);
   color: var(--ink);
+  font-size: 13px;
 }
 .search:focus,
 select:focus {
@@ -139,7 +140,7 @@ select:focus {
 }
 .docList {
   overflow: auto;
-  margin-top: 10px;
+  margin-top: 8px;
   display: grid;
   gap: 0;
   border-top: 1px solid var(--line);
@@ -149,7 +150,7 @@ select:focus {
   border: 0;
   border-bottom: 1px solid var(--line);
   background: transparent;
-  padding: 11px 3px;
+  padding: 10px 3px;
   cursor: pointer;
 }
 .docButton.selected {
@@ -163,7 +164,7 @@ select:focus {
 .docButton strong {
   display: block;
   margin: 3px 0;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.25;
 }
 .docButton em {
@@ -234,21 +235,21 @@ select:focus {
 .scoreHeader h3 {
   margin: 0;
 }
-.documentSummary {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0;
-  margin-bottom: 18px;
+.summaryLine {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin-bottom: 14px;
+  padding: 8px 0;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
 }
-.documentSummary .stat {
-  min-width: 0;
-  padding: 10px 12px 10px 0;
-}
-.documentSummary .stat + .stat {
-  padding-left: 12px;
-  border-left: 1px solid var(--line);
+.summaryLine strong {
+  margin-right: 4px;
+  color: var(--ink);
+  font-size: 18px;
 }
 .scoreStrip {
   display: grid;
@@ -289,6 +290,11 @@ select:focus {
   grid-template-columns: minmax(150px, 1fr) minmax(190px, .75fr) minmax(150px, .55fr) minmax(150px, .55fr);
   gap: 10px;
 }
+.paneHeader.compactFilters {
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) 220px 180px;
+  align-items: end;
+}
 .paneHeader p {
   margin: 0;
   color: var(--muted);
@@ -322,6 +328,9 @@ select:focus {
   text-align: left;
   cursor: pointer;
 }
+.familyRow.selected {
+  background: linear-gradient(90deg, rgba(182, 64, 44, .08), transparent 84%);
+}
 .familyRow strong {
   display: block;
   margin-bottom: 3px;
@@ -337,9 +346,27 @@ select:focus {
   font-weight: 800;
   text-align: right;
 }
-.provisionGroups {
+.provisionGroups,
+.provisionBrowser {
   flex: 1;
   border-top: 0;
+}
+.provisionBrowser {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 22px;
+  min-height: 0;
+}
+.provisionFamilyNav,
+.provisionDetailPane {
+  min-height: 0;
+  overflow: auto;
+}
+.provisionFamilyNav {
+  border-top: 1px solid var(--line);
+}
+.provisionDetailPane {
+  padding-left: 2px;
 }
 .provisionFamily {
   padding-bottom: 12px;

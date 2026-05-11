@@ -92,7 +92,7 @@ function App() {
   const { loading, error, data } = useSiteData();
   const [selectedId, setSelectedId] = useState(null);
   const [query, setQuery] = useState("");
-  const [view, setView] = useState("documents");
+  const [view, setView] = useState(() => new URLSearchParams(window.location.search).get("view") || "documents");
   const [domainFilter, setDomainFilter] = useState("All");
 
   useEffect(() => {
@@ -209,10 +209,10 @@ function Info({ text }) {
 }
 
 function DocumentPanel({ doc, records, scores, rejected, novelty }) {
-  const [panelView, setPanelView] = useState("overview");
+  const [panelView, setPanelView] = useState(() => new URLSearchParams(window.location.search).get("panel") || "overview");
   const [recordQuery, setRecordQuery] = useState("");
   const [recordStatus, setRecordStatus] = useState("All");
-  const [recordFamily, setRecordFamily] = useState("All");
+  const [selectedFamily, setSelectedFamily] = useState(null);
 
   const scoreByRecord = useMemo(() => {
     const map = new Map();
@@ -234,16 +234,18 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
       .toLowerCase();
     return (
       haystack.includes(recordQuery.toLowerCase()) &&
-      (recordStatus === "All" || status === recordStatus) &&
-      (recordFamily === "All" || family === recordFamily)
+      (recordStatus === "All" || status === recordStatus)
     );
   });
 
   const statuses = ["All", ...Array.from(new Set(records.map((record) => record.scoreability?.status ?? "unknown"))).sort()];
-  const families = ["All", ...Array.from(new Set(records.map((record) => record.family_label ?? "Other"))).sort()];
   const scoreableCount = records.filter((record) => (record.scoreability?.status ?? "").includes("scoreable")).length;
   const provisionGroups = groupByFamily(filteredRecords);
   const allProvisionGroups = groupByFamily(records);
+  const activeFamily = selectedFamily && provisionGroups.some(([family]) => family === selectedFamily)
+    ? selectedFamily
+    : provisionGroups[0]?.[0] ?? null;
+  const activeFamilyRows = filteredRecords.filter((record) => (record.family_label || "Other provisions") === activeFamily);
   const domainMean = doc.domain_scores
     .map((domain) => domain.available_score)
     .filter(hasNumericScore);
@@ -287,11 +289,11 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
               <h3>Domain scores</h3>
               <Info text={HELP.domainScores} />
             </div>
-            <div className="documentSummary">
-              <Stat label="Mean score" value={avgDomainScore} />
-              <Stat label="Provisions" value={records.length} />
-              <Stat label="Score-ready" value={scoreableCount} />
-              <Stat label="Rejected" value={rejected.length} />
+            <div className="summaryLine">
+              <span><strong>{format(avgDomainScore)}</strong> mean score</span>
+              <span><strong>{records.length}</strong> provisions</span>
+              <span><strong>{scoreableCount}</strong> score-ready</span>
+              <span><strong>{rejected.length}</strong> rejected values</span>
             </div>
             <div className="scoreStrip compact">
               {doc.domain_scores.map((domain) => (
@@ -318,7 +320,7 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
                   rows={rows}
                   scoreByRecord={scoreByRecord}
                   onOpen={() => {
-                    setRecordFamily(family);
+                    setSelectedFamily(family);
                     setPanelView("provisions");
                   }}
                 />
@@ -343,7 +345,7 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
 
       {panelView === "provisions" && (
         <div className="singlePanel">
-          <div className="paneHeader stacked">
+          <div className="paneHeader compactFilters">
             <div>
               <h3>Extracted provisions <Info text={HELP.scoreability} /></h3>
               <p>{filteredRecords.length} shown from {records.length}</p>
@@ -354,9 +356,6 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
               placeholder="Search provisions"
               onChange={(event) => setRecordQuery(event.target.value)}
             />
-            <select value={recordFamily} onChange={(event) => setRecordFamily(event.target.value)}>
-              {families.map((family) => <option key={family}>{family}</option>)}
-            </select>
             <select value={recordStatus} onChange={(event) => setRecordStatus(event.target.value)}>
               {statuses.map((status) => (
                 <option key={status} value={status}>
@@ -365,10 +364,26 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
               ))}
             </select>
           </div>
-          <div className="provisionGroups">
-            {provisionGroups.map(([family, rows]) => (
-              <ProvisionFamily key={family} family={family} rows={rows} scoreByRecord={scoreByRecord} />
-            ))}
+          <div className="provisionBrowser">
+            <aside className="provisionFamilyNav">
+              {provisionGroups.map(([family, rows]) => (
+                <FamilySummary
+                  key={family}
+                  family={family}
+                  rows={rows}
+                  scoreByRecord={scoreByRecord}
+                  selected={family === activeFamily}
+                  onOpen={() => {
+                    setSelectedFamily(family);
+                  }}
+                />
+              ))}
+            </aside>
+            <div className="provisionDetailPane">
+              {activeFamily ? (
+                <ProvisionFamily family={activeFamily} rows={activeFamilyRows} scoreByRecord={scoreByRecord} />
+              ) : null}
+            </div>
             {!filteredRecords.length && <Empty text="No provisions match these filters." />}
           </div>
         </div>
@@ -408,11 +423,11 @@ function OcrFrame({ url }) {
   return <pre className="ocrText">{text}</pre>;
 }
 
-function FamilySummary({ family, rows, scoreByRecord, onOpen }) {
+function FamilySummary({ family, rows, scoreByRecord, onOpen, selected = false }) {
   const scored = rows.filter((record) => hasNumericScore(scoreValue(record, scoreByRecord.get(record.concept_record_id))));
   const review = rows.filter((record) => provisionStatus(record.scoreability?.status ?? "unknown")[1] === "warn").length;
   return (
-    <button className="familyRow" onClick={onOpen}>
+    <button className={`familyRow ${selected ? "selected" : ""}`} onClick={onOpen}>
       <div>
         <strong>{family}</strong>
         <span>{rows.length} provisions · {scored.length} scored{review ? ` · ${review} with caution` : ""}</span>
