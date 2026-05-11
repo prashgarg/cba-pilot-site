@@ -93,8 +93,8 @@ function App() {
     <main>
       <header className="masthead">
         <div>
-          <p className="smallcaps">CBA measurement pilot</p>
-          <h1>28 contracts, one controlled viewer</h1>
+          <p className="smallcaps">CBA pilot</p>
+          <h1>Collective bargaining records</h1>
         </div>
         <div className="mastStats">
           <Stat label="Documents" value={data.manifest.document_count} />
@@ -122,7 +122,7 @@ function App() {
             <input
               className="search"
               value={query}
-              placeholder="Search employer, union, sector…"
+              placeholder="Search documents"
               onChange={(event) => setQuery(event.target.value)}
             />
             <div className="docList">
@@ -258,10 +258,10 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
         <div className="overviewGrid">
           <section className="overviewBlock">
             <div className="documentSummary">
-              <Stat label="Avg. scored domain" value={avgDomainScore} />
-              <Stat label="Provision records" value={records.length} />
-              <Stat label="Score-ready-ish" value={scoreableCount} />
-              <Stat label="Rejected values" value={rejected.length} />
+              <Stat label="Mean score" value={avgDomainScore} />
+              <Stat label="Records" value={records.length} />
+              <Stat label="Score-ready" value={scoreableCount} />
+              <Stat label="Rejected" value={rejected.length} />
             </div>
             <div className="scoreStrip compact">
               {doc.domain_scores.map((domain) => (
@@ -277,8 +277,7 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
           <section className="overviewBlock">
             <div className="paneHeader">
               <div>
-                <h3>What to inspect first</h3>
-                <p>Compact preview of the most visible records. Open Records for the full list.</p>
+                <h3>Records</h3>
               </div>
             </div>
             <div className="overviewRecords">
@@ -295,7 +294,6 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
           <div className="paneHeader">
             <div>
               <h3>Source</h3>
-              <p>Fixed-height viewer. Use OCR for quick checks and PDF when available.</p>
             </div>
             <div className="switcher">
               <button className={sourceView === "pdf" ? "active" : ""} onClick={() => setSourceView("pdf")}>PDF</button>
@@ -322,7 +320,7 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
             <input
               className="search"
               value={recordQuery}
-              placeholder="Search concept, group, evidence…"
+              placeholder="Search records"
               onChange={(event) => setRecordQuery(event.target.value)}
             />
             <select value={recordFamily} onChange={(event) => setRecordFamily(event.target.value)}>
@@ -472,7 +470,7 @@ function DomainExplorer({ documents, status, matrix, domainFilter, setDomainFilt
       <div className="sectionHeader">
         <div>
           <h2>Domain explorer</h2>
-          <p>Compare score-ready concepts across documents. Blank cells mean not scored or not observed in the central score matrix.</p>
+          <p>Score-ready concepts across documents.</p>
         </div>
         <select value={domainFilter} onChange={(event) => setDomainFilter(event.target.value)}>
           {domainOptions.map((option) => <option key={option}>{option}</option>)}
@@ -539,7 +537,7 @@ function Diagnostics({ documents, status, records, rejected }) {
       <div className="sectionHeader">
         <div>
           <h2>Diagnostics</h2>
-          <p>What the site is meant to make visible: coverage, scoreability, rejected values, and domains still not ready for a scalar score.</p>
+          <p>Coverage, scoreability, rejected values, and missing PDFs.</p>
         </div>
       </div>
       <div className="diagnosticGrid">
