@@ -89,7 +89,10 @@ const HELP = {
   domainScores: "Mean score uses concepts with enough contract evidence. Coverage is the share of expected concepts observed in that domain.",
   scoreability: "Scored means a numeric scalar exists. Structured, no score means the provision was extracted but the scalar score was withheld pending normalization, branch choice, or external inputs.",
   rejected: "Values the protocol saw but refused to use, usually because they were the wrong object, lacked support, or came from context rather than an operative provision.",
-  novelty: "Provision material that did not fit cleanly into the fixed concept library for this run."
+  novelty: "Provision material that did not fit cleanly into the fixed concept library for this run.",
+  diagnosticsScored: "Provisions with an actual numeric scalar score.",
+  diagnosticsWithheld: "Extracted provisions with useful fields and evidence but no scalar score assigned.",
+  diagnosticsRejected: "Candidate values intentionally excluded from scoring or fields."
 };
 
 function useSiteData() {
@@ -642,11 +645,29 @@ function DomainExplorer({ documents, status, matrix, domainFilter, setDomainFilt
 }
 
 function Diagnostics({ documents, status, records, rejected }) {
-  const scoreabilityCounts = new Map();
+  const dispositionCounts = new Map();
   const rejectedCounts = new Map();
+  const documentRows = documents.map((doc) => {
+    const rows = records[doc.document_id] ?? [];
+    const scored = rows.filter((record) => hasNumericScore(scoreValue(record))).length;
+    const withheld = rows.filter((record) => provisionStatus(record)[2] === "withheld").length;
+    const recorded = rows.filter((record) => provisionStatus(record)[2] === "recorded").length;
+    const external = rows.filter((record) => ["external", "normalization"].includes(provisionStatus(record)[2])).length;
+    const review = rows.filter((record) => provisionStatus(record)[2] === "review").length;
+    return {
+      ...doc,
+      scored,
+      withheld,
+      recorded,
+      external,
+      review,
+      scoreShare: rows.length ? scored / rows.length : 0
+    };
+  });
+
   Object.values(records).flat().forEach((record) => {
-    const key = record.scoreability?.status ?? "unknown";
-    scoreabilityCounts.set(key, (scoreabilityCounts.get(key) ?? 0) + 1);
+    const key = provisionStatus(record)[2];
+    dispositionCounts.set(key, (dispositionCounts.get(key) ?? 0) + 1);
   });
   Object.values(rejected).flat().forEach((row) => {
     const classes = row.error_classes || row.error_class || ["unknown"];
@@ -659,43 +680,77 @@ function Diagnostics({ documents, status, records, rejected }) {
       <div className="sectionHeader">
         <div>
           <h2>Diagnostics</h2>
-          <p>Coverage, scoreability, and rejected values.</p>
+          <p>Run-level checks for scored output, withheld provisions, and rejected values.</p>
         </div>
       </div>
-      <div className="diagnosticGrid">
-        <CountCard title="Scoreability" counts={scoreabilityCounts} />
-        <CountCard title="Rejected-value classes" counts={rejectedCounts} />
+      <div className="diagnosticStats">
+        <DiagnosticStat label="Documents" value={documents.length} />
+        <DiagnosticStat label="Provisions" value={Object.values(records).flat().length} />
+        <DiagnosticStat label="Scored" value={dispositionCounts.get("scored") ?? 0} help={HELP.diagnosticsScored} />
+        <DiagnosticStat label="Structured, no score" value={dispositionCounts.get("withheld") ?? 0} help={HELP.diagnosticsWithheld} />
+        <DiagnosticStat label="Rejected values" value={Object.values(rejected).flat().length} help={HELP.diagnosticsRejected} />
       </div>
-      <table className="docAudit">
-        <thead>
-          <tr>
-            <th>Document</th>
-            <th>Provisions</th>
-            <th>Scored provisions</th>
-            <th>Rejected values</th>
-            <th>Novelty</th>
-          </tr>
-        </thead>
-        <tbody>
-          {documents.map((doc) => (
-            <tr key={doc.document_id}>
-              <td>{doc.document_id}</td>
-              <td>{doc.record_count}</td>
-              <td>{doc.scored_record_count}</td>
-              <td>{doc.rejected_value_count}</td>
-              <td>{doc.novelty_count}</td>
+      <div className="diagnosticGrid">
+        <CountCard title="Provision disposition" counts={dispositionCounts} />
+        <CountCard title="Rejected-value reasons" counts={rejectedCounts} />
+      </div>
+      <div className="docAuditWrap">
+        <table className="docAudit">
+          <thead>
+            <tr>
+              <th>Document</th>
+              <th>Provisions</th>
+              <th>Scored</th>
+              <th>Structured, no score</th>
+              <th>External / normalize</th>
+              <th>Rejected</th>
+              <th>Novelty</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {documentRows.map((doc) => (
+              <tr key={doc.document_id} className={doc.scored === 0 && doc.withheld > 0 ? "needsAttention" : ""}>
+                <td>
+                  <strong>{doc.document_id}</strong>
+                  <small>{doc.employer}</small>
+                </td>
+                <td>{doc.record_count}</td>
+                <td>{doc.scored}</td>
+                <td>{doc.withheld}</td>
+                <td>{doc.external}</td>
+                <td>{doc.rejected_value_count}</td>
+                <td>{doc.novelty_count}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </section>
   );
 }
 
+function DiagnosticStat({ label, value, help }) {
+  return (
+    <div className="diagnosticStat">
+      <span>{label} {help ? <Info text={help} /> : null}</span>
+      <strong>{format(value, 0)}</strong>
+    </div>
+  );
+}
+
 function CountCard({ title, counts }) {
+  const labelMap = {
+    scored: "Scored",
+    withheld: "Structured, no score",
+    recorded: "Recorded only",
+    external: "External inputs needed",
+    normalization: "Needs normalization",
+    review: "Needs review",
+    not_scored: "Not scored"
+  };
   const displayCounts = new Map();
   Array.from(counts.entries()).forEach(([label, count]) => {
-    const displayLabel = title === "Scoreability" ? label.replaceAll("_", " ") : label.replaceAll("_", " ");
+    const displayLabel = labelMap[label] ?? label.replaceAll("_", " ");
     displayCounts.set(displayLabel, (displayCounts.get(displayLabel) ?? 0) + count);
   });
   const rows = Array.from(displayCounts.entries()).sort((a, b) => b[1] - a[1]);
