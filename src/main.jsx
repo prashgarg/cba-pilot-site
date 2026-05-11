@@ -27,6 +27,14 @@ const statusTone = (status = "") => {
   return "muted";
 };
 
+const HELP = {
+  availableScore: "Average score among concepts with enough contract evidence to score. Blank means no score-ready records in that domain.",
+  coverage: "Share of expected concepts in this domain that received score-ready records. A low value means sparse coverage, not necessarily low generosity.",
+  scoreability: "Whether a record can be converted into a scalar score using only the CBA text. Some records are useful but intentionally not scored.",
+  rejected: "Values the protocol saw but refused to use, usually because they were the wrong object, lacked support, or came from context rather than an operative provision.",
+  novelty: "Provision material that did not fit cleanly into the fixed concept library for this run."
+};
+
 function useSiteData() {
   const [state, setState] = useState({ loading: true, error: null, data: null });
 
@@ -169,10 +177,20 @@ function Stat({ label, value }) {
   );
 }
 
+function Info({ text }) {
+  return (
+    <span className="info" tabIndex="0" aria-label={text}>
+      ?
+      <span className="tip">{text}</span>
+    </span>
+  );
+}
+
 function DocumentPanel({ doc, records, scores, rejected, novelty }) {
   const [sourceView, setSourceView] = useState("pdf");
   const [recordQuery, setRecordQuery] = useState("");
   const [recordStatus, setRecordStatus] = useState("All");
+  const [recordFamily, setRecordFamily] = useState("All");
 
   const scoreByRecord = useMemo(() => {
     const map = new Map();
@@ -182,6 +200,7 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
 
   const filteredRecords = records.filter((record) => {
     const status = record.scoreability?.status ?? "unknown";
+    const family = record.family_label ?? "Other";
     const haystack = [
       record.concept_id,
       record.concept_label,
@@ -193,11 +212,20 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
       .toLowerCase();
     return (
       haystack.includes(recordQuery.toLowerCase()) &&
-      (recordStatus === "All" || status === recordStatus)
+      (recordStatus === "All" || status === recordStatus) &&
+      (recordFamily === "All" || family === recordFamily)
     );
   });
 
   const statuses = ["All", ...Array.from(new Set(records.map((record) => record.scoreability?.status ?? "unknown"))).sort()];
+  const families = ["All", ...Array.from(new Set(records.map((record) => record.family_label ?? "Other"))).sort()];
+  const scoreableCount = records.filter((record) => (record.scoreability?.status ?? "").includes("scoreable")).length;
+  const domainMean = doc.domain_scores
+    .map((domain) => domain.available_score)
+    .filter((score) => Number.isFinite(Number(score)));
+  const avgDomainScore = domainMean.length
+    ? domainMean.reduce((sum, score) => sum + Number(score), 0) / domainMean.length
+    : null;
 
   return (
     <section className="detail">
@@ -215,12 +243,19 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
         </div>
       </div>
 
+      <div className="documentSummary">
+        <Stat label="Avg. scored domain" value={avgDomainScore} />
+        <Stat label="Provision records" value={records.length} />
+        <Stat label="Score-ready-ish" value={scoreableCount} />
+        <Stat label="Rejected values" value={rejected.length} />
+      </div>
+
       <div className="scoreStrip">
         {doc.domain_scores.map((domain) => (
           <div className="domainScore" key={domain.domain}>
-            <span>{domain.domain}</span>
+            <span>{domain.domain} <Info text={HELP.availableScore} /></span>
             <strong>{format(domain.available_score)}</strong>
-            <em>{format(domain.coverage_share, 1)} coverage</em>
+            <em>{format(domain.coverage_share, 1)} coverage <Info text={HELP.coverage} /></em>
           </div>
         ))}
       </div>
@@ -228,7 +263,10 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
       <div className="split">
         <div className="sourcePane">
           <div className="paneHeader">
-            <h3>Source</h3>
+            <div>
+              <h3>Source</h3>
+              <p>Fixed-height viewer. Use OCR search for quick checks; use PDF when available.</p>
+            </div>
             <div className="switcher">
               <button className={sourceView === "pdf" ? "active" : ""} onClick={() => setSourceView("pdf")}>PDF</button>
               <button className={sourceView === "ocr" ? "active" : ""} onClick={() => setSourceView("ocr")}>OCR</button>
@@ -244,8 +282,8 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
         <div className="recordsPane">
           <div className="paneHeader stacked">
             <div>
-              <h3>Provision records</h3>
-              <p>{records.length} records · {scores.length} module rows · {rejected.length} rejected values</p>
+              <h3>Records <Info text={HELP.scoreability} /></h3>
+              <p>{filteredRecords.length} shown from {records.length}</p>
             </div>
             <input
               className="search"
@@ -253,6 +291,9 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
               placeholder="Search concept, group, evidence…"
               onChange={(event) => setRecordQuery(event.target.value)}
             />
+            <select value={recordFamily} onChange={(event) => setRecordFamily(event.target.value)}>
+              {families.map((family) => <option key={family}>{family}</option>)}
+            </select>
             <select value={recordStatus} onChange={(event) => setRecordStatus(event.target.value)}>
               {statuses.map((status) => <option key={status}>{status}</option>)}
             </select>
@@ -267,7 +308,7 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
       </div>
 
       <details className="auditBox">
-        <summary>Rejected values and novelty queue</summary>
+        <summary>Rejected values <Info text={HELP.rejected} /> and novelty queue <Info text={HELP.novelty} /></summary>
         <div className="auditGrid">
           <AuditList title="Rejected values" rows={rejected} />
           <AuditList title="Novelty items" rows={novelty} />
@@ -299,8 +340,11 @@ function OcrFrame({ url }) {
 function RecordCard({ record, score }) {
   const fields = record.fields ?? [];
   const status = record.scoreability?.status ?? "unknown";
+  const shownFields = fields.slice(0, 3);
+  const hiddenFields = fields.slice(3);
   return (
-    <article className="recordCard">
+    <details className="recordCard">
+      <summary>
       <div className="recordTop">
         <div>
           <span className="concept">{record.concept_id}</span>
@@ -313,18 +357,32 @@ function RecordCard({ record, score }) {
         <span>Family: {record.family_label || "—"}</span>
         <span>Role: {record.aggregation_role || "—"}</span>
         <span>Score: {format(score?.draft_score ?? record.bridge_score?.score)}</span>
+        <span>{fields.length} fields</span>
       </div>
+      </summary>
       {score?.explanation && <p className="explain">{score.explanation}</p>}
       <div className="fields">
-        {fields.slice(0, 6).map((field, index) => (
+        {shownFields.map((field, index) => (
           <div className="field" key={`${field.field_name}-${index}`}>
             <strong>{field.field_name}</strong>
             <span>{typeof field.value === "object" ? JSON.stringify(field.value) : String(field.value ?? "—")}</span>
             <em>{field.evidence?.quote_or_pointer || field.evidence?.page || "No evidence pointer"}</em>
           </div>
         ))}
+        {!!hiddenFields.length && (
+          <details className="moreFields">
+            <summary>Show {hiddenFields.length} more fields</summary>
+            {hiddenFields.map((field, index) => (
+              <div className="field" key={`${field.field_name}-hidden-${index}`}>
+                <strong>{field.field_name}</strong>
+                <span>{typeof field.value === "object" ? JSON.stringify(field.value) : String(field.value ?? "—")}</span>
+                <em>{field.evidence?.quote_or_pointer || field.evidence?.page || "No evidence pointer"}</em>
+              </div>
+            ))}
+          </details>
+        )}
       </div>
-    </article>
+    </details>
   );
 }
 
@@ -359,16 +417,19 @@ function DomainExplorer({ documents, status, matrix, domainFilter, setDomainFilt
           {domainOptions.map((option) => <option key={option}>{option}</option>)}
         </select>
       </div>
-      <div className="statusGrid">
-        {status.map((domain) => (
-          <div className="statusCard" key={domain.domain}>
-            <span className={`pill ${statusTone(domain.current_status)}`}>{domain.current_status}</span>
-            <h3>{domain.domain}</h3>
-            <p>{domain.empirical_object}</p>
-            <strong>{domain.documents_with_records} docs with records</strong>
-          </div>
-        ))}
-      </div>
+      <details className="compactDrawer">
+        <summary>Domain status guide</summary>
+        <div className="statusGrid">
+          {status.map((domain) => (
+            <div className="statusCard" key={domain.domain}>
+              <span className={`pill ${statusTone(domain.current_status)}`}>{domain.current_status}</span>
+              <h3>{domain.domain}</h3>
+              <p>{domain.empirical_object}</p>
+              <strong>{domain.documents_with_records} docs with records</strong>
+            </div>
+          ))}
+        </div>
+      </details>
       <div className="matrixWrap">
         <table className="matrix">
           <thead>
