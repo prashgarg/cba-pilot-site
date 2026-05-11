@@ -28,8 +28,7 @@ const statusTone = (status = "") => {
 };
 
 const HELP = {
-  availableScore: "Average score among concepts with enough contract evidence to score. Blank means no score-ready records in that domain.",
-  coverage: "Share of expected concepts in this domain that received score-ready records. A low value means sparse coverage, not necessarily low generosity.",
+  domainScores: "Mean score uses concepts with enough contract evidence. Coverage is the share of expected concepts observed in that domain.",
   scoreability: "Whether a record can be converted into a scalar score using only the CBA text. Some records are useful but intentionally not scored.",
   rejected: "Values the protocol saw but refused to use, usually because they were the wrong object, lacked support, or came from context rather than an operative provision.",
   novelty: "Provision material that did not fit cleanly into the fixed concept library for this run."
@@ -99,7 +98,6 @@ function App() {
         <div className="mastStats">
           <Stat label="Documents" value={data.manifest.document_count} />
           <Stat label="Records" value={data.manifest.record_count} />
-          <Stat label="PDFs" value={data.manifest.pdf_count} />
         </div>
       </header>
 
@@ -177,7 +175,7 @@ function Stat({ label, value }) {
 function Info({ text }) {
   return (
     <span className="info" tabIndex="0" aria-label={text}>
-      ?
+      i
       <span className="tip">{text}</span>
     </span>
   );
@@ -185,7 +183,6 @@ function Info({ text }) {
 
 function DocumentPanel({ doc, records, scores, rejected, novelty }) {
   const [panelView, setPanelView] = useState("overview");
-  const [sourceView, setSourceView] = useState("pdf");
   const [recordQuery, setRecordQuery] = useState("");
   const [recordStatus, setRecordStatus] = useState("All");
   const [recordFamily, setRecordFamily] = useState("All");
@@ -257,6 +254,10 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
       {panelView === "overview" && (
         <div className="overviewGrid">
           <section className="overviewBlock">
+            <div className="scoreHeader">
+              <h3>Domain scores</h3>
+              <Info text={HELP.domainScores} />
+            </div>
             <div className="documentSummary">
               <Stat label="Mean score" value={avgDomainScore} />
               <Stat label="Records" value={records.length} />
@@ -266,9 +267,9 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
             <div className="scoreStrip compact">
               {doc.domain_scores.map((domain) => (
                 <div className="domainScore" key={domain.domain}>
-                  <span>{domain.domain} <Info text={HELP.availableScore} /></span>
+                  <span>{domain.domain}</span>
                   <strong>{format(domain.available_score)}</strong>
-                  <em>{format(domain.coverage_share, 1)} coverage <Info text={HELP.coverage} /></em>
+                  <em>{format(domain.coverage_share, 1)} coverage</em>
                 </div>
               ))}
             </div>
@@ -293,19 +294,11 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
         <div className="singlePanel">
           <div className="paneHeader">
             <div>
-              <h3>Source</h3>
-            </div>
-            <div className="switcher">
-              <button className={sourceView === "pdf" ? "active" : ""} onClick={() => setSourceView("pdf")}>PDF</button>
-              <button className={sourceView === "ocr" ? "active" : ""} onClick={() => setSourceView("ocr")}>OCR</button>
+              <h3>OCR text</h3>
             </div>
           </div>
           <div className="viewerWrap">
-            {sourceView === "pdf" ? (
-              doc.pdf_url ? <iframe title={`${doc.document_id} PDF`} src={doc.pdf_url} /> : <Empty text="No PDF copied for this document." />
-            ) : (
-              <OcrFrame url={doc.ocr_url} />
-            )}
+            <OcrFrame url={doc.ocr_url} />
           </div>
         </div>
       )}
@@ -537,7 +530,7 @@ function Diagnostics({ documents, status, records, rejected }) {
       <div className="sectionHeader">
         <div>
           <h2>Diagnostics</h2>
-          <p>Coverage, scoreability, rejected values, and missing PDFs.</p>
+          <p>Coverage, scoreability, and rejected values.</p>
         </div>
       </div>
       <div className="diagnosticGrid">
@@ -552,7 +545,6 @@ function Diagnostics({ documents, status, records, rejected }) {
             <th>Scored records</th>
             <th>Rejected values</th>
             <th>Novelty</th>
-            <th>PDF</th>
           </tr>
         </thead>
         <tbody>
@@ -563,7 +555,6 @@ function Diagnostics({ documents, status, records, rejected }) {
               <td>{doc.scored_record_count}</td>
               <td>{doc.rejected_value_count}</td>
               <td>{doc.novelty_count}</td>
-              <td>{doc.pdf_url ? "yes" : "no"}</td>
             </tr>
           ))}
         </tbody>

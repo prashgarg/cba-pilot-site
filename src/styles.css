@@ -89,7 +89,6 @@ h4 { margin-bottom: 6px; }
 }
 .tabs button,
 .panelTabs button,
-.switcher button,
 .linkButton {
   border: 0;
   background: transparent;
@@ -100,7 +99,7 @@ h4 { margin-bottom: 6px; }
 }
 .tabs button.active,
 .panelTabs button.active,
-.switcher button.active {
+.panelTabs button.active {
   color: var(--ink);
   box-shadow: inset 0 -2px 0 var(--ink);
 }
@@ -225,6 +224,15 @@ select:focus {
   display: flex;
   flex-direction: column;
   min-height: 0;
+}
+.scoreHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.scoreHeader h3 {
+  margin: 0;
 }
 .documentSummary {
   display: grid;
@@ -372,7 +380,6 @@ select:focus {
   flex: 1;
 }
 .viewerWrap { flex: 1; min-height: 0; }
-iframe,
 .ocrText {
   width: 100%;
   height: 100%;
@@ -565,10 +572,12 @@ td small {
   margin-left: 4px;
   border: 1px solid var(--line-strong);
   border-radius: 50%;
-  color: var(--muted);
+  color: var(--faint);
   background: transparent;
-  font-size: 10px;
-  font-weight: 900;
+  font-family: Georgia, serif;
+  font-size: 11px;
+  font-style: italic;
+  font-weight: 700;
   cursor: help;
   vertical-align: text-top;
 }
@@ -581,8 +590,8 @@ td small {
   transform: translateX(-50%);
   padding: 9px 10px;
   border: 1px solid var(--line);
-  background: var(--ink);
-  color: white;
+  background: #ffffff;
+  color: var(--ink);
   box-shadow: 0 12px 30px rgba(0, 0, 0, .16);
   font-size: 12px;
   font-weight: 500;
