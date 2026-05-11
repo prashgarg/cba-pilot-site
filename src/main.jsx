@@ -20,6 +20,13 @@ const format = (value, digits = 2) => {
   return String(value);
 };
 
+const humanizeId = (value = "") =>
+  String(value)
+    .replace(/^C_/, "")
+    .replaceAll("_", " ")
+    .toLowerCase()
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+
 const statusTone = (status = "") => {
   if (status.includes("score_ready") || status === "scoreable") return "good";
   if (status.includes("candidate") || status.includes("pilot")) return "warn";
@@ -86,13 +93,14 @@ const groupByFamily = (records) => {
 };
 
 const HELP = {
-  domainScores: "Mean score uses concepts with enough contract evidence. Coverage is the share of expected concepts observed in that domain.",
+  domainScores: "Mean scored domain averages the domain scores currently available for this document. Coverage is the share of expected concepts observed in that domain.",
   scoreability: "Scored means a numeric scalar exists. Structured, no score means the provision was extracted but the scalar score was withheld pending normalization, branch choice, or external inputs.",
   rejected: "Values the protocol saw but refused to use, usually because they were the wrong object, lacked support, or came from context rather than an operative provision.",
   novelty: "Provision material that did not fit cleanly into the fixed concept library for this run.",
   diagnosticsScored: "Provisions with an actual numeric scalar score.",
   diagnosticsWithheld: "Extracted provisions with useful fields and evidence but no scalar score assigned.",
-  diagnosticsRejected: "Candidate values intentionally excluded from scoring or fields."
+  diagnosticsRejected: "Candidate values intentionally excluded from scoring or fields.",
+  matrixDash: "A dash means no scalar score appears in the current score matrix. The provision may be absent, recorded only, or withheld elsewhere in the run outputs."
 };
 
 function useSiteData() {
@@ -239,7 +247,7 @@ function App() {
         )}
 
         {view === "diagnostics" && (
-          <Diagnostics documents={data.documents} status={data.status} records={data.records} rejected={data.rejected} />
+          <Diagnostics documents={data.documents} records={data.records} scores={data.scores} rejected={data.rejected} />
         )}
       </div>
     </main>
@@ -346,7 +354,7 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
               <Info text={HELP.domainScores} />
             </div>
             <div className="summaryLine">
-              <span><strong>{format(avgDomainScore)}</strong> mean score</span>
+              <span><strong>{format(avgDomainScore)}</strong> mean scored domain</span>
               <span><strong>{records.length}</strong> provisions</span>
               <span><strong>{scoredCount}</strong> scored</span>
               <span><strong>{withheldCount}</strong> structured, no score</span>
@@ -576,11 +584,36 @@ function AuditList({ title, rows, help }) {
       <h4>{title} {help ? <Info text={help} /> : null}</h4>
       {!rows.length && <p className="mutedText">None recorded.</p>}
       {rows.slice(0, 30).map((row, index) => (
-        <div className="auditItem" key={index}>
-          <strong>{row.concept_id || row.novelty_label || row.candidate_field || "Item"}</strong>
-          <span>{row.reason_rejected || row.reason || row.description || JSON.stringify(row).slice(0, 180)}</span>
-        </div>
+        <AuditItem row={row} key={index} />
       ))}
+    </div>
+  );
+}
+
+function AuditItem({ row }) {
+  const isRejectedValue = !!row.candidate_field || !!row.candidate_value;
+  const title = isRejectedValue
+    ? humanizeId(row.concept_id || row.candidate_field || "Candidate value")
+    : row.candidate_object || row.novelty_label || "Novelty item";
+  const reason = row.reason_rejected || row.reason_no_frozen_concept_fit || row.reason || row.description;
+  const evidence = row.source_pointer || row.evidence_pointer;
+  const classes = row.error_classes || row.error_class;
+  const classList = Array.isArray(classes) ? classes : classes ? [classes] : [];
+
+  return (
+    <div className="auditItem">
+      <div className="auditTitle">
+        <strong>{title}</strong>
+        {!!classList.length && <span>{classList.map(humanizeId).join(", ")}</span>}
+      </div>
+      {isRejectedValue && (
+        <p>
+          <b>{humanizeId(row.candidate_field || "Candidate")}:</b>{" "}
+          {String(row.candidate_value ?? "not stated")}
+        </p>
+      )}
+      {reason && <p>{reason}</p>}
+      {evidence && <em>{evidence}</em>}
     </div>
   );
 }
@@ -589,17 +622,27 @@ function DomainExplorer({ documents, status, matrix, domainFilter, setDomainFilt
   const conceptIds = Object.keys(matrix[0] ?? {}).filter((key) => key !== "document_id");
   const visibleConcepts = domainFilter === "All" ? conceptIds : conceptIds.filter((id) => id.includes(domainFilter));
   const domainOptions = ["All", "LEAVE", "PREMIUM", "GRIEVANCE", "ARBITRATION", "DISCIPLINE", "JOB_SECURITY"];
+  const filledCells = matrix.reduce(
+    (count, row) => count + visibleConcepts.filter((id) => hasNumericScore(row[id])).length,
+    0
+  );
+  const possibleCells = matrix.length * visibleConcepts.length;
 
   return (
     <section className="panel">
       <div className="sectionHeader">
         <div>
-          <h2>Domain explorer</h2>
-          <p>Score-ready concepts across documents.</p>
+          <h2>Scored provision matrix</h2>
+          <p>Scalar scores currently available by document and concept. Use this as a map of comparable scored output, not as the full extracted record.</p>
         </div>
         <select className="compactSelect" value={domainFilter} onChange={(event) => setDomainFilter(event.target.value)}>
           {domainOptions.map((option) => <option key={option}>{option}</option>)}
         </select>
+      </div>
+      <div className="matrixSummary">
+        <span><strong>{visibleConcepts.length}</strong> concepts shown</span>
+        <span><strong>{filledCells}</strong> scored cells</span>
+        <span><strong>{possibleCells - filledCells}</strong> blank cells <Info text={HELP.matrixDash} /></span>
       </div>
       <details className="compactDrawer">
         <summary>Domain status guide</summary>
@@ -619,7 +662,7 @@ function DomainExplorer({ documents, status, matrix, domainFilter, setDomainFilt
           <thead>
             <tr>
               <th>Document</th>
-              {visibleConcepts.map((id) => <th key={id}>{id.replace("C_", "").replaceAll("_", " ")}</th>)}
+              {visibleConcepts.map((id) => <th key={id}>{humanizeId(id)}</th>)}
             </tr>
           </thead>
           <tbody>
@@ -633,7 +676,11 @@ function DomainExplorer({ documents, status, matrix, domainFilter, setDomainFilt
                     </button>
                     <small>{doc?.employer}</small>
                   </td>
-                  {visibleConcepts.map((id) => <td key={id}>{format(row[id])}</td>)}
+                  {visibleConcepts.map((id) => (
+                    <td key={id} className={hasNumericScore(row[id]) ? "scoredCell" : "blankCell"}>
+                      {format(row[id])}
+                    </td>
+                  ))}
                 </tr>
               );
             })}
@@ -644,16 +691,18 @@ function DomainExplorer({ documents, status, matrix, domainFilter, setDomainFilt
   );
 }
 
-function Diagnostics({ documents, status, records, rejected }) {
+function Diagnostics({ documents, records, scores, rejected }) {
   const dispositionCounts = new Map();
   const rejectedCounts = new Map();
   const documentRows = documents.map((doc) => {
     const rows = records[doc.document_id] ?? [];
-    const scored = rows.filter((record) => hasNumericScore(scoreValue(record))).length;
-    const withheld = rows.filter((record) => provisionStatus(record)[2] === "withheld").length;
-    const recorded = rows.filter((record) => provisionStatus(record)[2] === "recorded").length;
-    const external = rows.filter((record) => ["external", "normalization"].includes(provisionStatus(record)[2])).length;
-    const review = rows.filter((record) => provisionStatus(record)[2] === "review").length;
+    const scoreByRecord = new Map((scores[doc.document_id] ?? []).map((score) => [score.concept_record_id, score]));
+    const categoryFor = (record) => provisionStatus(record, scoreByRecord.get(record.concept_record_id))[2];
+    const scored = rows.filter((record) => hasNumericScore(scoreValue(record, scoreByRecord.get(record.concept_record_id)))).length;
+    const withheld = rows.filter((record) => categoryFor(record) === "withheld").length;
+    const recorded = rows.filter((record) => categoryFor(record) === "recorded").length;
+    const external = rows.filter((record) => ["external", "normalization"].includes(categoryFor(record))).length;
+    const review = rows.filter((record) => categoryFor(record) === "review").length;
     return {
       ...doc,
       scored,
@@ -665,9 +714,12 @@ function Diagnostics({ documents, status, records, rejected }) {
     };
   });
 
-  Object.values(records).flat().forEach((record) => {
-    const key = provisionStatus(record)[2];
-    dispositionCounts.set(key, (dispositionCounts.get(key) ?? 0) + 1);
+  Object.entries(records).forEach(([documentId, rows]) => {
+    const scoreByRecord = new Map((scores[documentId] ?? []).map((score) => [score.concept_record_id, score]));
+    rows.forEach((record) => {
+      const key = provisionStatus(record, scoreByRecord.get(record.concept_record_id))[2];
+      dispositionCounts.set(key, (dispositionCounts.get(key) ?? 0) + 1);
+    });
   });
   Object.values(rejected).flat().forEach((row) => {
     const classes = row.error_classes || row.error_class || ["unknown"];
@@ -680,7 +732,7 @@ function Diagnostics({ documents, status, records, rejected }) {
       <div className="sectionHeader">
         <div>
           <h2>Diagnostics</h2>
-          <p>Run-level checks for scored output, withheld provisions, and rejected values.</p>
+          <p>Where the run produced scalar scores, where it kept structured provision material without a score, and where it rejected candidate values.</p>
         </div>
       </div>
       <div className="diagnosticStats">

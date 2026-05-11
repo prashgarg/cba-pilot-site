@@ -661,7 +661,36 @@ select:focus {
   padding: 9px 0;
   border-top: 1px solid var(--line);
 }
-.auditItem { display: grid; }
+.auditItem {
+  display: grid;
+  gap: 5px;
+}
+.auditTitle {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: baseline;
+}
+.auditTitle span {
+  color: var(--muted);
+  font-size: 11px;
+  text-align: right;
+}
+.auditItem p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+.auditItem b {
+  color: var(--ink);
+  font-weight: 800;
+}
+.auditItem em {
+  color: var(--faint);
+  font-size: 11px;
+  font-style: normal;
+}
 .auditItem span,
 .mutedText { color: var(--muted); }
 
@@ -706,6 +735,21 @@ select:focus {
   color: var(--muted);
   line-height: 1.4;
 }
+.matrixSummary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+}
+.matrixSummary strong {
+  margin-right: 4px;
+  color: var(--ink);
+  font-size: 16px;
+}
 .matrixWrap {
   overflow: auto;
   flex: 1;
@@ -736,6 +780,13 @@ th {
   text-align: center;
 }
 .matrix td:first-child { min-width: 210px; }
+.matrix .blankCell {
+  color: var(--faint);
+  background: var(--surface-soft);
+}
+.matrix .scoredCell {
+  font-weight: 800;
+}
 .linkButton {
   padding: 0;
   color: var(--accent);
