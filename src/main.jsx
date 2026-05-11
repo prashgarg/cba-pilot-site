@@ -27,22 +27,36 @@ const statusTone = (status = "") => {
   return "muted";
 };
 
-const provisionStatus = (status = "") => {
-  const labels = {
-    scoreable: ["Scored", "good"],
-    scoreable_with_flags: ["Scored with caution", "warn"],
-    record_only: ["Recorded only", "muted"],
-    framework_only: ["Recorded only", "muted"],
-    not_scoreable_ambiguous: ["Not scored", "muted"],
-    not_scoreable_external: ["External inputs needed", "cool"],
-    normalization_required: ["Needs normalization", "cool"],
-    requires_agentic_review: ["Needs review", "warn"]
-  };
-  return labels[status] ?? [status.replaceAll("_", " "), "muted"];
-};
-
 const scoreValue = (record, score) => score?.draft_score ?? record.bridge_score?.score;
 const hasNumericScore = (value) => value !== null && value !== undefined && value !== "" && Number.isFinite(Number(value));
+
+const provisionStatus = (record, score) => {
+  const status = record.scoreability?.status ?? "unknown";
+  const numeric = hasNumericScore(scoreValue(record, score));
+  if (numeric && status === "scoreable_with_flags") return ["Scored with caution", "warn", "scored"];
+  if (numeric) return ["Scored", "good", "scored"];
+  if (status.includes("scoreable")) return ["Structured, no score", "warn", "withheld"];
+  const labels = {
+    record_only: ["Recorded only", "muted", "recorded"],
+    framework_only: ["Recorded only", "muted", "recorded"],
+    not_scoreable_ambiguous: ["Not scored", "muted", "not_scored"],
+    not_scoreable_external: ["External inputs needed", "cool", "external"],
+    normalization_required: ["Needs normalization", "cool", "normalization"],
+    requires_agentic_review: ["Needs review", "warn", "review"]
+  };
+  return labels[status] ?? [status.replaceAll("_", " "), "muted", "other"];
+};
+
+const STATUS_FILTERS = [
+  ["All", "All statuses"],
+  ["scored", "Scored"],
+  ["withheld", "Structured, no score"],
+  ["recorded", "Recorded only"],
+  ["external", "External inputs needed"],
+  ["normalization", "Needs normalization"],
+  ["review", "Needs review"],
+  ["not_scored", "Not scored"]
+];
 
 const groupByFamily = (records) => {
   const groups = new Map();
@@ -56,7 +70,7 @@ const groupByFamily = (records) => {
 
 const HELP = {
   domainScores: "Mean score uses concepts with enough contract evidence. Coverage is the share of expected concepts observed in that domain.",
-  scoreability: "Some extracted provisions are scored. Others are kept as context because they define scope, require outside inputs, or are not comparable enough for a scalar score.",
+  scoreability: "Scored means a numeric scalar exists. Structured, no score means the provision was extracted but the scalar score was withheld pending normalization, branch choice, or external inputs.",
   rejected: "Values the protocol saw but refused to use, usually because they were the wrong object, lacked support, or came from context rather than an operative provision.",
   novelty: "Provision material that did not fit cleanly into the fixed concept library for this run."
 };
@@ -221,8 +235,8 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
   }, [scores]);
 
   const filteredRecords = records.filter((record) => {
-    const status = record.scoreability?.status ?? "unknown";
-    const family = record.family_label ?? "Other";
+    const score = scoreByRecord.get(record.concept_record_id);
+    const category = provisionStatus(record, score)[2];
     const haystack = [
       record.concept_id,
       record.concept_label,
@@ -234,12 +248,12 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
       .toLowerCase();
     return (
       haystack.includes(recordQuery.toLowerCase()) &&
-      (recordStatus === "All" || status === recordStatus)
+      (recordStatus === "All" || category === recordStatus)
     );
   });
 
-  const statuses = ["All", ...Array.from(new Set(records.map((record) => record.scoreability?.status ?? "unknown"))).sort()];
-  const scoreableCount = records.filter((record) => (record.scoreability?.status ?? "").includes("scoreable")).length;
+  const scoredCount = records.filter((record) => hasNumericScore(scoreValue(record, scoreByRecord.get(record.concept_record_id)))).length;
+  const withheldCount = records.filter((record) => provisionStatus(record, scoreByRecord.get(record.concept_record_id))[2] === "withheld").length;
   const provisionGroups = groupByFamily(filteredRecords);
   const allProvisionGroups = groupByFamily(records);
   const activeFamily = selectedFamily && provisionGroups.some(([family]) => family === selectedFamily)
@@ -292,7 +306,8 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
             <div className="summaryLine">
               <span><strong>{format(avgDomainScore)}</strong> mean score</span>
               <span><strong>{records.length}</strong> provisions</span>
-              <span><strong>{scoreableCount}</strong> score-ready</span>
+              <span><strong>{scoredCount}</strong> scored</span>
+              <span><strong>{withheldCount}</strong> structured, no score</span>
               <span><strong>{rejected.length}</strong> rejected values</span>
             </div>
             <div className="scoreStrip compact">
@@ -357,9 +372,9 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
               onChange={(event) => setRecordQuery(event.target.value)}
             />
             <select value={recordStatus} onChange={(event) => setRecordStatus(event.target.value)}>
-              {statuses.map((status) => (
+              {STATUS_FILTERS.map(([status, label]) => (
                 <option key={status} value={status}>
-                  {status === "All" ? "All statuses" : provisionStatus(status)[0]}
+                  {label}
                 </option>
               ))}
             </select>
@@ -425,12 +440,12 @@ function OcrFrame({ url }) {
 
 function FamilySummary({ family, rows, scoreByRecord, onOpen, selected = false }) {
   const scored = rows.filter((record) => hasNumericScore(scoreValue(record, scoreByRecord.get(record.concept_record_id))));
-  const review = rows.filter((record) => provisionStatus(record.scoreability?.status ?? "unknown")[1] === "warn").length;
+  const withheld = rows.filter((record) => provisionStatus(record, scoreByRecord.get(record.concept_record_id))[2] === "withheld").length;
   return (
     <button className={`familyRow ${selected ? "selected" : ""}`} onClick={onOpen}>
       <div>
         <strong>{family}</strong>
-        <span>{rows.length} provisions · {scored.length} scored{review ? ` · ${review} with caution` : ""}</span>
+        <span>{rows.length} provisions · {scored.length} scored{withheld ? ` · ${withheld} structured, no score` : ""}</span>
       </div>
       <span>{scored.length ? format(scored.reduce((sum, record) => sum + Number(scoreValue(record, scoreByRecord.get(record.concept_record_id))), 0) / scored.length) : "—"}</span>
     </button>
@@ -459,7 +474,7 @@ function ProvisionFamily({ family, rows, scoreByRecord }) {
 function RecordCard({ record, score }) {
   const fields = record.fields ?? [];
   const status = record.scoreability?.status ?? "unknown";
-  const [statusLabel, statusClass] = provisionStatus(status);
+  const [statusLabel, statusClass] = provisionStatus(record, score);
   const shownFields = fields.slice(0, 3);
   const hiddenFields = fields.slice(3);
   const scoreShown = scoreValue(record, score);
@@ -639,7 +654,7 @@ function Diagnostics({ documents, status, records, rejected }) {
 function CountCard({ title, counts }) {
   const displayCounts = new Map();
   Array.from(counts.entries()).forEach(([label, count]) => {
-    const displayLabel = title === "Scoreability" ? provisionStatus(label)[0] : label.replaceAll("_", " ");
+    const displayLabel = title === "Scoreability" ? label.replaceAll("_", " ") : label.replaceAll("_", " ");
     displayCounts.set(displayLabel, (displayCounts.get(displayLabel) ?? 0) + count);
   });
   const rows = Array.from(displayCounts.entries()).sort((a, b) => b[1] - a[1]);
