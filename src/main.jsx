@@ -183,7 +183,7 @@ function App() {
         <nav className="tabs" aria-label="Main views">
           {[
             ["documents", "Documents"],
-            ["domains", "Domain explorer"],
+            ["domains", "Scores"],
             ["diagnostics", "Diagnostics"]
           ].map(([id, label]) => (
             <button key={id} className={view === id ? "active" : ""} onClick={() => setView(id)}>
@@ -195,13 +195,8 @@ function App() {
         {view === "documents" && (
         <section className="workspace">
           <aside className="sidebar">
-            <div className="selectedDoc">
-              <span>{selected.document_id}</span>
-              <strong>{selected.employer}</strong>
-              <em>{selected.year || "year unknown"} · {selected.sector || "sector unknown"}</em>
-            </div>
             <details className="docBrowser">
-              <summary>Browse documents</summary>
+              <summary>Documents</summary>
               <div className="docControls">
                 <input
                   className="search"
@@ -209,9 +204,17 @@ function App() {
                   placeholder="Search documents"
                   onChange={(event) => setQuery(event.target.value)}
                 />
-                <select value={docFilter} onChange={(event) => setDocFilter(event.target.value)}>
-                  {DOCUMENT_FILTERS.map(([value, label]) => <option key={value} value={value}>{label}</option>)}
-                </select>
+                <div className="miniChipRail" aria-label="Document filter">
+                  {DOCUMENT_FILTERS.map(([value, label]) => (
+                    <button
+                      key={value}
+                      className={docFilter === value ? "active" : ""}
+                      onClick={() => setDocFilter(value)}
+                    >
+                      {label}
+                    </button>
+                  ))}
+                </div>
               </div>
               <div className="docList">
                 {filteredDocs.map((doc) => (
@@ -421,13 +424,17 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
               placeholder="Search provisions"
               onChange={(event) => setRecordQuery(event.target.value)}
             />
-            <select value={recordStatus} onChange={(event) => setRecordStatus(event.target.value)}>
+            <div className="statusChipRail" aria-label="Provision status filter">
               {STATUS_FILTERS.map(([status, label]) => (
-                <option key={status} value={status}>
+                <button
+                  key={status}
+                  className={recordStatus === status ? "active" : ""}
+                  onClick={() => setRecordStatus(status)}
+                >
                   {label}
-                </option>
+                </button>
               ))}
-            </select>
+            </div>
           </div>
           <div className="provisionBrowser">
             <aside className="provisionFamilyNav">
@@ -621,7 +628,15 @@ function AuditItem({ row }) {
 function DomainExplorer({ documents, status, matrix, domainFilter, setDomainFilter, onSelectDocument }) {
   const conceptIds = Object.keys(matrix[0] ?? {}).filter((key) => key !== "document_id");
   const visibleConcepts = domainFilter === "All" ? conceptIds : conceptIds.filter((id) => id.includes(domainFilter));
-  const domainOptions = ["All", "LEAVE", "PREMIUM", "GRIEVANCE", "ARBITRATION", "DISCIPLINE", "JOB_SECURITY"];
+  const domainOptions = [
+    ["All", "All"],
+    ["LEAVE", "Leave"],
+    ["PREMIUM", "Premiums"],
+    ["GRIEVANCE", "Grievance"],
+    ["ARBITRATION", "Arbitration"],
+    ["DISCIPLINE", "Discipline"],
+    ["JOB_SECURITY", "Job security"]
+  ];
   const filledCells = matrix.reduce(
     (count, row) => count + visibleConcepts.filter((id) => hasNumericScore(row[id])).length,
     0
@@ -635,9 +650,17 @@ function DomainExplorer({ documents, status, matrix, domainFilter, setDomainFilt
           <h2>Scored provision matrix</h2>
           <p>Scalar scores currently available by document and concept. Use this as a map of comparable scored output, not as the full extracted record.</p>
         </div>
-        <select className="compactSelect" value={domainFilter} onChange={(event) => setDomainFilter(event.target.value)}>
-          {domainOptions.map((option) => <option key={option}>{option}</option>)}
-        </select>
+      </div>
+      <div className="chipRail" aria-label="Domain filter">
+        {domainOptions.map(([value, label]) => (
+          <button
+            key={value}
+            className={domainFilter === value ? "active" : ""}
+            onClick={() => setDomainFilter(value)}
+          >
+            {label}
+          </button>
+        ))}
       </div>
       <div className="matrixSummary">
         <span><strong>{visibleConcepts.length}</strong> concepts shown</span>

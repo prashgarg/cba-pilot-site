@@ -1,12 +1,12 @@
 :root {
-  --bg: #f7f7f4;
-  --surface: #ffffff;
-  --surface-soft: #fbfbf8;
+  --bg: #f3efe2;
+  --surface: rgba(255, 255, 252, .74);
+  --surface-soft: rgba(255, 252, 244, .66);
   --ink: #171713;
   --muted: #66665d;
   --faint: #9a9a91;
-  --line: #deded7;
-  --line-strong: #c7c7bf;
+  --line: rgba(91, 82, 58, .17);
+  --line-strong: rgba(91, 82, 58, .28);
   --accent: #b6402c;
   --good: #326b45;
   --warn: #94660f;
@@ -16,11 +16,29 @@
   --soft-cool: #e7f0f4;
   font-family: "Avenir Next", "Segoe UI", sans-serif;
   color: var(--ink);
-  background: var(--bg);
+  background:
+    radial-gradient(circle at 12% 6%, rgba(182, 64, 44, .16), transparent 30vw),
+    radial-gradient(circle at 86% 12%, rgba(49, 95, 124, .15), transparent 28vw),
+    linear-gradient(135deg, #fbf6e6 0%, #f5efe1 42%, #ebe4d4 100%);
 }
 
 * { box-sizing: border-box; }
-body { margin: 0; overflow: hidden; background: var(--bg); }
+body {
+  margin: 0;
+  overflow: hidden;
+  background: var(--bg);
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(255,255,255,.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.13) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,.7), transparent 75%);
+}
 button, input, select { font: inherit; }
 button { color: inherit; }
 main {
@@ -41,8 +59,12 @@ main {
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 16px;
   align-items: center;
-  padding: 10px 2px 12px;
-  border-bottom: 1px solid var(--line);
+  padding: 12px 18px;
+  border: 1px solid rgba(255, 255, 255, .64);
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(255,255,252,.72), rgba(255,255,252,.42));
+  box-shadow: 0 18px 60px rgba(70, 57, 31, .09), inset 0 1px 0 rgba(255,255,255,.74);
+  backdrop-filter: blur(20px) saturate(135%);
 }
 .smallcaps {
   margin: 0 0 3px;
@@ -72,9 +94,10 @@ h4 { margin-bottom: 6px; }
 .mastStats { display: flex; gap: 18px; align-items: center; }
 .stat {
   min-width: 72px;
-  padding: 0;
-  border: 0;
-  background: transparent;
+  padding: 6px 10px;
+  border: 1px solid rgba(255,255,255,.72);
+  border-radius: 14px;
+  background: rgba(255,255,255,.38);
 }
 .stat span { display: block; color: var(--muted); font-size: 11px; }
 .stat strong { display: block; font-size: 21px; line-height: 1.15; }
@@ -84,16 +107,21 @@ h4 { margin-bottom: 6px; }
   flex: 0 0 auto;
   display: flex;
   gap: 8px;
+  width: fit-content;
   margin: 10px 0;
-  border-bottom: 1px solid var(--line);
+  padding: 4px;
+  border: 1px solid rgba(255,255,255,.58);
+  border-radius: 999px;
+  background: rgba(255,255,252,.42);
+  backdrop-filter: blur(16px);
 }
 .tabs button,
 .panelTabs button,
 .linkButton {
   border: 0;
   background: transparent;
-  border-radius: 0;
-  padding: 9px 8px;
+  border-radius: 999px;
+  padding: 8px 12px;
   cursor: pointer;
   color: var(--muted);
 }
@@ -101,7 +129,8 @@ h4 { margin-bottom: 6px; }
 .panelTabs button.active,
 .panelTabs button.active {
   color: var(--ink);
-  box-shadow: inset 0 -2px 0 var(--ink);
+  background: rgba(255,255,252,.74);
+  box-shadow: 0 8px 22px rgba(70, 57, 31, .08), inset 0 1px 0 rgba(255,255,255,.76);
 }
 
 .workspace {
@@ -114,8 +143,11 @@ h4 { margin-bottom: 6px; }
 .sidebar,
 .panel,
 .detail {
-  background: var(--surface);
-  border: 1px solid var(--line);
+  background: linear-gradient(145deg, rgba(255,255,252,.74), rgba(255,255,252,.48));
+  border: 1px solid rgba(255,255,255,.65);
+  border-radius: 22px;
+  box-shadow: 0 24px 70px rgba(70, 57, 31, .11), inset 0 1px 0 rgba(255,255,255,.76);
+  backdrop-filter: blur(22px) saturate(132%);
 }
 .sidebar {
   display: flex;
@@ -126,49 +158,21 @@ h4 { margin-bottom: 6px; }
 .search,
 select {
   width: 100%;
-  border: 1px solid var(--line);
-  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,.68);
+  border-radius: 14px;
   padding: 8px 9px;
-  background: var(--surface);
+  background: rgba(255,255,252,.62);
   color: var(--ink);
   font-size: 13px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.64);
 }
 .search:focus,
 select:focus {
   outline: 2px solid rgba(182, 64, 44, .16);
   border-color: var(--accent);
 }
-.compactSelect {
-  width: auto;
-  min-width: 132px;
-  max-width: 150px;
-  padding: 5px 8px;
-  align-self: center;
-  justify-self: end;
-}
-.selectedDoc {
-  padding: 4px 3px 12px;
-  border-bottom: 1px solid var(--line);
-}
-.selectedDoc span {
-  color: var(--accent);
-  font-weight: 800;
-  font-size: 11px;
-}
-.selectedDoc strong {
-  display: block;
-  margin: 3px 0;
-  font-size: 14px;
-  line-height: 1.25;
-}
-.selectedDoc em {
-  color: var(--muted);
-  font-style: normal;
-  font-size: 12px;
-}
 .docBrowser {
   min-height: 0;
-  margin-top: 10px;
 }
 .docBrowser[open] {
   display: flex;
@@ -177,32 +181,80 @@ select:focus {
 }
 .docBrowser summary {
   cursor: pointer;
-  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--ink);
   font-size: 13px;
+  font-weight: 800;
+  list-style: none;
+  padding: 8px 2px;
+}
+.docBrowser summary::-webkit-details-marker {
+  display: none;
+}
+.docBrowser summary::after {
+  content: "open";
+  color: var(--muted);
+  font-size: 11px;
   font-weight: 700;
+}
+.docBrowser[open] summary::after {
+  content: "close";
 }
 .docControls {
   display: grid;
   gap: 8px;
   margin-top: 10px;
 }
+.miniChipRail,
+.statusChipRail,
+.chipRail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.miniChipRail button,
+.statusChipRail button,
+.chipRail button {
+  border: 1px solid rgba(255,255,255,.6);
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: rgba(255,255,252,.34);
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 12px;
+}
+.miniChipRail button {
+  padding: 5px 8px;
+  font-size: 11px;
+}
+.miniChipRail button.active,
+.statusChipRail button.active,
+.chipRail button.active {
+  border-color: rgba(182, 64, 44, .22);
+  background: rgba(255,255,252,.78);
+  color: var(--ink);
+  box-shadow: 0 8px 20px rgba(70, 57, 31, .08);
+}
 .docList {
   overflow: auto;
   margin-top: 8px;
   display: grid;
-  gap: 0;
-  border-top: 1px solid var(--line);
+  gap: 6px;
+  border-top: 0;
 }
 .docButton {
   text-align: left;
-  border: 0;
-  border-bottom: 1px solid var(--line);
-  background: transparent;
-  padding: 10px 3px;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  background: rgba(255,255,252,.34);
+  padding: 9px 10px;
   cursor: pointer;
 }
 .docButton.selected {
-  background: linear-gradient(90deg, rgba(182, 64, 44, .09), transparent 72%);
+  border-color: rgba(182, 64, 44, .22);
+  background: linear-gradient(135deg, rgba(255,255,252,.72), rgba(182, 64, 44, .08));
 }
 .docButton span {
   color: var(--accent);
@@ -258,7 +310,7 @@ select:focus {
   flex: 0 0 auto;
   display: flex;
   gap: 10px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(91, 82, 58, .12);
   margin-bottom: 12px;
 }
 
@@ -288,9 +340,10 @@ select:focus {
   flex-wrap: wrap;
   gap: 10px 22px;
   margin-bottom: 14px;
-  padding: 8px 0;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  padding: 10px 12px;
+  border: 1px solid rgba(255,255,255,.62);
+  border-radius: 18px;
+  background: rgba(255,255,252,.36);
   color: var(--muted);
   font-size: 12px;
 }
@@ -340,7 +393,7 @@ select:focus {
 }
 .paneHeader.compactFilters {
   display: grid;
-  grid-template-columns: minmax(160px, 1fr) 220px 180px;
+  grid-template-columns: minmax(150px, .75fr) 220px minmax(280px, 1.25fr);
   align-items: end;
 }
 .paneHeader p {
@@ -369,15 +422,16 @@ select:focus {
   gap: 12px;
   align-items: center;
   width: 100%;
-  padding: 12px 0;
-  border: 0;
-  border-bottom: 1px solid var(--line);
-  background: transparent;
+  padding: 11px 12px;
+  border: 1px solid transparent;
+  border-radius: 16px;
+  background: rgba(255,255,252,.22);
   text-align: left;
   cursor: pointer;
 }
 .familyRow.selected {
-  background: linear-gradient(90deg, rgba(182, 64, 44, .08), transparent 84%);
+  border-color: rgba(182, 64, 44, .22);
+  background: linear-gradient(135deg, rgba(255,255,252,.72), rgba(182, 64, 44, .08));
 }
 .familyRow strong {
   display: block;
@@ -411,7 +465,10 @@ select:focus {
   overflow: auto;
 }
 .provisionFamilyNav {
-  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 6px;
+  align-content: start;
+  border-top: 0;
 }
 .provisionDetailPane {
   padding-left: 2px;
@@ -439,14 +496,16 @@ select:focus {
   font-size: 12px;
 }
 .provisionRows {
-  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 8px;
+  border-top: 0;
 }
 .compactRecord,
 .recordCard {
-  border: 0;
-  border-bottom: 1px solid var(--line);
-  background: transparent;
-  padding: 11px 0;
+  border: 1px solid rgba(255,255,255,.58);
+  border-radius: 18px;
+  background: rgba(255,255,252,.34);
+  padding: 11px 12px;
 }
 .compactRecord summary,
 .recordCard summary {
@@ -539,8 +598,9 @@ select:focus {
   width: 100%;
   height: 100%;
   min-height: 0;
-  border: 1px solid var(--line);
-  background: var(--surface);
+  border: 1px solid rgba(255,255,255,.6);
+  border-radius: 18px;
+  background: rgba(255,255,252,.55);
 }
 .ocrText {
   margin: 0;
@@ -562,8 +622,9 @@ select:focus {
 .explain {
   margin: 10px 0 0;
   padding: 9px 10px;
-  background: var(--surface-soft);
-  border-left: 2px solid var(--accent);
+  background: rgba(255,255,252,.48);
+  border-left: 2px solid rgba(182, 64, 44, .65);
+  border-radius: 0 12px 12px 0;
   color: var(--muted);
   font-size: 13px;
 }
@@ -632,14 +693,15 @@ select:focus {
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 0;
   margin-bottom: 14px;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  border: 1px solid rgba(255,255,255,.62);
+  border-radius: 18px;
+  background: rgba(255,255,252,.36);
+  overflow: hidden;
 }
 .diagnosticStat {
-  padding: 10px 14px 10px 0;
+  padding: 10px 14px;
 }
 .diagnosticStat + .diagnosticStat {
-  padding-left: 14px;
   border-left: 1px solid var(--line);
 }
 .diagnosticStat span {
@@ -707,7 +769,7 @@ select:focus {
   display: flex;
   justify-content: space-between;
   gap: 18px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   padding-bottom: 12px;
   border-bottom: 1px solid var(--line);
 }
@@ -719,29 +781,36 @@ select:focus {
 .statusGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 0 18px;
+  gap: 8px;
   margin: 12px 0 18px;
-  border-top: 1px solid var(--line);
+  border-top: 0;
 }
 .statusCard {
-  border: 0;
-  border-bottom: 1px solid var(--line);
-  background: transparent;
-  border-radius: 0;
-  padding: 11px 0;
+  border: 1px solid rgba(255,255,255,.56);
+  background: rgba(255,255,252,.3);
+  border-radius: 16px;
+  padding: 11px 12px;
 }
 .statusCard h3 { margin: 8px 0 5px; }
 .statusCard p {
   color: var(--muted);
   line-height: 1.4;
 }
+.chipRail { margin-bottom: 10px; }
+.statusChipRail {
+  max-height: 64px;
+  overflow: auto;
+  align-content: start;
+}
 .matrixSummary {
   display: flex;
   flex-wrap: wrap;
   gap: 10px 22px;
   margin-bottom: 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--line);
+  padding: 9px 12px;
+  border: 1px solid rgba(255,255,255,.62);
+  border-radius: 16px;
+  background: rgba(255,255,252,.34);
   color: var(--muted);
   font-size: 12px;
 }
@@ -754,8 +823,9 @@ select:focus {
   overflow: auto;
   flex: 1;
   min-height: 0;
-  border: 1px solid var(--line);
-  background: var(--surface);
+  border: 1px solid rgba(255,255,255,.58);
+  border-radius: 18px;
+  background: rgba(255,255,252,.36);
 }
 table { border-collapse: collapse; width: 100%; }
 th,
@@ -768,7 +838,8 @@ td {
 th {
   position: sticky;
   top: 0;
-  background: var(--surface-soft);
+  background: rgba(255, 252, 244, .92);
+  backdrop-filter: blur(14px);
   z-index: 1;
   font-size: 11px;
   text-transform: uppercase;
@@ -782,7 +853,7 @@ th {
 .matrix td:first-child { min-width: 210px; }
 .matrix .blankCell {
   color: var(--faint);
-  background: var(--surface-soft);
+  background: rgba(255, 252, 244, .32);
 }
 .matrix .scoredCell {
   font-weight: 800;
@@ -798,8 +869,9 @@ td small {
   max-width: 220px;
 }
 .docAudit {
-  background: var(--surface);
-  border: 1px solid var(--line);
+  background: rgba(255,255,252,.36);
+  border: 1px solid rgba(255,255,255,.58);
+  border-radius: 18px;
   overflow: auto;
 }
 .docAuditWrap {
@@ -811,7 +883,7 @@ td small {
   color: var(--accent);
 }
 .docAudit tr.needsAttention td {
-  background: var(--surface-soft);
+  background: rgba(255, 252, 244, .42);
 }
 .empty {
   display: grid;
