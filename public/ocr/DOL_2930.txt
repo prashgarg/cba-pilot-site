@@ -1,0 +1,9 @@
+Document: DOL_2930
+Raw source: document_2930
+Pages: 83
+OCR characters: 262147
+
+
+# Section Inventory
+
+No canonical section inventory is available from the DoL full-text OCR. Use `page_index.tsv` heading hints and `keyword_hits.tsv` for retrieval.

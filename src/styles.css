@@ -82,6 +82,13 @@ h1 {
   line-height: 1.05;
   letter-spacing: 0;
 }
+.mastCopy {
+  max-width: 720px;
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+}
 h2 {
   margin-bottom: 5px;
   font-family: Georgia, serif;
@@ -91,9 +98,9 @@ h2 {
 }
 h3 { margin-bottom: 4px; font-size: 16px; }
 h4 { margin-bottom: 6px; }
-.mastStats { display: flex; gap: 18px; align-items: center; }
+.mastStats { display: flex; gap: 10px; align-items: center; }
 .stat {
-  min-width: 72px;
+  min-width: 86px;
   padding: 6px 10px;
   border: 1px solid rgba(255,255,255,.72);
   border-radius: 14px;
@@ -162,6 +169,9 @@ h4 { margin-bottom: 6px; }
   flex: 1;
   min-height: 0;
 }
+.workspace:has(.docBrowser:not([open])) {
+  grid-template-columns: 120px minmax(0, 1fr);
+}
 .sidebar,
 .panel,
 .detail {
@@ -176,6 +186,9 @@ h4 { margin-bottom: 6px; }
   flex-direction: column;
   min-height: 0;
   padding: 12px;
+}
+.workspace:has(.docBrowser:not([open])) .sidebar {
+  align-self: start;
 }
 .search,
 select {
@@ -216,13 +229,13 @@ select:focus {
   display: none;
 }
 .docBrowser summary::after {
-  content: "open";
+  content: "+";
   color: var(--muted);
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 700;
 }
 .docBrowser[open] summary::after {
-  content: "close";
+  content: "−";
 }
 .docControls {
   display: grid;
@@ -265,6 +278,7 @@ select:focus {
   display: grid;
   gap: 6px;
   border-top: 0;
+  padding-right: 2px;
 }
 .docButton {
   text-align: left;
@@ -273,6 +287,11 @@ select:focus {
   background: rgba(255,255,252,.34);
   padding: 9px 10px;
   cursor: pointer;
+  transition: background .14s ease, border-color .14s ease, transform .14s ease;
+}
+.docButton:hover {
+  transform: translateY(-1px);
+  background: rgba(255,255,252,.54);
 }
 .docButton.selected {
   border-color: rgba(182, 64, 44, .22);
@@ -422,6 +441,9 @@ select:focus {
   margin: 0;
   color: var(--muted);
   font-size: 12px;
+}
+.viewerWrap .ocrText {
+  max-height: 100%;
 }
 .overviewRecords {
   display: grid;
@@ -808,6 +830,12 @@ select:focus {
   background: rgba(255,255,252,.36);
   overflow: hidden;
 }
+.qcGrid {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: 24px;
+  margin-bottom: 14px;
+}
 .diagnosticStat {
   padding: 10px 14px;
 }
@@ -827,9 +855,14 @@ select:focus {
 }
 .countCard {
   min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid rgba(255,255,255,.58);
+  border-radius: 18px;
+  background: rgba(255,255,252,.28);
 }
 .countCard h3 {
   margin-bottom: 8px;
+  font-size: 14px;
 }
 .countCard .countRow {
   display: grid;
@@ -898,6 +931,16 @@ select:focus {
   max-width: 760px;
   color: var(--muted);
   margin-bottom: 0;
+}
+.decisionBadge {
+  align-self: start;
+  border: 1px solid rgba(50,107,69,.18);
+  border-radius: 999px;
+  padding: 7px 10px;
+  background: rgba(233,243,236,.72);
+  color: var(--good);
+  font-size: 12px;
+  font-weight: 800;
 }
 .statusGrid {
   display: grid;
@@ -1044,7 +1087,7 @@ td small {
   transform: translateX(-50%);
   padding: 9px 10px;
   border: 1px solid var(--line);
-  background: #ffffff;
+  background: rgba(255,255,255,.96);
   color: var(--ink);
   box-shadow: 0 12px 30px rgba(0, 0, 0, .16);
   font-size: 12px;
@@ -1069,6 +1112,11 @@ td small {
   .overviewGrid,
   .auditGrid,
   .diagnosticGrid {
+    grid-template-columns: 1fr;
+  }
+  .qcGrid,
+  .provisionBrowser,
+  .paneHeader.compactFilters {
     grid-template-columns: 1fr;
   }
   .mastStats { justify-content: space-between; }

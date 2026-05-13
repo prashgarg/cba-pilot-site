@@ -1,0 +1,216 @@
+{
+  "raw_comparison_rows": 253,
+  "raw_counts": {
+    "material_agreement": 125,
+    "left_only_coverage_core": 30,
+    "right_only_coverage_core": 28,
+    "score_difference_within_one": 27,
+    "score_vs_withhold": 10,
+    "right_only_optional_or_profile": 10,
+    "external_proxy_boundary": 10,
+    "left_only_optional_or_profile": 8,
+    "other_material_difference": 4,
+    "flag_or_wording_difference": 1
+  },
+  "coverage_counts": {
+    "domain_core_one_sided": 21,
+    "required_core_miss": 19,
+    "subobject_granularity_one_sided": 16,
+    "external_profile_one_sided": 11,
+    "optional_context_one_sided": 9
+  },
+  "required_core_counts": {
+    "true_nonemitter_miss": 4,
+    "profile_miss_not_scalar": 4,
+    "keep_emitted_with_scope_caveat": 3,
+    "acceptable_source_uncertainty": 3,
+    "harmless_context_difference": 3,
+    "keep_emitted_as_normalization_record": 2
+  },
+  "score_withhold_counts": {
+    "keep_score": 6,
+    "withhold_score": 2,
+    "keep_low_score_with_flag": 1,
+    "keep_score_with_flag": 1
+  },
+  "score_band_counts": {
+    "lower_score_better_supported": 16,
+    "higher_score_better_supported": 11
+  },
+  "consequence_counts": {
+    "no_direct_measurement_difference": 132,
+    "score_level_calibration": 27,
+    "scoreability_or_scalar_inclusion_boundary": 14,
+    "score_relevant_coverage_miss": 4,
+    "coverage_triage_not_confirmed_as_scalar_miss": 52,
+    "profile_or_context_breadth": 24
+  },
+  "examples": {
+    "score_relevant_coverage_miss": [
+      {
+        "document_id": "DOL_2418",
+        "concept_id": "C_DISCIPLINE_INVESTIGATION_APPEAL",
+        "adjudication": "true_nonemitter_miss",
+        "score_consequence": "keep_score",
+        "central_review_priority": "high",
+        "adjudicated_status": "emitted discharge appeal/investigation record is directly supported",
+        "reason": "Agent B cites discharge grievance access, immediate fourth-step routing, arbitration access, and union notice. This is a real due-process object. Agent A's earlier missing ledger file made this a silent miss; after repair, the substantive adjudication favors the emitted record."
+      },
+      {
+        "document_id": "DOL_3558",
+        "concept_id": "C_DISCIPLINE_INVESTIGATION_APPEAL",
+        "adjudication": "true_nonemitter_miss",
+        "score_consequence": "keep_score",
+        "central_review_priority": "high",
+        "adjudicated_status": "emitted investigation/appeal package is supported by Article 16",
+        "reason": "Agent B captured private discussion rules, review before suspension/discharge, and record-removal protections. These are real due-process terms. Agent A did not emit the object, so this is a substantive miss by the non-emitting output."
+      },
+      {
+        "document_id": "DOL_3558",
+        "concept_id": "C_DISCIPLINE_PROGRESSIVE",
+        "adjudication": "true_nonemitter_miss",
+        "score_consequence": "keep_score_with_flag",
+        "central_review_priority": "high",
+        "adjudicated_status": "progressive discipline is supported, with CCA limitation",
+        "reason": "Agent B identifies letter-of-warning and short-suspension rules, plus an Appendix B limitation for CCAs. The object is not perfect, but it is real and scoreable with flags. Agent A's omission is a true miss."
+      },
+      {
+        "document_id": "DOL_3558",
+        "concept_id": "C_LEAVE_VACATION",
+        "adjudication": "true_nonemitter_miss",
+        "score_consequence": "keep_score_with_flag",
+        "central_review_priority": "high",
+        "adjudicated_status": "vacation/annual leave record is directly supported",
+        "reason": "Agent B captured choice-vacation period rules, annual-leave program continuation, and CCA accrual/payout terms. Agent A's notes acknowledge vacation was preserved but no concept record was emitted, so this is a true non-emitter miss."
+      }
+    ],
+    "scoreability_or_scalar_inclusion_boundary": [
+      {
+        "document_id": "DOL_1751",
+        "concept_id": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION",
+        "subobject": "",
+        "adjudication": "withhold_scalar_keep_proxy",
+        "score_consequence": "withhold_score",
+        "measurement_risk": "high",
+        "preferred_treatment": "record as external/contribution proxy, not active-medical generosity score",
+        "reason": "Both agents identify hourly health/welfare fund contributions. The disagreement is whether those contributions are enough to score active medical contribution. Because the terms are fund/trust contributions and worker-facing premium/cost-sharing terms are absent, the safer treatment is to withhold the scalar and keep a proxy/profile record."
+      },
+      {
+        "document_id": "DOL_1751",
+        "concept_id": "C_LEAVE_HOLIDAYS",
+        "subobject": "",
+        "adjudication": "withhold_scalar_keep_profile",
+        "score_consequence": "withhold_score",
+        "measurement_risk": "medium",
+        "preferred_treatment": "record holiday list and holiday-work premium, but do not score paid-holiday generosity without nonwork-day pay evidence",
+        "reason": "Both agents find the holiday list and double-time holiday-work premium. The missing piece is ordinary paid holiday entitlement for nonwork days. Treating the holiday object as record-only is more defensible than scoring it as a paid holiday package."
+      },
+      {
+        "document_id": "DOL_2088",
+        "concept_id": "C_LEAVE_PARENTAL_FAMILY",
+        "subobject": "",
+        "adjudication": "split_statutory_parental_from_scoreable_family_care",
+        "score_consequence": "keep_low_score_with_flag",
+        "measurement_risk": "medium",
+        "preferred_treatment": "score the narrow family-care leave increment, while keeping maternity/parental statutory reference as record-only",
+        "reason": "Agent A captured only the statutory maternity/parental reference; Agent B also captured a CBA-contained family-care leave increment of up to three days with discretionary pay. The defensible fix is concept/subobject clarity: statutory parental leave is not scored, but the narrow family-care increment can receive a low flagged score."
+      },
+      {
+        "document_id": "DOL_4461",
+        "concept_id": "C_JOB_SECURITY_BENEFIT_CONTINUATION",
+        "subobject": "",
+        "adjudication": "score_with_externality_flag",
+        "score_consequence": "keep_score_with_flag",
+        "measurement_risk": "medium",
+        "preferred_treatment": "score the CBA-contained SUB-linked premium/continuation rule with externality flags",
+        "reason": "Both agents identify the same Article XXII continuation/premium-waiver rule. Although SPDs govern benefit design, the CBA-contained rule that benefits continue and health premiums are waived while receiving SUB is a worker-facing continuation term. Keep a moderate flagged score rather than treating it as pure external profile."
+      },
+      {
+        "document_id": "DOL_2068",
+        "concept_id": "C_RETIREMENT_PENSION",
+        "preferred_treatment": "external/proxy boundary in duplicate comparison",
+        "reason": " versus external_or_proxy"
+      },
+      {
+        "document_id": "DOL_2083",
+        "concept_id": "C_RETIREMENT_PENSION",
+        "preferred_treatment": "external/proxy boundary in duplicate comparison",
+        "reason": "external_or_proxy versus "
+      },
+      {
+        "document_id": "DOL_2088",
+        "concept_id": "C_HEALTH_DENTAL",
+        "preferred_treatment": "external/proxy boundary in duplicate comparison",
+        "reason": "external_or_proxy versus record_only_or_profile"
+      },
+      {
+        "document_id": "DOL_2088",
+        "concept_id": "C_HEALTH_DISABILITY_INCOME",
+        "preferred_treatment": "external/proxy boundary in duplicate comparison",
+        "reason": "external_or_proxy versus record_only_or_profile"
+      }
+    ],
+    "score_level_calibration": [
+      {
+        "document_id": "DOL_1751",
+        "concept_id": "C_PREMIUM_CALL_IN_REPORTING",
+        "concept_family": "premium_pay",
+        "lower_score": "3",
+        "higher_score": "4",
+        "preferred_score": "4",
+        "calibration_decision": "higher_score_better_supported",
+        "anchor_lesson": "A reporting-pay rule can reach 4 when it combines a clear reporting floor with a larger minimum once work begins and a defined emergency/call-back variant."
+      },
+      {
+        "document_id": "DOL_1751",
+        "concept_id": "C_PREMIUM_SHIFT",
+        "concept_family": "premium_pay",
+        "lower_score": "3",
+        "higher_score": "4",
+        "preferred_score": "3",
+        "calibration_decision": "lower_score_better_supported",
+        "anchor_lesson": "A 10 percent shift differential with schedule-specific limits is ordinary rather than strong unless coverage or related protections are unusually broad."
+      },
+      {
+        "document_id": "DOL_1751",
+        "concept_id": "C_UNION_ACCESS_BUSINESS",
+        "concept_family": "union_voice",
+        "lower_score": "3",
+        "higher_score": "4",
+        "preferred_score": "4",
+        "calibration_decision": "higher_score_better_supported",
+        "anchor_lesson": "Protected steward time, worksite access, anti-discrimination, and steward layoff/recall protections can justify 4 even when access is conditioned on non-interference."
+      },
+      {
+        "document_id": "DOL_2068",
+        "concept_id": "C_ARBITRATION",
+        "concept_family": "due_process",
+        "lower_score": "3",
+        "higher_score": "4",
+        "preferred_score": "3",
+        "calibration_decision": "lower_score_better_supported",
+        "anchor_lesson": "Neutral and final arbitration remains a 3 when access is tightly step-gated and remedial authority is materially limited."
+      },
+      {
+        "document_id": "DOL_2068",
+        "concept_id": "C_GRIEVANCE_PROCEDURE",
+        "concept_family": "due_process",
+        "lower_score": "3",
+        "higher_score": "4",
+        "preferred_score": "3",
+        "calibration_decision": "lower_score_better_supported",
+        "anchor_lesson": "A complete grievance ladder should stay at 3 when strict waiver rules or procedural traps materially constrain access."
+      },
+      {
+        "document_id": "DOL_2083",
+        "concept_id": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION",
+        "concept_family": "health",
+        "lower_score": "2",
+        "higher_score": "3",
+        "preferred_score": "2",
+        "calibration_decision": "lower_score_better_supported",
+        "anchor_lesson": "A narrow working-spouse reimbursement rule is scoreable but weak when it depends on a spouse plan rather than a broad active-medical contribution schedule."
+      }
+    ]
+  }
+}

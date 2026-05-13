@@ -10,7 +10,9 @@ const DATASETS = {
   novelty: "data/novelty_by_document.json",
   status: "data/measurement_status_map.json",
   matrix: "data/initial_score_matrix.json",
-  manifest: "data/site_manifest.json"
+  manifest: "data/site_manifest.json",
+  batch: "data/batch_acceptance_summary.json",
+  duplicateQc: "data/duplicate_qc_summary.json"
 };
 
 const format = (value, digits = 2) => {
@@ -39,8 +41,18 @@ const statusTone = (status = "") => {
 const scoreValue = (record, score) => score?.draft_score ?? record.bridge_score?.score;
 const hasNumericScore = (value) => value !== null && value !== undefined && value !== "" && Number.isFinite(Number(value));
 
+const scoreabilityInfo = (record, score) => {
+  const raw = record.scoreability;
+  if (raw && typeof raw === "object") return raw;
+  return {
+    status: raw || score?.scoreability || "unknown",
+    reason: score?.scoreability_reason || "",
+    missing_or_external_inputs: score?.missingness_or_flags || []
+  };
+};
+
 const provisionStatus = (record, score) => {
-  const status = record.scoreability?.status ?? "unknown";
+  const status = scoreabilityInfo(record, score).status ?? "unknown";
   const numeric = hasNumericScore(scoreValue(record, score));
   if (numeric && status === "scoreable_with_flags") return ["Scored with caution", "warn", "scored"];
   if (numeric) return ["Scored", "good", "scored"];
@@ -58,9 +70,10 @@ const provisionStatus = (record, score) => {
 };
 
 const recordedOnlySubtype = (record) => {
-  const status = record.scoreability?.status ?? "";
-  const reason = (record.scoreability?.reason ?? "").toLowerCase();
-  const missing = (record.scoreability?.missing_or_external_inputs ?? []).join(" ").toLowerCase();
+  const info = scoreabilityInfo(record);
+  const status = info.status ?? "";
+  const reason = (info.reason ?? "").toLowerCase();
+  const missing = (info.missing_or_external_inputs ?? []).join(" ").toLowerCase();
   const role = (record.aggregation_role ?? "").toLowerCase();
   const text = [status, reason, missing, role].join(" ");
 
@@ -135,10 +148,26 @@ const documentStats = (doc, recordsByDocument, scoresByDocument) => {
   return { scored, withheld, review, rejected: doc.rejected_value_count ?? 0 };
 };
 
+const familyName = (record) => {
+  const concept = String(record.concept_id || "").toUpperCase();
+  if (concept.startsWith("C_LEAVE")) return "Leave";
+  if (concept.startsWith("C_GRIEVANCE") || concept.startsWith("C_ARBITRATION") || concept.startsWith("C_DISCIPLINE")) return "Due process";
+  if (concept.startsWith("C_PREMIUM")) return "Premium pay";
+  if (concept.startsWith("C_WAGE")) return "Wages";
+  if (concept.startsWith("C_HEALTH")) return "Health";
+  if (concept.startsWith("C_JOB_SECURITY")) return "Job security";
+  if (concept.startsWith("C_UNION")) return "Union voice";
+  if (concept.startsWith("C_RETIREMENT")) return "Retirement/external funds";
+  if (concept.startsWith("C_SENIORITY") || concept.startsWith("C_JOB_POSTING") || concept.startsWith("C_RECOGNITION")) return "Scope/seniority/mobility";
+  if (concept.startsWith("C_SAFETY")) return "Safety";
+  if (concept.startsWith("C_TIME") || concept.startsWith("C_WORKLOAD")) return "Scheduling/workload";
+  return record.family_label || "Other provisions";
+};
+
 const groupByFamily = (records) => {
   const groups = new Map();
   records.forEach((record) => {
-    const family = record.family_label || "Other provisions";
+    const family = familyName(record);
     if (!groups.has(family)) groups.set(family, []);
     groups.get(family).push(record);
   });
@@ -146,14 +175,15 @@ const groupByFamily = (records) => {
 };
 
 const HELP = {
-  domainScores: "Mean scored domain averages the domain scores currently available for this document. Coverage is the share of expected concepts observed in that domain.",
+  domainScores: "Mean scored domain averages score-ready provisions in each family. Blank means no scalar score is available for that family, not zero generosity.",
   scoreability: "Scored means a numeric scalar exists. Structured, no score means the provision was extracted but the scalar score was withheld pending normalization, branch choice, or external inputs.",
   rejected: "Values the protocol saw but refused to use, usually because they were the wrong object, lacked support, or came from context rather than an operative provision.",
   novelty: "Provision material that did not fit cleanly into the fixed concept library for this run.",
   diagnosticsScored: "Provisions with an actual numeric scalar score.",
   diagnosticsWithheld: "Extracted provisions with useful fields and evidence but no scalar score assigned.",
   diagnosticsRejected: "Candidate values intentionally excluded from scoring or fields.",
-  matrixDash: "A dash means no scalar score appears in the current score matrix. The provision may be absent, recorded only, or withheld elsewhere in the run outputs."
+  matrixDash: "A dash means no scalar score appears in the score matrix. The provision may be absent, recorded only, or withheld elsewhere in the run outputs.",
+  duplicateQc: "Ten documents were read twice. These counts classify duplicate-reader differences by what they would change for measurement."
 };
 
 function useSiteData() {
@@ -225,10 +255,12 @@ function App() {
         <div>
           <p className="smallcaps">CBA pilot</p>
           <h1>Collective bargaining provisions</h1>
+          <p className="mastCopy">Provision-level records, scoreability decisions, and validation checks from the v3.2 proof-of-concept wave.</p>
         </div>
         <div className="mastStats">
           <Stat label="Documents" value={data.manifest.document_count} />
           <Stat label="Provisions" value={data.manifest.record_count} />
+          <Stat label="Scored" value={data.manifest.scored_record_count} />
         </div>
       </header>
 
@@ -310,7 +342,15 @@ function App() {
         )}
 
         {view === "diagnostics" && (
-          <Diagnostics documents={data.documents} records={data.records} scores={data.scores} rejected={data.rejected} />
+          <Diagnostics
+            documents={data.documents}
+            records={data.records}
+            scores={data.scores}
+            rejected={data.rejected}
+            manifest={data.manifest}
+            batch={data.batch}
+            duplicateQc={data.duplicateQc}
+          />
         )}
       </div>
     </main>
@@ -376,7 +416,7 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
   const activeFamily = selectedFamily && provisionGroups.some(([family]) => family === selectedFamily)
     ? selectedFamily
     : provisionGroups[0]?.[0] ?? null;
-  const activeFamilyRows = filteredRecords.filter((record) => (record.family_label || "Other provisions") === activeFamily);
+  const activeFamilyRows = filteredRecords.filter((record) => familyName(record) === activeFamily);
   const domainMean = doc.domain_scores
     .map((domain) => domain.available_score)
     .filter(hasNumericScore);
@@ -393,9 +433,9 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
           <p>{doc.union}</p>
         </div>
         <div className="metaGrid">
-          <span>{doc.industry || "Industry unknown"}</span>
-          <span>{doc.location || "Location unknown"}</span>
-          <span>{doc.year || "Year unknown"}</span>
+          <span>{doc.length_stratum || doc.sector || "Length unknown"}</span>
+          <span>{doc.duplicate_read ? "duplicate-read QC" : "single read"}</span>
+          <span>{format(doc.ocr_chars, 0)} OCR chars</span>
           <span>{doc.page_count} pages</span>
         </div>
       </div>
@@ -466,7 +506,8 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
         <div className="singlePanel">
           <div className="paneHeader">
             <div>
-              <h3>OCR text</h3>
+              <h3>Source preview</h3>
+              <p>Page headings and section inventory used to orient the document reader. Full OCR remains in the run archive.</p>
             </div>
           </div>
           <div className="viewerWrap">
@@ -607,7 +648,8 @@ function ProvisionFamily({ family, rows, scoreByRecord }) {
 
 function RecordCard({ record, score }) {
   const fields = record.fields ?? [];
-  const status = record.scoreability?.status ?? "unknown";
+  const info = scoreabilityInfo(record, score);
+  const status = info.status ?? "unknown";
   const [statusLabel, statusClass] = provisionStatus(record, score);
   const statusDetail = recordedOnlySubtype(record);
   const shownFields = fields.slice(0, 3);
@@ -637,10 +679,10 @@ function RecordCard({ record, score }) {
           <strong>Score reason:</strong> {score.explanation}
         </p>
       )}
-      {record.scoreability?.reason && (
+      {info.reason && (
         <p className="whyLine">
           <strong>{statusDetail ? `Why ${statusDetail.toLowerCase()}:` : "Why:"}</strong>{" "}
-          {record.scoreability.reason}
+          {info.reason}
         </p>
       )}
       <div className="fields">
@@ -778,11 +820,15 @@ function DomainExplorer({ documents, status, matrix, domainFilter, setDomainFilt
   const domainOptions = [
     ["All", "All"],
     ["LEAVE", "Leave"],
+    ["HEALTH", "Health"],
+    ["WAGE", "Wages"],
     ["PREMIUM", "Premiums"],
     ["GRIEVANCE", "Grievance"],
     ["ARBITRATION", "Arbitration"],
     ["DISCIPLINE", "Discipline"],
-    ["JOB_SECURITY", "Job security"]
+    ["JOB_SECURITY", "Job security"],
+    ["SAFETY", "Safety"],
+    ["UNION", "Union"]
   ];
   const filledCells = matrix.reduce(
     (count, row) => count + visibleConcepts.filter((id) => hasNumericScore(row[id])).length,
@@ -795,7 +841,7 @@ function DomainExplorer({ documents, status, matrix, domainFilter, setDomainFilt
       <div className="sectionHeader">
         <div>
           <h2>Scored provision matrix</h2>
-          <p>Scalar scores currently available by document and concept. Use this as a map of comparable scored output, not as the full extracted record.</p>
+          <p>Scalar scores available by document and concept. Blank cells are missing scalar scores, not zeroes.</p>
         </div>
       </div>
       <div className="chipRail" aria-label="Domain filter">
@@ -861,7 +907,7 @@ function DomainExplorer({ documents, status, matrix, domainFilter, setDomainFilt
   );
 }
 
-function Diagnostics({ documents, records, scores, rejected }) {
+function Diagnostics({ documents, records, scores, rejected, manifest, batch, duplicateQc }) {
   const dispositionCounts = new Map();
   const subtypeCounts = new Map();
   const rejectedCounts = new Map();
@@ -905,15 +951,27 @@ function Diagnostics({ documents, records, scores, rejected }) {
       <div className="sectionHeader">
         <div>
           <h2>Diagnostics</h2>
-          <p>Where the run produced scalar scores, where it kept structured provision material without a score, and where it rejected candidate values.</p>
+          <p>Run status, scoreability, rejected values, and duplicate-reader checks.</p>
         </div>
+        <span className={`decisionBadge ${manifest.batch_decision}`}>{humanizeId(manifest.batch_decision || "unknown")}</span>
       </div>
       <div className="diagnosticStats">
         <DiagnosticStat label="Documents" value={documents.length} />
+        <DiagnosticStat label="Output folders" value={manifest.intended_output_count} />
         <DiagnosticStat label="Provisions" value={Object.values(records).flat().length} />
         <DiagnosticStat label="Scored" value={dispositionCounts.get("scored") ?? 0} help={HELP.diagnosticsScored} />
-        <DiagnosticStat label="Structured, no score" value={dispositionCounts.get("withheld") ?? 0} help={HELP.diagnosticsWithheld} />
         <DiagnosticStat label="Rejected values" value={Object.values(rejected).flat().length} help={HELP.diagnosticsRejected} />
+      </div>
+      <div className="qcGrid">
+        <CountCard title="Batch checks" counts={new Map([
+          ["Valid outputs", batch.stage_valid_outputs ?? 0],
+          ["Schema or file errors", batch.stage_error_count ?? 0],
+          ["Required-core ledger issues", batch.ledger_issues ?? 0],
+          ["Adjudicated required-core rows", batch.adjudicated_required_core_miss_rows ?? 0],
+          ["Adjudicated score/withhold rows", batch.adjudicated_score_withhold_rows ?? 0],
+          ["Adjacent-score calibration rows", batch.adjudicated_score_band_calibration_rows ?? 0]
+        ])} />
+        <CountCard title={<>Duplicate-QC consequences <Info text={HELP.duplicateQc} /></>} counts={new Map(Object.entries(duplicateQc.consequence_counts ?? {}))} />
       </div>
       <div className="diagnosticGrid">
         <CountCard title="Provision disposition" counts={dispositionCounts} />
@@ -967,12 +1025,20 @@ function DiagnosticStat({ label, value, help }) {
 function CountCard({ title, counts }) {
   const labelMap = {
     scored: "Scored",
+    scored_with_flags: "Scored with caution",
     withheld: "Structured, no score",
     recorded: "Recorded only",
     external: "External inputs needed",
     normalization: "Needs normalization",
     review: "Needs review",
-    not_scored: "Not scored"
+    not_scored: "Not scored",
+    no_direct_measurement_difference: "No direct measurement difference",
+    score_level_calibration: "Score-level calibration",
+    scoreability_or_scalar_inclusion_boundary: "Scoreability boundary",
+    score_relevant_coverage_miss: "Score-relevant coverage miss",
+    coverage_triage_not_confirmed_as_scalar_miss: "Coverage triage, not scalar miss",
+    profile_or_context_breadth: "Profile/context breadth",
+    true_nonemitter_miss: "True non-emitter miss"
   };
   const displayCounts = new Map();
   Array.from(counts.entries()).forEach(([label, count]) => {

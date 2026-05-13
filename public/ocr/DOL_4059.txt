@@ -1,0 +1,9 @@
+Document: DOL_4059
+Raw source: document_4059
+Pages: 10
+OCR characters: 29580
+
+
+# Section Inventory
+
+No canonical section inventory is available from the DoL full-text OCR. Use `page_index.tsv` heading hints and `keyword_hits.tsv` for retrieval.

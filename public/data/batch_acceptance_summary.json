@@ -1,0 +1,54 @@
+{
+  "batch_decision": "accepted_with_flags",
+  "decision_reason": "Worker outputs pass mandatory validators and duplicate-QC required-core plus score-versus-withhold triggers have been adjudicated; remaining flags should travel with analysis outputs.",
+  "intended_outputs": 110,
+  "stage_valid_outputs": 110,
+  "stage_outputs_with_missing_files": 0,
+  "stage_outputs_with_errors": 0,
+  "stage_error_count": 0,
+  "ledger_issues": 0,
+  "ledger_high_issues": 0,
+  "ledger_affected_outputs": 0,
+  "ledger_issue_counts": {},
+  "duplicate_required_core_miss_rows": 19,
+  "adjudicated_required_core_miss_rows": 19,
+  "duplicate_score_withhold_trigger_rows": 10,
+  "adjudicated_score_withhold_rows": 10,
+  "required_core_miss_adjudication_counts": {
+    "true_nonemitter_miss": 4,
+    "profile_miss_not_scalar": 4,
+    "keep_emitted_with_scope_caveat": 3,
+    "acceptable_source_uncertainty": 3,
+    "harmless_context_difference": 3,
+    "keep_emitted_as_normalization_record": 2
+  },
+  "score_withhold_adjudication_counts": {
+    "signature_artifact_not_substantive": 6,
+    "withhold_scalar_keep_proxy": 1,
+    "withhold_scalar_keep_profile": 1,
+    "split_statutory_parental_from_scoreable_family_care": 1,
+    "score_with_externality_flag": 1
+  },
+  "score_band_calibration_adjudication_counts": {
+    "lower_score_better_supported": 16,
+    "higher_score_better_supported": 11
+  },
+  "adjudicated_score_band_calibration_rows": 27,
+  "duplicate_qc_measurement_consequence_counts": {
+    "no_direct_measurement_difference": 132,
+    "score_level_calibration": 27,
+    "scoreability_or_scalar_inclusion_boundary": 14,
+    "score_relevant_coverage_miss": 4,
+    "coverage_triage_not_confirmed_as_scalar_miss": 52,
+    "profile_or_context_breadth": 24
+  },
+  "duplicate_review_counts": {
+    "score_withhold_anchor_review_rows": 461,
+    "one_point_score_calibration": 27,
+    "one_sided_coverage_triage": 76,
+    "required_core_miss_followup": 19,
+    "score_withhold_adjudicated_triggers": 10,
+    "one_point_score_calibration_adjudicated": 27,
+    "measurement_consequence_summary_classes": 6
+  }
+}

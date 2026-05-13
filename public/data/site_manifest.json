@@ -1,6 +1,12 @@
 {
-  "generated_from": "codex_PG/agentic_v3/runs/2026-05-11_v3_1_consolidated_validation",
-  "document_count": 28,
-  "record_count": 864,
-  "pdf_count": 25
+  "generated_from": "codex_PG/agentic_v3/runs/2026-05-12_wave2_100doc_pilot",
+  "document_count": 100,
+  "distinct_document_count": 100,
+  "intended_output_count": 110,
+  "duplicate_read_document_count": 10,
+  "record_count": 2207,
+  "scored_record_count": 1277,
+  "rejected_value_count": 771,
+  "pdf_count": 0,
+  "batch_decision": "accepted_with_flags"
 }
