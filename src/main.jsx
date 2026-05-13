@@ -42,12 +42,19 @@ const scoreValue = (record, score) => score?.draft_score ?? record.bridge_score?
 const hasNumericScore = (value) => value !== null && value !== undefined && value !== "" && Number.isFinite(Number(value));
 
 const scoreabilityInfo = (record, score) => {
+  if (score?.scoreability) {
+    return {
+      status: score.scoreability,
+      reason: score.scoreability_reason || "",
+      missing_or_external_inputs: score.missingness_or_flags || []
+    };
+  }
   const raw = record.scoreability;
   if (raw && typeof raw === "object") return raw;
   return {
-    status: raw || score?.scoreability || "unknown",
-    reason: score?.scoreability_reason || "",
-    missing_or_external_inputs: score?.missingness_or_flags || []
+    status: raw || "unknown",
+    reason: "",
+    missing_or_external_inputs: []
   };
 };
 
@@ -60,12 +67,13 @@ const provisionStatus = (record, score) => {
     record_only: ["Recorded only", "muted", "recorded"],
     framework_only: ["Recorded only", "muted", "recorded"],
     not_scoreable_ambiguous: ["Not scored", "muted", "not_scored"],
+    not_scoreable_administrative: ["Not scored", "muted", "not_scored"],
     not_scoreable_external: ["External inputs needed", "cool", "external"],
     normalization_required: ["Needs normalization", "cool", "normalization"],
     requires_agentic_review: ["Needs review", "warn", "review"]
   };
   if (labels[status]) return labels[status];
-  if (status.includes("scoreable")) return ["Structured, no score", "warn", "withheld"];
+  if (status.includes("scoreable")) return ["Score-ready, no draft score", "warn", "missing_score"];
   return labels[status] ?? [status.replaceAll("_", " "), "muted", "other"];
 };
 
@@ -110,6 +118,7 @@ const recordedOnlySubtype = (record) => {
 const STATUS_FILTERS = [
   ["All", "All statuses"],
   ["scored", "Scored"],
+  ["missing_score", "Score-ready, no draft score"],
   ["withheld", "Structured, no score"],
   ["recorded", "Recorded only"],
   ["external", "External inputs needed"],
@@ -134,6 +143,7 @@ const SUBTYPE_FILTERS = [
 const DOCUMENT_FILTERS = [
   ["All", "All documents"],
   ["scored", "Has scored provisions"],
+  ["missing_score", "Score-ready, no draft score"],
   ["withheld", "Structured, no score"],
   ["review", "Needs review"],
   ["rejected", "Has rejected values"]
@@ -143,9 +153,10 @@ const documentStats = (doc, recordsByDocument, scoresByDocument) => {
   const rows = recordsByDocument[doc.document_id] ?? [];
   const scores = new Map((scoresByDocument[doc.document_id] ?? []).map((score) => [score.concept_record_id, score]));
   const scored = rows.filter((record) => hasNumericScore(scoreValue(record, scores.get(record.concept_record_id)))).length;
+  const missingScore = rows.filter((record) => provisionStatus(record, scores.get(record.concept_record_id))[2] === "missing_score").length;
   const withheld = rows.filter((record) => provisionStatus(record, scores.get(record.concept_record_id))[2] === "withheld").length;
   const review = rows.filter((record) => provisionStatus(record, scores.get(record.concept_record_id))[2] === "review").length;
-  return { scored, withheld, review, rejected: doc.rejected_value_count ?? 0 };
+  return { scored, missingScore, withheld, review, rejected: doc.rejected_value_count ?? 0 };
 };
 
 const familyName = (record) => {
@@ -175,11 +186,12 @@ const groupByFamily = (records) => {
 };
 
 const HELP = {
-  domainScores: "Domain values summarize provisions that are comparable enough to score in this proof-of-concept. Blank means no scalar score is available for that family, not zero generosity.",
+  domainScores: "Domain profiles summarize provisions with numeric draft scores. Blank means no scalar score is available for that family, not zero generosity.",
   scoreability: "Score-ready provisions have enough CBA-contained evidence for a draft scalar score. Structured, no score means the provision was extracted but the scalar score was withheld pending normalization, branch choice, or external inputs.",
   rejected: "Values the protocol saw but refused to use, usually because they were the wrong object, lacked support, or came from context rather than an operative provision.",
   novelty: "Provision material that did not fit cleanly into the fixed concept library for this run.",
   diagnosticsScored: "Provisions with a draft numeric scalar score. These are ingredients for domain profiles, not a final CBA-level index.",
+  diagnosticsMissingScore: "Provisions labelled score-ready by the run but missing a numeric draft score in the exported matrix. These need score fill-in or central review before analysis.",
   diagnosticsWithheld: "Extracted provisions with useful fields and evidence but no scalar score assigned.",
   diagnosticsRejected: "Candidate values intentionally excluded from scoring or fields.",
   matrixDash: "A dash means no scalar score appears in the score matrix. The provision may be absent, recorded only, or withheld elsewhere in the run outputs.",
@@ -243,6 +255,7 @@ function App() {
     const matchesFilter =
       docFilter === "All" ||
       (docFilter === "scored" && stats.scored > 0) ||
+      (docFilter === "missing_score" && stats.missingScore > 0) ||
       (docFilter === "withheld" && stats.withheld > 0 && stats.scored === 0) ||
       (docFilter === "review" && stats.review > 0) ||
       (docFilter === "rejected" && stats.rejected > 0);
@@ -268,7 +281,7 @@ function App() {
         <nav className="tabs" aria-label="Main views">
           {[
             ["documents", "Documents"],
-            ["domains", "Scores"],
+            ["domains", "Domains"],
             ["diagnostics", "Diagnostics"]
           ].map(([id, label]) => (
             <button key={id} className={view === id ? "active" : ""} onClick={() => setView(id)}>
@@ -445,7 +458,7 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
           ["overview", "Overview"],
           ["source", "Source"],
           ["provisions", "Provisions"],
-          ["audit", "Review notes"]
+          ["audit", "Checks"]
         ].map(([id, label]) => (
           <button key={id} className={panelView === id ? "active" : ""} onClick={() => setPanelView(id)}>
             {label}
@@ -457,13 +470,14 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
         <div className="overviewGrid">
           <section className="overviewBlock">
             <div className="scoreHeader">
-              <h3>Domain scores</h3>
+              <h3>Domain profiles</h3>
               <Info text={HELP.domainScores} />
             </div>
             <div className="summaryLine">
-              <span><strong>{format(avgDomainScore)}</strong> mean scored domain</span>
+              <span><strong>{format(avgDomainScore)}</strong> mean available domain</span>
               <span><strong>{records.length}</strong> provisions</span>
-              <span><strong>{scoredCount}</strong> scored</span>
+              <span><strong>{doc.scored_record_count ?? 0}</strong> score-ready</span>
+              <span><strong>{scoredCount}</strong> draft scores</span>
               <span><strong>{withheldCount}</strong> structured, no score</span>
               <span><strong>{rejected.length}</strong> rejected values</span>
             </div>
@@ -581,7 +595,7 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
         <div className="singlePanel">
           <div className="paneHeader">
             <div>
-              <h3>Review notes</h3>
+              <h3>Checks</h3>
             </div>
           </div>
           <div className="auditGrid">
@@ -620,7 +634,7 @@ function FamilySummary({ family, rows, scoreByRecord, onOpen, selected = false }
     <button className={`familyRow ${selected ? "selected" : ""}`} onClick={onOpen}>
       <div>
         <strong>{family}</strong>
-        <span>{rows.length} provisions · {scored.length} scored{withheld ? ` · ${withheld} structured, no score` : ""}</span>
+        <span>{rows.length} provisions · {scored.length} draft scores{withheld ? ` · ${withheld} structured, no score` : ""}</span>
       </div>
       <span>{scored.length ? format(scored.reduce((sum, record) => sum + Number(scoreValue(record, scoreByRecord.get(record.concept_record_id))), 0) / scored.length) : "—"}</span>
     </button>
@@ -634,7 +648,7 @@ function ProvisionFamily({ family, rows, scoreByRecord }) {
       <div className="familyHeader">
         <div>
           <h4>{family}</h4>
-          <p>{rows.length} provisions · {scored.length} scored</p>
+          <p>{rows.length} provisions · {scored.length} draft scores</p>
         </div>
       </div>
       <div className="provisionRows">
@@ -840,8 +854,8 @@ function DomainExplorer({ documents, status, matrix, domainFilter, setDomainFilt
     <section className="panel">
       <div className="sectionHeader">
         <div>
-          <h2>Scored provision matrix</h2>
-          <p>Scalar scores available by document and concept. Blank cells are missing scalar scores, not zeroes.</p>
+          <h2>Draft score matrix</h2>
+          <p>Numeric draft scores by document and concept. Blank cells are missing scalar scores, not zeroes.</p>
         </div>
       </div>
       <div className="chipRail" aria-label="Domain filter">
@@ -857,7 +871,7 @@ function DomainExplorer({ documents, status, matrix, domainFilter, setDomainFilt
       </div>
       <div className="matrixSummary">
         <span><strong>{visibleConcepts.length}</strong> concepts shown</span>
-        <span><strong>{filledCells}</strong> scored cells</span>
+        <span><strong>{filledCells}</strong> draft-score cells</span>
         <span><strong>{possibleCells - filledCells}</strong> blank cells <Info text={HELP.matrixDash} /></span>
       </div>
       <details className="compactDrawer">
@@ -916,6 +930,7 @@ function Diagnostics({ documents, records, scores, rejected, manifest, batch, du
     const scoreByRecord = new Map((scores[doc.document_id] ?? []).map((score) => [score.concept_record_id, score]));
     const categoryFor = (record) => provisionStatus(record, scoreByRecord.get(record.concept_record_id))[2];
     const scored = rows.filter((record) => hasNumericScore(scoreValue(record, scoreByRecord.get(record.concept_record_id)))).length;
+    const missingScore = rows.filter((record) => categoryFor(record) === "missing_score").length;
     const withheld = rows.filter((record) => categoryFor(record) === "withheld").length;
     const recorded = rows.filter((record) => categoryFor(record) === "recorded").length;
     const external = rows.filter((record) => ["external", "normalization"].includes(categoryFor(record))).length;
@@ -923,6 +938,7 @@ function Diagnostics({ documents, records, scores, rejected, manifest, batch, du
     return {
       ...doc,
       scored,
+      missingScore,
       withheld,
       recorded,
       external,
@@ -960,6 +976,7 @@ function Diagnostics({ documents, records, scores, rejected, manifest, batch, du
         <DiagnosticStat label="Output folders" value={manifest.intended_output_count} />
         <DiagnosticStat label="Provisions" value={Object.values(records).flat().length} />
         <DiagnosticStat label="Draft scored" value={dispositionCounts.get("scored") ?? 0} help={HELP.diagnosticsScored} />
+        <DiagnosticStat label="Needs score fill-in" value={dispositionCounts.get("missing_score") ?? 0} help={HELP.diagnosticsMissingScore} />
         <DiagnosticStat label="Rejected values" value={Object.values(rejected).flat().length} help={HELP.diagnosticsRejected} />
       </div>
       <div className="qcGrid">
@@ -984,7 +1001,8 @@ function Diagnostics({ documents, records, scores, rejected, manifest, batch, du
             <tr>
               <th>Document</th>
               <th>Provisions</th>
-              <th>Scored</th>
+              <th>Draft scores</th>
+              <th>Needs score fill-in</th>
               <th>Structured, no score</th>
               <th>External / normalize</th>
               <th>Rejected</th>
@@ -1000,6 +1018,7 @@ function Diagnostics({ documents, records, scores, rejected, manifest, batch, du
                 </td>
                 <td>{doc.record_count}</td>
                 <td>{doc.scored}</td>
+                <td>{doc.missingScore}</td>
                 <td>{doc.withheld}</td>
                 <td>{doc.external}</td>
                 <td>{doc.rejected_value_count}</td>
@@ -1026,6 +1045,7 @@ function CountCard({ title, counts }) {
   const labelMap = {
     scored: "Scored",
     scored_with_flags: "Scored with caution",
+    missing_score: "Score-ready, no draft score",
     withheld: "Structured, no score",
     recorded: "Recorded only",
     external: "External inputs needed",
