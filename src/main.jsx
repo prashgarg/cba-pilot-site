@@ -175,11 +175,11 @@ const groupByFamily = (records) => {
 };
 
 const HELP = {
-  domainScores: "Mean scored domain averages score-ready provisions in each family. Blank means no scalar score is available for that family, not zero generosity.",
-  scoreability: "Scored means a numeric scalar exists. Structured, no score means the provision was extracted but the scalar score was withheld pending normalization, branch choice, or external inputs.",
+  domainScores: "Domain values summarize provisions that are comparable enough to score in this proof-of-concept. Blank means no scalar score is available for that family, not zero generosity.",
+  scoreability: "Score-ready provisions have enough CBA-contained evidence for a draft scalar score. Structured, no score means the provision was extracted but the scalar score was withheld pending normalization, branch choice, or external inputs.",
   rejected: "Values the protocol saw but refused to use, usually because they were the wrong object, lacked support, or came from context rather than an operative provision.",
   novelty: "Provision material that did not fit cleanly into the fixed concept library for this run.",
-  diagnosticsScored: "Provisions with an actual numeric scalar score.",
+  diagnosticsScored: "Provisions with a draft numeric scalar score. These are ingredients for domain profiles, not a final CBA-level index.",
   diagnosticsWithheld: "Extracted provisions with useful fields and evidence but no scalar score assigned.",
   diagnosticsRejected: "Candidate values intentionally excluded from scoring or fields.",
   matrixDash: "A dash means no scalar score appears in the score matrix. The provision may be absent, recorded only, or withheld elsewhere in the run outputs.",
@@ -255,7 +255,7 @@ function App() {
         <div>
           <p className="smallcaps">CBA pilot</p>
           <h1>Collective bargaining provisions</h1>
-          <p className="mastCopy">Provision-level records, scoreability decisions, and validation checks from the v3.2 proof-of-concept wave.</p>
+          <p className="mastCopy">A 100-document proof-of-concept for measuring CBAs as provision-level records before any final generosity index.</p>
         </div>
         <div className="mastStats">
           <Stat label="Documents" value={data.manifest.document_count} />
@@ -279,8 +279,8 @@ function App() {
         <details className="readGuide">
           <summary>How to read this</summary>
           <p>
-            Provisions are extracted contract objects. Some receive scalar scores; others are kept as structured evidence,
-            context, external-plan references, normalization cases, or future scoring candidates.
+            Provisions are extracted contract objects. Some are comparable enough for draft domain scores; others are kept as structured evidence,
+            context, external-plan references, normalization cases, or future scoring candidates. This is not a final CBA-level generosity index.
           </p>
         </details>
 
@@ -959,7 +959,7 @@ function Diagnostics({ documents, records, scores, rejected, manifest, batch, du
         <DiagnosticStat label="Documents" value={documents.length} />
         <DiagnosticStat label="Output folders" value={manifest.intended_output_count} />
         <DiagnosticStat label="Provisions" value={Object.values(records).flat().length} />
-        <DiagnosticStat label="Scored" value={dispositionCounts.get("scored") ?? 0} help={HELP.diagnosticsScored} />
+        <DiagnosticStat label="Draft scored" value={dispositionCounts.get("scored") ?? 0} help={HELP.diagnosticsScored} />
         <DiagnosticStat label="Rejected values" value={Object.values(rejected).flat().length} help={HELP.diagnosticsRejected} />
       </div>
       <div className="qcGrid">
