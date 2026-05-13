@@ -64,9 +64,27 @@ def read_jsonl(path: Path) -> list[dict]:
     return rows
 
 
+def scrub_public_text(value):
+    """Keep internal run artifacts intact while avoiding draft jargon on the site."""
+    if isinstance(value, dict):
+        return {key: scrub_public_text(item) for key, item in value.items()}
+    if isinstance(value, list):
+        return [scrub_public_text(item) for item in value]
+    if isinstance(value, str):
+        return (
+            value.replace("frozen concept library", "fixed concept library for this run")
+            .replace("frozen concept set", "fixed concept set for this run")
+            .replace("frozen library", "fixed library for this run")
+            .replace("frozen core", "fixed core")
+            .replace("frozen concept", "fixed concept for this run")
+            .replace("frozen", "fixed for this run")
+        )
+    return value
+
+
 def write_json(path: Path, payload) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+    path.write_text(json.dumps(scrub_public_text(payload), indent=2, ensure_ascii=False), encoding="utf-8")
 
 
 def reset_public_outputs() -> None:
@@ -179,6 +197,8 @@ def score_value(record: dict, score: dict | None):
 
 
 def record_scoreability_status(record: dict, score: dict | None = None) -> str:
+    if score and score.get("scoreability"):
+        return score.get("scoreability")
     raw = record.get("scoreability")
     if isinstance(raw, dict):
         status = raw.get("status")
@@ -344,12 +364,15 @@ def main() -> None:
 
         OCR.joinpath(f"{document_id}.txt").write_text(source_preview(document_id), encoding="utf-8")
         score_by_id = {score.get("concept_record_id"): score for score in scores}
-        scored = sum(1 for record in records if is_numeric(score_value(record, score_by_id.get(record.get("concept_record_id")))))
+        score_ready = sum(
+            1
+            for record in records
+            if record_scoreability_status(record, score_by_id.get(record.get("concept_record_id"))) in {"scoreable", "scoreable_with_flags"}
+        )
         scored_with_flags = sum(
             1
             for record in records
-            if is_numeric(score_value(record, score_by_id.get(record.get("concept_record_id"))))
-            and record_scoreability_status(record, score_by_id.get(record.get("concept_record_id"))) == "scoreable_with_flags"
+            if record_scoreability_status(record, score_by_id.get(record.get("concept_record_id"))) == "scoreable_with_flags"
         )
         withheld = sum(1 for record in records if provision_bucket(record, score_by_id.get(record.get("concept_record_id"))) == "withheld")
 
@@ -370,7 +393,7 @@ def main() -> None:
                 "length_stratum": row.get("length_stratum", ""),
                 "duplicate_read": document_id in duplicate_docs,
                 "record_count": len(records),
-                "scored_record_count": scored,
+                "scored_record_count": score_ready,
                 "scored_with_flags_count": scored_with_flags,
                 "structured_no_score_count": withheld,
                 "rejected_value_count": len(rejected),

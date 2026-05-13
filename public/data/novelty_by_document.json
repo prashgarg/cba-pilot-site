@@ -16,7 +16,7 @@
       },
       "candidate_label": "Labor-management cooperation trust / MCAP bundle",
       "related_taxonomy_family": null,
-      "why_existing_concepts_do_not_fit": "The frozen library has no concept for this employer-funded market-development/recruitment/safety trust bundle, and it is not a direct worker benefit or leave object.",
+      "why_existing_concepts_do_not_fit": "The fixed library for this run has no concept for this employer-funded market-development/recruitment/safety trust bundle, and it is not a direct worker benefit or leave object.",
       "measurement_relevance": "administrative_only",
       "suggested_fields": [
         "contribution_rate",
@@ -39,7 +39,7 @@
       },
       "candidate_label": "Legal services fund",
       "related_taxonomy_family": null,
-      "why_existing_concepts_do_not_fit": "The frozen library does not include a legal-services-fund concept, and the agreement only states an employer contribution to the external trust.",
+      "why_existing_concepts_do_not_fit": "The fixed library for this run does not include a legal-services-fund concept, and the agreement only states an employer contribution to the external trust.",
       "measurement_relevance": "administrative_only",
       "suggested_fields": [
         "contribution_rate",
@@ -61,7 +61,7 @@
       },
       "candidate_label": "Unified trust",
       "related_taxonomy_family": null,
-      "why_existing_concepts_do_not_fit": "The frozen library has no dedicated unified-trust concept, and the agreement only states a per-hour employer contribution plus trustee governance.",
+      "why_existing_concepts_do_not_fit": "The fixed library for this run has no dedicated unified-trust concept, and the agreement only states a per-hour employer contribution plus trustee governance.",
       "measurement_relevance": "administrative_only",
       "suggested_fields": [
         "contribution_rate",
@@ -88,7 +88,7 @@
       },
       "candidate_label": "Zone pay differential / commute-distance travel allowance",
       "related_taxonomy_family": "wages or travel reimbursement",
-      "why_existing_concepts_do_not_fit": "The provision is a geography-based travel allowance tied to distance from city centers, not a clean fit for overtime, shift, reporting pay, leave, or the frozen wage concepts.",
+      "why_existing_concepts_do_not_fit": "The provision is a geography-based travel allowance tied to distance from city centers, not a clean fit for overtime, shift, reporting pay, leave, or the fixed for this run wage concepts.",
       "measurement_relevance": "possibly_generosity_relevant",
       "suggested_fields": [
         "distance band",
@@ -111,7 +111,7 @@
       },
       "candidate_label": "Camp, board, lodging, transit, and travel reimbursement package",
       "related_taxonomy_family": "travel or remote-site allowances",
-      "why_existing_concepts_do_not_fit": "The package mixes lodging caps, transit time, ferry/toll reimbursement, and expense advances, which does not map cleanly to the frozen core leave/benefit/premium concepts.",
+      "why_existing_concepts_do_not_fit": "The package mixes lodging caps, transit time, ferry/toll reimbursement, and expense advances, which does not map cleanly to the fixed core leave/benefit/premium concepts.",
       "measurement_relevance": "possibly_generosity_relevant",
       "suggested_fields": [
         "lodging cap",
@@ -120,7 +120,7 @@
         "expense advance"
       ],
       "recommended_action": "review_for_new_concept",
-      "notes": "Worker-facing but currently outside the frozen concept set."
+      "notes": "Worker-facing but currently outside the fixed concept set for this run."
     }
   ],
   "DOL_1251": [
@@ -137,7 +137,7 @@
       },
       "candidate_label": "industry_promotion_fund_contribution_or_offset",
       "related_taxonomy_family": "funds",
-      "why_existing_concepts_do_not_fit": "The frozen library has no dedicated concept for an industry-promotion fund contribution or the opt-out replacement payment that substitutes for the fund contribution.",
+      "why_existing_concepts_do_not_fit": "The fixed library for this run has no dedicated concept for an industry-promotion fund contribution or the opt-out replacement payment that substitutes for the fund contribution.",
       "measurement_relevance": "possibly_generosity_relevant",
       "suggested_fields": [
         "fund contribution rate",
@@ -146,7 +146,7 @@
         "administrative governance"
       ],
       "recommended_action": "review_for_new_concept",
-      "notes": "This is a real worker-cost/fund-flow object but it is not a core generosity concept in the frozen library."
+      "notes": "This is a real worker-cost/fund-flow object but it is not a core generosity concept in the fixed library for this run."
     },
     {
       "schema_version": "novelty_queue_v0_1",
@@ -161,7 +161,7 @@
       },
       "candidate_label": "drug_and_alcohol_testing_program",
       "related_taxonomy_family": "safety_discipline",
-      "why_existing_concepts_do_not_fit": "The article combines safety rules, testing procedures, union consultation, discipline, and rehabilitation leave, but the frozen library has no dedicated testing-protocol concept.",
+      "why_existing_concepts_do_not_fit": "The article combines safety rules, testing procedures, union consultation, discipline, and rehabilitation leave, but the fixed library for this run has no dedicated testing-protocol concept.",
       "measurement_relevance": "possibly_generosity_relevant",
       "suggested_fields": [
         "testing triggers",
@@ -171,7 +171,7 @@
         "retesting period"
       ],
       "recommended_action": "review_for_new_concept",
-      "notes": "Potential future subobject for discipline/safety or privacy, but not a frozen concept today."
+      "notes": "Potential future subobject for discipline/safety or privacy, but not a fixed concept for this run today."
     }
   ],
   "DOL_1264": [],
@@ -189,7 +189,7 @@
       },
       "candidate_label": "Alternative Workers' Compensation Insurance Program",
       "related_taxonomy_family": "benefits / insurance",
-      "why_existing_concepts_do_not_fit": "The frozen concept library does not include a workers' compensation insurance-program object, and this is not an active medical, retirement, leave, premium-pay, or standard trust-fund contribution concept.",
+      "why_existing_concepts_do_not_fit": "The fixed concept library for this run does not include a workers' compensation insurance-program object, and this is not an active medical, retirement, leave, premium-pay, or standard trust-fund contribution concept.",
       "measurement_relevance": "possibly_generosity_relevant",
       "suggested_fields": [
         "program_name",
@@ -243,7 +243,7 @@
       },
       "candidate_label": "hardship allowance / travel-time / transportation / subsistence allowance",
       "related_taxonomy_family": "wage_or_payment",
-      "why_existing_concepts_do_not_fit": "The clause creates a discretionary hardship allowance and related travel/transport/subsistence payments, but the frozen library has no dedicated allowance concept that captures this object without collapsing it into premium pay or a wage increase.",
+      "why_existing_concepts_do_not_fit": "The clause creates a discretionary hardship allowance and related travel/transport/subsistence payments, but the fixed library for this run has no dedicated allowance concept that captures this object without collapsing it into premium pay or a wage increase.",
       "measurement_relevance": "possibly_generosity_relevant",
       "suggested_fields": [
         "eligibility trigger",
@@ -268,7 +268,7 @@
       },
       "candidate_label": "tool-room and loss-of-tools/clothing protection",
       "related_taxonomy_family": "safety_or_working_condition",
-      "why_existing_concepts_do_not_fit": "The clause requires a lockable heated room and enumerates tool/clothing loss protection, but the frozen safety concept is too broad and does not specifically model employer-provided secure storage plus property-loss reimbursement.",
+      "why_existing_concepts_do_not_fit": "The clause requires a lockable heated room and enumerates tool/clothing loss protection, but the fixed for this run safety concept is too broad and does not specifically model employer-provided secure storage plus property-loss reimbursement.",
       "measurement_relevance": "possibly_generosity_relevant",
       "suggested_fields": [
         "storage room requirement",
@@ -305,7 +305,7 @@
         "manpower_withhold_right"
       ],
       "recommended_action": "review_for_new_concept",
-      "notes": "This looks like an enforcement/security object outside the frozen concept library."
+      "notes": "This looks like an enforcement/security object outside the fixed concept library for this run."
     },
     {
       "schema_version": "novelty_queue_v0_1",
@@ -320,7 +320,7 @@
       },
       "candidate_label": "BCRC service center and referral program",
       "related_taxonomy_family": "administrative / external service center",
-      "why_existing_concepts_do_not_fit": "The text names an external nonprofit service center and service menu, but does not state a worker-facing entitlement or contribution formula that fits the frozen library.",
+      "why_existing_concepts_do_not_fit": "The text names an external nonprofit service center and service menu, but does not state a worker-facing entitlement or contribution formula that fits the fixed library for this run.",
       "measurement_relevance": "administrative_only",
       "suggested_fields": [
         "service_scope",
@@ -329,7 +329,7 @@
         "referral_right"
       ],
       "recommended_action": "treat_as_family_context",
-      "notes": "Preserved as context in general provisions, but not mapped to a frozen concept."
+      "notes": "Preserved as context in general provisions, but not mapped to a fixed concept for this run."
     }
   ],
   "DOL_1601": [
@@ -346,7 +346,7 @@
       },
       "candidate_label": "agreement term extension and wage/fringe reopener",
       "related_taxonomy_family": "administrative_or_governance_rule",
-      "why_existing_concepts_do_not_fit": "The frozen concept library has no concept ID for agreement-extension mechanics or a reopener/termination schedule. This object is administrative context, not a worker-facing generosity entitlement.",
+      "why_existing_concepts_do_not_fit": "The fixed concept library for this run has no concept ID for agreement-extension mechanics or a reopener/termination schedule. This object is administrative context, not a worker-facing generosity entitlement.",
       "measurement_relevance": "administrative_only",
       "suggested_fields": [
         "agreement_end_date",
@@ -377,11 +377,11 @@
       },
       "candidate_label": "welfare fund contribution and Administrative Employees Benefits Fund",
       "related_taxonomy_family": null,
-      "why_existing_concepts_do_not_fit": "External welfare-fund structure with contributions and admin fees, but no frozen concept in this run covers the full object cleanly.",
+      "why_existing_concepts_do_not_fit": "External welfare-fund structure with contributions and admin fees, but no fixed concept for this run in this run covers the full object cleanly.",
       "measurement_relevance": "unclear",
       "suggested_fields": [],
       "recommended_action": "review_for_new_concept",
-      "notes": "External welfare-fund structure with contributions and admin fees, but no frozen concept in this run covers the full object cleanly."
+      "notes": "External welfare-fund structure with contributions and admin fees, but no fixed concept for this run in this run covers the full object cleanly."
     },
     {
       "schema_version": "novelty_queue_v0_1",
@@ -396,11 +396,11 @@
       },
       "candidate_label": "car mileage allowance",
       "related_taxonomy_family": null,
-      "why_existing_concepts_do_not_fit": "Mileage reimbursement is a reimbursement object, not one of the frozen core concepts in this run.",
+      "why_existing_concepts_do_not_fit": "Mileage reimbursement is a reimbursement object, not one of the fixed core concepts in this run.",
       "measurement_relevance": "unclear",
       "suggested_fields": [],
       "recommended_action": "review_for_new_concept",
-      "notes": "Mileage reimbursement is a reimbursement object, not one of the frozen core concepts in this run."
+      "notes": "Mileage reimbursement is a reimbursement object, not one of the fixed core concepts in this run."
     },
     {
       "schema_version": "novelty_queue_v0_1",
@@ -415,11 +415,11 @@
       },
       "candidate_label": "on-duty death benefit",
       "related_taxonomy_family": null,
-      "why_existing_concepts_do_not_fit": "The document gives a lump-sum death benefit, but no frozen concept in this run covers that object.",
+      "why_existing_concepts_do_not_fit": "The document gives a lump-sum death benefit, but no fixed concept for this run in this run covers that object.",
       "measurement_relevance": "unclear",
       "suggested_fields": [],
       "recommended_action": "review_for_new_concept",
-      "notes": "The document gives a lump-sum death benefit, but no frozen concept in this run covers that object."
+      "notes": "The document gives a lump-sum death benefit, but no fixed concept for this run in this run covers that object."
     },
     {
       "schema_version": "novelty_queue_v0_1",
@@ -513,7 +513,7 @@
       },
       "candidate_label": "Subsistence and mileage allowance object",
       "related_taxonomy_family": "allowance_or_reimbursement",
-      "why_existing_concepts_do_not_fit": "These are travel/allowance-style payments that do not fit the frozen concept library cleanly enough for a new core or required-if-present record.",
+      "why_existing_concepts_do_not_fit": "These are travel/allowance-style payments that do not fit the fixed concept library for this run cleanly enough for a new core or required-if-present record.",
       "measurement_relevance": "possibly_generosity_relevant",
       "suggested_fields": [
         "subsistence allowance",
@@ -532,7 +532,7 @@
       "document_id": "DOL_2088",
       "novelty_id": "DOL_2088_NOV001",
       "source_pointer": {
-        "quote_or_pointer": "Annual uniform items, replacement rules, and employee cleaning/maintenance obligations are stated, but the standard uniform issue itself is not covered by a frozen concept ID.",
+        "quote_or_pointer": "Annual uniform items, replacement rules, and employee cleaning/maintenance obligations are stated, but the standard uniform issue itself is not covered by a fixed concept for this run ID.",
         "page": "20",
         "section_id": "18",
         "heading": "Uniform and work boots",
@@ -540,7 +540,7 @@
       },
       "candidate_label": "annual uniform issuance and replacement rules",
       "related_taxonomy_family": "safety_or_working_condition",
-      "why_existing_concepts_do_not_fit": "Safety PPE covers protective equipment, but the annual shirts/pants/belt uniform package is a distinct work-uniform object and not an approved frozen concept in this run.",
+      "why_existing_concepts_do_not_fit": "Safety PPE covers protective equipment, but the annual shirts/pants/belt uniform package is a distinct work-uniform object and not an approved fixed concept for this run in this run.",
       "measurement_relevance": "administrative_only",
       "suggested_fields": [
         "annual issue count",
@@ -568,7 +568,7 @@
       },
       "candidate_label": "Housing assistance fund",
       "related_taxonomy_family": "housing_support",
-      "why_existing_concepts_do_not_fit": "No frozen concept ID covers a housing-assistance fund; it is not child care, dependent care, retirement savings, or a standard welfare-fund proxy.",
+      "why_existing_concepts_do_not_fit": "No fixed concept for this run ID covers a housing-assistance fund; it is not child care, dependent care, retirement savings, or a standard welfare-fund proxy.",
       "measurement_relevance": "likely_generosity_relevant",
       "suggested_fields": [
         "employer contribution rate",
@@ -592,7 +592,7 @@
       },
       "candidate_label": "Meal stipend / employer-provided meal subsidy",
       "related_taxonomy_family": "meal_subsidy",
-      "why_existing_concepts_do_not_fit": "The frozen library has no dedicated meal-subsidy or employer-furnished-meals concept; it is not vacation, holiday, or premium pay.",
+      "why_existing_concepts_do_not_fit": "The fixed library for this run has no dedicated meal-subsidy or employer-furnished-meals concept; it is not vacation, holiday, or premium pay.",
       "measurement_relevance": "possibly_generosity_relevant",
       "suggested_fields": [
         "stipend amount",
@@ -620,7 +620,7 @@
       },
       "candidate_label": "Housing and commuting assistance program",
       "related_taxonomy_family": "housing_support",
-      "why_existing_concepts_do_not_fit": "No frozen concept ID covers a housing-assistance and commuting-assistance program with loans, workshops, and a dedicated transportation fund.",
+      "why_existing_concepts_do_not_fit": "No fixed concept for this run ID covers a housing-assistance and commuting-assistance program with loans, workshops, and a dedicated transportation fund.",
       "measurement_relevance": "likely_generosity_relevant",
       "suggested_fields": [
         "fund amount",
@@ -673,7 +673,7 @@
       },
       "candidate_label": "drug and alcohol testing policy",
       "related_taxonomy_family": "discipline_or_privacy",
-      "why_existing_concepts_do_not_fit": "The appendix combines testing, medical review, confidentiality, rehabilitation, and discipline into one policy object. The frozen concept library has separate due-process and privacy concepts, but no single controlled concept for the full policy as an operative object.",
+      "why_existing_concepts_do_not_fit": "The appendix combines testing, medical review, confidentiality, rehabilitation, and discipline into one policy object. The fixed concept library for this run has separate due-process and privacy concepts, but no single controlled concept for the full policy as an operative object.",
       "measurement_relevance": "possibly_generosity_relevant",
       "suggested_fields": [
         "testing_trigger",
@@ -682,7 +682,7 @@
         "rehabilitation_access"
       ],
       "recommended_action": "map_to_existing_concept_after_review",
-      "notes": "Some subparts map to discipline/investigation and records/privacy, but the appendix as a whole is broader than one frozen concept."
+      "notes": "Some subparts map to discipline/investigation and records/privacy, but the appendix as a whole is broader than one fixed concept for this run."
     }
   ],
   "DOL_2930": [
@@ -699,7 +699,7 @@
       },
       "candidate_label": "Employee Assistance Program (EAP)",
       "related_taxonomy_family": "health_welfare_support",
-      "why_existing_concepts_do_not_fit": "The frozen concept library does not include an EAP/counseling-support concept, and the provision is not a fit for active medical, dental, life, disability, or retirement families.",
+      "why_existing_concepts_do_not_fit": "The fixed concept library for this run does not include an EAP/counseling-support concept, and the provision is not a fit for active medical, dental, life, disability, or retirement families.",
       "measurement_relevance": "possibly_generosity_relevant",
       "suggested_fields": [
         "availability",
@@ -726,7 +726,7 @@
       },
       "candidate_label": "Uniform allowance increase",
       "related_taxonomy_family": "wage/compensation allowance",
-      "why_existing_concepts_do_not_fit": "The frozen library has wage increases and premium pay, but no general allowance or reimbursement concept for a uniform stipend.",
+      "why_existing_concepts_do_not_fit": "The fixed library for this run has wage increases and premium pay, but no general allowance or reimbursement concept for a uniform stipend.",
       "measurement_relevance": "likely_generosity_relevant",
       "suggested_fields": [
         "amount",
@@ -750,7 +750,7 @@
       },
       "candidate_label": "Funeral expense fund",
       "related_taxonomy_family": "external fund / worker benefit",
-      "why_existing_concepts_do_not_fit": "The frozen library does not contain a funeral-expense fund concept, and this is not pension, severance, dependent care, or an active-health proxy.",
+      "why_existing_concepts_do_not_fit": "The fixed library for this run does not contain a funeral-expense fund concept, and this is not pension, severance, dependent care, or an active-health proxy.",
       "measurement_relevance": "likely_generosity_relevant",
       "suggested_fields": [
         "fund amount",
@@ -774,7 +774,7 @@
       },
       "candidate_label": "Light duty assignment rule",
       "related_taxonomy_family": "work assignment / disability light duty",
-      "why_existing_concepts_do_not_fit": "The clause combines assignment caps, medical clearance, seniority, overtime exclusion, duration, and a pregnancy carve-out; it does not fit the frozen schedule, safety, recall, or benefit-continuation objects.",
+      "why_existing_concepts_do_not_fit": "The clause combines assignment caps, medical clearance, seniority, overtime exclusion, duration, and a pregnancy carve-out; it does not fit the fixed for this run schedule, safety, recall, or benefit-continuation objects.",
       "measurement_relevance": "likely_generosity_relevant",
       "suggested_fields": [
         "eligibility",
@@ -800,7 +800,7 @@
       },
       "candidate_label": "Out-of-title assignment restriction",
       "related_taxonomy_family": "mobility / assignment",
-      "why_existing_concepts_do_not_fit": "The frozen library has no explicit acting-out-of-title concept, and the posting/bidding/transfer concept is too broad to capture this tenure-based assignment ban without review.",
+      "why_existing_concepts_do_not_fit": "The fixed library for this run has no explicit acting-out-of-title concept, and the posting/bidding/transfer concept is too broad to capture this tenure-based assignment ban without review.",
       "measurement_relevance": "possibly_generosity_relevant",
       "suggested_fields": [
         "covered subgroup",
@@ -826,7 +826,7 @@
       },
       "candidate_label": "Work-related expense allowances and reimbursements",
       "related_taxonomy_family": "allowance_or_reimbursement",
-      "why_existing_concepts_do_not_fit": "The frozen concept library does not contain a general reimbursement/allowance family. These are real worker-facing payments, but they are not wages, premium pay, leave, health, retirement, grievance, union voice, or job-security objects.",
+      "why_existing_concepts_do_not_fit": "The fixed concept library for this run does not contain a general reimbursement/allowance family. These are real worker-facing payments, but they are not wages, premium pay, leave, health, retirement, grievance, union voice, or job-security objects.",
       "measurement_relevance": "likely_generosity_relevant",
       "suggested_fields": [
         "allowance_type",
@@ -853,7 +853,7 @@
       },
       "candidate_label": "smoking cessation reimbursement program",
       "related_taxonomy_family": "health/welfare",
-      "why_existing_concepts_do_not_fit": "The frozen concept library covers active medical, ancillary health, leave, wage, and retirement objects, but it does not include a wellness-reimbursement concept for smoking cessation.",
+      "why_existing_concepts_do_not_fit": "The fixed concept library for this run covers active medical, ancillary health, leave, wage, and retirement objects, but it does not include a wellness-reimbursement concept for smoking cessation.",
       "measurement_relevance": "possibly_generosity_relevant",
       "suggested_fields": [
         "program availability",
@@ -876,7 +876,7 @@
       },
       "candidate_label": "high performance work organization exploration",
       "related_taxonomy_family": "administrative_or_governance",
-      "why_existing_concepts_do_not_fit": "This is an aspirational organizational-change statement, not a worker entitlement, payment, or enforceable benefit object in the frozen library.",
+      "why_existing_concepts_do_not_fit": "This is an aspirational organizational-change statement, not a worker entitlement, payment, or enforceable benefit object in the fixed library for this run.",
       "measurement_relevance": "administrative_only",
       "suggested_fields": [
         "implementation commitment",
@@ -906,7 +906,7 @@
       },
       "candidate_label": "Employee Assistance Program",
       "related_taxonomy_family": null,
-      "why_existing_concepts_do_not_fit": "Program/committee structure appears, but there is no frozen concept id for a general EAP object in this run.",
+      "why_existing_concepts_do_not_fit": "Program/committee structure appears, but there is no fixed concept for this run id for a general EAP object in this run.",
       "measurement_relevance": "unclear",
       "suggested_fields": [],
       "recommended_action": "review_for_new_concept",
@@ -925,7 +925,7 @@
       },
       "candidate_label": "Legal Services Indemnification",
       "related_taxonomy_family": null,
-      "why_existing_concepts_do_not_fit": "This is a legal-defense / indemnification object outside the frozen core concepts and not a wage or leave object.",
+      "why_existing_concepts_do_not_fit": "This is a legal-defense / indemnification object outside the fixed core concepts and not a wage or leave object.",
       "measurement_relevance": "unclear",
       "suggested_fields": [],
       "recommended_action": "review_for_new_concept",
@@ -946,7 +946,7 @@
       },
       "candidate_label": "Successful Schools Program reward and use-right",
       "related_taxonomy_family": "incentive or reward program",
-      "why_existing_concepts_do_not_fit": "This is a state-program monetary reward with a protected use-right, but it does not cleanly fit the frozen wage, leave, premium-pay, or benefit-contribution objects.",
+      "why_existing_concepts_do_not_fit": "This is a state-program monetary reward with a protected use-right, but it does not cleanly fit the fixed for this run wage, leave, premium-pay, or benefit-contribution objects.",
       "measurement_relevance": "possibly_generosity_relevant",
       "suggested_fields": [
         "reward type",
@@ -970,7 +970,7 @@
       },
       "candidate_label": "Peer assistance with confidentiality and voluntary participation",
       "related_taxonomy_family": "support or evaluation assistance",
-      "why_existing_concepts_do_not_fit": "The object is a voluntary support mechanism tied to performance improvement, but it is not a frozen leave, wage, grievance, or safety object.",
+      "why_existing_concepts_do_not_fit": "The object is a voluntary support mechanism tied to performance improvement, but it is not a fixed for this run leave, wage, grievance, or safety object.",
       "measurement_relevance": "administrative_only",
       "suggested_fields": [
         "voluntariness",
@@ -997,7 +997,7 @@
       },
       "candidate_label": "cash-in-lieu compensation for part-time employees",
       "related_taxonomy_family": "health/welfare proxy",
-      "why_existing_concepts_do_not_fit": "This is not active medical contribution or plan design; it is a cash payment in lieu of insurance benefits for permanent part-time staff and does not map cleanly to the frozen library.",
+      "why_existing_concepts_do_not_fit": "This is not active medical contribution or plan design; it is a cash payment in lieu of insurance benefits for permanent part-time staff and does not map cleanly to the fixed library for this run.",
       "measurement_relevance": "likely_generosity_relevant",
       "suggested_fields": [
         "cash-in-lieu payment per hours worked",
@@ -1043,7 +1043,7 @@
       },
       "candidate_label": "Catastrophic / compassionate leave bank",
       "related_taxonomy_family": "leave_or_time_off",
-      "why_existing_concepts_do_not_fit": "The provision appears to create a distinct leave-bank object, but the current frozen library has no controlled concept for catastrophic/compassionate leave.",
+      "why_existing_concepts_do_not_fit": "The provision appears to create a distinct leave-bank object, but the current fixed library for this run has no controlled concept for catastrophic/compassionate leave.",
       "measurement_relevance": "likely_generosity_relevant",
       "suggested_fields": [
         "eligibility",
@@ -1069,7 +1069,7 @@
       },
       "candidate_label": "Workers compensation campaign / ombudsmen program",
       "related_taxonomy_family": "safety_or_working_condition",
-      "why_existing_concepts_do_not_fit": "The provision is a workers-compensation administration and training program, not a specific wage, leave, discipline, grievance, or benefit-generosity object in the frozen concept library.",
+      "why_existing_concepts_do_not_fit": "The provision is a workers-compensation administration and training program, not a specific wage, leave, discipline, grievance, or benefit-generosity object in the fixed concept library for this run.",
       "measurement_relevance": "administrative_only",
       "suggested_fields": [
         "committee structure",
@@ -1102,7 +1102,7 @@
       },
       "candidate_label": "Industry Awareness Fund contribution",
       "related_taxonomy_family": "external fund / administrative contribution",
-      "why_existing_concepts_do_not_fit": "The fund contribution is a real external-profile object, but it does not fit a frozen concept-library object in this run and should be reviewed centrally before any expansion.",
+      "why_existing_concepts_do_not_fit": "The fund contribution is a real external-profile object, but it does not fit a fixed concept for this run-library object in this run and should be reviewed centrally before any expansion.",
       "measurement_relevance": "unclear",
       "suggested_fields": [],
       "recommended_action": "review_for_new_concept",
@@ -1123,7 +1123,7 @@
       },
       "candidate_label": "Bundled annual benefit fund / external leave-benefit fund",
       "related_taxonomy_family": "leave / external fund",
-      "why_existing_concepts_do_not_fit": "No frozen concept captures the bundled annual benefit fund as a single measured object; it spans multiple leave benefits and a training benefit and is governed by an external annual benefit plan.",
+      "why_existing_concepts_do_not_fit": "No fixed concept for this run captures the bundled annual benefit fund as a single measured object; it spans multiple leave benefits and a training benefit and is governed by an external annual benefit plan.",
       "measurement_relevance": "likely_generosity_relevant",
       "suggested_fields": [
         "fund contribution amount",
@@ -1152,7 +1152,7 @@
       },
       "candidate_label": "clothing allowance",
       "related_taxonomy_family": "benefits / reimbursement",
-      "why_existing_concepts_do_not_fit": "The provision is a yearly uniform/clothing reimbursement and replacement allowance. It does not fit the frozen health, leave, wage, or premium-pay concepts.",
+      "why_existing_concepts_do_not_fit": "The provision is a yearly uniform/clothing reimbursement and replacement allowance. It does not fit the fixed for this run health, leave, wage, or premium-pay concepts.",
       "measurement_relevance": "likely_generosity_relevant",
       "suggested_fields": [
         "annual amount",
@@ -1200,7 +1200,7 @@
       },
       "candidate_label": "performance appraisal system",
       "related_taxonomy_family": "administrative governance / evaluation",
-      "why_existing_concepts_do_not_fit": "The appendix creates a structured annual appraisal system and appeal step, but no frozen concept ID covers performance appraisal as a standalone object.",
+      "why_existing_concepts_do_not_fit": "The appendix creates a structured annual appraisal system and appeal step, but no fixed concept for this run ID covers performance appraisal as a standalone object.",
       "measurement_relevance": "administrative_only",
       "suggested_fields": [
         "appraisal timing",
@@ -1226,7 +1226,7 @@
       },
       "candidate_label": "Duty-related funeral expense reimbursement",
       "related_taxonomy_family": "safety_or_working_condition",
-      "why_existing_concepts_do_not_fit": "The frozen library has no clean death/funeral-expense concept; this is not severance, vacation payout, or ordinary safety PPE.",
+      "why_existing_concepts_do_not_fit": "The fixed library for this run has no clean death/funeral-expense concept; this is not severance, vacation payout, or ordinary safety PPE.",
       "measurement_relevance": "likely_generosity_relevant",
       "suggested_fields": [
         "benefit amount",
@@ -1250,7 +1250,7 @@
       },
       "candidate_label": "Longevity payment add-on",
       "related_taxonomy_family": "wages",
-      "why_existing_concepts_do_not_fit": "The frozen wage concepts cover base rates, progression, and scheduled increases, but not a separate longevity-payment add-on.",
+      "why_existing_concepts_do_not_fit": "The fixed for this run wage concepts cover base rates, progression, and scheduled increases, but not a separate longevity-payment add-on.",
       "measurement_relevance": "possibly_generosity_relevant",
       "suggested_fields": [
         "tenure threshold",
@@ -1362,7 +1362,7 @@
         "effective dates"
       ],
       "recommended_action": "review_for_new_concept",
-      "notes": "Likely a distinct payment/proxy object rather than a frozen concept."
+      "notes": "Likely a distinct payment/proxy object rather than a fixed concept for this run."
     }
   ],
   "DOL_4047": [],
@@ -1380,7 +1380,7 @@
       },
       "candidate_label": "Protected refusal to cross picket lines / sympathetic-action protection",
       "related_taxonomy_family": "union_voice",
-      "why_existing_concepts_do_not_fit": "The frozen concept library has union access, recognition, and dues checkoff, but no frozen concept captures the specific no-discipline protection for refusal to cross lawful picket lines or struck-goods service.",
+      "why_existing_concepts_do_not_fit": "The fixed concept library for this run has union access, recognition, and dues checkoff, but no fixed concept for this run captures the specific no-discipline protection for refusal to cross lawful picket lines or struck-goods service.",
       "measurement_relevance": "possibly_generosity_relevant",
       "suggested_fields": [
         "covered group",
@@ -1390,7 +1390,7 @@
         "remedy or recourse"
       ],
       "recommended_action": "review_for_new_concept",
-      "notes": "This is a real worker-protection clause, but it is not covered by any current frozen concept ID in the run-fixed library."
+      "notes": "This is a real worker-protection clause, but it is not covered by any current fixed concept for this run ID in the run-fixed library."
     }
   ],
   "DOL_4060": [
@@ -1451,7 +1451,7 @@
       },
       "candidate_label": "External welfare-fund contribution proxy",
       "related_taxonomy_family": "external benefit fund contribution",
-      "why_existing_concepts_do_not_fit": "The frozen library does not have a welfare-fund contribution concept, and the active-medical split requires worker premium-share or plan-design terms that are not stated here. The clause is a real employer contribution obligation, but the operative benefits are trustee-determined and external.",
+      "why_existing_concepts_do_not_fit": "The fixed library for this run does not have a welfare-fund contribution concept, and the active-medical split requires worker premium-share or plan-design terms that are not stated here. The clause is a real employer contribution obligation, but the operative benefits are trustee-determined and external.",
       "measurement_relevance": "likely_generosity_relevant",
       "suggested_fields": [
         "employer contribution amount",

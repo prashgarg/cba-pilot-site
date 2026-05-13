@@ -13458,7 +13458,7 @@
       "health_score_layer": "not_health",
       "rubric_version": null,
       "scoreability": "framework_only",
-      "scoreability_reason": "No frozen scalar module exists for this responsibility-premium object in the current run.",
+      "scoreability_reason": "No fixed for this run scalar module exists for this responsibility-premium object in the current run.",
       "draft_score": null,
       "scale": null,
       "relative_score_assigned": false,
@@ -20072,7 +20072,7 @@
       "concept_id": "C_PREMIUM_RESPONSIBILITY_SPECIALTY",
       "rubric_version": null,
       "scoreability": "record_only",
-      "scoreability_reason": "Premium variants are direct, but no run-fixed scalar specialty-premium module is frozen.",
+      "scoreability_reason": "Premium variants are direct, but no run-fixed scalar specialty-premium module is fixed for this run.",
       "draft_score": null,
       "scale": null,
       "relative_score_assigned": false,
@@ -22970,7 +22970,7 @@
       "concept_id": "C_PREMIUM_STANDBY_ON_CALL",
       "rubric_version": null,
       "scoreability": "record_only",
-      "scoreability_reason": "Standby/on-call is present as a distinct availability object, but no frozen scoring rubric applies in this run.",
+      "scoreability_reason": "Standby/on-call is present as a distinct availability object, but no fixed for this run scoring rubric applies in this run.",
       "draft_score": null,
       "scale": null,
       "relative_score_assigned": false,
@@ -22982,7 +22982,7 @@
         }
       ],
       "missingness_or_flags": [
-        "no frozen standby rubric"
+        "no fixed for this run standby rubric"
       ],
       "population_scope": "Employees",
       "subgroup_score_treatment": "not_applicable",
@@ -29761,7 +29761,7 @@
         }
       ],
       "missingness_or_flags": [
-        "no frozen scalar rubric for training support"
+        "no fixed for this run scalar rubric for training support"
       ],
       "population_scope": "Bargaining-unit members pursuing approved education or certification",
       "subgroup_score_treatment": "not_applicable",
@@ -29780,7 +29780,7 @@
       "health_score_layer": "not_health",
       "rubric_version": null,
       "scoreability": "framework_only",
-      "scoreability_reason": "These are real specialty premiums, but the frozen module set does not yet provide a scalar rubric for this concept.",
+      "scoreability_reason": "These are real specialty premiums, but the fixed for this run module set does not yet provide a scalar rubric for this concept.",
       "draft_score": null,
       "scale": null,
       "relative_score_assigned": false,
@@ -29802,7 +29802,7 @@
         }
       ],
       "missingness_or_flags": [
-        "no frozen specialty-premium rubric"
+        "no fixed for this run specialty-premium rubric"
       ],
       "population_scope": "Specified certification holders, dispatch/support classifications, and special-assignment personnel",
       "subgroup_score_treatment": "subgroup_variation_included",
@@ -33530,7 +33530,7 @@
         }
       ],
       "missingness_or_flags": [
-        "no frozen rubric in this run"
+        "no fixed for this run rubric in this run"
       ],
       "population_scope": "named title subgroups",
       "subgroup_score_treatment": "subgroup_variation_included",
@@ -39261,7 +39261,7 @@
       "health_score_layer": "not_health",
       "rubric_version": null,
       "scoreability": "record_only",
-      "scoreability_reason": "This is a real premium-pay object, but the frozen v0.1 scoring modules do not provide a scalar rubric for the candidate family here.",
+      "scoreability_reason": "This is a real premium-pay object, but the fixed for this run v0.1 scoring modules do not provide a scalar rubric for the candidate family here.",
       "draft_score": null,
       "scale": null,
       "relative_score_assigned": false,
@@ -39287,7 +39287,7 @@
       ],
       "population_scope": "named extra-duty and leadership roles",
       "subgroup_score_treatment": "subgroup_variation_included",
-      "explanation": "The object is preserved for profile use, but no frozen scalar module exists in this run.",
+      "explanation": "The object is preserved for profile use, but no fixed for this run scalar module exists in this run.",
       "review_status": "withheld_by_rule"
     },
     {
@@ -39672,7 +39672,7 @@
       "health_score_layer": "not_health",
       "rubric_version": null,
       "scoreability": "record_only",
-      "scoreability_reason": "Union-security payroll administration is context-only under the current frozen rules.",
+      "scoreability_reason": "Union-security payroll administration is context-only under the current fixed for this run rules.",
       "draft_score": null,
       "scale": null,
       "relative_score_assigned": false,
@@ -40071,7 +40071,7 @@
       "health_score_layer": "not_health",
       "rubric_version": null,
       "scoreability": "record_only",
-      "scoreability_reason": "The retirement incentive is clearly stated, but this run does not have a frozen scalar rubric for the candidate concept.",
+      "scoreability_reason": "The retirement incentive is clearly stated, but this run does not have a fixed for this run scalar rubric for the candidate concept.",
       "draft_score": null,
       "scale": null,
       "relative_score_assigned": false,
@@ -40481,7 +40481,7 @@
       "concept_id": "C_PREMIUM_RESPONSIBILITY_SPECIALTY",
       "rubric_version": null,
       "scoreability": "record_only",
-      "scoreability_reason": "The named supplements are concrete, but the current run does not have a frozen scalar rubric for this candidate premium object.",
+      "scoreability_reason": "The named supplements are concrete, but the current run does not have a fixed for this run scalar rubric for this candidate premium object.",
       "draft_score": null,
       "scale": null,
       "relative_score_assigned": false,
@@ -43289,7 +43289,7 @@
       "concept_id": "C_UNION_SECURITY_DUES_CHECKOFF",
       "rubric_version": null,
       "scoreability": "record_only",
-      "scoreability_reason": "Union dues and payroll deduction administration are context only under the frozen concept library.",
+      "scoreability_reason": "Union dues and payroll deduction administration are context only under the fixed concept library for this run.",
       "draft_score": null,
       "scale": null,
       "relative_score_assigned": false,
@@ -54317,7 +54317,7 @@
       "concept_id": "C_HEALTH_DISABILITY_INCOME",
       "rubric_version": null,
       "scoreability": "record_only",
-      "scoreability_reason": "A substantive disability formula is stated, but the project has no frozen ancillary-disability scalar rubric in this run.",
+      "scoreability_reason": "A substantive disability formula is stated, but the project has no fixed for this run ancillary-disability scalar rubric in this run.",
       "draft_score": null,
       "scale": null,
       "relative_score_assigned": false,
@@ -62151,7 +62151,7 @@
       "health_score_layer": "not_health",
       "rubric_version": null,
       "scoreability": "framework_only",
-      "scoreability_reason": "Mobility / posting is a framework object, not a frozen scalar in this run.",
+      "scoreability_reason": "Mobility / posting is a framework object, not a fixed for this run scalar in this run.",
       "draft_score": null,
       "scale": null,
       "relative_score_assigned": false,
@@ -62542,7 +62542,7 @@
       "health_score_layer": "not_health",
       "rubric_version": null,
       "scoreability": "record_only",
-      "scoreability_reason": "The object is real and worker-facing, but the run-fixed module does not yet provide a frozen scalar rule for this specialty premium family.",
+      "scoreability_reason": "The object is real and worker-facing, but the run-fixed module does not yet provide a fixed for this run scalar rule for this specialty premium family.",
       "draft_score": null,
       "scale": null,
       "relative_score_assigned": false,
@@ -62564,7 +62564,7 @@
       ],
       "population_scope": "classification-specific: specialty / higher-classification premium",
       "subgroup_score_treatment": "no_material_subgroup_variation",
-      "explanation": "The object is real and worker-facing, but the run-fixed module does not yet provide a frozen scalar rule for this specialty premium family.",
+      "explanation": "The object is real and worker-facing, but the run-fixed module does not yet provide a fixed for this run scalar rule for this specialty premium family.",
       "review_status": "withheld_by_rule"
     },
     {
@@ -64904,7 +64904,7 @@
       "health_score_layer": "not_health",
       "rubric_version": null,
       "scoreability": "record_only",
-      "scoreability_reason": "The premium object is present, but no frozen scalar rubric exists for this run.",
+      "scoreability_reason": "The premium object is present, but no fixed for this run scalar rubric exists for this run.",
       "draft_score": null,
       "scale": null,
       "relative_score_assigned": false,
@@ -65273,7 +65273,7 @@
       "health_score_layer": "not_health",
       "rubric_version": "scheduling_workload_rubric_v0_1",
       "scoreability": "record_only",
-      "scoreability_reason": "The provision is useful schedule context, but no frozen scalar module is being assigned to rest/meal periods in this run.",
+      "scoreability_reason": "The provision is useful schedule context, but no fixed for this run scalar module is being assigned to rest/meal periods in this run.",
       "draft_score": null,
       "scale": null,
       "relative_score_assigned": false,
@@ -65290,7 +65290,7 @@
         }
       ],
       "missingness_or_flags": [
-        "no frozen scalar scheduling rubric"
+        "no fixed for this run scalar scheduling rubric"
       ],
       "population_scope": "covered employees",
       "subgroup_score_treatment": "subgroup_variation_included",

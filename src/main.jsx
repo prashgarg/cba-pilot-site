@@ -92,7 +92,7 @@ const recordedOnlySubtype = (record) => {
   if (text.includes("statutory") || text.includes("baseline comparison")) {
     return "Statutory baseline unclear";
   }
-  if (text.includes("no calibrated") || text.includes("not calibrated") || text.includes("scalar-ready") || text.includes("no scalar") || text.includes("framework") || text.includes("proxy") || text.includes("frozen scalar") || text.includes("scoring rubric") || text.includes("scalar rubric") || text.includes("scalar module")) {
+  if (text.includes("no calibrated") || text.includes("not calibrated") || text.includes("scalar-ready") || text.includes("no scalar") || text.includes("framework") || text.includes("proxy") || text.includes("fixed scalar") || text.includes("scoring rubric") || text.includes("scalar rubric") || text.includes("scalar module")) {
     return "Scoring rule not set";
   }
   if (text.includes("committee") || text.includes("governance") || text.includes("advisory") || text.includes("context") || text.includes("scope")) {
@@ -260,7 +260,7 @@ function App() {
         <div className="mastStats">
           <Stat label="Documents" value={data.manifest.document_count} />
           <Stat label="Provisions" value={data.manifest.record_count} />
-          <Stat label="Scored" value={data.manifest.scored_record_count} />
+          <Stat label="Score-ready" value={data.manifest.scored_record_count} />
         </div>
       </header>
 
@@ -791,7 +791,7 @@ function AuditItem({ row }) {
   const title = isRejectedValue
     ? humanizeId(row.concept_id || row.candidate_field || "Candidate value")
     : row.candidate_object || row.novelty_label || "Novelty item";
-  const reason = row.reason_rejected || row.reason_no_frozen_concept_fit || row.reason || row.description;
+  const reason = row.reason_rejected || row.reason_no_fixed_concept_fit || row.reason || row.description;
   const evidence = row.source_pointer || row.evidence_pointer;
   const classes = row.error_classes || row.error_class;
   const classList = Array.isArray(classes) ? classes : classes ? [classes] : [];
