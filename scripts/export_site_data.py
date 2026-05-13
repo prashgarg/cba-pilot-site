@@ -19,6 +19,7 @@ RUN = ROOT / "codex_PG/agentic_v3/runs/2026-05-12_wave2_100doc_pilot"
 PER_DOC = RUN / "per_document"
 INPUT_TEXT = RUN / "inputs/document_text"
 REVIEW = RUN / "review"
+NORMALIZATION = RUN / "central_normalization"
 MANIFEST = RUN / "sample_manifest.csv"
 DUPLICATES = RUN / "duplicate_subset.csv"
 
@@ -421,6 +422,8 @@ def main() -> None:
     write_json(DATA / "initial_score_matrix.json", matrix)
     write_json(DATA / "batch_acceptance_summary.json", batch_summary)
     write_json(DATA / "duplicate_qc_summary.json", duplicate_summary)
+    write_json(DATA / "normalized_relative_metrics.json", read_json(NORMALIZATION / "normalized_relative_metrics.json", []))
+    write_json(DATA / "normalization_summary.json", read_json(NORMALIZATION / "normalization_summary.json", []))
     write_json(
         DATA / "site_manifest.json",
         {

@@ -960,6 +960,13 @@ select:focus {
   color: var(--muted);
   line-height: 1.4;
 }
+.statusCard small {
+  color: var(--muted);
+  line-height: 1.35;
+}
+.compactStatusGrid {
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
 .chipRail { margin-bottom: 10px; }
 .statusChipRail {
   max-height: 64px;

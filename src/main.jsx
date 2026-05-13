@@ -12,7 +12,9 @@ const DATASETS = {
   matrix: "data/initial_score_matrix.json",
   manifest: "data/site_manifest.json",
   batch: "data/batch_acceptance_summary.json",
-  duplicateQc: "data/duplicate_qc_summary.json"
+  duplicateQc: "data/duplicate_qc_summary.json",
+  normalizedMetrics: "data/normalized_relative_metrics.json",
+  normalizationSummary: "data/normalization_summary.json"
 };
 
 const format = (value, digits = 2) => {
@@ -30,6 +32,32 @@ const humanizeId = (value = "") =>
     .replaceAll("_", " ")
     .toLowerCase()
     .replace(/\b\w/g, (char) => char.toUpperCase());
+
+const DISPLAY_LABELS = {
+  active_health_contribution_burden: "Active health contribution burden",
+  external_fund_contribution_proxy: "External fund contribution proxy",
+  wage_growth: "Wage growth",
+  wage_level: "Wage level",
+  annual_percent_real_if_cpi_available_else_nominal: "Annual percent",
+  dollars_per_hour_proxy: "Dollars per hour",
+  dollars_per_hour: "Dollars per hour",
+  dollars_per_month: "Dollars per month",
+  percent: "Percent",
+  cpi_adjusted: "CPI adjusted",
+  nominal_only: "Nominal only",
+  occupation_geography_unadjusted: "Unadjusted wage proxy",
+  worker_burden: "Worker burden",
+  employer_proxy: "Employer proxy",
+  proxy_not_benefit_design: "Contribution proxy",
+  mean_explicit_percent_schedule: "Mean explicit percent schedule",
+  mean_dollar_increment_over_base_proxy: "Dollar increment over base proxy",
+  highest_stated_regular_hourly_rate_proxy: "Highest stated hourly rate",
+  median_worker_contribution_or_premium_burden: "Median worker contribution",
+  median_employer_contribution_proxy: "Median employer contribution proxy",
+  median_employer_fund_contribution_proxy: "Median employer fund contribution proxy"
+};
+
+const displayLabel = (value = "") => DISPLAY_LABELS[value] ?? humanizeId(value);
 
 const statusTone = (status = "") => {
   if (status.includes("score_ready") || status === "scoreable") return "good";
@@ -232,6 +260,7 @@ function App() {
   const [docFilter, setDocFilter] = useState("All");
   const [view, setView] = useState(() => new URLSearchParams(window.location.search).get("view") || "documents");
   const [domainFilter, setDomainFilter] = useState("All");
+  const [metricFilter, setMetricFilter] = useState("All");
 
   useEffect(() => {
     if (!selectedId && data?.documents?.length) setSelectedId(data.documents[0].document_id);
@@ -282,6 +311,7 @@ function App() {
           {[
             ["documents", "Documents"],
             ["domains", "Domains"],
+            ["relative", "Relative metrics"],
             ["diagnostics", "Diagnostics"]
           ].map(([id, label]) => (
             <button key={id} className={view === id ? "active" : ""} onClick={() => setView(id)}>
@@ -347,6 +377,20 @@ function App() {
             matrix={data.matrix}
             domainFilter={domainFilter}
             setDomainFilter={setDomainFilter}
+            onSelectDocument={(id) => {
+              setSelectedId(id);
+              setView("documents");
+            }}
+          />
+        )}
+
+        {view === "relative" && (
+          <RelativeMetrics
+            documents={data.documents}
+            rows={data.normalizedMetrics}
+            summary={data.normalizationSummary}
+            metricFilter={metricFilter}
+            setMetricFilter={setMetricFilter}
             onSelectDocument={(id) => {
               setSelectedId(id);
               setView("documents");
@@ -914,6 +958,94 @@ function DomainExplorer({ documents, status, matrix, domainFilter, setDomainFilt
                 </tr>
               );
             })}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
+}
+
+function RelativeMetrics({ documents, rows, summary, metricFilter, setMetricFilter, onSelectDocument }) {
+  const docById = new Map(documents.map((doc) => [doc.document_id, doc]));
+  const metricOptions = [
+    ["All", "All"],
+    ...Array.from(new Set(rows.map((row) => row.metric_family))).sort().map((metric) => [metric, displayLabel(metric)])
+  ];
+  const visible = rows
+    .filter((row) => metricFilter === "All" || row.metric_family === metricFilter)
+    .sort((a, b) => {
+      const ap = Number(a.pilot_percentile);
+      const bp = Number(b.pilot_percentile);
+      if (Number.isFinite(bp) || Number.isFinite(ap)) return (Number.isFinite(bp) ? bp : -1) - (Number.isFinite(ap) ? ap : -1);
+      return a.document_id.localeCompare(b.document_id);
+    });
+  const ranked = rows.filter((row) => row.pilot_percentile !== "" && row.pilot_percentile !== null && row.pilot_percentile !== undefined);
+
+  return (
+    <section className="panel">
+      <div className="sectionHeader">
+        <div>
+          <h2>Pilot-relative metrics</h2>
+          <p>Central normalization for wages, active health contribution, and external fund proxies. Percentiles are within metric and unit.</p>
+        </div>
+      </div>
+      <div className="matrixSummary">
+        <span><strong>{rows.length}</strong> normalization rows</span>
+        <span><strong>{ranked.length}</strong> ranked rows</span>
+        <span><strong>{summary.length}</strong> metric families</span>
+      </div>
+      <div className="chipRail" aria-label="Relative metric filter">
+        {metricOptions.map(([value, label]) => (
+          <button
+            key={value}
+            className={metricFilter === value ? "active" : ""}
+            onClick={() => setMetricFilter(value)}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+      <div className="statusGrid compactStatusGrid">
+        {summary.map((item) => (
+          <div className="statusCard" key={item.metric_family}>
+            <span className="pill cool">{displayLabel(item.metric_family)}</span>
+            <h3>{item.comparable_or_proxy_records} ranked</h3>
+            <p>{item.records} records across {item.documents} documents</p>
+            <small>{Object.entries(item.comparison_units || {}).map(([unit, count]) => `${displayLabel(unit)}: ${count}`).join(" · ") || "No comparable unit yet"}</small>
+          </div>
+        ))}
+      </div>
+      <div className="docAuditWrap">
+        <table className="docAudit">
+          <thead>
+            <tr>
+              <th>Document</th>
+              <th>Metric</th>
+              <th>Value</th>
+              <th>Percentile</th>
+              <th>Status</th>
+              <th>Coverage</th>
+              <th>Method</th>
+            </tr>
+          </thead>
+          <tbody>
+            {visible.slice(0, 160).map((row, index) => (
+              <tr key={`${row.document_id}-${row.concept_record_id}-${row.metric_family}-${index}`}>
+                <td>
+                  <button className="linkButton" onClick={() => onSelectDocument(row.document_id)}>{row.document_id}</button>
+                  <small>{docById.get(row.document_id)?.employer}</small>
+                </td>
+                <td>{displayLabel(row.metric_family)}</td>
+                <td>
+                  <strong>{format(row.normalized_value)}</strong>
+                  <small>{displayLabel(row.value_unit)}</small>
+                </td>
+                <td>{format(row.pilot_percentile, 1)}</td>
+                <td>{displayLabel(row.normalization_status)}</td>
+                <td>{displayLabel(row.coverage_flag)}</td>
+                <td>{displayLabel(row.normalization_method)}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

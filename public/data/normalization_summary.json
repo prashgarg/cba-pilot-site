@@ -1,0 +1,41 @@
+[
+  {
+    "metric_family": "active_health_contribution_burden",
+    "records": 88,
+    "documents": 88,
+    "comparable_or_proxy_records": 21,
+    "comparison_units": {
+      "dollars_per_hour": 7,
+      "dollars_per_month": 1,
+      "percent": 13
+    }
+  },
+  {
+    "metric_family": "external_fund_contribution_proxy",
+    "records": 91,
+    "documents": 72,
+    "comparable_or_proxy_records": 10,
+    "comparison_units": {
+      "dollars_per_hour": 4,
+      "percent": 6
+    }
+  },
+  {
+    "metric_family": "wage_growth",
+    "records": 93,
+    "documents": 93,
+    "comparable_or_proxy_records": 61,
+    "comparison_units": {
+      "annual_percent_real_if_cpi_available_else_nominal": 61
+    }
+  },
+  {
+    "metric_family": "wage_level",
+    "records": 88,
+    "documents": 88,
+    "comparable_or_proxy_records": 54,
+    "comparison_units": {
+      "dollars_per_hour_proxy": 54
+    }
+  }
+]
