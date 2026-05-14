@@ -54,7 +54,11 @@ const DISPLAY_LABELS = {
   highest_stated_regular_hourly_rate_proxy: "Highest stated hourly rate",
   median_worker_contribution_or_premium_burden: "Median worker contribution",
   median_employer_contribution_proxy: "Median employer contribution proxy",
-  median_employer_fund_contribution_proxy: "Median employer fund contribution proxy"
+  median_employer_fund_contribution_proxy: "Median employer fund contribution proxy",
+  A: "A",
+  B: "B",
+  C: "C",
+  D: "D"
 };
 
 const displayLabel = (value = "") => DISPLAY_LABELS[value] ?? humanizeId(value);
@@ -986,7 +990,7 @@ function RelativeMetrics({ documents, rows, summary, metricFilter, setMetricFilt
       <div className="sectionHeader">
         <div>
           <h2>Pilot-relative metrics</h2>
-          <p>Central normalization for wages, active health contribution, and external fund proxies. Percentiles are within metric and unit.</p>
+          <p>Central normalization for wages, active health contribution, and external fund proxies. Only confidence A/B rows are ranked.</p>
         </div>
       </div>
       <div className="matrixSummary">
@@ -1009,8 +1013,9 @@ function RelativeMetrics({ documents, rows, summary, metricFilter, setMetricFilt
         {summary.map((item) => (
           <div className="statusCard" key={item.metric_family}>
             <span className="pill cool">{displayLabel(item.metric_family)}</span>
-            <h3>{item.comparable_or_proxy_records} ranked</h3>
+            <h3>{item.ranked_records ?? item.comparable_or_proxy_records} ranked</h3>
             <p>{item.records} records across {item.documents} documents</p>
+            <p>{Object.entries(item.tier_counts || {}).map(([tier, count]) => `${tier}: ${count}`).join(" · ")}</p>
             <small>{Object.entries(item.comparison_units || {}).map(([unit, count]) => `${displayLabel(unit)}: ${count}`).join(" · ") || "No comparable unit yet"}</small>
           </div>
         ))}
@@ -1023,9 +1028,11 @@ function RelativeMetrics({ documents, rows, summary, metricFilter, setMetricFilt
               <th>Metric</th>
               <th>Value</th>
               <th>Percentile</th>
+              <th>Tier</th>
               <th>Status</th>
               <th>Coverage</th>
               <th>Method</th>
+              <th>Why not ranked</th>
             </tr>
           </thead>
           <tbody>
@@ -1041,9 +1048,11 @@ function RelativeMetrics({ documents, rows, summary, metricFilter, setMetricFilt
                   <small>{displayLabel(row.value_unit)}</small>
                 </td>
                 <td>{format(row.pilot_percentile, 1)}</td>
+                <td><span className={`tierBadge tier${row.confidence_tier}`}>{row.confidence_tier || "—"}</span></td>
                 <td>{displayLabel(row.normalization_status)}</td>
                 <td>{displayLabel(row.coverage_flag)}</td>
                 <td>{displayLabel(row.normalization_method)}</td>
+                <td>{row.rank_exclusion_reason || "—"}</td>
               </tr>
             ))}
           </tbody>

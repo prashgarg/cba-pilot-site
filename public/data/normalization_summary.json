@@ -3,7 +3,13 @@
     "metric_family": "active_health_contribution_burden",
     "records": 88,
     "documents": 88,
-    "comparable_or_proxy_records": 21,
+    "ranked_records": 21,
+    "tier_counts": {
+      "A": 11,
+      "B": 10,
+      "C": 24,
+      "D": 43
+    },
     "comparison_units": {
       "dollars_per_hour": 7,
       "dollars_per_month": 1,
@@ -14,7 +20,12 @@
     "metric_family": "external_fund_contribution_proxy",
     "records": 91,
     "documents": 72,
-    "comparable_or_proxy_records": 10,
+    "ranked_records": 10,
+    "tier_counts": {
+      "B": 10,
+      "C": 14,
+      "D": 67
+    },
     "comparison_units": {
       "dollars_per_hour": 4,
       "percent": 6
@@ -24,7 +35,12 @@
     "metric_family": "wage_growth",
     "records": 93,
     "documents": 93,
-    "comparable_or_proxy_records": 61,
+    "ranked_records": 61,
+    "tier_counts": {
+      "A": 30,
+      "B": 31,
+      "D": 32
+    },
     "comparison_units": {
       "annual_percent_real_if_cpi_available_else_nominal": 61
     }
@@ -33,7 +49,11 @@
     "metric_family": "wage_level",
     "records": 88,
     "documents": 88,
-    "comparable_or_proxy_records": 54,
+    "ranked_records": 54,
+    "tier_counts": {
+      "B": 54,
+      "D": 34
+    },
     "comparison_units": {
       "dollars_per_hour_proxy": 54
     }

@@ -993,6 +993,20 @@ select:focus {
   color: var(--ink);
   font-size: 16px;
 }
+.tierBadge {
+  display: inline-grid;
+  place-items: center;
+  min-width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 12px;
+  border: 1px solid rgba(0,0,0,.08);
+}
+.tierA { background: rgba(218, 241, 226, .88); color: var(--good); }
+.tierB { background: rgba(229, 239, 247, .9); color: var(--cool); }
+.tierC { background: rgba(255, 245, 218, .9); color: #7a5318; }
+.tierD { background: rgba(238, 232, 222, .9); color: var(--muted); }
 .matrixWrap {
   overflow: auto;
   flex: 1;

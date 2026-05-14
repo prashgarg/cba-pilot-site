@@ -14,7 +14,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": "pages 145-151, Appendix A | pages 145-151, Appendix A | pages 145-151, Appendix A"
+    "evidence_pointer": "pages 145-151, Appendix A | pages 145-151, Appendix A | pages 145-151, Appendix A",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_1080",
@@ -31,7 +33,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "2003;2005;2006",
-    "evidence_pointer": "page 38, Article X"
+    "evidence_pointer": "page 38, Article X",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_1080",
@@ -48,7 +52,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_1086",
@@ -66,6 +72,8 @@
     "missing_reason": "Worker premium burden not directly stated; employer contribution used only as proxy.",
     "years_detected": "",
     "evidence_pointer": "Schedule 3 health & welfare column and Article 22 contribution language",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 83.3,
     "comparison_n": 7
   },
@@ -85,6 +93,8 @@
     "missing_reason": "",
     "years_detected": "2005",
     "evidence_pointer": "Effective May 1, 2005 in Schedule 3 | Schedule 3 wage table | Schedule 3 wage table",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 71.7,
     "comparison_n": 54
   },
@@ -104,6 +114,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Schedule 3 total compensation increase for May 1, 2006 | Schedule 3 total compensation increase for May 1, 2007",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 83.3,
     "comparison_n": 61
   },
@@ -122,7 +134,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Contribution amount found, but payment period/unit is unclear.",
     "years_detected": "2019;2020;2023",
-    "evidence_pointer": "Co-payments are to be designated ... $75.00 per month ... $95.00 per month. | Co-payments are to be designated ... $75.00 per month ... $95.00 per month. | Co-payments are to be designated ... $75.00 per month ... $95.00 per month."
+    "evidence_pointer": "Co-payments are to be designated ... $75.00 per month ... $95.00 per month. | Co-payments are to be designated ... $75.00 per month ... $95.00 per month. | Co-payments are to be designated ... $75.00 per month ... $95.00 per month.",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_1126",
@@ -140,6 +154,8 @@
     "missing_reason": "",
     "years_detected": "2019;2020;2021;2022;2023",
     "evidence_pointer": "The minimum hourly rates for drivers and warehousemen shall be as follows ... | The minimum hourly rates for drivers and warehousemen shall be as follows ... | The minimum hourly rates for drivers and warehousemen shall be as follows ...",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 49.1,
     "comparison_n": 54
   },
@@ -159,6 +175,8 @@
     "missing_reason": "",
     "years_detected": "2019;2020;2021;2022;2023",
     "evidence_pointer": "(.60) (.60) (.60) (.65) (.65) | (.60) (.60) (.60) (.65) (.65) | (.60) (.60) (.60) (.65) (.65)",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 5.0,
     "comparison_n": 61
   },
@@ -177,7 +195,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "2019;2023",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_1151",
@@ -194,7 +214,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Employer contribution amount found, but payment period/unit is unclear.",
     "years_detected": "",
-    "evidence_pointer": "Article X Section 2; Appendix A H & W row"
+    "evidence_pointer": "Article X Section 2; Appendix A H & W row",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_1151",
@@ -212,6 +234,8 @@
     "missing_reason": "",
     "years_detected": "2008",
     "evidence_pointer": "Appendix A wages row | Appendix A column heading | Appendix A zone heading",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 52.8,
     "comparison_n": 54
   },
@@ -231,6 +255,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Appendix A increase row | Appendix A increase row | Appendix A increase row",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 73.3,
     "comparison_n": 61
   },
@@ -249,7 +275,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Contribution amount found, but payment period/unit is unclear.",
     "years_detected": "",
-    "evidence_pointer": "Article XII and Appendix A"
+    "evidence_pointer": "Article XII and Appendix A",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_1151",
@@ -266,7 +294,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Contribution amount found, but payment period/unit is unclear.",
     "years_detected": "",
-    "evidence_pointer": "Article XV and Appendix A"
+    "evidence_pointer": "Article XV and Appendix A",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_116",
@@ -284,6 +314,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "table/main_article | table/main_article | table/main_article",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 60.4,
     "comparison_n": 54
   },
@@ -303,6 +335,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "main_article | main_article | main_article",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 78.3,
     "comparison_n": 61
   },
@@ -322,6 +356,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Article XIX.J and tables / pages 42-44 | Article XIX.J and tables / pages 42-44 | Article XIX.J and tables / pages 42-44",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 43.4,
     "comparison_n": 54
   },
@@ -341,6 +377,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Article XIX.J and page 45 note | Article XIX.J and page 45 note | Article XIX.J and page 45 note",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 66.7,
     "comparison_n": 61
   },
@@ -359,7 +397,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_1172",
@@ -376,7 +416,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_1184",
@@ -394,6 +436,8 @@
     "missing_reason": "",
     "years_detected": "2007;2010;2011",
     "evidence_pointer": "Nominal wage tables and base-rate examples | Nominal wage tables and base-rate examples | Nominal wage tables and base-rate examples",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 77.4,
     "comparison_n": 54
   },
@@ -413,6 +457,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Annual increase schedule tables | Annual increase schedule tables | Allocation language in both agreements",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 93.3,
     "comparison_n": 61
   },
@@ -432,6 +478,8 @@
     "missing_reason": "Worker premium burden not directly stated; employer contribution used only as proxy.",
     "years_detected": "",
     "evidence_pointer": "Employer health/welfare contributions | Employer health/welfare contributions",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 50.0,
     "comparison_n": 7
   },
@@ -451,6 +499,8 @@
     "missing_reason": "Proxy for contribution intensity; not pension/health benefit generosity.",
     "years_detected": "",
     "evidence_pointer": "Pension contribution rates | Pension contribution rates | Pension contribution rates",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 66.7,
     "comparison_n": 4
   },
@@ -469,7 +519,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_1187",
@@ -487,6 +539,8 @@
     "missing_reason": "Worker premium burden not directly stated; employer contribution used only as proxy.",
     "years_detected": "2003;2004",
     "evidence_pointer": "7.2.1 and 9.2 | 7.2.1 and 9.2",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 66.7,
     "comparison_n": 7
   },
@@ -506,6 +560,8 @@
     "missing_reason": "Proxy for contribution intensity; not pension/health benefit generosity.",
     "years_detected": "2003;2004",
     "evidence_pointer": "7.3.1 and 9.2 | 7.3.1 and 9.2",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 100.0,
     "comparison_n": 4
   },
@@ -525,6 +581,8 @@
     "missing_reason": "",
     "years_detected": "2003;2004;2005;2006",
     "evidence_pointer": "9.1 and 11.2 | 9.1 and 11.2 | 9.1 and 11.2",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 47.2,
     "comparison_n": 54
   },
@@ -544,6 +602,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "9.3.1-9.3.2 | 9.3.1-9.3.2 | 9.4.1",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 80.0,
     "comparison_n": 61
   },
@@ -562,7 +622,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Employer contribution amount found, but payment period/unit is unclear.",
     "years_detected": "",
-    "evidence_pointer": "Article XII(a), page 12"
+    "evidence_pointer": "Article XII(a), page 12",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_1251",
@@ -579,7 +641,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "1998;2002",
-    "evidence_pointer": "Article X(b), pages 9-10 | Article X(b), pages 9-10 | Article X(a)-(b), page 9"
+    "evidence_pointer": "Article X(b), pages 9-10 | Article X(b), pages 9-10 | Article X(a)-(b), page 9",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_1251",
@@ -596,7 +660,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "1998;2002",
-    "evidence_pointer": "Article X(b), pages 9-10 | Article X(b), pages 9-10"
+    "evidence_pointer": "Article X(b), pages 9-10 | Article X(b), pages 9-10",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_1251",
@@ -613,7 +679,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "1999;2002",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_1264",
@@ -630,7 +698,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_1264",
@@ -647,7 +717,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": "Wage tables on pp. 4-5, 15-18 | Multiple schedules and side-agreement variants | Wage, H&W, pension, annuity, vacation, total package, and taxable package columns"
+    "evidence_pointer": "Wage tables on pp. 4-5, 15-18 | Multiple schedules and side-agreement variants | Wage, H&W, pension, annuity, vacation, total package, and taxable package columns",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_1264",
@@ -664,7 +736,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "",
-    "evidence_pointer": "As of 5/1/2003 and 5/1/2004 tables | As of 5/1/2004 table | Union reserves the right to allocate above 5/1/2003 and 5/1/2004 increases"
+    "evidence_pointer": "As of 5/1/2003 and 5/1/2004 tables | As of 5/1/2004 table | Union reserves the right to allocate above 5/1/2003 and 5/1/2004 increases",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_1264",
@@ -681,7 +755,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_1264",
@@ -698,7 +774,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_1287",
@@ -716,6 +794,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "pages 81-86, Appendix E tables | pages 82-86, Appendix E tables",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 20.8,
     "comparison_n": 54
   },
@@ -734,7 +814,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "",
-    "evidence_pointer": "pages 81-86, Appendix E tables"
+    "evidence_pointer": "pages 81-86, Appendix E tables",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_1287",
@@ -751,7 +833,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_1287",
@@ -768,7 +852,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_1287",
@@ -785,7 +871,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_1303",
@@ -802,7 +890,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Employer contribution amount found, but payment period/unit is unclear.",
     "years_detected": "",
-    "evidence_pointer": "Two Dollars and Seventy Five cents to the Health and Welfare Trust Fund"
+    "evidence_pointer": "Two Dollars and Seventy Five cents to the Health and Welfare Trust Fund",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_1303",
@@ -819,7 +909,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Contribution amount found, but payment period/unit is unclear.",
     "years_detected": "1984",
-    "evidence_pointer": "Three Dollars and Ninety-Five cents to the Pension Trust Fund"
+    "evidence_pointer": "Three Dollars and Ninety-Five cents to the Pension Trust Fund",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_1303",
@@ -836,7 +928,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": "Article V minimum hourly wage table | Residential Work wage rates are Fifty Cents below the above wage scales | ISA contribution included in above hourly wage rates"
+    "evidence_pointer": "Article V minimum hourly wage table | Residential Work wage rates are Fifty Cents below the above wage scales | ISA contribution included in above hourly wage rates",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_1303",
@@ -853,7 +947,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "",
-    "evidence_pointer": "One Dollar and Seventy Cents will be added to Wages and/or fringes | Any or all of the above amounts may be applied to existing fringe benefit funds upon written notice"
+    "evidence_pointer": "One Dollar and Seventy Cents will be added to Wages and/or fringes | Any or all of the above amounts may be applied to existing fringe benefit funds upon written notice",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_1310",
@@ -870,7 +966,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Employer contribution amount found, but payment period/unit is unclear.",
     "years_detected": "",
-    "evidence_pointer": "page 22, art. 19.2"
+    "evidence_pointer": "page 22, art. 19.2",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_1310",
@@ -887,7 +985,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_1310",
@@ -905,6 +1005,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "page 20, schedule A | page 20, schedule A | page 20, schedule A",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 32.1,
     "comparison_n": 54
   },
@@ -924,6 +1026,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "page 21, art. 17.12.1 | page 21, art. 17.12.1 | page 21, art. 17.12.1",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 100.0,
     "comparison_n": 61
   },
@@ -943,6 +1047,8 @@
     "missing_reason": "",
     "years_detected": "2020;2021;2022",
     "evidence_pointer": "page 12, Article VI Section 1 | page 12, Article VI Section 1 | page 12, Article VI Section 1",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 81.1,
     "comparison_n": 54
   },
@@ -962,6 +1068,8 @@
     "missing_reason": "",
     "years_detected": "2019;2020;2021;2022",
     "evidence_pointer": "page 12, Article VI Section 1 footnote | page 12, Article VI Section 1 footnote | page 12, Article VI Section 1 footnote",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 28.3,
     "comparison_n": 61
   },
@@ -980,7 +1088,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Employer contribution amount found, but payment period/unit is unclear.",
     "years_detected": "2000",
-    "evidence_pointer": "page 18, Article XI Section 6"
+    "evidence_pointer": "page 18, Article XI Section 6",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_1313",
@@ -998,6 +1108,8 @@
     "missing_reason": "Proxy for contribution intensity; not pension/health benefit generosity.",
     "years_detected": "",
     "evidence_pointer": "page 19, Article XII Sections 1 and 3 | page 19, Article XII Sections 1 and 3",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 20.0,
     "comparison_n": 6
   },
@@ -1016,7 +1128,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "2019",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_1316",
@@ -1033,7 +1147,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Employer contribution amount found, but payment period/unit is unclear.",
     "years_detected": "2001;2002;2003",
-    "evidence_pointer": "Hourly employer contribution to the insurance fund is stated with later scheduled increases. | Hourly employer contribution to the insurance fund is stated with later scheduled increases. | Hourly employer contribution to the insurance fund is stated with later scheduled increases."
+    "evidence_pointer": "Hourly employer contribution to the insurance fund is stated with later scheduled increases. | Hourly employer contribution to the insurance fund is stated with later scheduled increases. | Hourly employer contribution to the insurance fund is stated with later scheduled increases.",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_1316",
@@ -1051,6 +1167,8 @@
     "missing_reason": "",
     "years_detected": "2001",
     "evidence_pointer": "The clause names the covered occupation. | The minimum hourly rate is stated directly. | The wage rate is tied to a stated effective date.",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 75.5,
     "comparison_n": 54
   },
@@ -1070,6 +1188,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "The text states exact later increases. | The text states exact later increases.",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 86.7,
     "comparison_n": 61
   },
@@ -1088,7 +1208,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Contribution amount found, but payment period/unit is unclear.",
     "years_detected": "2001;2002;2003",
-    "evidence_pointer": "The pension contribution schedule is stated. | The pension contribution schedule is stated. | The pension contribution schedule is stated."
+    "evidence_pointer": "The pension contribution schedule is stated. | The pension contribution schedule is stated. | The pension contribution schedule is stated.",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_1316",
@@ -1105,7 +1227,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Contribution amount found, but payment period/unit is unclear.",
     "years_detected": "2001;2002;2003",
-    "evidence_pointer": "The annuity contribution schedule is stated. | The annuity contribution schedule is stated. | The annuity contribution schedule is stated."
+    "evidence_pointer": "The annuity contribution schedule is stated. | The annuity contribution schedule is stated. | The annuity contribution schedule is stated.",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_1328",
@@ -1122,7 +1246,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Employer contribution amount found, but payment period/unit is unclear.",
     "years_detected": "",
-    "evidence_pointer": "The employer agrees to pay to the Health and Welfare Trust for San Francisco, for each hour worked by all employees covered by this agreement the sum of four dollars and eighty-five cents ($4.85)."
+    "evidence_pointer": "The employer agrees to pay to the Health and Welfare Trust for San Francisco, for each hour worked by all employees covered by this agreement the sum of four dollars and eighty-five cents ($4.85).",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_1328",
@@ -1139,7 +1265,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_1328",
@@ -1157,6 +1285,8 @@
     "missing_reason": "",
     "years_detected": "2000;2003",
     "evidence_pointer": "Journeyman $45.55; Foreman/Shop Foreman $51.24; General Foreman $56.94. | Journeyman $45.55; Foreman/Shop Foreman $51.24; General Foreman $56.94. | Journeyman $45.55; Foreman/Shop Foreman $51.24; General Foreman $56.94.",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 94.3,
     "comparison_n": 54
   },
@@ -1176,6 +1306,8 @@
     "missing_reason": "",
     "years_detected": "2003;2004",
     "evidence_pointer": "Increase increments are set for June 1, 2003, December 1, 2003, June 1, 2004, and December 1, 2004. | Increase increments are set for June 1, 2003, December 1, 2003, June 1, 2004, and December 1, 2004. | Increase increments are set for June 1, 2003, December 1, 2003, June 1, 2004, and December 1, 2004.",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 8.3,
     "comparison_n": 61
   },
@@ -1194,7 +1326,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Employer contribution amount found, but payment period/unit is unclear.",
     "years_detected": "",
-    "evidence_pointer": "Article XIII(43)(a), page 9 | Article XIII(43)(a), page 9 | Article XIII(43)(a), page 9"
+    "evidence_pointer": "Article XIII(43)(a), page 9 | Article XIII(43)(a), page 9 | Article XIII(43)(a), page 9",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_1424",
@@ -1211,7 +1345,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Contribution amount found, but payment period/unit is unclear.",
     "years_detected": "",
-    "evidence_pointer": "Article XIII(43)(b), page 9; wage tables on pages 25-28 | Article XIII(43)(b), page 9; wage tables on pages 25-28 | Article XIII(43)(b), page 9; wage tables on pages 25-28"
+    "evidence_pointer": "Article XIII(43)(b), page 9; wage tables on pages 25-28 | Article XIII(43)(b), page 9; wage tables on pages 25-28 | Article XIII(43)(b), page 9; wage tables on pages 25-28",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_1424",
@@ -1229,6 +1365,8 @@
     "missing_reason": "",
     "years_detected": "2003",
     "evidence_pointer": "Articles XXXI, XXXV, and XXXVIII, pages 25-28 | Articles XXXI, XXXV, and XXXVIII, pages 25-28 | Articles XXXI, XXXV, and XXXVIII, pages 25-28",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 41.5,
     "comparison_n": 54
   },
@@ -1248,6 +1386,8 @@
     "missing_reason": "",
     "years_detected": "2004;2005;2006",
     "evidence_pointer": "Articles XXXI(136), XXXII(138), XXXV(143), and XXXVIII(149), pages 25, 25, 27, and 28 | Articles XXXI(136), XXXII(138), XXXV(143), and XXXVIII(149), pages 25, 25, 27, and 28 | Articles XXXI(136), XXXII(138), XXXV(143), and XXXVIII(149), pages 25, 25, 27, and 28",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 35.0,
     "comparison_n": 61
   },
@@ -1266,7 +1406,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Employer contribution amount found, but payment period/unit is unclear.",
     "years_detected": "",
-    "evidence_pointer": "p13 and p22 H&W table | p13 and p22 H&W table | p13 and p22 H&W table"
+    "evidence_pointer": "p13 and p22 H&W table | p13 and p22 H&W table | p13 and p22 H&W table",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_1477",
@@ -1284,6 +1426,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "p13 and p22 journeyman/service journeyman wage tables | p13 and p22 journeyman/service journeyman wage tables | p13 and p22 journeyman/service journeyman wage tables",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 88.7,
     "comparison_n": 54
   },
@@ -1302,7 +1446,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "",
-    "evidence_pointer": "p13 journeyman wage table | p13 journeyman wage table | p13 journeyman wage table"
+    "evidence_pointer": "p13 journeyman wage table | p13 journeyman wage table | p13 journeyman wage table",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_1477",
@@ -1319,7 +1465,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Contribution amount found, but payment period/unit is unclear.",
     "years_detected": "",
-    "evidence_pointer": "p13 and p22 contribution tables | p13 and p22 contribution tables"
+    "evidence_pointer": "p13 and p22 contribution tables | p13 and p22 contribution tables",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_1570",
@@ -1337,6 +1485,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Journeyman wage rate is $28.00 per hr. | Sheeter wage rate is $28.25 per hr.",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 56.6,
     "comparison_n": 54
   },
@@ -1356,6 +1506,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "June 1, 2004 - $1.80 per hour plus an additional $0.02 to CAF. | June 1, 2005 - $1.85 per hour plus an additional $0.02 to CAF.",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 90.0,
     "comparison_n": 61
   },
@@ -1375,6 +1527,8 @@
     "missing_reason": "Worker premium burden not directly stated; employer contribution used only as proxy.",
     "years_detected": "",
     "evidence_pointer": "The Local 395 Trust Fund contribution is stated per hour.",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 100.0,
     "comparison_n": 7
   },
@@ -1393,7 +1547,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Contribution amount found, but payment period/unit is unclear.",
     "years_detected": "",
-    "evidence_pointer": "Mid-America Pension Plan basic rate is $4.01 per hour."
+    "evidence_pointer": "Mid-America Pension Plan basic rate is $4.01 per hour.",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_1570",
@@ -1410,7 +1566,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_1601",
@@ -1427,7 +1585,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "2007;2013",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_1601",
@@ -1444,7 +1604,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "2007;2013",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_1620",
@@ -1461,7 +1623,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_1620",
@@ -1478,7 +1642,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_1620",
@@ -1496,6 +1662,8 @@
     "missing_reason": "",
     "years_detected": "2009;2010",
     "evidence_pointer": "Article XIII, paragraph 99 | Article XIII, paragraph 99 | Article XIII, paragraph 99",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 96.2,
     "comparison_n": 54
   },
@@ -1515,6 +1683,8 @@
     "missing_reason": "",
     "years_detected": "2010;2011;2012",
     "evidence_pointer": "Article XIII, paragraph 101A | Article XIII, paragraph 101B | Article XIII, paragraph 102",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 31.7,
     "comparison_n": 61
   },
@@ -1533,7 +1703,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_1625",
@@ -1550,7 +1722,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_1625",
@@ -1567,7 +1741,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_1625",
@@ -1584,7 +1760,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": "Article 21, pp. 59-70"
+    "evidence_pointer": "Article 21, pp. 59-70",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_1625",
@@ -1601,7 +1779,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "",
-    "evidence_pointer": "Article 21, pp. 59-70"
+    "evidence_pointer": "Article 21, pp. 59-70",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_1751",
@@ -1618,7 +1798,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_1751",
@@ -1636,6 +1818,8 @@
     "missing_reason": "",
     "years_detected": "2000",
     "evidence_pointer": "Base wage lines across the rate tables | Multiple wage schedules are stated in the main agreement, supplemental agreement, and Appendix A | June 1, 2000 base tables and annual increase lines",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 54.7,
     "comparison_n": 54
   },
@@ -1654,7 +1838,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "",
-    "evidence_pointer": "Annual increase lines in the main, supplemental, service, and residential tables | Separate wage tables appear for multiple packages"
+    "evidence_pointer": "Annual increase lines in the main, supplemental, service, and residential tables | Separate wage tables appear for multiple packages",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_188",
@@ -1671,7 +1857,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_188",
@@ -1688,7 +1876,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "2005;2006;2007;2008",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_188",
@@ -1706,6 +1896,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "machine tables | upkeep floor",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 0.0,
     "comparison_n": 54
   },
@@ -1725,6 +1917,8 @@
     "missing_reason": "",
     "years_detected": "2005;2006;2007",
     "evidence_pointer": "general wage increases | general wage increases | general wage increases",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 15.0,
     "comparison_n": 61
   },
@@ -1743,7 +1937,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_1884",
@@ -1761,6 +1957,8 @@
     "missing_reason": "",
     "years_detected": "2009;2010",
     "evidence_pointer": "Journeyman Rate $21.00 | Agreement effective June 1, 2009 through May 31, 2010 | Wages shall be paid according to the following schedule of rates of pay",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 26.4,
     "comparison_n": 54
   },
@@ -1779,7 +1977,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_1910",
@@ -1797,6 +1997,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "page 12 Article XIII sec.1(a) | page 12 Article XIII sec.1(b) | page 25 1% compensation side letter",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 61.7,
     "comparison_n": 61
   },
@@ -1816,6 +2018,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Section 9(b) wage table and differentials | Employees shall be paid the minimum of two (2) times per month",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 7.5,
     "comparison_n": 54
   },
@@ -1835,6 +2039,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Wage Increase $0.20/hour",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 38.3,
     "comparison_n": 61
   },
@@ -1853,7 +2059,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_2044",
@@ -1870,7 +2078,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Contribution amount found, but payment period/unit is unclear.",
     "years_detected": "",
-    "evidence_pointer": "twenty cents (20 cents) for each straight time hour worked"
+    "evidence_pointer": "twenty cents (20 cents) for each straight time hour worked",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_2068",
@@ -1887,7 +2097,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "2013;2014;2015",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_2068",
@@ -1904,7 +2116,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_2068",
@@ -1922,6 +2136,8 @@
     "missing_reason": "",
     "years_detected": "2013;2014;2015",
     "evidence_pointer": "Article 18 wage tables list classification-specific hourly wages by effective date. | Article 18 wage tables list classification-specific hourly wages by effective date. | Article 18 wage tables list classification-specific hourly wages by effective date.",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 64.2,
     "comparison_n": 54
   },
@@ -1941,6 +2157,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Memorandum wage table shows 2.25%, 2.50%, and 2.75% increase columns by effective date. | Memorandum wage table shows 2.25%, 2.50%, and 2.75% increase columns by effective date. | Memorandum wage table shows 2.25%, 2.50%, and 2.75% increase columns by effective date.",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 95.0,
     "comparison_n": 61
   },
@@ -1959,7 +2177,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Contribution amount found, but payment period/unit is unclear.",
     "years_detected": "",
-    "evidence_pointer": "Article XXVII paragraph 1(e) premium contribution table | Article XXVII paragraph 1(e) premium contribution table | Article XXVII paragraph 1(e) premium contribution table"
+    "evidence_pointer": "Article XXVII paragraph 1(e) premium contribution table | Article XXVII paragraph 1(e) premium contribution table | Article XXVII paragraph 1(e) premium contribution table",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_2072",
@@ -1977,6 +2197,8 @@
     "missing_reason": "Proxy for contribution intensity; not pension/health benefit generosity.",
     "years_detected": "2013;2014;2015",
     "evidence_pointer": "Participation Agreement Section 2.A | Participation Agreement Section 2.A | Participation Agreement Section 2.A",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 33.3,
     "comparison_n": 4
   },
@@ -1996,6 +2218,8 @@
     "missing_reason": "",
     "years_detected": "2013;2014;2015",
     "evidence_pointer": "Article XXVI A.1 wage table | Article XXVI A.1 wage table | Article XXVI A.1 wage table",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 30.2,
     "comparison_n": 54
   },
@@ -2014,7 +2238,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "",
-    "evidence_pointer": "Article XXVI A.1 wage table | Light-duty memorandum and wage article"
+    "evidence_pointer": "Article XXVI A.1 wage table | Light-duty memorandum and wage article",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_2083",
@@ -2031,7 +2257,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "",
-    "evidence_pointer": "Effective March 1, 2001 ... $0.50; Effective September 1, 2002 ... $0.50; Effective March 1, 2004 ... $1.00. | Effective March 1, 2001 ... $0.50; Effective September 1, 2002 ... $0.50; Effective March 1, 2004 ... $1.00. | Effective March 1, 2001 ... $0.50; Effective September 1, 2002 ... $0.50; Effective March 1, 2004 ... $1.00."
+    "evidence_pointer": "Effective March 1, 2001 ... $0.50; Effective September 1, 2002 ... $0.50; Effective March 1, 2004 ... $1.00. | Effective March 1, 2001 ... $0.50; Effective September 1, 2002 ... $0.50; Effective March 1, 2004 ... $1.00. | Effective March 1, 2001 ... $0.50; Effective September 1, 2002 ... $0.50; Effective March 1, 2004 ... $1.00.",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_2083",
@@ -2048,7 +2276,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_2083",
@@ -2065,7 +2295,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "1993",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_2083",
@@ -2082,7 +2314,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_2088",
@@ -2099,7 +2333,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_2088",
@@ -2116,7 +2352,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_2088",
@@ -2134,6 +2372,8 @@
     "missing_reason": "",
     "years_detected": "2016;2018",
     "evidence_pointer": "Pay scale tables in Articles 4.8.1, 4.8.3, and 4.8.7 list the hourly rates for former Aveos employees, Process Technicians, and Material Controllers. | Pay scale tables in Articles 4.8.1, 4.8.3, and 4.8.7 list the hourly rates for former Aveos employees, Process Technicians, and Material Controllers. | Pay scale tables in Articles 4.8.1, 4.8.3, and 4.8.7 list the hourly rates for former Aveos employees, Process Technicians, and Material Controllers.",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 62.3,
     "comparison_n": 54
   },
@@ -2153,6 +2393,8 @@
     "missing_reason": "",
     "years_detected": "2017;2019",
     "evidence_pointer": "Appendix B, page 19",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 45.3,
     "comparison_n": 54
   },
@@ -2172,6 +2414,8 @@
     "missing_reason": "",
     "years_detected": "2017;2018;2019",
     "evidence_pointer": "Appendix B header row, page 19 | Article 28 Section 3, page 16",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 23.3,
     "comparison_n": 61
   },
@@ -2190,7 +2434,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_2271",
@@ -2207,7 +2453,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_233",
@@ -2224,7 +2472,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "2012",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_2346",
@@ -2242,6 +2492,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Exhibit 1 contains the wage table | Art. 24.02 states the statutory floor | Art. 5.06 addresses employees paid above the wage scales",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 39.6,
     "comparison_n": 54
   },
@@ -2260,7 +2512,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "2015;2016;2017;2018;2019;2020",
-    "evidence_pointer": "Art. 24.03 sets the package increases | Art. 24.03 sets the package increases | Art. 24.03 sets the package increases"
+    "evidence_pointer": "Art. 24.03 sets the package increases | Art. 24.03 sets the package increases | Art. 24.03 sets the package increases",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_2346",
@@ -2278,6 +2532,8 @@
     "missing_reason": "Worker premium burden not directly stated; employer contribution used only as proxy.",
     "years_detected": "2015;2016;2017;2018;2019;2020",
     "evidence_pointer": "Art. 22.01 states the hourly contribution rates | Art. 22.01 states the hourly contribution rates | Art. 22.01 states the hourly contribution rates",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 33.3,
     "comparison_n": 7
   },
@@ -2297,6 +2553,8 @@
     "missing_reason": "Proxy for contribution intensity; not pension/health benefit generosity.",
     "years_detected": "2015;2016;2017",
     "evidence_pointer": "Art. 23.02 states the hourly contribution schedule | Art. 23.02 states the hourly contribution schedule | Art. 23.02 states the hourly contribution schedule",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 0.0,
     "comparison_n": 4
   },
@@ -2315,7 +2573,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Contribution amount found, but payment period/unit is unclear.",
     "years_detected": "",
-    "evidence_pointer": "Art. 23.05 states that the employer makes no contribution"
+    "evidence_pointer": "Art. 23.05 states that the employer makes no contribution",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_2402",
@@ -2333,6 +2593,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "GP05 | GP05 | GP05",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 66.0,
     "comparison_n": 54
   },
@@ -2352,6 +2614,8 @@
     "missing_reason": "",
     "years_detected": "2017;2018;2019",
     "evidence_pointer": "GP05 | GP05 | GP05",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 3.3,
     "comparison_n": 61
   },
@@ -2370,7 +2634,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Employer contribution amount found, but payment period/unit is unclear.",
     "years_detected": "",
-    "evidence_pointer": "GP20"
+    "evidence_pointer": "GP20",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_2418",
@@ -2388,6 +2654,8 @@
     "missing_reason": "",
     "years_detected": "1988;2015;2016;2017;2018;2019;2020",
     "evidence_pointer": "page 45 exhibits A/B/B1/C | page 45 exhibits A/B/B1/C | page 45 exhibits A/B/B1/C",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 22.6,
     "comparison_n": 54
   },
@@ -2407,6 +2675,8 @@
     "missing_reason": "",
     "years_detected": "1967",
     "evidence_pointer": "page 44 paragraph 194 | page 44 paragraph 194 | page 44 paragraph 194",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 81.7,
     "comparison_n": 61
   },
@@ -2425,7 +2695,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "2020",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_2418",
@@ -2443,6 +2715,8 @@
     "missing_reason": "",
     "years_detected": "2015",
     "evidence_pointer": "page 42 premium-sharing table | page 42 premium-sharing table",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 25.0,
     "comparison_n": 13
   },
@@ -2461,7 +2735,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_2589",
@@ -2478,7 +2754,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "1996",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_2589",
@@ -2496,6 +2774,8 @@
     "missing_reason": "",
     "years_detected": "2018;2019;2020",
     "evidence_pointer": "Salary grids on pages 39-42 | Salary grids on pages 39-42",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 92.5,
     "comparison_n": 54
   },
@@ -2515,6 +2795,8 @@
     "missing_reason": "",
     "years_detected": "2018;2019;2020",
     "evidence_pointer": "Article XI, pages 26-27 | Article XI, pages 26-27 | Article XI, pages 26-27",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 40.0,
     "comparison_n": 61
   },
@@ -2533,7 +2815,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "2003;2004;2005;2006;2007",
-    "evidence_pointer": "Appendix D | Appendix D | Appendix D"
+    "evidence_pointer": "Appendix D | Appendix D | Appendix D",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_2711",
@@ -2551,6 +2835,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Article 20 | Article 20",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 48.3,
     "comparison_n": 61
   },
@@ -2569,7 +2855,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "1961;2000;2004",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_2711",
@@ -2586,7 +2874,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_2715",
@@ -2603,7 +2893,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_2715",
@@ -2620,7 +2912,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": "Salary-rate contract term | Summer compensation example"
+    "evidence_pointer": "Salary-rate contract term | Summer compensation example",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_2715",
@@ -2637,7 +2931,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "",
-    "evidence_pointer": "Salary increase notification form | Salary increase notification form | Salary increase notification form"
+    "evidence_pointer": "Salary increase notification form | Salary increase notification form | Salary increase notification form",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_2715",
@@ -2654,7 +2950,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_2881",
@@ -2671,7 +2969,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_2881",
@@ -2689,6 +2989,8 @@
     "missing_reason": "",
     "years_detected": "2005",
     "evidence_pointer": "Addendum B/B-1 | Addendum B/B-1 and Addendum C headings | Addendum B/B-1",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 37.7,
     "comparison_n": 54
   },
@@ -2708,6 +3010,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "SECTION 21.1 | SECTION 21.1 | SECTION 21.1",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 75.0,
     "comparison_n": 61
   },
@@ -2726,7 +3030,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_2930",
@@ -2743,7 +3049,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_2930",
@@ -2760,7 +3068,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_2930",
@@ -2777,7 +3087,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "2002;2006",
-    "evidence_pointer": "Salary table entries. | Salary timing context."
+    "evidence_pointer": "Salary table entries. | Salary timing context.",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_2930",
@@ -2795,6 +3107,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "COLA / wage increase schedule. | Equity adjustments and salary relationships.",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 68.3,
     "comparison_n": 61
   },
@@ -2814,6 +3128,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "all salaries shall be increased by 2.25%",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 46.7,
     "comparison_n": 61
   },
@@ -2832,7 +3148,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_3013",
@@ -2849,7 +3167,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Contribution amount found, but payment period/unit is unclear.",
     "years_detected": "2001;2006;2008;2009",
-    "evidence_pointer": "Flexible-benefits contribution tables in Article 9 and the 12/6/06 amendment | Flexible-benefits contribution tables in Article 9 and the 12/6/06 amendment | Flexible-benefits contribution tables in Article 9 and the 12/6/06 amendment"
+    "evidence_pointer": "Flexible-benefits contribution tables in Article 9 and the 12/6/06 amendment | Flexible-benefits contribution tables in Article 9 and the 12/6/06 amendment | Flexible-benefits contribution tables in Article 9 and the 12/6/06 amendment",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_3013",
@@ -2866,7 +3186,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "",
-    "evidence_pointer": "5% wage increase effective June 22, 2007 | 3% wage increase effective June 21, 2008"
+    "evidence_pointer": "5% wage increase effective June 22, 2007 | 3% wage increase effective June 21, 2008",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_3013",
@@ -2884,6 +3206,8 @@
     "missing_reason": "Proxy for contribution intensity; not pension/health benefit generosity.",
     "years_detected": "2002",
     "evidence_pointer": "Retirement offset language",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 80.0,
     "comparison_n": 6
   },
@@ -2903,6 +3227,8 @@
     "missing_reason": "",
     "years_detected": "2001;2002;2003;2004",
     "evidence_pointer": "Article 13 Section 1 | Article 13 Section 4 tables | Article 13 Section 2(a)",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 98.1,
     "comparison_n": 54
   },
@@ -2922,6 +3248,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Article 13 Section 4(A)-(D) | Article 14 Section 1 | Article 14 Section 3",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 51.7,
     "comparison_n": 61
   },
@@ -2940,7 +3268,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_305",
@@ -2957,7 +3287,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_305",
@@ -2974,7 +3306,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_3051",
@@ -2992,6 +3326,8 @@
     "missing_reason": "",
     "years_detected": "1994",
     "evidence_pointer": "Art XIII Sec 2, p.8-9",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 50.0,
     "comparison_n": 13
   },
@@ -3010,7 +3346,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_3051",
@@ -3028,6 +3366,8 @@
     "missing_reason": "",
     "years_detected": "2003;2004;2005",
     "evidence_pointer": "Art VII Sec 1A, p.3 | Art VII Sec 1B, p.3",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 25.0,
     "comparison_n": 61
   },
@@ -3046,7 +3386,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_3100",
@@ -3064,6 +3406,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "the University will increase the salary for classifications ... effective July 1 or the nearest bi-weekly pay date | For each annual increase during the term of this agreement individual salary increases at LBNL will be from an overall amount of up to 3.0% ... | For each annual increase the employee’s most recent overall performance evaluation ... will be used as the basis for determining eligibility for the general salary increase and/or merit award amount.",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 63.3,
     "comparison_n": 61
   },
@@ -3083,6 +3427,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Article 29 employee share | Article 29 employee share",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 100.0,
     "comparison_n": 13
   },
@@ -3102,6 +3448,8 @@
     "missing_reason": "",
     "years_detected": "2002;2006",
     "evidence_pointer": "Appendix B salary tables | Appendix years",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 1.9,
     "comparison_n": 54
   },
@@ -3121,6 +3469,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Article 15 2.75 percent | Article 15 3 percent",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 60.0,
     "comparison_n": 61
   },
@@ -3140,6 +3490,8 @@
     "missing_reason": "Worker premium burden not directly stated; employer contribution used only as proxy.",
     "years_detected": "",
     "evidence_pointer": "Article XIX A (p. 30)",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 50,
     "comparison_n": 1
   },
@@ -3158,7 +3510,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "1998;1999",
-    "evidence_pointer": "Appendix B salary schedule (pp. 28-29) | Appendix B salary schedule (p. 28) | Appendix B salary schedule (pp. 28-29)"
+    "evidence_pointer": "Appendix B salary schedule (pp. 28-29) | Appendix B salary schedule (p. 28) | Appendix B salary schedule (pp. 28-29)",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_3139",
@@ -3176,6 +3530,8 @@
     "missing_reason": "",
     "years_detected": "1998;1999",
     "evidence_pointer": "Appendix B salary schedule (p. 28) | Appendix B salary schedule (p. 28)",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 21.7,
     "comparison_n": 61
   },
@@ -3194,7 +3550,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_3161",
@@ -3212,6 +3570,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "new hires will be required to pay ten percent (10%) of the premium",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 66.7,
     "comparison_n": 13
   },
@@ -3231,6 +3591,8 @@
     "missing_reason": "Proxy for contribution intensity; not pension/health benefit generosity.",
     "years_detected": "",
     "evidence_pointer": "continue to make a 5% contribution",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 40.0,
     "comparison_n": 6
   },
@@ -3249,7 +3611,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "1994",
-    "evidence_pointer": "Salary Schedule B ... Daily Rates ... Biweekly Rates ... Annual Rates | 1994-95 Salary Schedule B"
+    "evidence_pointer": "Salary Schedule B ... Daily Rates ... Biweekly Rates ... Annual Rates | 1994-95 Salary Schedule B",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_3161",
@@ -3267,6 +3631,8 @@
     "missing_reason": "",
     "years_detected": "1995;1996;1997",
     "evidence_pointer": "Effective January 1, 1995, a 3% increase ... 1996 ... 1997 | SPECIAL ADJUSTMENTS",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 26.7,
     "comparison_n": 61
   },
@@ -3285,7 +3651,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Contribution amount found, but payment period/unit is unclear.",
     "years_detected": "",
-    "evidence_pointer": "GP20 / GP32 | GP20 / GP32 | GP20 / GP32"
+    "evidence_pointer": "GP20 / GP32 | GP20 / GP32 | GP20 / GP32",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_3190",
@@ -3303,6 +3671,8 @@
     "missing_reason": "",
     "years_detected": "2005;2006",
     "evidence_pointer": "GP30 / GP31 | GP30 / GP31 | GP30 / GP31",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 17.0,
     "comparison_n": 54
   },
@@ -3321,7 +3691,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_3300",
@@ -3338,7 +3710,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "2002;2003",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_3300",
@@ -3356,6 +3730,8 @@
     "missing_reason": "",
     "years_detected": "2002;2003",
     "evidence_pointer": "Salary schedule for licensed staff effective July 1, 2002 and July 1, 2003. | Salary schedule for licensed staff effective July 1, 2002 and July 1, 2003. | This salary schedule is for a 192-day work year.",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 15.1,
     "comparison_n": 54
   },
@@ -3374,7 +3750,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "2002;2003",
-    "evidence_pointer": "Salary tables are separately labeled effective July 1, 2002 and July 1, 2003. | Curriculum Rate of Pay is $27.06 per hour for 2002-03 and $27.60 per hour for 2003-04. | Curriculum Rate of Pay is $27.06 per hour for 2002-03 and $27.60 per hour for 2003-04."
+    "evidence_pointer": "Salary tables are separately labeled effective July 1, 2002 and July 1, 2003. | Curriculum Rate of Pay is $27.06 per hour for 2002-03 and $27.60 per hour for 2003-04. | Curriculum Rate of Pay is $27.06 per hour for 2002-03 and $27.60 per hour for 2003-04.",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_3300",
@@ -3391,7 +3769,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_3300",
@@ -3408,7 +3788,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "2002;2003;2004",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_3326",
@@ -3425,7 +3807,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Contribution amount found, but payment period/unit is unclear.",
     "years_detected": "2000;2001;2002;2003",
-    "evidence_pointer": "Employee premium shares in the 2000-2001 and 2002-2003 tables | Employee premium shares in the 2000-2001 and 2002-2003 tables | Employee premium shares in the 2000-2001 and 2002-2003 tables"
+    "evidence_pointer": "Employee premium shares in the 2000-2001 and 2002-2003 tables | Employee premium shares in the 2000-2001 and 2002-2003 tables | Employee premium shares in the 2000-2001 and 2002-2003 tables",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_3326",
@@ -3442,7 +3826,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "2002;2003",
-    "evidence_pointer": "Salary schedule set forth in Appendix H | Two-lane salary schedule by degree level | Two-lane salary schedule by degree level"
+    "evidence_pointer": "Salary schedule set forth in Appendix H | Two-lane salary schedule by degree level | Two-lane salary schedule by degree level",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_3326",
@@ -3460,6 +3846,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Increase salaries by 2.5% for 1999-2000 | Increase all salaries by 3.5% for 2000-2001 | Salary increased by 1.25% at each step and lane",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 45.0,
     "comparison_n": 61
   },
@@ -3478,7 +3866,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_3368",
@@ -3495,7 +3885,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Employer contribution amount found, but payment period/unit is unclear.",
     "years_detected": "2005;2006",
-    "evidence_pointer": "City contribution cap for benefits"
+    "evidence_pointer": "City contribution cap for benefits",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_3368",
@@ -3512,7 +3904,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": "Article Two and unit provisions | Unit provisions and appendices"
+    "evidence_pointer": "Article Two and unit provisions | Unit provisions and appendices",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_3368",
@@ -3530,6 +3924,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "General Salary Increase",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 53.3,
     "comparison_n": 61
   },
@@ -3548,7 +3944,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_3377",
@@ -3565,7 +3963,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": "Appendix B / Article 45, pp. 86-87 and 78-80 | Appendix B / Article 45, pp. 86-87 and 78-80"
+    "evidence_pointer": "Appendix B / Article 45, pp. 86-87 and 78-80 | Appendix B / Article 45, pp. 86-87 and 78-80",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_3377",
@@ -3583,6 +3983,8 @@
     "missing_reason": "",
     "years_detected": "2002",
     "evidence_pointer": "Article 45, pp. 78-80 | Article 45, pp. 78-80",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 13.3,
     "comparison_n": 61
   },
@@ -3602,6 +4004,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Pages 6-7 base-rate tables | Page 7 trainee line | Page 6 article 1 section 1",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 3.8,
     "comparison_n": 54
   },
@@ -3620,7 +4024,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "2006",
-    "evidence_pointer": "Page 7 QWA/COLA paragraph | Page 7 COLA paragraph | Page 7 CPI-discontinuation paragraph"
+    "evidence_pointer": "Page 7 QWA/COLA paragraph | Page 7 COLA paragraph | Page 7 CPI-discontinuation paragraph",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_3385",
@@ -3637,7 +4043,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_3385",
@@ -3654,7 +4062,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "1994",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_3389",
@@ -3671,7 +4081,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": "Section 3(a)-(b): base rates including salary or incremental schedules of the applicable titles in effect on the last day of the predecessor separate unit agreement."
+    "evidence_pointer": "Section 3(a)-(b): base rates including salary or incremental schedules of the applicable titles in effect on the last day of the predecessor separate unit agreement.",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_3389",
@@ -3689,6 +4101,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Section 2(a): employees receive a rate increase of 5 percent. | Section 2(a): effective on the first day of the applicable successor separate unit agreement. | Section 2(b): employees receive an additional rate increase of 5 percent.",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 43.3,
     "comparison_n": 61
   },
@@ -3708,6 +4122,8 @@
     "missing_reason": "",
     "years_detected": "2012",
     "evidence_pointer": "Any increase above 10% will be split fifty-fifty between the employer and the employee.",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 58.3,
     "comparison_n": 13
   },
@@ -3726,7 +4142,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "2012",
-    "evidence_pointer": "For the 2012 calendar year, employees will not receive a general across-the-board COLA. | For the 2012 calendar year ..."
+    "evidence_pointer": "For the 2012 calendar year, employees will not receive a general across-the-board COLA. | For the 2012 calendar year ...",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_3504",
@@ -3743,7 +4161,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_3504",
@@ -3760,7 +4180,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": "Page 24, Section 13.1 and page 26, Section 14.3 | Table of contents and page 24 reference to Appendix A"
+    "evidence_pointer": "Page 24, Section 13.1 and page 26, Section 14.3 | Table of contents and page 24 reference to Appendix A",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_3504",
@@ -3778,6 +4200,8 @@
     "missing_reason": "",
     "years_detected": "2009;2010;2011",
     "evidence_pointer": "Page 24, Section 13.1 | Page 24, Section 13.1 | Page 24, Section 13.1",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 20.0,
     "comparison_n": 61
   },
@@ -3797,6 +4221,8 @@
     "missing_reason": "Worker premium burden not directly stated; employer contribution used only as proxy.",
     "years_detected": "",
     "evidence_pointer": "Appendix A, section 1.1",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 8.3,
     "comparison_n": 13
   },
@@ -3815,7 +4241,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "1957",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_3506",
@@ -3833,6 +4261,8 @@
     "missing_reason": "",
     "years_detected": "2011;2013",
     "evidence_pointer": "Article 14.1 | Article 14.2 | Article 14.1-14.2",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 13.2,
     "comparison_n": 54
   },
@@ -3851,7 +4281,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "2011;2013",
-    "evidence_pointer": "Article 14.1-14.2 | Article 14.1-14.2 | Article 14.1-14.2"
+    "evidence_pointer": "Article 14.1-14.2 | Article 14.1-14.2 | Article 14.1-14.2",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_3523",
@@ -3868,7 +4300,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": "Schedule of Wages | Schedule of Wages"
+    "evidence_pointer": "Schedule of Wages | Schedule of Wages",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_3523",
@@ -3885,7 +4319,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "2015;2016;2017;2018",
-    "evidence_pointer": "Schedule of Wages | Schedule of Wages | Schedule of Wages"
+    "evidence_pointer": "Schedule of Wages | Schedule of Wages | Schedule of Wages",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_3523",
@@ -3903,6 +4339,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Health and Welfare | Health and Welfare | Health and Welfare",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 41.7,
     "comparison_n": 13
   },
@@ -3921,7 +4359,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "2016;2017;2018",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_3523",
@@ -3938,7 +4378,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_3558",
@@ -3956,6 +4398,8 @@
     "missing_reason": "Worker premium burden not directly stated; employer contribution used only as proxy.",
     "years_detected": "2013",
     "evidence_pointer": "Article 21.1.B and 21.1.E | Article 21.1.B and 21.1.E | Article 21.1.B and 21.1.E",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 83.3,
     "comparison_n": 13
   },
@@ -3974,7 +4418,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "2013",
-    "evidence_pointer": "Article 9.1 and Tables One/Two | Tables One and Two effective date"
+    "evidence_pointer": "Article 9.1 and Tables One/Two | Tables One and Two effective date",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_3558",
@@ -3992,6 +4438,8 @@
     "missing_reason": "",
     "years_detected": "2012;2013;2014;2015",
     "evidence_pointer": "Article 9.2 | Article 9.3.C-D",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 88.3,
     "comparison_n": 61
   },
@@ -4010,7 +4458,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Contribution amount found, but payment period/unit is unclear.",
     "years_detected": "2021",
-    "evidence_pointer": "Section 6.2.4 | Section 6.2.4"
+    "evidence_pointer": "Section 6.2.4 | Section 6.2.4",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_3671",
@@ -4028,6 +4478,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Appendix A | Appendix A | Appendix A, paragraph A",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 83.0,
     "comparison_n": 54
   },
@@ -4047,6 +4499,8 @@
     "missing_reason": "",
     "years_detected": "2020",
     "evidence_pointer": "Section 6.11.2 | HVAC Mechanic II LOA | Section 6.11.3",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 85.0,
     "comparison_n": 61
   },
@@ -4065,7 +4519,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": "base wage table and fringe column for all crafts | date rows in the wage tables"
+    "evidence_pointer": "base wage table and fringe column for all crafts | date rows in the wage tables",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_368",
@@ -4083,6 +4539,8 @@
     "missing_reason": "",
     "years_detected": "2008",
     "evidence_pointer": "1 cent per hour for each full .4 of a point change | This Article 31 is not in effect during the life of this 2008 Agreement",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 0.0,
     "comparison_n": 61
   },
@@ -4101,7 +4559,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_368",
@@ -4118,7 +4578,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_3684",
@@ -4136,6 +4598,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Appendix A lists two classifications. | Current Guard II hourly rate. | Effective Guard II hourly rate.",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 35.8,
     "comparison_n": 54
   },
@@ -4154,7 +4618,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "",
-    "evidence_pointer": "Guard II hourly rate increases from 22.68 to 22.88. | Lead Guard hourly rate increases from 23.68 to 23.88."
+    "evidence_pointer": "Guard II hourly rate increases from 22.68 to 22.88. | Lead Guard hourly rate increases from 23.68 to 23.88.",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_3684",
@@ -4171,7 +4637,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_3684",
@@ -4188,7 +4656,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_3807",
@@ -4205,7 +4675,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_3807",
@@ -4222,7 +4694,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_3807",
@@ -4239,7 +4713,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": "Article 24.1 wage table | Article 23.4 and Article 24.1 | Article 24.1"
+    "evidence_pointer": "Article 24.1 wage table | Article 23.4 and Article 24.1 | Article 24.1",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_3807",
@@ -4256,7 +4732,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "",
-    "evidence_pointer": "Article 24.1 table | Article 24.1 table"
+    "evidence_pointer": "Article 24.1 table | Article 24.1 table",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_3828",
@@ -4273,7 +4751,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "",
-    "evidence_pointer": "Article 5, page 2 | Article 5, page 2 | Article 5, page 2"
+    "evidence_pointer": "Article 5, page 2 | Article 5, page 2 | Article 5, page 2",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_3828",
@@ -4290,7 +4770,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_3908",
@@ -4307,7 +4789,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_3908",
@@ -4325,6 +4809,8 @@
     "missing_reason": "Proxy for contribution intensity; not pension/health benefit generosity.",
     "years_detected": "",
     "evidence_pointer": "page 21 Article 35 Retirement Plan",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 0.0,
     "comparison_n": 6
   },
@@ -4344,6 +4830,8 @@
     "missing_reason": "",
     "years_detected": "2024",
     "evidence_pointer": "page 12 Article 15 wage increases table | page 12 Article 15 wage increases table | page 12 Article 15 wage increases table",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 33.3,
     "comparison_n": 61
   },
@@ -4362,7 +4850,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_3920",
@@ -4379,7 +4869,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": "Schedule A provides the hourly rate tables."
+    "evidence_pointer": "Schedule A provides the hourly rate tables.",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_3920",
@@ -4396,7 +4888,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "",
-    "evidence_pointer": "Article 7.2 sets across-the-board wage increases of 4.00%, 2.00%, and 1.25%. | Article 7.2 sets across-the-board wage increases of 4.00%, 2.00%, and 1.25%. | Article 7.2 sets across-the-board wage increases of 4.00%, 2.00%, and 1.25%."
+    "evidence_pointer": "Article 7.2 sets across-the-board wage increases of 4.00%, 2.00%, and 1.25%. | Article 7.2 sets across-the-board wage increases of 4.00%, 2.00%, and 1.25%. | Article 7.2 sets across-the-board wage increases of 4.00%, 2.00%, and 1.25%.",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_3942",
@@ -4413,7 +4907,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_3942",
@@ -4430,7 +4926,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_3942",
@@ -4448,6 +4946,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Exhibit A wage schedule | Exhibit A wage schedule | Exhibit A wage schedule",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 34.0,
     "comparison_n": 54
   },
@@ -4466,7 +4966,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "",
-    "evidence_pointer": "Exhibit A wage schedule | Exhibit A wage schedule | Exhibit A wage schedule"
+    "evidence_pointer": "Exhibit A wage schedule | Exhibit A wage schedule | Exhibit A wage schedule",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_3943",
@@ -4483,7 +4985,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Contribution amount found, but payment period/unit is unclear.",
     "years_detected": "2007",
-    "evidence_pointer": "All employees receiving health care insurance benefits shall contribute two percent of their straight-time gross income as a pre-tax payroll deduction."
+    "evidence_pointer": "All employees receiving health care insurance benefits shall contribute two percent of their straight-time gross income as a pre-tax payroll deduction.",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_3943",
@@ -4500,7 +5004,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "2023",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_3943",
@@ -4517,7 +5023,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": "The table on page 7 lists base hourly rates and annual rates by classification for multiple contract years. | The table contains PMW/blank cells and partially recovered rows."
+    "evidence_pointer": "The table on page 7 lists base hourly rates and annual rates by classification for multiple contract years. | The table contains PMW/blank cells and partially recovered rows.",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_3943",
@@ -4535,6 +5043,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Rate of compensation shall be 3.50% increases for every year of the four-year contract. | The wage table shows 3.50% hourly rates for each of the four contract years.",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 70.0,
     "comparison_n": 61
   },
@@ -4553,7 +5063,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Contribution amount found, but payment period/unit is unclear.",
     "years_detected": "",
-    "evidence_pointer": "11.1A | 11.1A | 11.1A"
+    "evidence_pointer": "11.1A | 11.1A | 11.1A",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_4005",
@@ -4570,7 +5082,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "2009;2017;2020",
-    "evidence_pointer": "Appendix A | Appendix A / Section 16"
+    "evidence_pointer": "Appendix A | Appendix A / Section 16",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_4005",
@@ -4588,6 +5102,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "6.4 | 6.4",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 96.7,
     "comparison_n": 61
   },
@@ -4606,7 +5122,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_4016",
@@ -4624,6 +5142,8 @@
     "missing_reason": "",
     "years_detected": "2019",
     "evidence_pointer": "App. A wages table starting wage rates | App. A wages table starting wage rates | App. A wages table starting wage rates",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 9.4,
     "comparison_n": 54
   },
@@ -4643,6 +5163,8 @@
     "missing_reason": "",
     "years_detected": "2019",
     "evidence_pointer": "App. A GWI table | App. A GWI table | App. A GWI table",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 18.3,
     "comparison_n": 61
   },
@@ -4661,7 +5183,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "2002",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_403",
@@ -4679,6 +5203,8 @@
     "missing_reason": "",
     "years_detected": "2002;2005",
     "evidence_pointer": "pp. 1-2, art. 2.1-2.3 | pp. 1-2, art. 2.1-2.3 | pp. 1-2, art. 2.1-2.3",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 28.3,
     "comparison_n": 54
   },
@@ -4697,7 +5223,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "2002;2005",
-    "evidence_pointer": "pp. 1-2, art. 2.1-2.3 | pp. 1-2, art. 2.1-2.3 | pp. 1-2, art. 2.1-2.3"
+    "evidence_pointer": "pp. 1-2, art. 2.1-2.3 | pp. 1-2, art. 2.1-2.3 | pp. 1-2, art. 2.1-2.3",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_4047",
@@ -4715,6 +5243,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "p.4-5, Art. VII wage table | p.4-5, Art. VII wage table | p.4-5, Art. VII wage table",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 58.5,
     "comparison_n": 54
   },
@@ -4734,6 +5264,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "p.10, Art. IX §2(A)",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 33.3,
     "comparison_n": 13
   },
@@ -4752,7 +5284,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_4059",
@@ -4769,7 +5303,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Employer contribution amount found, but payment period/unit is unclear.",
     "years_detected": "",
-    "evidence_pointer": "Article 19 section 1"
+    "evidence_pointer": "Article 19 section 1",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_4059",
@@ -4786,7 +5322,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Contribution amount found, but payment period/unit is unclear.",
     "years_detected": "",
-    "evidence_pointer": "Article 19 section 3"
+    "evidence_pointer": "Article 19 section 3",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_4059",
@@ -4804,6 +5342,8 @@
     "missing_reason": "",
     "years_detected": "2023;2024;2025",
     "evidence_pointer": "Article 18 wages | Article 18 wages | Article 18 wages",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 50.9,
     "comparison_n": 54
   },
@@ -4822,7 +5362,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "2021",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_4060",
@@ -4839,7 +5381,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_4060",
@@ -4856,7 +5400,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "2021;2022",
-    "evidence_pointer": "Article XVII wage table | Article XVII wage table | Article XVII table footer"
+    "evidence_pointer": "Article XVII wage table | Article XVII wage table | Article XVII table footer",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_4060",
@@ -4874,6 +5420,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Article XVII wage table | Article XVII wage table",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 65.0,
     "comparison_n": 61
   },
@@ -4892,7 +5440,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": "page 013 article 3 section 18A | pages 108-114 wage schedule tables"
+    "evidence_pointer": "page 013 article 3 section 18A | pages 108-114 wage schedule tables",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_413",
@@ -4910,6 +5460,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "pages 108-114 wage schedule tables | pages 108-114 wage schedule tables",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 76.7,
     "comparison_n": 61
   },
@@ -4929,6 +5481,8 @@
     "missing_reason": "",
     "years_detected": "2006",
     "evidence_pointer": "page 041 medical premium table",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 0.0,
     "comparison_n": 13
   },
@@ -4947,7 +5501,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_413",
@@ -4964,7 +5520,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_4135",
@@ -4981,7 +5539,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Employer contribution amount found, but payment period/unit is unclear.",
     "years_detected": "",
-    "evidence_pointer": "Article 13.1 employer pays 100% of employee premium | Article 13.1 90% for dependents"
+    "evidence_pointer": "Article 13.1 employer pays 100% of employee premium | Article 13.1 90% for dependents",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_4135",
@@ -4999,6 +5559,8 @@
     "missing_reason": "",
     "years_detected": "2020",
     "evidence_pointer": "Appendix A.1 effective January 01, 2020 | Appendix A.1 classification wage table | Appendix A.1 classification wage table",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 18.9,
     "comparison_n": 54
   },
@@ -5018,6 +5580,8 @@
     "missing_reason": "",
     "years_detected": "2019;2020;2021",
     "evidence_pointer": "Appendix A.1 states 3% adjustment to 2019 salaries | Appendix A.1.1 CPI-W formula | Appendix A.1.2 CPI-W formula",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 11.7,
     "comparison_n": 61
   },
@@ -5036,7 +5600,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Contribution amount found, but payment period/unit is unclear.",
     "years_detected": "",
-    "evidence_pointer": "Article 16.1.2 employer pays $1.10 per hour into the pension trust | Article 16.1.3 ten cents per hour during the probationary period"
+    "evidence_pointer": "Article 16.1.2 employer pays $1.10 per hour into the pension trust | Article 16.1.3 ten cents per hour during the probationary period",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_4145",
@@ -5054,6 +5620,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Minimum Journeyman's rate | Minimum Foreman's rate | Minimum Superintendent's rate",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 84.9,
     "comparison_n": 54
   },
@@ -5073,6 +5641,8 @@
     "missing_reason": "",
     "years_detected": "2019;2020;2021;2022;2023;2024;2025;2026;2027;2028;2029",
     "evidence_pointer": "The aggregate compensation shall be increased by each of the following sums | The aggregate compensation shall be increased by each of the following sums | The aggregate compensation shall be increased by each of the following sums",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 91.7,
     "comparison_n": 61
   },
@@ -5091,7 +5661,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Employer contribution amount found, but payment period/unit is unclear.",
     "years_detected": "",
-    "evidence_pointer": "contribute and pay into Bricklayers Local Union No. 1 of Missouri Welfare Fund $9.59 per hour"
+    "evidence_pointer": "contribute and pay into Bricklayers Local Union No. 1 of Missouri Welfare Fund $9.59 per hour",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_4145",
@@ -5108,7 +5680,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_4198",
@@ -5125,7 +5699,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_4198",
@@ -5142,7 +5718,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "2022",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_4198",
@@ -5159,7 +5737,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_4198",
@@ -5177,6 +5757,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Stipulation II Minimum Rates tables | Per Diem employees will receive at least 15% above the minimum rate",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 11.3,
     "comparison_n": 54
   },
@@ -5196,6 +5778,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Effective January 1, 2020 ... three percent ... January 2021 ... three percent ... January 2022 ... three percent ... September 1, 2022 ... one percent",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 50.0,
     "comparison_n": 61
   },
@@ -5214,7 +5798,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": "Article 18.1 and TOC"
+    "evidence_pointer": "Article 18.1 and TOC",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_4201",
@@ -5232,6 +5818,8 @@
     "missing_reason": "",
     "years_detected": "2018;2019;2021",
     "evidence_pointer": "Articles 18.3-18.5 | Articles 18.3-18.5 | Articles 18.3-18.5",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 30.0,
     "comparison_n": 61
   },
@@ -5250,7 +5838,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_4220",
@@ -5267,7 +5857,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "2020;2021;2022",
-    "evidence_pointer": "pages 41-42 and 73 | page 41, Article 20, Section 1A | pages 41-42 and 73"
+    "evidence_pointer": "pages 41-42 and 73 | page 41, Article 20, Section 1A | pages 41-42 and 73",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_4220",
@@ -5285,6 +5877,8 @@
     "missing_reason": "",
     "years_detected": "2020;2021;2022",
     "evidence_pointer": "page 41, Article 20, Section 1A | page 41, Article 20, Section 1A | page 41, Article 20, Section 1A",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 1.7,
     "comparison_n": 61
   },
@@ -5303,7 +5897,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_4244",
@@ -5320,7 +5916,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "2017",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_4244",
@@ -5337,7 +5935,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "2018;2019;2021",
-    "evidence_pointer": "Appendix A sections 1-3 | Appendix A sections 1-3 | Appendix A sections 1-3"
+    "evidence_pointer": "Appendix A sections 1-3 | Appendix A sections 1-3 | Appendix A sections 1-3",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_4244",
@@ -5355,6 +5955,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Article 7.2-7.4",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 56.7,
     "comparison_n": 61
   },
@@ -5373,7 +5975,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "2020;2023",
-    "evidence_pointer": "Appendix B and Article 32 | Appendix B and Article 32 | Appendix B"
+    "evidence_pointer": "Appendix B and Article 32 | Appendix B and Article 32 | Appendix B",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_4362",
@@ -5391,6 +5995,8 @@
     "missing_reason": "",
     "years_detected": "2020;2021;2022;2023",
     "evidence_pointer": "Article 32 Section 1",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 6.7,
     "comparison_n": 61
   },
@@ -5410,6 +6016,8 @@
     "missing_reason": "Proxy for contribution intensity; not pension/health benefit generosity.",
     "years_detected": "",
     "evidence_pointer": "Article 33 Section 1 | Article 33 Section 1",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 60.0,
     "comparison_n": 6
   },
@@ -5428,7 +6036,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_4461",
@@ -5445,7 +6055,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": "Appendix I rate table"
+    "evidence_pointer": "Appendix I rate table",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_4461",
@@ -5463,6 +6075,8 @@
     "missing_reason": "",
     "years_detected": "2022;2023;2024;2025",
     "evidence_pointer": "Article IV Section 7(B) | Article IV Section 7(B) | Article IV Section 7(B)",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 58.3,
     "comparison_n": 61
   },
@@ -5481,7 +6095,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Employer contribution amount found, but payment period/unit is unclear.",
     "years_detected": "",
-    "evidence_pointer": "p.17 Article 21 contribution clause"
+    "evidence_pointer": "p.17 Article 21 contribution clause",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_4532",
@@ -5499,6 +6115,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "p.3 Article 5 wage clause | p.29 residential wage table",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 100.0,
     "comparison_n": 54
   },
@@ -5517,7 +6135,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "2025;2026;2027;2028;2029",
-    "evidence_pointer": "p.3 Article 5 increase schedule | p.3 Article 5 increase schedule | p.3 Article 5 increase schedule"
+    "evidence_pointer": "p.3 Article 5 increase schedule | p.3 Article 5 increase schedule | p.3 Article 5 increase schedule",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_4532",
@@ -5534,7 +6154,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_4555",
@@ -5551,7 +6173,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_4555",
@@ -5568,7 +6192,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_4555",
@@ -5585,7 +6211,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_4555",
@@ -5602,7 +6230,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "2022;2023;2024;2025;2026",
-    "evidence_pointer": "Article IX, Section 1 lists the five annual total-package increases. | Article IX, Section 1 gives allocation discretion to the Union Executive Committee. | Article IX, Section 1 requires written notice before the effective date."
+    "evidence_pointer": "Article IX, Section 1 lists the five annual total-package increases. | Article IX, Section 1 gives allocation discretion to the Union Executive Committee. | Article IX, Section 1 requires written notice before the effective date.",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_4607",
@@ -5620,6 +6250,8 @@
     "missing_reason": "",
     "years_detected": "2024;2025;2026",
     "evidence_pointer": "Appendix A gives the hourly rate table across the three contract years. | Appendix A labels the three date columns. | Appendix A is labeled Hourly Rate.",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 90.6,
     "comparison_n": 54
   },
@@ -5639,6 +6271,8 @@
     "missing_reason": "",
     "years_detected": "2024;2025;2026",
     "evidence_pointer": "Appendix A displays the three annual percentage columns. | The table places the percentages above the hourly rates.",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 55.0,
     "comparison_n": 61
   },
@@ -5658,6 +6292,8 @@
     "missing_reason": "Proxy for contribution intensity; not pension/health benefit generosity.",
     "years_detected": "",
     "evidence_pointer": "Article 22.02 states the 50 percent match on the first 6 percent of employee contributions. | Article 22.02 states the 50 percent match on the first 6 percent of employee contributions.",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 100.0,
     "comparison_n": 6
   },
@@ -5676,7 +6312,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": "Appendix C tables | Appendix C tables | Appendix C table header"
+    "evidence_pointer": "Appendix C tables | Appendix C tables | Appendix C table header",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_4612",
@@ -5694,6 +6332,8 @@
     "missing_reason": "",
     "years_detected": "2025;2026",
     "evidence_pointer": "Article 38 Section 1 | Article 38 reopener language | Article 38 reopener language",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 16.7,
     "comparison_n": 61
   },
@@ -5713,6 +6353,8 @@
     "missing_reason": "",
     "years_detected": "2024",
     "evidence_pointer": "Article 31 Section 1 | Article 31 Section 1",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 75.0,
     "comparison_n": 13
   },
@@ -5731,7 +6373,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_4612",
@@ -5748,7 +6392,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_465",
@@ -5766,6 +6412,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Exhibit A wage tables | Article X, p. 23 | Exhibit A",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 86.8,
     "comparison_n": 54
   },
@@ -5785,6 +6433,8 @@
     "missing_reason": "",
     "years_detected": "2011;2012;2013;2014;2015",
     "evidence_pointer": "p. 28, 70 | p. 28, 70",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 41.7,
     "comparison_n": 61
   },
@@ -5804,6 +6454,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "wage rates in the appendix and effective date schedule | plant list",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 69.8,
     "comparison_n": 54
   },
@@ -5823,6 +6475,8 @@
     "missing_reason": "",
     "years_detected": "2004;2005;2006;2007",
     "evidence_pointer": "3.5%, 3.5%, and 3.25% effective dates | continues in effect until June 30, 2007 | higher than classified rate and former rate increased by applicable general increase",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 10.0,
     "comparison_n": 61
   },
@@ -5842,6 +6496,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Article V, Section 28(a)",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 91.7,
     "comparison_n": 13
   },
@@ -5860,7 +6516,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_492",
@@ -5878,6 +6536,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Article V, Section 25(a) and tables | Attachment C and Exhibit B",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 67.9,
     "comparison_n": 54
   },
@@ -5897,6 +6557,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Article V, Section 25 footnotes",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 36.7,
     "comparison_n": 61
   },
@@ -5915,7 +6577,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "2001;2002",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_502",
@@ -5932,7 +6596,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "2001;2002;2003",
-    "evidence_pointer": "pages 44-58, Appendix I | pages 44-58, Appendix I | pages 44-58, Appendix I"
+    "evidence_pointer": "pages 44-58, Appendix I | pages 44-58, Appendix I | pages 44-58, Appendix I",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_502",
@@ -5950,6 +6616,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "page 44-45, Article XX(a) | page 44-45, Article XX(a) | page 44-45, Article XX(a)",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 71.7,
     "comparison_n": 61
   },
@@ -5968,7 +6636,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_593",
@@ -5986,6 +6656,8 @@
     "missing_reason": "",
     "years_detected": "2003",
     "evidence_pointer": "Article 10.1H1c | Article 10.1H1c | Article 10.1H1c",
+    "confidence_tier": "A",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 16.7,
     "comparison_n": 13
   },
@@ -6005,6 +6677,8 @@
     "missing_reason": "",
     "years_detected": "2003;2004;2006;2007",
     "evidence_pointer": "Pages 30-34 wage tables | Page 35 mileage schedule | Pages 30-35 wage tables",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 24.5,
     "comparison_n": 54
   },
@@ -6023,7 +6697,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "",
-    "evidence_pointer": "Pages 30-34 wage tables | Page 35 mileage table | Pages 30-35 tables"
+    "evidence_pointer": "Pages 30-34 wage tables | Page 35 mileage table | Pages 30-35 tables",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_610",
@@ -6040,7 +6716,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Contribution amount found, but payment period/unit is unclear.",
     "years_detected": "",
-    "evidence_pointer": "Article 22.01-22.04 | Article 22.01-22.04"
+    "evidence_pointer": "Article 22.01-22.04 | Article 22.01-22.04",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_610",
@@ -6057,7 +6735,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": "Schedule A pages 22-24, 27-39 | Schedule A columns | Schedule A and pages 38-39"
+    "evidence_pointer": "Schedule A pages 22-24, 27-39 | Schedule A columns | Schedule A and pages 38-39",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_610",
@@ -6074,7 +6754,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "",
-    "evidence_pointer": "Schedule A date columns and page 38 timing language | Page 38 | Schedule A and page 38-39"
+    "evidence_pointer": "Schedule A date columns and page 38 timing language | Page 38 | Schedule A and page 38-39",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_641",
@@ -6091,7 +6773,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "2006;2009",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_641",
@@ -6108,7 +6792,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "2006;2010",
-    "evidence_pointer": "GP_03 / article 36 tables | GP_03 / article 36 tables | GP_03 / article 36 tables"
+    "evidence_pointer": "GP_03 / article 36 tables | GP_03 / article 36 tables | GP_03 / article 36 tables",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_641",
@@ -6125,7 +6811,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "2006;2010",
-    "evidence_pointer": "GP_03 / article 36 wage-increase tables | GP_03 / article 36 wage-increase tables"
+    "evidence_pointer": "GP_03 / article 36 wage-increase tables | GP_03 / article 36 wage-increase tables",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_658",
@@ -6143,6 +6831,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Article 6.01-6.07 and Chef Express LOU | Article 6.01-6.07 and Chef Express LOU | Article 6.01, 6.11",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 5.7,
     "comparison_n": 54
   },
@@ -6161,7 +6851,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "",
-    "evidence_pointer": "Article 6.01 | Article 6 tables"
+    "evidence_pointer": "Article 6.01 | Article 6 tables",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_658",
@@ -6178,7 +6870,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric worker or employer contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric worker or employer contribution detected in structured fields."
   },
   {
     "document_id": "DOL_658",
@@ -6195,7 +6889,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Contribution amount found, but payment period/unit is unclear.",
     "years_detected": "",
-    "evidence_pointer": "Article 7.06 and Chef Express LOU | Article 7.06 and Chef Express LOU"
+    "evidence_pointer": "Article 7.06 and Chef Express LOU | Article 7.06 and Chef Express LOU",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_778",
@@ -6213,6 +6909,8 @@
     "missing_reason": "Worker premium burden not directly stated; employer contribution used only as proxy.",
     "years_detected": "2003",
     "evidence_pointer": "Producer shall pay into the Plan one dollar, five and eight-tenths cents ($1.058) until August 3, 2003 (one dollar, twenty-five and eight-tenths cents ($1.258) effective August 3, 2003) for each hour guaranteed or worked | Producer shall pay into the Plan one dollar, five and eight-tenths cents ($1.058) until August 3, 2003 (one dollar, twenty-five and eight-tenths cents ($1.258) effective August 3, 2003) for each hour guaranteed or worked | Producer shall pay into the Plan one dollar, five and eight-tenths cents ($1.058) until August 3, 2003 (one dollar, twenty-five and eight-tenths cents ($1.258) effective August 3, 2003) for each hour guaranteed or worked",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 0.0,
     "comparison_n": 7
   },
@@ -6231,7 +6929,9 @@
     "coverage_flag": "missing_numeric_rate",
     "missing_reason": "No regular hourly wage amount detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": "Minimum rates for single session and double session are stated in the recording-musician table | Daily schedule and weekly schedule tables list minimum pay for production musicians | Basic scales for sideline musicians list minimum pay for eight hours and related call rules"
+    "evidence_pointer": "Minimum rates for single session and double session are stated in the recording-musician table | Daily schedule and weekly schedule tables list minimum pay for production musicians | Basic scales for sideline musicians list minimum pay for eight hours and related call rules",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No regular hourly wage amount detected in structured fields."
   },
   {
     "document_id": "DOL_778",
@@ -6248,7 +6948,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "",
-    "evidence_pointer": "Across the tables, the 2003 and 2004 figures exceed the 2002 figures"
+    "evidence_pointer": "Across the tables, the 2003 and 2004 figures exceed the 2002 figures",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_923",
@@ -6265,7 +6967,9 @@
     "coverage_flag": "unclear_unit",
     "missing_reason": "Employer contribution amount found, but payment period/unit is unclear.",
     "years_detected": "",
-    "evidence_pointer": "Health & Welfare $3.95 in Section V fringe table and appendix fringe tables"
+    "evidence_pointer": "Health & Welfare $3.95 in Section V fringe table and appendix fringe tables",
+    "confidence_tier": "C",
+    "rank_exclusion_reason": "Extracted value has unclear payment period or unit, so it is not ranked."
   },
   {
     "document_id": "DOL_923",
@@ -6282,7 +6986,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_923",
@@ -6299,7 +7005,9 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   },
   {
     "document_id": "DOL_923",
@@ -6317,6 +7025,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "Journeyman Carpenter $32.63 in Zone 1 | Journeyman Millwright $30.99 in Appendix C Zone 1 | Appendix E journeyman carpenter wage $29.32",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 79.2,
     "comparison_n": 54
   },
@@ -6335,7 +7045,9 @@
     "coverage_flag": "extracted_no_common_unit",
     "missing_reason": "Needs base wage or explicit percent schedule.",
     "years_detected": "2007;2008;2009;2010",
-    "evidence_pointer": "Section V, para 501; page 13 | Appendix B wage table increase lines; page 36 | Appendix C, para 5000; page 36"
+    "evidence_pointer": "Section V, para 501; page 13 | Appendix B wage table increase lines; page 36 | Appendix C, para 5000; page 36",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "Needs base wage or explicit percent schedule."
   },
   {
     "document_id": "DOL_946",
@@ -6353,6 +7065,8 @@
     "missing_reason": "Worker premium burden not directly stated; employer contribution used only as proxy.",
     "years_detected": "1994",
     "evidence_pointer": "Employer agrees to pay $2.88 per hour for each hour worked by each employee other than Apprentices",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 16.7,
     "comparison_n": 7
   },
@@ -6372,6 +7086,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "J.W. BASE table | Imperial County ... plus $3.00 per hour",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 73.6,
     "comparison_n": 54
   },
@@ -6391,6 +7107,8 @@
     "missing_reason": "",
     "years_detected": "",
     "evidence_pointer": "minimum rates rise by effective date | further increases shall become effective in increments of twenty cents per hour for each and every two percent increase",
+    "confidence_tier": "B",
+    "rank_exclusion_reason": "",
     "pilot_percentile": 98.3,
     "comparison_n": 61
   },
@@ -6409,6 +7127,8 @@
     "coverage_flag": "missing_numeric_contribution",
     "missing_reason": "No numeric employer fund contribution detected in structured fields.",
     "years_detected": "",
-    "evidence_pointer": ""
+    "evidence_pointer": "",
+    "confidence_tier": "D",
+    "rank_exclusion_reason": "No numeric employer fund contribution detected in structured fields."
   }
 ]
