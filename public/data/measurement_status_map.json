@@ -2,7 +2,7 @@
   {
     "domain": "Leave",
     "empirical_object": "Paid and protected time away from work.",
-    "current_status": "score-ready core",
+    "current_status": "score-ready",
     "documents_with_records": 93,
     "record_count": 411,
     "documents_with_score_ready_records": 91,
@@ -11,7 +11,7 @@
   {
     "domain": "Due process",
     "empirical_object": "Grievance, arbitration, discipline, just-cause, and appeal protections.",
-    "current_status": "score-ready core",
+    "current_status": "score-ready",
     "documents_with_records": 96,
     "record_count": 335,
     "documents_with_score_ready_records": 90,
@@ -20,7 +20,7 @@
   {
     "domain": "Premium pay",
     "empirical_object": "Extra compensation for overtime, shift work, call-in/reporting, standby, or special assignments.",
-    "current_status": "score-ready core",
+    "current_status": "score-ready",
     "documents_with_records": 91,
     "record_count": 273,
     "documents_with_score_ready_records": 84,
@@ -29,7 +29,7 @@
   {
     "domain": "Wages",
     "empirical_object": "Base rates, wage schedules, wage progression, and scheduled increases.",
-    "current_status": "normalization required",
+    "current_status": "relative metric",
     "documents_with_records": 98,
     "record_count": 264,
     "documents_with_score_ready_records": 0,
@@ -38,7 +38,7 @@
   {
     "domain": "Health",
     "empirical_object": "Active medical contribution, plan design, dental, vision, and related benefits.",
-    "current_status": "partly score-ready",
+    "current_status": "mixed: profile and relative metric",
     "documents_with_records": 93,
     "record_count": 236,
     "documents_with_score_ready_records": 52,
@@ -47,7 +47,7 @@
   {
     "domain": "Job security",
     "empirical_object": "Layoff order, recall, severance, and benefit continuation.",
-    "current_status": "score-ready core",
+    "current_status": "score-ready",
     "documents_with_records": 80,
     "record_count": 190,
     "documents_with_score_ready_records": 75,
@@ -56,7 +56,7 @@
   {
     "domain": "Union voice",
     "empirical_object": "Union access, representation time, dues/security, and workplace voice provisions.",
-    "current_status": "partly score-ready",
+    "current_status": "recorded/profile",
     "documents_with_records": 90,
     "record_count": 120,
     "documents_with_score_ready_records": 87,
@@ -65,7 +65,7 @@
   {
     "domain": "Retirement/external funds",
     "empirical_object": "Pension, annuity, welfare, trust, and other external-fund provisions.",
-    "current_status": "proxy/profile",
+    "current_status": "relative proxy",
     "documents_with_records": 72,
     "record_count": 91,
     "documents_with_score_ready_records": 1,
@@ -74,7 +74,7 @@
   {
     "domain": "Scope/seniority/mobility",
     "empirical_object": "Other retained worker-facing provisions.",
-    "current_status": "profile or future module",
+    "current_status": "recorded/profile",
     "documents_with_records": 58,
     "record_count": 74,
     "documents_with_score_ready_records": 0,
@@ -83,7 +83,7 @@
   {
     "domain": "Safety",
     "empirical_object": "PPE, unsafe-work refusal, assault/violence, and related safety provisions.",
-    "current_status": "partly score-ready",
+    "current_status": "candidate score-ready",
     "documents_with_records": 76,
     "record_count": 80,
     "documents_with_score_ready_records": 73,
@@ -92,7 +92,7 @@
   {
     "domain": "Scheduling/workload",
     "empirical_object": "Schedule notice, hours frameworks, workload, staffing, and schedule-change rules.",
-    "current_status": "profile or future module",
+    "current_status": "recorded/profile",
     "documents_with_records": 25,
     "record_count": 52,
     "documents_with_score_ready_records": 0,
@@ -101,7 +101,7 @@
   {
     "domain": "Other",
     "empirical_object": "Other retained worker-facing provisions.",
-    "current_status": "profile or future module",
+    "current_status": "recorded/profile",
     "documents_with_records": 57,
     "record_count": 81,
     "documents_with_score_ready_records": 1,

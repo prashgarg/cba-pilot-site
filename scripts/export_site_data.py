@@ -327,14 +327,18 @@ def domain_description(family: str) -> str:
 
 def domain_status(family: str) -> str:
     if family in {"Leave", "Due process", "Premium pay", "Job security"}:
-        return "score-ready core"
-    if family in {"Health", "Safety", "Union voice"}:
-        return "partly score-ready"
+        return "score-ready"
+    if family == "Health":
+        return "mixed: profile and relative metric"
+    if family == "Safety":
+        return "candidate score-ready"
+    if family == "Union voice":
+        return "recorded/profile"
     if family == "Wages":
-        return "normalization required"
+        return "relative metric"
     if family == "Retirement/external funds":
-        return "proxy/profile"
-    return "profile or future module"
+        return "relative proxy"
+    return "recorded/profile"
 
 
 def main() -> None:

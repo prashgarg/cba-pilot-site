@@ -49,6 +49,14 @@ const DISPLAY_LABELS = {
   worker_burden: "Worker burden",
   employer_proxy: "Employer proxy",
   proxy_not_benefit_design: "Contribution proxy",
+  comparable_direct: "Ranked",
+  rankable_proxy: "Ranked proxy",
+  unranked_retained: "Retained, not ranked",
+  no_usable_numeric_value: "No usable numeric value",
+  direct_or_comparable: "Comparable",
+  proxy: "Proxy",
+  insufficient_unit_or_object: "Unit or object unclear",
+  no_numeric_value: "No numeric value",
   mean_explicit_percent_schedule: "Mean explicit percent schedule",
   mean_dollar_increment_over_base_proxy: "Dollar increment over base proxy",
   highest_stated_regular_hourly_rate_proxy: "Highest stated hourly rate",
@@ -64,9 +72,9 @@ const DISPLAY_LABELS = {
 const displayLabel = (value = "") => DISPLAY_LABELS[value] ?? humanizeId(value);
 
 const statusTone = (status = "") => {
-  if (status.includes("score_ready") || status === "scoreable") return "good";
-  if (status.includes("candidate") || status.includes("pilot")) return "warn";
-  if (status.includes("external") || status.includes("normalization")) return "cool";
+  if (status.includes("score-ready") || status.includes("score_ready") || status === "scoreable") return "good";
+  if (status.includes("candidate") || status.includes("review")) return "warn";
+  if (status.includes("external") || status.includes("common") || status.includes("relative") || status.includes("proxy")) return "cool";
   return "muted";
 };
 
@@ -96,12 +104,12 @@ const provisionStatus = (record, score) => {
   if (numeric && status === "scoreable_with_flags") return ["Scored with caution", "warn", "scored"];
   if (numeric) return ["Scored", "good", "scored"];
   const labels = {
-    record_only: ["Recorded only", "muted", "recorded"],
-    framework_only: ["Recorded only", "muted", "recorded"],
+    record_only: ["Recorded/profile", "muted", "recorded"],
+    framework_only: ["Recorded/profile", "muted", "recorded"],
     not_scoreable_ambiguous: ["Not scored", "muted", "not_scored"],
     not_scoreable_administrative: ["Not scored", "muted", "not_scored"],
     not_scoreable_external: ["External inputs needed", "cool", "external"],
-    normalization_required: ["Needs normalization", "cool", "normalization"],
+    normalization_required: ["Needs common units", "cool", "normalization"],
     requires_agentic_review: ["Needs review", "warn", "review"]
   };
   if (labels[status]) return labels[status];
@@ -112,8 +120,12 @@ const provisionStatus = (record, score) => {
 const recordedOnlySubtype = (record) => {
   const info = scoreabilityInfo(record);
   const status = info.status ?? "";
-  const reason = (info.reason ?? "").toLowerCase();
-  const missing = (info.missing_or_external_inputs ?? []).join(" ").toLowerCase();
+  const reason = String(info.reason ?? "").toLowerCase();
+  const missingInputs = info.missing_or_external_inputs ?? [];
+  const missing = (Array.isArray(missingInputs) ? missingInputs : [missingInputs])
+    .map((item) => formatNestedValue(item))
+    .join(" ")
+    .toLowerCase();
   const role = (record.aggregation_role ?? "").toLowerCase();
   const text = [status, reason, missing, role].join(" ");
 
@@ -121,7 +133,7 @@ const recordedOnlySubtype = (record) => {
     return "Requires external info";
   }
   if (status === "normalization_required" || text.includes("normalization") || text.includes("inflation") || text.includes("wage table")) {
-    return "Needs normalization";
+    return "Needs common units";
   }
   if (status === "requires_agentic_review" || text.includes("review") || text.includes("disentangle") || text.includes("exact")) {
     return "Needs review";
@@ -132,7 +144,7 @@ const recordedOnlySubtype = (record) => {
   if (text.includes("statutory") || text.includes("baseline comparison")) {
     return "Statutory baseline unclear";
   }
-  if (text.includes("no calibrated") || text.includes("not calibrated") || text.includes("scalar-ready") || text.includes("no scalar") || text.includes("framework") || text.includes("proxy") || text.includes("fixed scalar") || text.includes("scoring rubric") || text.includes("scalar rubric") || text.includes("scalar module")) {
+  if (text.includes("no calibrated") || text.includes("not calibrated") || text.includes("score-ready") || text.includes("scalar-ready") || text.includes("no scalar") || text.includes("framework") || text.includes("proxy") || text.includes("fixed scalar") || text.includes("scoring rubric") || text.includes("scalar rubric") || text.includes("scalar module")) {
     return "Scoring rule not set";
   }
   if (text.includes("committee") || text.includes("governance") || text.includes("advisory") || text.includes("context") || text.includes("scope")) {
@@ -151,10 +163,10 @@ const STATUS_FILTERS = [
   ["All", "All statuses"],
   ["scored", "Scored"],
   ["missing_score", "Score-ready, no draft score"],
-  ["withheld", "Structured, no score"],
-  ["recorded", "Recorded only"],
+  ["withheld", "Recorded, score withheld"],
+  ["recorded", "Recorded/profile"],
   ["external", "External inputs needed"],
-  ["normalization", "Needs normalization"],
+  ["normalization", "Needs common units"],
   ["review", "Needs review"],
   ["not_scored", "Not scored"]
 ];
@@ -164,7 +176,7 @@ const SUBTYPE_FILTERS = [
   ["Context", "Context"],
   ["Requires external info", "Requires external info"],
   ["Scoring rule not set", "Scoring rule not set"],
-  ["Needs normalization", "Needs normalization"],
+  ["Needs common units", "Needs common units"],
   ["Needs review", "Needs review"],
   ["Statutory baseline unclear", "Statutory baseline unclear"],
   ["Avoids double counting", "Avoids double counting"],
@@ -176,7 +188,7 @@ const DOCUMENT_FILTERS = [
   ["All", "All documents"],
   ["scored", "Has scored provisions"],
   ["missing_score", "Score-ready, no draft score"],
-  ["withheld", "Structured, no score"],
+  ["withheld", "Recorded, score withheld"],
   ["review", "Needs review"],
   ["rejected", "Has rejected values"]
 ];
@@ -218,15 +230,15 @@ const groupByFamily = (records) => {
 };
 
 const HELP = {
-  domainScores: "Domain profiles summarize provisions with numeric draft scores. Blank means no scalar score is available for that family, not zero generosity.",
-  scoreability: "Score-ready provisions have enough CBA-contained evidence for a draft scalar score. Structured, no score means the provision was extracted but the scalar score was withheld pending normalization, branch choice, or external inputs.",
+  domainScores: "Domain profiles summarize provisions with local draft scores. A blank cell means no local scalar score is available; it is not a zero.",
+  scoreability: "Score-ready provisions have enough CBA-contained evidence for a draft local score. Other provisions are retained as profile, external-source, common-unit, or review cases.",
   rejected: "Values the protocol saw but refused to use, usually because they were the wrong object, lacked support, or came from context rather than an operative provision.",
   novelty: "Provision material that did not fit cleanly into the fixed concept library for this run.",
   diagnosticsScored: "Provisions with a draft numeric scalar score. These are ingredients for domain profiles, not a final CBA-level index.",
   diagnosticsMissingScore: "Provisions labelled score-ready by the run but missing a numeric draft score in the exported matrix. These need score fill-in or central review before analysis.",
-  diagnosticsWithheld: "Extracted provisions with useful fields and evidence but no scalar score assigned.",
+  diagnosticsWithheld: "Extracted provisions with useful fields and evidence but no local scalar score assigned.",
   diagnosticsRejected: "Candidate values intentionally excluded from scoring or fields.",
-  matrixDash: "A dash means no scalar score appears in the score matrix. The provision may be absent, recorded only, or withheld elsewhere in the run outputs.",
+  matrixDash: "A dash means no local score appears in this matrix. The provision may be absent, recorded/profile only, external, or handled in Relative metrics.",
   duplicateQc: "Ten documents were read twice. These counts classify duplicate-reader differences by what they would change for measurement."
 };
 
@@ -265,6 +277,7 @@ function App() {
   const [view, setView] = useState(() => new URLSearchParams(window.location.search).get("view") || "documents");
   const [domainFilter, setDomainFilter] = useState("All");
   const [metricFilter, setMetricFilter] = useState("All");
+  const [rankFilter, setRankFilter] = useState("All");
 
   useEffect(() => {
     if (!selectedId && data?.documents?.length) setSelectedId(data.documents[0].document_id);
@@ -301,7 +314,7 @@ function App() {
         <div>
           <p className="smallcaps">CBA pilot</p>
           <h1>Collective bargaining provisions</h1>
-          <p className="mastCopy">A 100-document proof-of-concept for measuring CBAs as provision-level records before any final generosity index.</p>
+          <p className="mastCopy">A 100-document proof-of-concept for measuring CBAs through extracted provisions, local scores, relative metrics, and diagnostics.</p>
         </div>
         <div className="mastStats">
           <Stat label="Documents" value={data.manifest.document_count} />
@@ -324,10 +337,10 @@ function App() {
           ))}
         </nav>
         <details className="readGuide">
-          <summary>How to read this</summary>
+          <summary>Measurement guide</summary>
           <p>
-            Provisions are extracted contract objects. Some are comparable enough for draft domain scores; others are kept as structured evidence,
-            context, external-plan references, normalization cases, or future scoring candidates. This is not a final CBA-level generosity index.
+            Provisions are extracted contract objects. Some receive draft local scores. Others are retained as profile evidence, external-source
+            cases, common-unit cases, or review cases. Relative metrics rank only values with comparable units.
           </p>
         </details>
 
@@ -395,6 +408,8 @@ function App() {
             summary={data.normalizationSummary}
             metricFilter={metricFilter}
             setMetricFilter={setMetricFilter}
+            rankFilter={rankFilter}
+            setRankFilter={setRankFilter}
             onSelectDocument={(id) => {
               setSelectedId(id);
               setView("documents");
@@ -522,11 +537,11 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
               <Info text={HELP.domainScores} />
             </div>
             <div className="summaryLine">
-              <span><strong>{format(avgDomainScore)}</strong> mean available domain</span>
+              <span><strong>{format(avgDomainScore)}</strong> mean draft domain score</span>
               <span><strong>{records.length}</strong> provisions</span>
               <span><strong>{doc.scored_record_count ?? 0}</strong> score-ready</span>
-              <span><strong>{scoredCount}</strong> draft scores</span>
-              <span><strong>{withheldCount}</strong> structured, no score</span>
+              <span><strong>{scoredCount}</strong> local scores</span>
+              <span><strong>{withheldCount}</strong> score withheld</span>
               <span><strong>{rejected.length}</strong> rejected values</span>
             </div>
             <div className="scoreStrip compact">
@@ -534,7 +549,7 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
                 <div className="domainScore" key={domain.domain}>
                   <span>{domain.domain}</span>
                   <strong>{format(domain.available_score)}</strong>
-                  <em>{format(domain.coverage_share, 1)} coverage</em>
+                  <em>{hasNumericScore(domain.available_score) ? `${format(domain.coverage_share, 1)} coverage` : "no local score"}</em>
                 </div>
               ))}
             </div>
@@ -569,7 +584,7 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
           <div className="paneHeader">
             <div>
               <h3>Source preview</h3>
-              <p>Page headings and section inventory used to orient the document reader. Full OCR remains in the run archive.</p>
+              <p>OCR text used by the document reader. The preview is scrollable inside this panel.</p>
             </div>
           </div>
           <div className="viewerWrap">
@@ -682,7 +697,7 @@ function FamilySummary({ family, rows, scoreByRecord, onOpen, selected = false }
     <button className={`familyRow ${selected ? "selected" : ""}`} onClick={onOpen}>
       <div>
         <strong>{family}</strong>
-        <span>{rows.length} provisions · {scored.length} draft scores{withheld ? ` · ${withheld} structured, no score` : ""}</span>
+        <span>{rows.length} provisions · {scored.length} local scores{withheld ? ` · ${withheld} score withheld` : ""}</span>
       </div>
       <span>{scored.length ? format(scored.reduce((sum, record) => sum + Number(scoreValue(record, scoreByRecord.get(record.concept_record_id))), 0) / scored.length) : "—"}</span>
     </button>
@@ -696,7 +711,7 @@ function ProvisionFamily({ family, rows, scoreByRecord }) {
       <div className="familyHeader">
         <div>
           <h4>{family}</h4>
-          <p>{rows.length} provisions · {scored.length} draft scores</p>
+          <p>{rows.length} provisions · {scored.length} local scores</p>
         </div>
       </div>
       <div className="provisionRows">
@@ -744,7 +759,7 @@ function RecordCard({ record, score }) {
       {info.reason && (
         <p className="whyLine">
           <strong>{statusDetail ? `Why ${statusDetail.toLowerCase()}:` : "Why:"}</strong>{" "}
-          {info.reason}
+          {formatNestedValue(info.reason)}
         </p>
       )}
       <div className="fields">
@@ -826,7 +841,7 @@ function FieldValue({ value }) {
         {entries.map(([key, child]) => (
           <React.Fragment key={key}>
             <b>{formatFieldLabel(key)}</b>
-            <span>{typeof child === "object" ? JSON.stringify(child) : format(child)}</span>
+            <span>{formatNestedValue(child)}</span>
           </React.Fragment>
         ))}
       </div>
@@ -834,6 +849,17 @@ function FieldValue({ value }) {
   }
 
   return <span>{String(value)}</span>;
+}
+
+function formatNestedValue(value) {
+  if (value === null || value === undefined || value === "") return "—";
+  if (Array.isArray(value)) return value.map(formatNestedValue).join("; ");
+  if (typeof value === "object") {
+    return Object.entries(value)
+      .map(([key, child]) => `${formatFieldLabel(key)}: ${formatNestedValue(child)}`)
+      .join("; ");
+  }
+  return format(value);
 }
 
 function AuditList({ title, rows, help }) {
@@ -902,8 +928,8 @@ function DomainExplorer({ documents, status, matrix, domainFilter, setDomainFilt
     <section className="panel">
       <div className="sectionHeader">
         <div>
-          <h2>Draft score matrix</h2>
-          <p>Numeric draft scores by document and concept. Blank cells are missing scalar scores, not zeroes.</p>
+          <h2>Local score matrix</h2>
+          <p>Draft local scores by document and concept. Blank cells are not zeroes; some values appear instead as profiles or relative metrics.</p>
         </div>
       </div>
       <div className="chipRail" aria-label="Domain filter">
@@ -969,14 +995,23 @@ function DomainExplorer({ documents, status, matrix, domainFilter, setDomainFilt
   );
 }
 
-function RelativeMetrics({ documents, rows, summary, metricFilter, setMetricFilter, onSelectDocument }) {
+function RelativeMetrics({ documents, rows, summary, metricFilter, setMetricFilter, rankFilter, setRankFilter, onSelectDocument }) {
   const docById = new Map(documents.map((doc) => [doc.document_id, doc]));
   const metricOptions = [
     ["All", "All"],
     ...Array.from(new Set(rows.map((row) => row.metric_family))).sort().map((metric) => [metric, displayLabel(metric)])
   ];
+  const rankOptions = [
+    ["All", "All rows"],
+    ["ranked", "Ranked only"],
+    ["retained", "Retained, not ranked"]
+  ];
   const visible = rows
     .filter((row) => metricFilter === "All" || row.metric_family === metricFilter)
+    .filter((row) => {
+      const isRanked = row.pilot_percentile !== "" && row.pilot_percentile !== null && row.pilot_percentile !== undefined;
+      return rankFilter === "All" || (rankFilter === "ranked" && isRanked) || (rankFilter === "retained" && !isRanked);
+    })
     .sort((a, b) => {
       const ap = Number(a.pilot_percentile);
       const bp = Number(b.pilot_percentile);
@@ -989,14 +1024,20 @@ function RelativeMetrics({ documents, rows, summary, metricFilter, setMetricFilt
     <section className="panel">
       <div className="sectionHeader">
         <div>
-          <h2>Pilot-relative metrics</h2>
-          <p>Central normalization for wages, active health contribution, and external fund proxies. Only confidence A/B rows are ranked.</p>
+          <h2>Relative metrics</h2>
+          <p>Common-unit comparisons for wages, active health contribution burden, and external-fund contribution proxies. Values are ranked only when the unit and comparison object are clear.</p>
         </div>
       </div>
       <div className="matrixSummary">
-        <span><strong>{rows.length}</strong> normalization rows</span>
+        <span><strong>{rows.length}</strong> estimated rows</span>
         <span><strong>{ranked.length}</strong> ranked rows</span>
         <span><strong>{summary.length}</strong> metric families</span>
+      </div>
+      <div className="metricLegend" aria-label="Confidence tier guide">
+        <span><strong>A</strong> direct comparable value</span>
+        <span><strong>B</strong> rankable proxy</span>
+        <span><strong>C</strong> retained, unit/object unclear</span>
+        <span><strong>D</strong> no usable numeric value</span>
       </div>
       <div className="chipRail" aria-label="Relative metric filter">
         {metricOptions.map(([value, label]) => (
@@ -1004,6 +1045,17 @@ function RelativeMetrics({ documents, rows, summary, metricFilter, setMetricFilt
             key={value}
             className={metricFilter === value ? "active" : ""}
             onClick={() => setMetricFilter(value)}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+      <div className="chipRail tightRail" aria-label="Rank status filter">
+        {rankOptions.map(([value, label]) => (
+          <button
+            key={value}
+            className={rankFilter === value ? "active" : ""}
+            onClick={() => setRankFilter(value)}
           >
             {label}
           </button>
@@ -1027,9 +1079,9 @@ function RelativeMetrics({ documents, rows, summary, metricFilter, setMetricFilt
               <th>Document</th>
               <th>Metric</th>
               <th>Value</th>
-              <th>Percentile</th>
-              <th>Tier</th>
-              <th>Status</th>
+              <th>Ranked percentile</th>
+              <th>Confidence</th>
+              <th>Rank status</th>
               <th>Coverage</th>
               <th>Method</th>
               <th>Why not ranked</th>
@@ -1063,6 +1115,7 @@ function RelativeMetrics({ documents, rows, summary, metricFilter, setMetricFilt
 }
 
 function Diagnostics({ documents, records, scores, rejected, manifest, batch, duplicateQc }) {
+  try {
   const dispositionCounts = new Map();
   const subtypeCounts = new Map();
   const rejectedCounts = new Map();
@@ -1108,7 +1161,7 @@ function Diagnostics({ documents, records, scores, rejected, manifest, batch, du
       <div className="sectionHeader">
         <div>
           <h2>Diagnostics</h2>
-          <p>Run status, scoreability, rejected values, and duplicate-reader checks.</p>
+          <p>Validity checks for provision coverage, local-score availability, rejected values, and duplicate-reader consequences.</p>
         </div>
         <span className={`decisionBadge ${manifest.batch_decision}`}>{humanizeId(manifest.batch_decision || "unknown")}</span>
       </div>
@@ -1116,11 +1169,12 @@ function Diagnostics({ documents, records, scores, rejected, manifest, batch, du
         <DiagnosticStat label="Documents" value={documents.length} />
         <DiagnosticStat label="Output folders" value={manifest.intended_output_count} />
         <DiagnosticStat label="Provisions" value={Object.values(records).flat().length} />
-        <DiagnosticStat label="Draft scored" value={dispositionCounts.get("scored") ?? 0} help={HELP.diagnosticsScored} />
-        <DiagnosticStat label="Needs score fill-in" value={dispositionCounts.get("missing_score") ?? 0} help={HELP.diagnosticsMissingScore} />
+        <DiagnosticStat label="Local scores" value={dispositionCounts.get("scored") ?? 0} help={HELP.diagnosticsScored} />
+        <DiagnosticStat label="Score-ready gaps" value={dispositionCounts.get("missing_score") ?? 0} help={HELP.diagnosticsMissingScore} />
         <DiagnosticStat label="Rejected values" value={Object.values(rejected).flat().length} help={HELP.diagnosticsRejected} />
       </div>
       <div className="qcGrid">
+        <CountCard title={<>Duplicate-read consequences <Info text={HELP.duplicateQc} /></>} counts={new Map(Object.entries(duplicateQc.consequence_counts ?? {}))} />
         <CountCard title="Batch checks" counts={new Map([
           ["Valid outputs", batch.stage_valid_outputs ?? 0],
           ["Schema or file errors", batch.stage_error_count ?? 0],
@@ -1129,12 +1183,11 @@ function Diagnostics({ documents, records, scores, rejected, manifest, batch, du
           ["Adjudicated score/withhold rows", batch.adjudicated_score_withhold_rows ?? 0],
           ["Adjacent-score calibration rows", batch.adjudicated_score_band_calibration_rows ?? 0]
         ])} />
-        <CountCard title={<>Duplicate-QC consequences <Info text={HELP.duplicateQc} /></>} counts={new Map(Object.entries(duplicateQc.consequence_counts ?? {}))} />
       </div>
       <div className="diagnosticGrid">
-        <CountCard title="Provision disposition" counts={dispositionCounts} />
-        <CountCard title="Why provisions are not scored" counts={subtypeCounts} />
-        <CountCard title="Rejected-value reasons" counts={rejectedCounts} />
+        <CountCard title="Provision status" counts={dispositionCounts} />
+        <CountCard title="Why local scores are withheld" counts={subtypeCounts} />
+        <CountCard title="Rejected-value safeguards" counts={rejectedCounts} />
       </div>
       <div className="docAuditWrap">
         <table className="docAudit">
@@ -1142,10 +1195,10 @@ function Diagnostics({ documents, records, scores, rejected, manifest, batch, du
             <tr>
               <th>Document</th>
               <th>Provisions</th>
-              <th>Draft scores</th>
-              <th>Needs score fill-in</th>
-              <th>Structured, no score</th>
-              <th>External / normalize</th>
+              <th>Local scores</th>
+              <th>Score-ready gaps</th>
+              <th>Score withheld</th>
+              <th>External / common units</th>
               <th>Rejected</th>
               <th>Novelty</th>
             </tr>
@@ -1171,6 +1224,19 @@ function Diagnostics({ documents, records, scores, rejected, manifest, batch, du
       </div>
     </section>
   );
+  } catch (error) {
+    return (
+      <section className="panel">
+        <div className="sectionHeader">
+          <div>
+            <h2>Diagnostics</h2>
+            <p>Diagnostics could not render. This usually means one exported diagnostic file has an unexpected shape.</p>
+          </div>
+        </div>
+        <pre className="errorBox">{String(error?.message || error)}</pre>
+      </section>
+    );
+  }
 }
 
 function DiagnosticStat({ label, value, help }) {
@@ -1187,15 +1253,15 @@ function CountCard({ title, counts }) {
     scored: "Scored",
     scored_with_flags: "Scored with caution",
     missing_score: "Score-ready, no draft score",
-    withheld: "Structured, no score",
-    recorded: "Recorded only",
+    withheld: "Recorded, score withheld",
+    recorded: "Recorded/profile",
     external: "External inputs needed",
-    normalization: "Needs normalization",
+    normalization: "Needs common units",
     review: "Needs review",
     not_scored: "Not scored",
     no_direct_measurement_difference: "No direct measurement difference",
     score_level_calibration: "Score-level calibration",
-    scoreability_or_scalar_inclusion_boundary: "Scoreability boundary",
+    scoreability_or_scalar_inclusion_boundary: "Score boundary",
     score_relevant_coverage_miss: "Score-relevant coverage miss",
     coverage_triage_not_confirmed_as_scalar_miss: "Coverage triage, not scalar miss",
     profile_or_context_breadth: "Profile/context breadth",
