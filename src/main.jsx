@@ -904,92 +904,127 @@ function AuditItem({ row }) {
 
 function DomainExplorer({ documents, status, matrix, domainFilter, setDomainFilter, onSelectDocument }) {
   const conceptIds = Object.keys(matrix[0] ?? {}).filter((key) => key !== "document_id");
-  const visibleConcepts = domainFilter === "All" ? conceptIds : conceptIds.filter((id) => id.includes(domainFilter));
   const domainOptions = [
-    ["All", "All"],
     ["LEAVE", "Leave"],
-    ["HEALTH", "Health"],
-    ["WAGE", "Wages"],
-    ["PREMIUM", "Premiums"],
-    ["GRIEVANCE", "Grievance"],
-    ["ARBITRATION", "Arbitration"],
-    ["DISCIPLINE", "Discipline"],
+    ["PREMIUM", "Premium pay"],
+    ["GRIEVANCE|ARBITRATION|DISCIPLINE", "Due process"],
     ["JOB_SECURITY", "Job security"],
+    ["WAGE", "Wages"],
+    ["HEALTH", "Health"],
     ["SAFETY", "Safety"],
-    ["UNION", "Union"]
+    ["UNION", "Union voice"]
   ];
+  const activeDomain = domainFilter === "All" ? domainOptions[0][0] : domainFilter;
+  const activeLabel = domainOptions.find(([value]) => value === activeDomain)?.[1] ?? displayLabel(activeDomain);
+  const domainConcepts = (value) => {
+    const tokens = value.split("|");
+    return conceptIds.filter((id) => tokens.some((token) => id.includes(token)));
+  };
+  const visibleConcepts = domainConcepts(activeDomain);
   const filledCells = matrix.reduce(
     (count, row) => count + visibleConcepts.filter((id) => hasNumericScore(row[id])).length,
     0
   );
   const possibleCells = matrix.length * visibleConcepts.length;
+  const scoredDocumentRows = matrix
+    .map((row) => {
+      const values = visibleConcepts.map((id) => row[id]).filter(hasNumericScore).map(Number);
+      return {
+        ...row,
+        visibleValues: values,
+        domainAverage: values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : null
+      };
+    })
+    .filter((row) => row.visibleValues.length > 0)
+    .sort((a, b) => Number(b.domainAverage ?? -1) - Number(a.domainAverage ?? -1));
+  const statusByDomain = new Map(status.map((item) => [item.domain, item]));
+  const activeStatus = statusByDomain.get(activeLabel) ?? status.find((item) => activeLabel.includes(item.domain));
 
   return (
     <section className="panel">
       <div className="sectionHeader">
         <div>
-          <h2>Local score matrix</h2>
-          <p>Draft local scores by document and concept. Blank cells are not zeroes; some values appear instead as profiles or relative metrics.</p>
+          <h2>Domain explorer</h2>
+          <p>Choose a provision family, then inspect the local scores behind it. Blank cells are not zeroes; some values are retained as profiles or relative metrics.</p>
         </div>
       </div>
-      <div className="chipRail" aria-label="Domain filter">
-        {domainOptions.map(([value, label]) => (
-          <button
-            key={value}
-            className={domainFilter === value ? "active" : ""}
-            onClick={() => setDomainFilter(value)}
-          >
-            {label}
-          </button>
-        ))}
-      </div>
-      <div className="matrixSummary">
-        <span><strong>{visibleConcepts.length}</strong> concepts shown</span>
-        <span><strong>{filledCells}</strong> draft-score cells</span>
-        <span><strong>{possibleCells - filledCells}</strong> blank cells <Info text={HELP.matrixDash} /></span>
-      </div>
-      <details className="compactDrawer">
-        <summary>Domain status guide</summary>
-        <div className="statusGrid">
-          {status.map((domain) => (
-            <div className="statusCard" key={domain.domain}>
-              <span className={`pill ${statusTone(domain.current_status)}`}>{domain.current_status}</span>
-              <h3>{domain.domain}</h3>
-              <p>{domain.empirical_object}</p>
-              <strong>{domain.documents_with_records} docs with provisions</strong>
+      <div className="domainExplorer">
+        <aside className="domainRail">
+          {domainOptions.map(([value, label]) => {
+            const domain = statusByDomain.get(label);
+            const concepts = domainConcepts(value);
+            const scoreCells = matrix.reduce((count, row) => count + concepts.filter((id) => hasNumericScore(row[id])).length, 0);
+            return (
+              <button
+                key={value}
+                className={`domainRailItem ${activeDomain === value ? "active" : ""}`}
+                onClick={() => setDomainFilter(value)}
+              >
+                <span className={`pill ${statusTone(domain?.current_status || "")}`}>{domain?.current_status || "local scores"}</span>
+                <strong>{label}</strong>
+                <em>{domain?.documents_with_records ?? "—"} docs with provisions · {scoreCells} score cells</em>
+              </button>
+            );
+          })}
+        </aside>
+        <div className="domainWorkspace">
+          <div className="domainHero">
+            <div>
+              <span className={`pill ${statusTone(activeStatus?.current_status || "")}`}>{activeStatus?.current_status || "local scores"}</span>
+              <h3>{activeLabel}</h3>
+              <p>{activeStatus?.empirical_object || "Local score drilldown for selected provisions."}</p>
             </div>
-          ))}
+            <div className="domainMetrics">
+              <span><strong>{scoredDocumentRows.length}</strong> docs with local scores</span>
+              <span><strong>{visibleConcepts.length}</strong> concepts</span>
+              <span><strong>{filledCells}</strong> score cells</span>
+              <span><strong>{possibleCells - filledCells}</strong> blanks <Info text={HELP.matrixDash} /></span>
+            </div>
+          </div>
+          <div className="domainConceptRail" aria-label="Concepts in selected domain">
+            {visibleConcepts.length
+              ? visibleConcepts.map((id) => <span key={id}>{humanizeId(id)}</span>)
+              : <span>No local-score concepts in this matrix</span>}
+          </div>
+          {scoredDocumentRows.length ? (
+            <div className="matrixWrap domainMatrixWrap">
+              <table className="matrix domainMatrix">
+                <thead>
+                  <tr>
+                    <th>Document</th>
+                    <th>Domain mean</th>
+                    {visibleConcepts.map((id) => <th key={id}>{humanizeId(id)}</th>)}
+                  </tr>
+                </thead>
+                <tbody>
+                  {scoredDocumentRows.map((row) => {
+                    const doc = documents.find((item) => item.document_id === row.document_id);
+                    return (
+                      <tr key={row.document_id}>
+                        <td>
+                          <button className="linkButton" onClick={() => onSelectDocument(row.document_id)}>
+                            {row.document_id}
+                          </button>
+                          <small>{doc?.employer}</small>
+                        </td>
+                        <td className="scoredCell domainMeanCell">{format(row.domainAverage)}</td>
+                        {visibleConcepts.map((id) => (
+                          <td key={id} className={hasNumericScore(row[id]) ? "scoredCell" : "blankCell"}>
+                            {format(row[id])}
+                          </td>
+                        ))}
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <div className="empty domainEmpty">
+              No local score matrix rows for this family. In this proof of concept, these provisions are mainly handled as recorded/profile evidence or relative metrics.
+            </div>
+          )}
         </div>
-      </details>
-      <div className="matrixWrap">
-        <table className="matrix">
-          <thead>
-            <tr>
-              <th>Document</th>
-              {visibleConcepts.map((id) => <th key={id}>{humanizeId(id)}</th>)}
-            </tr>
-          </thead>
-          <tbody>
-            {matrix.map((row) => {
-              const doc = documents.find((item) => item.document_id === row.document_id);
-              return (
-                <tr key={row.document_id}>
-                  <td>
-                    <button className="linkButton" onClick={() => onSelectDocument(row.document_id)}>
-                      {row.document_id}
-                    </button>
-                    <small>{doc?.employer}</small>
-                  </td>
-                  {visibleConcepts.map((id) => (
-                    <td key={id} className={hasNumericScore(row[id]) ? "scoredCell" : "blankCell"}>
-                      {format(row[id])}
-                    </td>
-                  ))}
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
       </div>
     </section>
   );
