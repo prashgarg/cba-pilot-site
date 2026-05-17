@@ -1,6 +1,14 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
+import {
+  useV51Data,
+  OverviewV51,
+  OntologyBrowser,
+  ValidationPanel,
+  CompositeRanking,
+  SectorCategoryHeatmap,
+} from "./v5_1.jsx";
 
 const DATASETS = {
   documents: "data/documents.json",
@@ -14,7 +22,8 @@ const DATASETS = {
   batch: "data/batch_acceptance_summary.json",
   duplicateQc: "data/duplicate_qc_summary.json",
   normalizedMetrics: "data/normalized_relative_metrics.json",
-  normalizationSummary: "data/normalization_summary.json"
+  normalizationSummary: "data/normalization_summary.json",
+  parallel: "data/parallel_pipeline_crosswalk.json"
 };
 
 const format = (value, digits = 2) => {
@@ -117,8 +126,8 @@ const provisionStatus = (record, score) => {
   return labels[status] ?? [status.replaceAll("_", " "), "muted", "other"];
 };
 
-const recordedOnlySubtype = (record) => {
-  const info = scoreabilityInfo(record);
+const recordedOnlySubtype = (record, score) => {
+  const info = scoreabilityInfo(record, score);
   const status = info.status ?? "";
   const reason = String(info.reason ?? "").toLowerCase();
   const missingInputs = info.missing_or_external_inputs ?? [];
@@ -134,6 +143,9 @@ const recordedOnlySubtype = (record) => {
   }
   if (status === "normalization_required" || text.includes("normalization") || text.includes("inflation") || text.includes("wage table")) {
     return "Needs common units";
+  }
+  if (text.includes("source_reread_required") || text.includes("source reread")) {
+    return "Source reread needed";
   }
   if (status === "requires_agentic_review" || text.includes("review") || text.includes("disentangle") || text.includes("exact")) {
     return "Needs review";
@@ -178,6 +190,7 @@ const SUBTYPE_FILTERS = [
   ["Scoring rule not set", "Scoring rule not set"],
   ["Needs common units", "Needs common units"],
   ["Needs review", "Needs review"],
+  ["Source reread needed", "Source reread needed"],
   ["Statutory baseline unclear", "Statutory baseline unclear"],
   ["Avoids double counting", "Avoids double counting"],
   ["Too little entitlement detail", "Too little entitlement detail"],
@@ -269,12 +282,48 @@ function useSiteData() {
   return state;
 }
 
+function V51Router({ view }) {
+  const { loading, error, data } = useV51Data();
+  if (loading) return <div className="loading">Loading v5.1 data…</div>;
+  if (error) return <div className="error">Error loading v5.1 data: {error}</div>;
+  if (view === "overview_v51") return <OverviewV51 data={data} />;
+  if (view === "validation_v51") return <ValidationPanel data={data} />;
+  if (view === "sector_v51") return (
+    <section className="v51Page">
+      <h2>Sector × provision-area generosity</h2>
+      <p className="v51HeroSub">
+        Mean cell score by sector (rows) and provision area (columns) on
+        the 100-contract sample. Anchor-calibrated. Sectors with fewer
+        than three contracts are omitted. Hover a cell for n.
+      </p>
+      <div className="v51Card">
+        <SectorCategoryHeatmapWrapper data={data} />
+      </div>
+      <div className="v51Card">
+        <h3>Stylized patterns the table reproduces</h3>
+        <ul className="v51Bullets">
+          <li><strong>Construction</strong> is cash-heavy with thin protections: highest wage score (0.76), lowest leave (0.31) and lowest job security (0.26).</li>
+          <li><strong>Public sector</strong> is deferred-comp-heavy: highest leave score (0.77), strong disputes (0.65), moderate wages (0.57).</li>
+          <li><strong>Utilities</strong> tops wages (0.81) — gas/electric workers earn premium wages.</li>
+        </ul>
+      </div>
+    </section>
+  );
+  if (view === "composite_v51") return <CompositeRanking data={data} />;
+  if (view === "ontology_v51") return <OntologyBrowser data={data} />;
+  return null;
+}
+
+function SectorCategoryHeatmapWrapper({ data }) {
+  return <SectorCategoryHeatmap data={data.sectorCategory} />;
+}
+
 function App() {
   const { loading, error, data } = useSiteData();
   const [selectedId, setSelectedId] = useState(null);
   const [query, setQuery] = useState("");
   const [docFilter, setDocFilter] = useState("All");
-  const [view, setView] = useState(() => new URLSearchParams(window.location.search).get("view") || "documents");
+  const [view, setView] = useState(() => new URLSearchParams(window.location.search).get("view") || "overview_v51");
   const [domainFilter, setDomainFilter] = useState("All");
   const [metricFilter, setMetricFilter] = useState("All");
   const [rankFilter, setRankFilter] = useState("All");
@@ -312,23 +361,29 @@ function App() {
     <main>
       <header className="masthead">
         <div>
-          <p className="smallcaps">CBA pilot</p>
-          <h1>Collective bargaining provisions</h1>
-          <p className="mastCopy">A 100-document proof-of-concept for measuring CBAs through extracted provisions, local scores, relative metrics, and diagnostics.</p>
+          <p className="smallcaps">CBA generosity measurement, v5.1 pipeline</p>
+          <h1>Scoring U.S. collective bargaining agreement generosity at scale</h1>
+          <p className="mastCopy">A language-model pipeline that assigns each contract a 0–1 generosity score on nine provision areas, validated against three independent references. 100-contract wave-1 results below; the v3 document explorer is retained as a separate tab.</p>
         </div>
         <div className="mastStats">
-          <Stat label="Documents" value={data.manifest.document_count} />
-          <Stat label="Provisions" value={data.manifest.record_count} />
-          <Stat label="Score-ready" value={data.manifest.scored_record_count} />
+          <Stat label="Contracts" value={100} />
+          <Stat label="Scored cells" value="857" />
+          <Stat label="Validation ρ" value="0.77–0.85" />
         </div>
       </header>
 
       <div className="shell">
         <nav className="tabs" aria-label="Main views">
           {[
-            ["documents", "Documents"],
+            ["overview_v51", "Overview (v5.1)"],
+            ["validation_v51", "Validation"],
+            ["sector_v51", "Sector × area"],
+            ["composite_v51", "Composite ranking"],
+            ["ontology_v51", "Ontology"],
+            ["documents", "Documents (v3 explorer)"],
             ["domains", "Domains"],
             ["relative", "Relative metrics"],
+            ["parallel", "Parallel comparison"],
             ["diagnostics", "Diagnostics"]
           ].map(([id, label]) => (
             <button key={id} className={view === id ? "active" : ""} onClick={() => setView(id)}>
@@ -343,6 +398,8 @@ function App() {
             cases, common-unit cases, or review cases. Relative metrics rank only values with comparable units.
           </p>
         </details>
+
+        {view.endsWith("_v51") && <V51Router view={view} />}
 
         {view === "documents" && (
         <section className="workspace">
@@ -417,6 +474,16 @@ function App() {
           />
         )}
 
+        {view === "parallel" && (
+          <ParallelComparison
+            comparison={data.parallel}
+            onSelectDomain={(domain) => {
+              setDomainFilter(domain);
+              setView("domains");
+            }}
+          />
+        )}
+
         {view === "diagnostics" && (
           <Diagnostics
             documents={data.documents}
@@ -467,7 +534,7 @@ function DocumentPanel({ doc, records, scores, rejected, novelty }) {
   const filteredRecords = records.filter((record) => {
     const score = scoreByRecord.get(record.concept_record_id);
     const category = provisionStatus(record, score)[2];
-    const subtype = recordedOnlySubtype(record);
+    const subtype = recordedOnlySubtype(record, score);
     const haystack = [
       record.concept_id,
       record.concept_label,
@@ -728,7 +795,7 @@ function RecordCard({ record, score }) {
   const info = scoreabilityInfo(record, score);
   const status = info.status ?? "unknown";
   const [statusLabel, statusClass] = provisionStatus(record, score);
-  const statusDetail = recordedOnlySubtype(record);
+  const statusDetail = recordedOnlySubtype(record, score);
   const shownFields = fields.slice(0, 3);
   const hiddenFields = fields.slice(3);
   const scoreShown = scoreValue(record, score);
@@ -754,6 +821,15 @@ function RecordCard({ record, score }) {
       {score?.explanation && (
         <p className="explain">
           <strong>Score reason:</strong> {score.explanation}
+        </p>
+      )}
+      {score?.analysis_correction_applied && (
+        <p className="correctionNote">
+          <strong>Audit correction:</strong>{" "}
+          {score.analysis_correction_applied === "source_reread_blocker"
+            ? "Local score withheld until the source pointer is reread."
+            : "Local score withheld because this is an external contribution/proxy rather than a direct worker cost term."}
+          {score.analysis_original_draft_score ? ` Original worker score: ${format(score.analysis_original_draft_score)} / 5.` : ""}
         </p>
       )}
       {info.reason && (
@@ -1149,6 +1225,108 @@ function RelativeMetrics({ documents, rows, summary, metricFilter, setMetricFilt
   );
 }
 
+function ParallelComparison({ comparison, onSelectDomain }) {
+  const rows = comparison.rows ?? [];
+  const comparisonBuckets = [
+    {
+      title: "Presence",
+      text: "Do both pipelines find worker-facing material in the same broad area?"
+    },
+    {
+      title: "Ranking",
+      text: "Where both sides produce comparable scores, do category rankings move together?"
+    },
+    {
+      title: "Disagreement",
+      text: "When rankings differ, inspect Matthew's category summary beside v3 provisions and rejected values."
+    }
+  ];
+  const domainLink = (category) => {
+    const links = {
+      Compensation: "WAGE",
+      Scheduling: "SCHED",
+      Leave: "LEAVE",
+      Healthcare: "HEALTH",
+      Security: "JOB_SECURITY",
+      Disputes: "GRIEVANCE|ARBITRATION|DISCIPLINE",
+      Safety: "SAFETY"
+    };
+    return links[category] ?? null;
+  };
+
+  return (
+    <section className="panel parallelPanel">
+      <div className="sectionHeader parallelHeader">
+        <div>
+          <h2>Parallel comparison</h2>
+          <p>
+            Matthew's ACL draft uses a scalable category-ranking pipeline. This page shows how those broad categories map onto the v3
+            provision-level objects. Numeric agreement will be added once we have per-document category outputs for the same CBAs.
+          </p>
+        </div>
+        <span className="decisionBadge pending">Design only</span>
+      </div>
+
+      <div className="parallelHero">
+        <div>
+          <span className="pill cool">Independent benchmark</span>
+          <h3>What this comparison is for</h3>
+          <p>
+            The point is not to collapse the two methods into one number immediately. The useful test is whether a cheaper,
+            broad-category pipeline and an auditable provision-level pipeline tell the same story, and where their disagreements
+            reveal missing extraction, category mismatch, compression loss, or real ambiguity.
+          </p>
+        </div>
+        <div className="neededCard">
+          <strong>Needed before numeric comparison</strong>
+          <p>{comparison.needed_file}</p>
+        </div>
+      </div>
+
+      <div className="parallelSteps">
+        {comparisonBuckets.map((item) => (
+          <div className="parallelStep" key={item.title}>
+            <strong>{item.title}</strong>
+            <p>{item.text}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="crosswalkGrid">
+        {rows.map((row) => {
+          const linkedDomain = domainLink(row.category);
+          return (
+            <article className="crosswalkCard" key={row.category}>
+              <div className="crosswalkTitle">
+                <div>
+                  <span className="smallcaps">{row.comparison_level}</span>
+                  <h3>{row.category}</h3>
+                </div>
+                {linkedDomain ? (
+                  <button className="linkPill" onClick={() => onSelectDomain(linkedDomain)}>
+                    Open v3 domain
+                  </button>
+                ) : null}
+              </div>
+              <p className="matthewObject">{row.matthew_object}</p>
+              <div className="crosswalkMeta">
+                <strong>v3 area</strong>
+                <span>{row.v3_area}</span>
+              </div>
+              <div className="conceptChipList">
+                {row.v3_concepts.length
+                  ? row.v3_concepts.map((concept) => <span key={concept}>{humanizeId(concept)}</span>)
+                  : <span>No one-to-one v3 concept yet</span>}
+              </div>
+              <p className="crosswalkNote">{row.note}</p>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
 function Diagnostics({ documents, records, scores, rejected, manifest, batch, duplicateQc }) {
   try {
   const dispositionCounts = new Map();
@@ -1179,9 +1357,10 @@ function Diagnostics({ documents, records, scores, rejected, manifest, batch, du
   Object.entries(records).forEach(([documentId, rows]) => {
     const scoreByRecord = new Map((scores[documentId] ?? []).map((score) => [score.concept_record_id, score]));
     rows.forEach((record) => {
-      const key = provisionStatus(record, scoreByRecord.get(record.concept_record_id))[2];
+      const score = scoreByRecord.get(record.concept_record_id);
+      const key = provisionStatus(record, score)[2];
       dispositionCounts.set(key, (dispositionCounts.get(key) ?? 0) + 1);
-      const subtype = recordedOnlySubtype(record);
+      const subtype = recordedOnlySubtype(record, score);
       if (subtype) subtypeCounts.set(subtype, (subtypeCounts.get(subtype) ?? 0) + 1);
     });
   });

@@ -1,0 +1,389 @@
+[
+  {
+    "sector": "construction",
+    "sector_label": "Construction",
+    "n_contracts": 26,
+    "scores_by_category": {
+      "Compensation": {
+        "mean": 0.7548076923076923,
+        "n": 26
+      },
+      "Disputes": {
+        "mean": 0.578,
+        "n": 25
+      },
+      "Leave": {
+        "mean": 0.306,
+        "n": 25
+      },
+      "Healthcare": {
+        "mean": 0.3192307692307692,
+        "n": 26
+      },
+      "Security": {
+        "mean": 0.2627272727272727,
+        "n": 22
+      },
+      "Recognition": {
+        "mean": 0.4673076923076923,
+        "n": 26
+      },
+      "Safety": {
+        "mean": 0.374,
+        "n": 25
+      },
+      "Scheduling": {
+        "mean": 0.348,
+        "n": 25
+      },
+      "Ancillary": {
+        "mean": 0.3880769230769231,
+        "n": 26
+      }
+    }
+  },
+  {
+    "sector": "public_sector",
+    "sector_label": "Public sector",
+    "n_contracts": 22,
+    "scores_by_category": {
+      "Compensation": {
+        "mean": 0.5704545454545454,
+        "n": 22
+      },
+      "Disputes": {
+        "mean": 0.6523809523809524,
+        "n": 21
+      },
+      "Leave": {
+        "mean": 0.765,
+        "n": 20
+      },
+      "Healthcare": {
+        "mean": 0.4571428571428572,
+        "n": 21
+      },
+      "Security": {
+        "mean": 0.44833333333333336,
+        "n": 18
+      },
+      "Recognition": {
+        "mean": 0.430952380952381,
+        "n": 21
+      },
+      "Safety": {
+        "mean": 0.35,
+        "n": 20
+      },
+      "Scheduling": {
+        "mean": 0.345,
+        "n": 20
+      },
+      "Ancillary": {
+        "mean": 0.30447368421052634,
+        "n": 19
+      }
+    }
+  },
+  {
+    "sector": "manufacturing",
+    "sector_label": "Manufacturing",
+    "n_contracts": 11,
+    "scores_by_category": {
+      "Compensation": {
+        "mean": 0.64,
+        "n": 10
+      },
+      "Disputes": {
+        "mean": 0.6318181818181818,
+        "n": 11
+      },
+      "Leave": {
+        "mean": 0.605,
+        "n": 10
+      },
+      "Healthcare": {
+        "mean": 0.445,
+        "n": 10
+      },
+      "Security": {
+        "mean": 0.5036363636363637,
+        "n": 11
+      },
+      "Recognition": {
+        "mean": 0.4,
+        "n": 11
+      },
+      "Safety": {
+        "mean": 0.41000000000000003,
+        "n": 10
+      },
+      "Scheduling": {
+        "mean": 0.31444444444444447,
+        "n": 9
+      },
+      "Ancillary": {
+        "mean": 0.3559090909090909,
+        "n": 11
+      }
+    }
+  },
+  {
+    "sector": "education",
+    "sector_label": "Education",
+    "n_contracts": 10,
+    "scores_by_category": {
+      "Compensation": {
+        "mean": 0.48,
+        "n": 10
+      },
+      "Disputes": {
+        "mean": 0.6277777777777778,
+        "n": 9
+      },
+      "Leave": {
+        "mean": 0.62,
+        "n": 10
+      },
+      "Healthcare": {
+        "mean": 0.41000000000000003,
+        "n": 10
+      },
+      "Security": {
+        "mean": 0.485,
+        "n": 10
+      },
+      "Recognition": {
+        "mean": 0.45,
+        "n": 10
+      },
+      "Safety": {
+        "mean": 0.41250000000000003,
+        "n": 8
+      },
+      "Scheduling": {
+        "mean": 0.365,
+        "n": 10
+      },
+      "Ancillary": {
+        "mean": 0.3427777777777778,
+        "n": 9
+      }
+    }
+  },
+  {
+    "sector": "services",
+    "sector_label": "Services",
+    "n_contracts": 6,
+    "scores_by_category": {
+      "Compensation": {
+        "mean": 0.45,
+        "n": 6
+      },
+      "Disputes": {
+        "mean": 0.7666666666666667,
+        "n": 6
+      },
+      "Leave": {
+        "mean": 0.59,
+        "n": 6
+      },
+      "Healthcare": {
+        "mean": 0.3833333333333333,
+        "n": 6
+      },
+      "Security": {
+        "mean": 0.4816666666666667,
+        "n": 6
+      },
+      "Recognition": {
+        "mean": 0.375,
+        "n": 6
+      },
+      "Safety": {
+        "mean": 0.2625,
+        "n": 4
+      },
+      "Scheduling": {
+        "mean": 0.3283333333333333,
+        "n": 6
+      },
+      "Ancillary": {
+        "mean": 0.29833333333333334,
+        "n": 6
+      }
+    }
+  },
+  {
+    "sector": "retail_wholesale",
+    "sector_label": "Retail / wholesale",
+    "n_contracts": 5,
+    "scores_by_category": {
+      "Compensation": {
+        "mean": 0.615,
+        "n": 5
+      },
+      "Disputes": {
+        "mean": 0.63,
+        "n": 5
+      },
+      "Leave": {
+        "mean": 0.59,
+        "n": 5
+      },
+      "Healthcare": {
+        "mean": 0.43000000000000005,
+        "n": 5
+      },
+      "Security": {
+        "mean": 0.54,
+        "n": 5
+      },
+      "Recognition": {
+        "mean": 0.47000000000000003,
+        "n": 5
+      },
+      "Safety": {
+        "mean": 0.3,
+        "n": 3
+      },
+      "Scheduling": {
+        "mean": 0.36,
+        "n": 5
+      },
+      "Ancillary": {
+        "mean": 0.325,
+        "n": 5
+      }
+    }
+  },
+  {
+    "sector": "healthcare",
+    "sector_label": "Healthcare",
+    "n_contracts": 5,
+    "scores_by_category": {
+      "Compensation": {
+        "mean": 0.675,
+        "n": 5
+      },
+      "Disputes": {
+        "mean": 0.68,
+        "n": 5
+      },
+      "Leave": {
+        "mean": 0.64,
+        "n": 5
+      },
+      "Healthcare": {
+        "mean": 0.37,
+        "n": 5
+      },
+      "Security": {
+        "mean": 0.43,
+        "n": 5
+      },
+      "Recognition": {
+        "mean": 0.48000000000000004,
+        "n": 5
+      },
+      "Safety": {
+        "mean": 0.35,
+        "n": 4
+      },
+      "Scheduling": {
+        "mean": 0.39999999999999997,
+        "n": 5
+      },
+      "Ancillary": {
+        "mean": 0.315,
+        "n": 5
+      }
+    }
+  },
+  {
+    "sector": "transportation",
+    "sector_label": "Transportation",
+    "n_contracts": 4,
+    "scores_by_category": {
+      "Compensation": {
+        "mean": 0.575,
+        "n": 4
+      },
+      "Disputes": {
+        "mean": 0.7125,
+        "n": 4
+      },
+      "Leave": {
+        "mean": 0.5275,
+        "n": 4
+      },
+      "Healthcare": {
+        "mean": 0.4375,
+        "n": 4
+      },
+      "Security": {
+        "mean": 0.315,
+        "n": 4
+      },
+      "Recognition": {
+        "mean": 0.3875,
+        "n": 4
+      },
+      "Safety": {
+        "mean": 0.3875,
+        "n": 4
+      },
+      "Scheduling": {
+        "mean": 0.3575,
+        "n": 4
+      },
+      "Ancillary": {
+        "mean": 0.3025,
+        "n": 4
+      }
+    }
+  },
+  {
+    "sector": "utilities",
+    "sector_label": "Utilities",
+    "n_contracts": 4,
+    "scores_by_category": {
+      "Compensation": {
+        "mean": 0.8125,
+        "n": 4
+      },
+      "Disputes": {
+        "mean": 0.6625,
+        "n": 4
+      },
+      "Leave": {
+        "mean": 0.69,
+        "n": 4
+      },
+      "Healthcare": {
+        "mean": 0.3375,
+        "n": 4
+      },
+      "Security": {
+        "mean": 0.5525,
+        "n": 4
+      },
+      "Recognition": {
+        "mean": 0.5625,
+        "n": 4
+      },
+      "Safety": {
+        "mean": 0.4125,
+        "n": 4
+      },
+      "Scheduling": {
+        "mean": 0.395,
+        "n": 4
+      },
+      "Ancillary": {
+        "mean": 0.315,
+        "n": 3
+      }
+    }
+  }
+]

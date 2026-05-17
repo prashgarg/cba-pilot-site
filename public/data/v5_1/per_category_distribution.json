@@ -1,0 +1,110 @@
+[
+  {
+    "category": "Compensation",
+    "category_label": "Wages",
+    "n": 99,
+    "mean": 0.6313131313131313,
+    "std": 0.19349574938455558,
+    "min": 0.125,
+    "p25": 0.525,
+    "median": 0.625,
+    "p75": 0.775,
+    "max": 1.0
+  },
+  {
+    "category": "Disputes",
+    "category_label": "Disputes",
+    "n": 97,
+    "mean": 0.6381443298969072,
+    "std": 0.13840106196084637,
+    "min": 0.25,
+    "p25": 0.55,
+    "median": 0.65,
+    "p75": 0.75,
+    "max": 0.9
+  },
+  {
+    "category": "Leave",
+    "category_label": "Leave",
+    "n": 96,
+    "mean": 0.5629166666666666,
+    "std": 0.22952085866300584,
+    "min": 0.09,
+    "p25": 0.34,
+    "median": 0.59,
+    "p75": 0.79,
+    "max": 0.99
+  },
+  {
+    "category": "Healthcare",
+    "category_label": "Healthcare",
+    "n": 98,
+    "mean": 0.3964285714285714,
+    "std": 0.10775353702903698,
+    "min": 0.25,
+    "p25": 0.3,
+    "median": 0.4,
+    "p75": 0.45,
+    "max": 0.65
+  },
+  {
+    "category": "Security",
+    "category_label": "Security",
+    "n": 92,
+    "mean": 0.42206521739130437,
+    "std": 0.1830122679096861,
+    "min": 0.09,
+    "p25": 0.29,
+    "median": 0.44,
+    "p75": 0.54,
+    "max": 0.99
+  },
+  {
+    "category": "Recognition",
+    "category_label": "Recognition",
+    "n": 99,
+    "mean": 0.44545454545454544,
+    "std": 0.09691436075713832,
+    "min": 0.25,
+    "p25": 0.4,
+    "median": 0.45,
+    "p75": 0.5,
+    "max": 0.7
+  },
+  {
+    "category": "Safety",
+    "category_label": "Safety",
+    "n": 87,
+    "mean": 0.367816091954023,
+    "std": 0.11205714164591168,
+    "min": 0.15,
+    "p25": 0.3,
+    "median": 0.4,
+    "p75": 0.45,
+    "max": 0.65
+  },
+  {
+    "category": "Scheduling",
+    "category_label": "Scheduling",
+    "n": 94,
+    "mean": 0.35138297872340424,
+    "std": 0.1193585099635096,
+    "min": 0.17,
+    "p25": 0.22,
+    "median": 0.32,
+    "p75": 0.42,
+    "max": 0.62
+  },
+  {
+    "category": "Ancillary",
+    "category_label": "Ancillary",
+    "n": 95,
+    "mean": 0.3402631578947368,
+    "std": 0.06352821630202879,
+    "min": 0.265,
+    "p25": 0.315,
+    "median": 0.315,
+    "p75": 0.365,
+    "max": 0.565
+  }
+]

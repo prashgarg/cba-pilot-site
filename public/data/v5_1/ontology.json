@@ -1,0 +1,5407 @@
+[
+  {
+    "name": "Ancillary",
+    "label": "Ancillary",
+    "level": 0,
+    "n_records": 188,
+    "children": [
+      {
+        "name": "Family Support",
+        "level": 1,
+        "n_records": 1,
+        "children": [
+          {
+            "name": "C_CHILD_DEPENDENT_CARE",
+            "level": 2,
+            "n_records": 1,
+            "children": [
+              {
+                "name": "child_care_fund",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_2589",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Retirement",
+        "level": 1,
+        "n_records": 132,
+        "children": [
+          {
+            "name": "C_RETIREMENT_INCENTIVE",
+            "level": 2,
+            "n_records": 7,
+            "children": [
+              {
+                "name": "retirement_incentive",
+                "level": 3,
+                "n_records": 7,
+                "examples": [
+                  {
+                    "document_id": "DOL_2083",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2715",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3139",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3190",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3300",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "C_RETIREMENT_PENSION",
+            "level": 2,
+            "n_records": 87,
+            "children": [
+              {
+                "name": "external_fund_only",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_3523",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "pension",
+                "level": 3,
+                "n_records": 85,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1086",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "employer_pension_contribution_rate",
+                        "value": "6.47",
+                        "unit": "USD/hr"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "employer_pension_contribution_2019",
+                        "value": "590.59",
+                        "unit": "USD/employee/month"
+                      },
+                      {
+                        "name": "employer_pension_contribution_2023",
+                        "value": "630.59",
+                        "unit": "USD/employee/month"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1151",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "employer_pension_contribution_baseline",
+                        "value": "4.35",
+                        "unit": "USD_per_hour_worked"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_116",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "pension_contribution_rate_1997",
+                        "value": "1.20",
+                        "unit": "USD/hour"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "savings_annuity",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_4059",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "employer_contribution_rate_pct_gross",
+                        "value": "10",
+                        "unit": "percent_of_gross_salary"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "C_RETIREMENT_SAVINGS_ANNUITY",
+            "level": 2,
+            "n_records": 38,
+            "children": [
+              {
+                "name": "savings_annuity",
+                "level": 3,
+                "n_records": 38,
+                "examples": [
+                  {
+                    "document_id": "DOL_1151",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "employer_annuity_contribution_baseline",
+                        "value": "5.40",
+                        "unit": "USD_per_hour_worked"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_116",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "annuity_contribution_rate_1997",
+                        "value": "0.50",
+                        "unit": "USD/hour"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1264",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "annuity_contribution_rate_2000",
+                        "value": "6.15",
+                        "unit": "USD/hr"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1313",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "employer_401k_contribution_pct",
+                        "value": "3",
+                        "unit": "percent of weekly wages"
+                      },
+                      {
+                        "name": "employer_401k_match_pct",
+                        "value": "50",
+                        "unit": "percent of employee contribution up to $100/yr"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1316",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "annuity_contribution_2001",
+                        "value": "2.44",
+                        "unit": "USD/hour"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Training & Development",
+        "level": 1,
+        "n_records": 55,
+        "children": [
+          {
+            "name": "C_TRAINING_TUITION_CERTIFICATION",
+            "level": 2,
+            "n_records": 55,
+            "children": [
+              {
+                "name": "(unspecified sub-type)",
+                "level": 3,
+                "n_records": 48,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1086",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1151",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_116",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1172",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "base_rate_schedule",
+                "level": 3,
+                "n_records": 6,
+                "examples": [
+                  {
+                    "document_id": "DOL_1328",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2589",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2930",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3504",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_413",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "training_tuition",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_1620",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Compensation",
+    "label": "Wages",
+    "level": 0,
+    "n_records": 602,
+    "children": [
+      {
+        "name": "Premium Pay",
+        "level": 1,
+        "n_records": 294,
+        "children": [
+          {
+            "name": "C_PREMIUM_CALL_IN_REPORTING",
+            "level": 2,
+            "n_records": 78,
+            "children": [
+              {
+                "name": "call_back_reporting_minimum",
+                "level": 3,
+                "n_records": 77,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1086",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "call_in_not_started_hours",
+                        "value": "2",
+                        "unit": "hours_guaranteed_pay"
+                      },
+                      {
+                        "name": "call_in_commenced_hours",
+                        "value": "4",
+                        "unit": "hours_guaranteed_pay"
+                      },
+                      {
+                        "name": "call_in_over_4hr_hours",
+                        "value": "8",
+                        "unit": "hours_guaranteed_pay"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "scheduled_day_guarantee_hours",
+                        "value": "8 or 10",
+                        "unit": "hours"
+                      },
+                      {
+                        "name": "unscheduled_day_guarantee_hours",
+                        "value": "4 or 5",
+                        "unit": "hours"
+                      },
+                      {
+                        "name": "holiday_minimum_guarantee_hours",
+                        "value": "6",
+                        "unit": "hours"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1151",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "reporting_time_pay_no_work_available",
+                        "value": "2",
+                        "unit": "hours_straight_time"
+                      },
+                      {
+                        "name": "minimum_pay_if_work_provided",
+                        "value": "4",
+                        "unit": "hours_straight_time"
+                      },
+                      {
+                        "name": "minimum_pay_if_works_4_plus_hours",
+                        "value": "8",
+                        "unit": "hours_straight_time"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1172",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "show_up_pay_no_work",
+                        "value": "2",
+                        "unit": "hours"
+                      },
+                      {
+                        "name": "minimum_pay_work_provided",
+                        "value": "4",
+                        "unit": "hours"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "other_premium_pay",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_3942",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "C_PREMIUM_OVERTIME",
+            "level": 2,
+            "n_records": 89,
+            "children": [
+              {
+                "name": "overtime",
+                "level": 3,
+                "n_records": 89,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "ot_multiplier_standard",
+                        "value": "1.5",
+                        "unit": "multiplier"
+                      },
+                      {
+                        "name": "ot_threshold_inside_daily",
+                        "value": "8",
+                        "unit": "hours_per_day"
+                      },
+                      {
+                        "name": "ot_threshold_inside_weekly",
+                        "value": "40",
+                        "unit": "hours_per_week"
+                      },
+                      {
+                        "name": "sunday_rate_multiplier",
+                        "value": "2.0",
+                        "unit": "multiplier"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1086",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "overtime_threshold_daily",
+                        "value": "8",
+                        "unit": "hours/day"
+                      },
+                      {
+                        "name": "overtime_multiplier_standard",
+                        "value": "1.5",
+                        "unit": "multiplier"
+                      },
+                      {
+                        "name": "overtime_multiplier_sunday_holiday",
+                        "value": "2.0",
+                        "unit": "multiplier"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "overtime_threshold_hours",
+                        "value": "40",
+                        "unit": "hours/week"
+                      },
+                      {
+                        "name": "overtime_multiplier",
+                        "value": "1.5",
+                        "unit": "x regular rate"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1151",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "weekday_saturday_ot_multiplier",
+                        "value": "1.5",
+                        "unit": "x_straight_time"
+                      },
+                      {
+                        "name": "sunday_holiday_ot_multiplier",
+                        "value": "2.0",
+                        "unit": "x_straight_time"
+                      },
+                      {
+                        "name": "ot_threshold_daily",
+                        "value": "8",
+                        "unit": "hours"
+                      },
+                      {
+                        "name": "ot_threshold_weekly",
+                        "value": "40",
+                        "unit": "hours"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_116",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "weekday_overtime_multiplier",
+                        "value": "1.5",
+                        "unit": "multiplier"
+                      },
+                      {
+                        "name": "saturday_multiplier",
+                        "value": "1.5",
+                        "unit": "multiplier"
+                      },
+                      {
+                        "name": "sunday_holiday_multiplier",
+                        "value": "2.0",
+                        "unit": "multiplier"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "C_PREMIUM_RESPONSIBILITY_SPECIALTY",
+            "level": 2,
+            "n_records": 44,
+            "children": [
+              {
+                "name": "higher_classification",
+                "level": 3,
+                "n_records": 4,
+                "examples": [
+                  {
+                    "document_id": "DOL_3368",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_4016",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "threshold_hours",
+                        "value": "1",
+                        "unit": "hours_in_day"
+                      },
+                      {
+                        "name": "pay_rule",
+                        "value": "rate of higher classification for all hours worked in that position on that day",
+                        "unit": ""
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_4198",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_4244",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "other_premium_pay",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_3389",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "payment_frequency",
+                        "value": "one-time, non-recurring; maximum one per year per employee",
+                        "unit": "text"
+                      },
+                      {
+                        "name": "determination_basis",
+                        "value": "discretionary \u2014 City notifies and discusses with each affected union; criteria: ",
+                        "unit": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "responsibility_supervisory",
+                "level": 3,
+                "n_records": 17,
+                "examples": [
+                  {
+                    "document_id": "DOL_1287",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "foreman_premium_pct",
+                        "value": "15",
+                        "unit": "percent_above_journeyman"
+                      },
+                      {
+                        "name": "general_foreman_premium_pct",
+                        "value": "25",
+                        "unit": "percent_above_journeyman"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1303",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "foreman_premium_3plus_workers",
+                        "value": "1.25",
+                        "unit": "USD/hr"
+                      },
+                      {
+                        "name": "foreman_premium_10plus_workers",
+                        "value": "2.00",
+                        "unit": "USD/hr"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1310",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "foreman_differential_hourly",
+                        "value": "1.50",
+                        "unit": "USD/hr"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1313",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1316",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "specialty_hazard_flight_translation",
+                "level": 3,
+                "n_records": 22,
+                "examples": [
+                  {
+                    "document_id": "DOL_1086",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1184",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "high_pay_40_to_100_feet",
+                        "value": "0.85",
+                        "unit": "USD/hr_above_base"
+                      },
+                      {
+                        "name": "high_pay_over_100_feet",
+                        "value": "2.00",
+                        "unit": "USD/hr_above_base"
+                      },
+                      {
+                        "name": "hazard_pay_tunnels_pipes",
+                        "value": "0.35",
+                        "unit": "USD/hr_above_base"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1187",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1310",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "industrial_coating_premium_hourly",
+                        "value": "0.50",
+                        "unit": "USD/hr"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1316",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "C_PREMIUM_SHIFT",
+            "level": 2,
+            "n_records": 73,
+            "children": [
+              {
+                "name": "responsibility_supervisory",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_2068",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "shift_night_weekend",
+                "level": 3,
+                "n_records": 72,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "afternoon_shift_differential",
+                        "value": "0.35",
+                        "unit": "USD_per_hour"
+                      },
+                      {
+                        "name": "midnight_shift_differential",
+                        "value": "0.45",
+                        "unit": "USD_per_hour"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1086",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "night_shift_differential_rate",
+                        "value": "0.25",
+                        "unit": "USD/hr additional"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1151",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "second_shift_hours_worked",
+                        "value": "7.5",
+                        "unit": "hours"
+                      },
+                      {
+                        "name": "third_shift_hours_worked",
+                        "value": "7.0",
+                        "unit": "hours"
+                      },
+                      {
+                        "name": "saturday_shift_pay_hours",
+                        "value": "12",
+                        "unit": "hours_pay_for_8_hrs_work"
+                      },
+                      {
+                        "name": "sunday_holiday_shift_pay_hours",
+                        "value": "16",
+                        "unit": "hours_pay_for_8_hrs_work"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_116",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "second_shift_minimum_premium_shop",
+                        "value": "10",
+                        "unit": "percent_additional_wages"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "C_PREMIUM_STANDBY_ON_CALL",
+            "level": 2,
+            "n_records": 10,
+            "children": [
+              {
+                "name": "standby_on_call",
+                "level": 3,
+                "n_records": 10,
+                "examples": [
+                  {
+                    "document_id": "DOL_2271",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "standby_callback_minimum_hours",
+                        "value": "2",
+                        "unit": "hours"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_2930",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3100",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3109",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "standby_rate",
+                        "value": "0.25",
+                        "unit": "hours_pay_per_standby_hour"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_3368",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "standby_rate_initial",
+                        "value": "0.85",
+                        "unit": "dollars_per_hour"
+                      },
+                      {
+                        "name": "standby_rate_july2006",
+                        "value": "0.95",
+                        "unit": "dollars_per_hour"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Wages",
+        "level": 1,
+        "n_records": 308,
+        "children": [
+          {
+            "name": "C_WAGE_BASE_RATE",
+            "level": 2,
+            "n_records": 116,
+            "children": [
+              {
+                "name": "base_rate_schedule",
+                "level": 3,
+                "n_records": 24,
+                "examples": [
+                  {
+                    "document_id": "DOL_1151",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "base_wage_rate_zone1_2",
+                        "value": "27.75",
+                        "unit": "USD_per_hour"
+                      },
+                      {
+                        "name": "flagger_rate_zone1_2",
+                        "value": "18.50",
+                        "unit": "USD_per_hour"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1184",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "base_wage_zone1_effective_2007_07_01",
+                        "value": "32.63",
+                        "unit": "USD/hr"
+                      },
+                      {
+                        "name": "effective_date",
+                        "value": "2007-07-01",
+                        "unit": "date"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1184",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "base_wage_effective_2007_07_01",
+                        "value": "32.48",
+                        "unit": "USD/hr"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1316",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "base_hourly_rate_2001",
+                        "value": "31.50",
+                        "unit": "USD/hour"
+                      },
+                      {
+                        "name": "base_hourly_rate_2002",
+                        "value": "33.15",
+                        "unit": "USD/hour"
+                      },
+                      {
+                        "name": "base_hourly_rate_2003",
+                        "value": "34.83",
+                        "unit": "USD/hour"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1424",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "base_hourly_rate",
+                        "value": "24.32",
+                        "unit": "USD/hr"
+                      },
+                      {
+                        "name": "effective_date",
+                        "value": "2003-07-01",
+                        "unit": "date"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "classification_wage_schedule",
+                "level": 3,
+                "n_records": 89,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1086",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "base_wage_class1",
+                        "value": "28.45",
+                        "unit": "USD/hr"
+                      },
+                      {
+                        "name": "base_wage_class2_leadman",
+                        "value": "29.95",
+                        "unit": "USD/hr"
+                      },
+                      {
+                        "name": "effective_date",
+                        "value": "2005-05-01",
+                        "unit": "date"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "driver_base_rate_year1",
+                        "value": "24.35",
+                        "unit": "USD/hr"
+                      },
+                      {
+                        "name": "warehouseman_base_rate_year1",
+                        "value": "23.60",
+                        "unit": "USD/hr"
+                      },
+                      {
+                        "name": "trailer_driver_differential",
+                        "value": "0.75",
+                        "unit": "USD/hr additional"
+                      },
+                      {
+                        "name": "new_hire_min_pct_year0",
+                        "value": "80",
+                        "unit": "percent of rate"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_116",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "journeyman_base_rate_1997",
+                        "value": "19.08",
+                        "unit": "USD/hour"
+                      },
+                      {
+                        "name": "journeyman_base_rate_2002",
+                        "value": "22.00",
+                        "unit": "USD/hour"
+                      },
+                      {
+                        "name": "foreman_base_rate_1997",
+                        "value": "25.19",
+                        "unit": "USD/hour"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1172",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "group_I_base_rate",
+                        "value": "20.10",
+                        "unit": "USD/hour"
+                      },
+                      {
+                        "name": "group_V_base_rate",
+                        "value": "23.10",
+                        "unit": "USD/hour"
+                      },
+                      {
+                        "name": "group_VI_base_rate",
+                        "value": "24.60",
+                        "unit": "USD/hour"
+                      },
+                      {
+                        "name": "effective_date",
+                        "value": "2003-07-01",
+                        "unit": "date"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "other_wage_term",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_3300",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "curriculum_rate_2002_03",
+                        "value": "27.06",
+                        "unit": "USD/hour"
+                      },
+                      {
+                        "name": "curriculum_rate_2003_04",
+                        "value": "27.60",
+                        "unit": "USD/hour"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "step_progression",
+                "level": 3,
+                "n_records": 2,
+                "examples": [
+                  {
+                    "document_id": "DOL_188",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2930",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "C_WAGE_INCREASES_COLA",
+            "level": 2,
+            "n_records": 104,
+            "children": [
+              {
+                "name": "across_the_board_increase",
+                "level": 3,
+                "n_records": 84,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "wage_increase_year1_2003",
+                        "value": "0.40",
+                        "unit": "USD_per_hour"
+                      },
+                      {
+                        "name": "wage_increase_year2_2004",
+                        "value": "0.40",
+                        "unit": "USD_per_hour"
+                      },
+                      {
+                        "name": "wage_increase_year3_2005",
+                        "value": "0.40",
+                        "unit": "USD_per_hour"
+                      },
+                      {
+                        "name": "wage_increase_year4_2006",
+                        "value": "0.30",
+                        "unit": "USD_per_hour"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1086",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "total_compensation_increase_yr2",
+                        "value": "1.55",
+                        "unit": "USD/hr"
+                      },
+                      {
+                        "name": "total_compensation_increase_yr3",
+                        "value": "1.55",
+                        "unit": "USD/hr"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "driver_annual_increase_yr1_3",
+                        "value": "0.60",
+                        "unit": "USD/hr per year"
+                      },
+                      {
+                        "name": "driver_annual_increase_yr4_5",
+                        "value": "0.65",
+                        "unit": "USD/hr per year"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1151",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "total_package_increase_contract_term",
+                        "value": "8.75",
+                        "unit": "USD_per_hour_cumulative"
+                      },
+                      {
+                        "name": "increase_frequency",
+                        "value": "biannual",
+                        "unit": "categorical"
+                      },
+                      {
+                        "name": "initial_total_package",
+                        "value": "45.60",
+                        "unit": "USD_per_hour"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_116",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "annual_increase_1997",
+                        "value": "1.35",
+                        "unit": "USD/hour"
+                      },
+                      {
+                        "name": "annual_increase_1998",
+                        "value": "1.33",
+                        "unit": "USD/hour"
+                      },
+                      {
+                        "name": "annual_increase_1999",
+                        "value": "1.07",
+                        "unit": "USD/hour"
+                      },
+                      {
+                        "name": "annual_increase_2000",
+                        "value": "1.06",
+                        "unit": "USD/hour"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "cola_formula",
+                "level": 3,
+                "n_records": 8,
+                "examples": [
+                  {
+                    "document_id": "DOL_2930",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "atb_increase_year1_pct",
+                        "value": "2.0",
+                        "unit": "percent"
+                      },
+                      {
+                        "name": "cola_floor_pct",
+                        "value": "2.0",
+                        "unit": "percent"
+                      },
+                      {
+                        "name": "cola_cap_pct",
+                        "value": "5.0",
+                        "unit": "percent"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_3385",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3504",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "cola_formula",
+                        "value": "max(state_classified_employee_pct_raise, 0.015) applied to Appendix A rates",
+                        "unit": "pct"
+                      },
+                      {
+                        "name": "cola_floor_pct",
+                        "value": "1.5",
+                        "unit": "percent"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_368",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_4060",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "increase_formula",
+                        "value": "per_pupil_foundation_grant_pct_increase \u00d7 0.625",
+                        "unit": "formula"
+                      },
+                      {
+                        "name": "annual_increase_cap",
+                        "value": "3",
+                        "unit": "percent"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "longevity_progression",
+                "level": 3,
+                "n_records": 2,
+                "examples": [
+                  {
+                    "document_id": "DOL_3300",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3942",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "longevity_10yr",
+                        "value": "730",
+                        "unit": "USD/year"
+                      },
+                      {
+                        "name": "longevity_25yr",
+                        "value": "955",
+                        "unit": "USD/year"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "lump_sum_wage_payment",
+                "level": 3,
+                "n_records": 5,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3368",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3377",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "lump_sum_pct_FY2001-02",
+                        "value": "1.0",
+                        "unit": "percent_of_total_earnings"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_4362",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "retention_bonus_total",
+                        "value": "5000",
+                        "unit": "USD"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_658",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "lump_sum_rate_per_hour",
+                        "value": "0.30",
+                        "unit": "USD/hour worked (applied to prior 12 months)"
+                      },
+                      {
+                        "name": "atb_increase_meatcutter_5_2_04",
+                        "value": "0.30",
+                        "unit": "USD/hour"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "other_wage_term",
+                "level": 3,
+                "n_records": 2,
+                "examples": [
+                  {
+                    "document_id": "DOL_1625",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2088",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "wage_reopener_or_review",
+                "level": 3,
+                "n_records": 3,
+                "examples": [
+                  {
+                    "document_id": "DOL_1884",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3190",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_4059",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "C_WAGE_PROGRESSION",
+            "level": 2,
+            "n_records": 88,
+            "children": [
+              {
+                "name": "classification_wage_schedule",
+                "level": 3,
+                "n_records": 6,
+                "examples": [
+                  {
+                    "document_id": "DOL_1086",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1151",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "intermediate_class_premium_min",
+                        "value": "0.25",
+                        "unit": "USD_per_hour_over_base"
+                      },
+                      {
+                        "name": "intermediate_class_premium_max",
+                        "value": "1.00",
+                        "unit": "USD_per_hour_over_base"
+                      },
+                      {
+                        "name": "apprentice_wage_tier_1",
+                        "value": "60",
+                        "unit": "pct_of_journey_worker"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1187",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1251",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1264",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "longevity_progression",
+                "level": 3,
+                "n_records": 13,
+                "examples": [
+                  {
+                    "document_id": "DOL_1328",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1910",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "rip_5yr_annual",
+                        "value": "1556",
+                        "unit": "USD per year"
+                      },
+                      {
+                        "name": "rip_10yr_annual",
+                        "value": "3199",
+                        "unit": "USD per year"
+                      },
+                      {
+                        "name": "rip_15yr_annual",
+                        "value": "4504",
+                        "unit": "USD per year"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_2589",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2715",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "promotion_base_increase_pct",
+                        "value": "9",
+                        "unit": "percent_of_base"
+                      },
+                      {
+                        "name": "promotion_flat_increase_assistant_professor",
+                        "value": "1500",
+                        "unit": "USD"
+                      },
+                      {
+                        "name": "promotion_flat_increase_professor",
+                        "value": "3500",
+                        "unit": "USD"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_2881",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "longevity_start_year",
+                        "value": "3",
+                        "unit": "years_of_service"
+                      },
+                      {
+                        "name": "longevity_hourly_at_10yrs",
+                        "value": "1.40",
+                        "unit": "USD/hour"
+                      },
+                      {
+                        "name": "longevity_annual_at_20yrs",
+                        "value": "5846.40",
+                        "unit": "USD/year"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "other_wage_term",
+                "level": 3,
+                "n_records": 4,
+                "examples": [
+                  {
+                    "document_id": "DOL_1570",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "foreman_premium_pct",
+                        "value": "8",
+                        "unit": "pct_above_journeyman"
+                      },
+                      {
+                        "name": "general_foreman_premium_pct",
+                        "value": "11",
+                        "unit": "pct_above_journeyman"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_2271",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_4135",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_4201",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "step_progression",
+                "level": 3,
+                "n_records": 65,
+                "examples": [
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_116",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1172",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "apprentice_period_1_rate",
+                        "value": "11.55",
+                        "unit": "USD/hour"
+                      },
+                      {
+                        "name": "apprentice_final_period_rate",
+                        "value": "19.64",
+                        "unit": "USD/hour"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1184",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1287",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Disputes",
+    "label": "Disputes",
+    "level": 0,
+    "n_records": 384,
+    "children": [
+      {
+        "name": "Discipline",
+        "level": 1,
+        "n_records": 197,
+        "children": [
+          {
+            "name": "C_DISCIPLINE_INVESTIGATION_APPEAL",
+            "level": 2,
+            "n_records": 60,
+            "children": [
+              {
+                "name": "(unspecified sub-type)",
+                "level": 3,
+                "n_records": 55,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1151",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1172",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1187",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "base_rate_schedule",
+                "level": 3,
+                "n_records": 5,
+                "examples": [
+                  {
+                    "document_id": "DOL_2930",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3558",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_4362",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_465",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_593",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "C_DISCIPLINE_JUST_CAUSE",
+            "level": 2,
+            "n_records": 90,
+            "children": [
+              {
+                "name": "(unspecified sub-type)",
+                "level": 3,
+                "n_records": 78,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1086",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "just_cause_standard",
+                        "value": "management_discretion_only",
+                        "unit": ""
+                      },
+                      {
+                        "name": "unsafe_work_discharge_protection",
+                        "value": "yes",
+                        "unit": ""
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1151",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_116",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "base_rate_schedule",
+                "level": 3,
+                "n_records": 11,
+                "examples": [
+                  {
+                    "document_id": "DOL_1328",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "discharge_standard",
+                        "value": "proper cause",
+                        "unit": ""
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_2930",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "just_cause_standard_present",
+                        "value": "true",
+                        "unit": "boolean"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_3504",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "just_cause_stated",
+                        "value": "yes",
+                        "unit": ""
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_3506",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3558",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "just_cause",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_1620",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "just_cause_standard",
+                        "value": "just cause required; contractor must prove before Joint Conference Board on unio",
+                        "unit": ""
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "C_DISCIPLINE_PROGRESSIVE",
+            "level": 2,
+            "n_records": 47,
+            "children": [
+              {
+                "name": "(unspecified sub-type)",
+                "level": 3,
+                "n_records": 38,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1251",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "progressive_steps_count",
+                        "value": "3",
+                        "unit": "steps"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1625",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1910",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "base_rate_schedule",
+                "level": 3,
+                "n_records": 8,
+                "examples": [
+                  {
+                    "document_id": "DOL_3504",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3558",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3908",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_4005",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_413",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "progressive_discipline",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_1620",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Grievance & Arbitration",
+        "level": 1,
+        "n_records": 187,
+        "children": [
+          {
+            "name": "C_ARBITRATION",
+            "level": 2,
+            "n_records": 92,
+            "children": [
+              {
+                "name": "(unspecified sub-type)",
+                "level": 3,
+                "n_records": 79,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1086",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1151",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "arbitration_finality",
+                        "value": "final_and_binding",
+                        "unit": "categorical"
+                      },
+                      {
+                        "name": "arbitrator_appointing_body",
+                        "value": "AAA if mutual agreement fails",
+                        "unit": "categorical"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_116",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "arbitration_access",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_1620",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "base_rate_schedule",
+                "level": 3,
+                "n_records": 12,
+                "examples": [
+                  {
+                    "document_id": "DOL_1328",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "arbitration_hearing_deadline_days",
+                        "value": "90",
+                        "unit": "days_from_acceptance"
+                      },
+                      {
+                        "name": "arbitration_decision_deadline_days",
+                        "value": "30",
+                        "unit": "days_from_last_hearing"
+                      },
+                      {
+                        "name": "cost_sharing",
+                        "value": "equal",
+                        "unit": ""
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_2589",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2930",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3504",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "arbitration_binding",
+                        "value": "yes",
+                        "unit": ""
+                      },
+                      {
+                        "name": "arbitration_cost_split",
+                        "value": "equal",
+                        "unit": ""
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_3506",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "C_GRIEVANCE_PROCEDURE",
+            "level": 2,
+            "n_records": 95,
+            "children": [
+              {
+                "name": "(unspecified sub-type)",
+                "level": 3,
+                "n_records": 82,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "grievance_steps",
+                        "value": "4",
+                        "unit": "steps"
+                      },
+                      {
+                        "name": "filing_time_limit_days",
+                        "value": "10",
+                        "unit": "working_days"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1086",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "grievance_steps",
+                        "value": "3",
+                        "unit": "steps"
+                      },
+                      {
+                        "name": "grievance_filing_deadline_days",
+                        "value": "10",
+                        "unit": "working_days"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1151",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "step_count",
+                        "value": "3",
+                        "unit": "steps"
+                      },
+                      {
+                        "name": "step1_deadline_hours",
+                        "value": "48",
+                        "unit": "hours"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_116",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "base_rate_schedule",
+                "level": 3,
+                "n_records": 12,
+                "examples": [
+                  {
+                    "document_id": "DOL_1328",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "initial_filing_deadline_days",
+                        "value": "18",
+                        "unit": "calendar_days"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_2589",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2930",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "formal_steps_count",
+                        "value": "4",
+                        "unit": "steps"
+                      },
+                      {
+                        "name": "binding_arbitration_available",
+                        "value": "true",
+                        "unit": "boolean"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_3504",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "grievance_steps",
+                        "value": "3",
+                        "unit": "steps"
+                      },
+                      {
+                        "name": "grievance_initial_filing_window_days",
+                        "value": "30",
+                        "unit": "calendar days"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_3506",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "grievance_filing_window_days",
+                        "value": "30",
+                        "unit": "calendar days"
+                      },
+                      {
+                        "name": "grievance_steps_count",
+                        "value": "4",
+                        "unit": "steps"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "grievance_steps",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_1620",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "grievance_step_count",
+                        "value": "1",
+                        "unit": "steps to JCB"
+                      },
+                      {
+                        "name": "filing_deadline_days",
+                        "value": "10",
+                        "unit": "days"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Healthcare",
+    "label": "Healthcare",
+    "level": 0,
+    "n_records": 296,
+    "children": [
+      {
+        "name": "Active Medical",
+        "level": 1,
+        "n_records": 179,
+        "children": [
+          {
+            "name": "C_HEALTH_MEDICAL_ACTIVE",
+            "level": 2,
+            "n_records": 2,
+            "children": [
+              {
+                "name": "active_medical",
+                "level": 3,
+                "n_records": 2,
+                "examples": [
+                  {
+                    "document_id": "DOL_1910",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_4461",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION",
+            "level": 2,
+            "n_records": 100,
+            "children": [
+              {
+                "name": "active_medical_contribution_terms",
+                "level": 3,
+                "n_records": 99,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "annual_health_care_payment",
+                        "value": "1000",
+                        "unit": "USD_per_year"
+                      },
+                      {
+                        "name": "annual_family_deductible",
+                        "value": "750",
+                        "unit": "USD_per_year"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1086",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "employer_hw_contribution_rate",
+                        "value": "5.33",
+                        "unit": "USD/hr"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "employer_contribution_rate_2019",
+                        "value": "1932.67",
+                        "unit": "USD/employee/month"
+                      },
+                      {
+                        "name": "employee_copayment_2019",
+                        "value": "75.00",
+                        "unit": "USD/employee/month"
+                      },
+                      {
+                        "name": "employee_copayment_2023",
+                        "value": "95.00",
+                        "unit": "USD/employee/month"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1151",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "employer_hw_contribution_baseline",
+                        "value": "6.60",
+                        "unit": "USD_per_hour_worked"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_116",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "welfare_fund_contribution_1997",
+                        "value": "5.54",
+                        "unit": "USD/hour"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "external_fund_only",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_1910",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN",
+            "level": 2,
+            "n_records": 77,
+            "children": [
+              {
+                "name": "active_medical_plan_design",
+                "level": 3,
+                "n_records": 74,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1086",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1151",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_116",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "external_fund_only",
+                "level": 3,
+                "n_records": 3,
+                "examples": [
+                  {
+                    "document_id": "DOL_1884",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_4059",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_4060",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Ancillary Health",
+        "level": 1,
+        "n_records": 81,
+        "children": [
+          {
+            "name": "C_HEALTH_DENTAL",
+            "level": 2,
+            "n_records": 32,
+            "children": [
+              {
+                "name": "dental",
+                "level": 3,
+                "n_records": 32,
+                "examples": [
+                  {
+                    "document_id": "DOL_1313",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1570",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_188",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2083",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2088",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "C_HEALTH_LIFE_AD_D",
+            "level": 2,
+            "n_records": 35,
+            "children": [
+              {
+                "name": "life_ad_d",
+                "level": 3,
+                "n_records": 35,
+                "examples": [
+                  {
+                    "document_id": "DOL_1313",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1625",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_188",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2072",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2083",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "C_HEALTH_VISION",
+            "level": 2,
+            "n_records": 14,
+            "children": [
+              {
+                "name": "vision",
+                "level": 3,
+                "n_records": 14,
+                "examples": [
+                  {
+                    "document_id": "DOL_1313",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2083",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_305",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3051",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3161",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Disability",
+        "level": 1,
+        "n_records": 26,
+        "children": [
+          {
+            "name": "C_HEALTH_DISABILITY_INCOME",
+            "level": 2,
+            "n_records": 26,
+            "children": [
+              {
+                "name": "disability_income",
+                "level": 3,
+                "n_records": 26,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "sa_benefit_weekly_years1_3",
+                        "value": "325",
+                        "unit": "USD_per_week"
+                      },
+                      {
+                        "name": "sa_benefit_weekly_years4_5",
+                        "value": "350",
+                        "unit": "USD_per_week"
+                      },
+                      {
+                        "name": "max_duration_accident_weeks",
+                        "value": "52",
+                        "unit": "weeks"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1151",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1316",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1625",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_188",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Retiree Health",
+        "level": 1,
+        "n_records": 10,
+        "children": [
+          {
+            "name": "C_HEALTH_RETIREE",
+            "level": 2,
+            "n_records": 10,
+            "children": [
+              {
+                "name": "retiree_health",
+                "level": 3,
+                "n_records": 10,
+                "examples": [
+                  {
+                    "document_id": "DOL_1625",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_188",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "retiree_trust_contribution_4105",
+                        "value": "0.80",
+                        "unit": "USD per actual man-hour worked"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_2589",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2715",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_305",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Leave",
+    "label": "Leave",
+    "level": 0,
+    "n_records": 453,
+    "children": [
+      {
+        "name": "Health & Family Leave",
+        "level": 1,
+        "n_records": 116,
+        "children": [
+          {
+            "name": "C_LEAVE_PARENTAL_FAMILY",
+            "level": 2,
+            "n_records": 53,
+            "children": [
+              {
+                "name": "(unspecified sub-type)",
+                "level": 3,
+                "n_records": 45,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1172",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1625",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_188",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "base_rate_schedule",
+                "level": 3,
+                "n_records": 7,
+                "examples": [
+                  {
+                    "document_id": "DOL_2589",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2930",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "paid_parental_leave_max_hours",
+                        "value": "160",
+                        "unit": "hours"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_3504",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3506",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_4005",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "medical_disability_leave",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_3908",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "C_LEAVE_SICK",
+            "level": 2,
+            "n_records": 63,
+            "children": [
+              {
+                "name": "(unspecified sub-type)",
+                "level": 3,
+                "n_records": 51,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "personal_sick_days_per_year",
+                        "value": "5",
+                        "unit": "days_per_year"
+                      },
+                      {
+                        "name": "max_carryover_days",
+                        "value": "10",
+                        "unit": "days"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1313",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1625",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "annual_accrual_days",
+                        "value": "10",
+                        "unit": "days/year"
+                      },
+                      {
+                        "name": "maximum_accumulation_days",
+                        "value": "120",
+                        "unit": "days"
+                      },
+                      {
+                        "name": "family_illness_days_annual",
+                        "value": "3",
+                        "unit": "days/year"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_188",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "base_rate_schedule",
+                "level": 3,
+                "n_records": 11,
+                "examples": [
+                  {
+                    "document_id": "DOL_2589",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "sick_accrual_fulltime_monthly",
+                        "value": "7.0",
+                        "unit": "hrs/month"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_2930",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "sick_leave_accrual_rate_hours_pp",
+                        "value": "4.6",
+                        "unit": "hours_per_pay_period"
+                      },
+                      {
+                        "name": "sick_leave_accumulation_limit",
+                        "value": "unlimited",
+                        "unit": "hours"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_3504",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "sick_leave_days_per_year",
+                        "value": "12",
+                        "unit": "days/year"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_3506",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "sick_leave_accrual_days_per_month",
+                        "value": "1",
+                        "unit": "day/month"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_3558",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "personal_day",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_3908",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Other Leave",
+        "level": 1,
+        "n_records": 159,
+        "children": [
+          {
+            "name": "C_LEAVE_PERSONAL_MISC",
+            "level": 2,
+            "n_records": 159,
+            "children": [
+              {
+                "name": "bereavement_leave",
+                "level": 3,
+                "n_records": 55,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "bereavement_days",
+                        "value": "3",
+                        "unit": "days"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_116",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "bereavement_days",
+                        "value": "3",
+                        "unit": "days"
+                      },
+                      {
+                        "name": "bereavement_eligibility_years",
+                        "value": "2",
+                        "unit": "years_service"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1313",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "bereavement_days",
+                        "value": "3",
+                        "unit": "days"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1625",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "bereavement_immediate_family_days",
+                        "value": "5",
+                        "unit": "days"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "family_illness_leave",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_3300",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "jury_civic_duty_leave",
+                "level": 3,
+                "n_records": 53,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1172",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1303",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1313",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "medical_disability_leave",
+                "level": 3,
+                "n_records": 2,
+                "examples": [
+                  {
+                    "document_id": "DOL_2068",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_403",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "military_leave",
+                "level": 3,
+                "n_records": 19,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1625",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2271",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2711",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "other_named_misc_leave",
+                "level": 3,
+                "n_records": 4,
+                "examples": [
+                  {
+                    "document_id": "DOL_1251",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3139",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_4201",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_4244",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "personal_day",
+                "level": 3,
+                "n_records": 16,
+                "examples": [
+                  {
+                    "document_id": "DOL_1625",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "personal_business_days_annual",
+                        "value": "2",
+                        "unit": "days/year"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_2589",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "personal_time_fulltime_annual",
+                        "value": "21.0",
+                        "unit": "hrs/yr"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_2711",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3051",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3139",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "annual_days",
+                        "value": "2",
+                        "unit": "days_per_year"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "pto_conversion_or_shared_bank_use",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_2402",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "union_or_association_leave",
+                "level": 3,
+                "n_records": 7,
+                "examples": [
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1620",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2271",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3139",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3161",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "voting_or_civic_leave",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_4145",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Time Off",
+        "level": 1,
+        "n_records": 178,
+        "children": [
+          {
+            "name": "C_LEAVE_HOLIDAYS",
+            "level": 2,
+            "n_records": 91,
+            "children": [
+              {
+                "name": "(unspecified sub-type)",
+                "level": 3,
+                "n_records": 74,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "paid_holidays_per_year",
+                        "value": "11",
+                        "unit": "days"
+                      },
+                      {
+                        "name": "holiday_worked_multiplier",
+                        "value": "3.0",
+                        "unit": "multiplier"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1086",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "named_holiday_count",
+                        "value": "6",
+                        "unit": "days"
+                      },
+                      {
+                        "name": "holiday_pay_multiplier",
+                        "value": "2.0",
+                        "unit": "multiplier"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1151",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "named_holiday_count",
+                        "value": "10",
+                        "unit": "days"
+                      },
+                      {
+                        "name": "holiday_work_premium",
+                        "value": "2.0",
+                        "unit": "x_straight_time"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_116",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "holiday_count",
+                        "value": "10",
+                        "unit": "days"
+                      },
+                      {
+                        "name": "holiday_work_pay_multiplier",
+                        "value": "2.0",
+                        "unit": "multiplier"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1172",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "paid_holiday_count",
+                        "value": "8",
+                        "unit": "days"
+                      },
+                      {
+                        "name": "holiday_work_pay_multiplier",
+                        "value": "2.0",
+                        "unit": "multiplier"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "base_rate_schedule",
+                "level": 3,
+                "n_records": 16,
+                "examples": [
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "named_holiday_count",
+                        "value": "6",
+                        "unit": "days"
+                      },
+                      {
+                        "name": "personal_holiday_count",
+                        "value": "5",
+                        "unit": "days"
+                      },
+                      {
+                        "name": "holiday_work_multiplier",
+                        "value": "2.0",
+                        "unit": "x regular rate"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1328",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1570",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "named_holidays_count",
+                        "value": "6",
+                        "unit": "days"
+                      },
+                      {
+                        "name": "holiday_premium_multiplier",
+                        "value": "2.0",
+                        "unit": "x_straight_time"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_2930",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "named_holiday_count",
+                        "value": "11",
+                        "unit": "days"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_3504",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "holiday_count",
+                        "value": "13",
+                        "unit": "days"
+                      },
+                      {
+                        "name": "worked_holiday_multiplier",
+                        "value": "1.5",
+                        "unit": "multiplier_plus_regular_pay"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "leave_holidays",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_1620",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "named_holiday_count_construction",
+                        "value": "15",
+                        "unit": "days"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "C_LEAVE_VACATION",
+            "level": 2,
+            "n_records": 87,
+            "children": [
+              {
+                "name": "(unspecified sub-type)",
+                "level": 3,
+                "n_records": 50,
+                "examples": [
+                  {
+                    "document_id": "DOL_1086",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_116",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1172",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1184",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "vacation_contribution_rate_per_hour",
+                        "value": "1.50",
+                        "unit": "USD/hr"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1184",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "vacation_contribution_rate_per_hour",
+                        "value": "2.00",
+                        "unit": "USD/hr"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "base_rate_schedule",
+                "level": 3,
+                "n_records": 35,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "regular_vacation_duration",
+                        "value": "14",
+                        "unit": "consecutive_calendar_days"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "floating_vacation_days",
+                        "value": "4",
+                        "unit": "days_per_year"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "vacation_weeks_at_1yr",
+                        "value": "1",
+                        "unit": "weeks"
+                      },
+                      {
+                        "name": "vacation_weeks_at_3yr",
+                        "value": "2",
+                        "unit": "weeks"
+                      },
+                      {
+                        "name": "vacation_weeks_at_8yr",
+                        "value": "3",
+                        "unit": "weeks"
+                      },
+                      {
+                        "name": "vacation_weeks_at_15yr",
+                        "value": "4",
+                        "unit": "weeks"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1313",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "vacation_tier_1yr",
+                        "value": "1",
+                        "unit": "weeks"
+                      },
+                      {
+                        "name": "vacation_tier_2yr",
+                        "value": "2",
+                        "unit": "weeks"
+                      },
+                      {
+                        "name": "vacation_tier_5yr",
+                        "value": "3",
+                        "unit": "weeks"
+                      },
+                      {
+                        "name": "vacation_tier_15yr",
+                        "value": "4",
+                        "unit": "weeks"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1328",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "vacation_fund_pct_of_wage",
+                        "value": "4",
+                        "unit": "percent_of_hourly_rate"
+                      },
+                      {
+                        "name": "vacation_time_off_weeks",
+                        "value": "2",
+                        "unit": "weeks"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "leave_vacation",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_1620",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "longevity_progression",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "graduated_max_additional_days",
+                        "value": "13",
+                        "unit": "days_per_year"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Recognition",
+    "label": "Recognition",
+    "level": 0,
+    "n_records": 273,
+    "children": [
+      {
+        "name": "Bargaining Unit",
+        "level": 1,
+        "n_records": 84,
+        "children": [
+          {
+            "name": "C_RECOGNITION_COVERAGE_SCOPE",
+            "level": 2,
+            "n_records": 84,
+            "children": [
+              {
+                "name": "(unspecified sub-type)",
+                "level": 3,
+                "n_records": 73,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1086",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1151",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_116",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "base_rate_schedule",
+                "level": 3,
+                "n_records": 10,
+                "examples": [
+                  {
+                    "document_id": "DOL_1328",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2589",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2930",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3504",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3506",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "recognition_coverage",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_1620",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Union Operations",
+        "level": 1,
+        "n_records": 189,
+        "children": [
+          {
+            "name": "C_UNION_ACCESS_BUSINESS",
+            "level": 2,
+            "n_records": 97,
+            "children": [
+              {
+                "name": "(unspecified sub-type)",
+                "level": 3,
+                "n_records": 84,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1086",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1151",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_116",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "base_rate_schedule",
+                "level": 3,
+                "n_records": 12,
+                "examples": [
+                  {
+                    "document_id": "DOL_1328",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2589",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2930",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3504",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3506",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "steward_access",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_1620",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "C_UNION_SECURITY_DUES_CHECKOFF",
+            "level": 2,
+            "n_records": 92,
+            "children": [
+              {
+                "name": "agency_shop",
+                "level": 3,
+                "n_records": 9,
+                "examples": [
+                  {
+                    "document_id": "DOL_1328",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1570",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2589",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2930",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3161",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "dues_checkoff",
+                "level": 3,
+                "n_records": 77,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1151",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_116",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1172",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "fair_share_or_union_security",
+                "level": 3,
+                "n_records": 6,
+                "examples": [
+                  {
+                    "document_id": "DOL_1086",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_4060",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_4145",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_492",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_778",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Safety",
+    "label": "Safety",
+    "level": 0,
+    "n_records": 123,
+    "children": [
+      {
+        "name": "Worker Voice",
+        "level": 1,
+        "n_records": 36,
+        "children": [
+          {
+            "name": "C_LABOR_MANAGEMENT_COMMITTEE",
+            "level": 2,
+            "n_records": 36,
+            "children": [
+              {
+                "name": "(unspecified sub-type)",
+                "level": 3,
+                "n_records": 30,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_116",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1184",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1310",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1316",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "base_rate_schedule",
+                "level": 3,
+                "n_records": 5,
+                "examples": [
+                  {
+                    "document_id": "DOL_1328",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2589",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2930",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3558",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_4362",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "labor_management_committee",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_1620",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Workplace Safety",
+        "level": 1,
+        "n_records": 87,
+        "children": [
+          {
+            "name": "C_SAFETY_ASSAULT_VIOLENCE",
+            "level": 2,
+            "n_records": 7,
+            "children": [
+              {
+                "name": "(unspecified sub-type)",
+                "level": 3,
+                "n_records": 6,
+                "examples": [
+                  {
+                    "document_id": "DOL_1625",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1910",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3139",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3161",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3190",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "base_rate_schedule",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_4362",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "C_SAFETY_PPE_UNSAFE_WORK",
+            "level": 2,
+            "n_records": 80,
+            "children": [
+              {
+                "name": "(unspecified sub-type)",
+                "level": 3,
+                "n_records": 69,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "protective_clothing_allowance_2002_2004",
+                        "value": "230",
+                        "unit": "USD_per_year"
+                      },
+                      {
+                        "name": "protective_clothing_allowance_2005_2006",
+                        "value": "250",
+                        "unit": "USD_per_year"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_1086",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1151",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1172",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1184",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "base_rate_schedule",
+                "level": 3,
+                "n_records": 10,
+                "examples": [
+                  {
+                    "document_id": "DOL_1328",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2589",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2930",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3506",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3558",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "ppe_hazard",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_1620",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Scheduling",
+    "label": "Scheduling",
+    "level": 0,
+    "n_records": 199,
+    "children": [
+      {
+        "name": "Hours & Rest",
+        "level": 1,
+        "n_records": 164,
+        "children": [
+          {
+            "name": "C_TIME_REGULAR_SCHEDULE",
+            "level": 2,
+            "n_records": 94,
+            "children": [
+              {
+                "name": "regular_hours_schedule",
+                "level": 3,
+                "n_records": 94,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1086",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1151",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_116",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "C_TIME_REST_MEAL_PERIODS",
+            "level": 2,
+            "n_records": 70,
+            "children": [
+              {
+                "name": "rest_meal_periods",
+                "level": 3,
+                "n_records": 70,
+                "examples": [
+                  {
+                    "document_id": "DOL_1086",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1151",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_116",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1172",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Schedule Security",
+        "level": 1,
+        "n_records": 32,
+        "children": [
+          {
+            "name": "C_TIME_NO_CANCELLATION_SECURITY",
+            "level": 2,
+            "n_records": 1,
+            "children": [
+              {
+                "name": "no_cancellation_shift_security",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_3671",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "C_TIME_SCHEDULE_NOTICE_CHANGE",
+            "level": 2,
+            "n_records": 31,
+            "children": [
+              {
+                "name": "schedule_notice_change",
+                "level": 3,
+                "n_records": 31,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1172",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1187",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1328",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1570",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Workload & Staffing",
+        "level": 1,
+        "n_records": 3,
+        "children": [
+          {
+            "name": "C_WORKLOAD_CLASS_SIZE_STAFFING",
+            "level": 2,
+            "n_records": 3,
+            "children": [
+              {
+                "name": "staffing_ratio",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_1264",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "workload_cap",
+                "level": 3,
+                "n_records": 2,
+                "examples": [
+                  {
+                    "document_id": "DOL_1625",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2930",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Security",
+    "label": "Security",
+    "level": 0,
+    "n_records": 296,
+    "children": [
+      {
+        "name": "Layoff & Recall",
+        "level": 1,
+        "n_records": 148,
+        "children": [
+          {
+            "name": "C_JOB_SECURITY_LAYOFF_ORDER",
+            "level": 2,
+            "n_records": 86,
+            "children": [
+              {
+                "name": "(unspecified sub-type)",
+                "level": 3,
+                "n_records": 73,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1151",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_116",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1172",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "base_rate_schedule",
+                "level": 3,
+                "n_records": 12,
+                "examples": [
+                  {
+                    "document_id": "DOL_1328",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2589",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2930",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3504",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3506",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "layoff_order",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_1620",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "layoff_order_rule",
+                        "value": "Class C/D/E first, then B, then A; Class A protected while B/C/D/E capable of th",
+                        "unit": ""
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "C_JOB_SECURITY_RECALL",
+            "level": 2,
+            "n_records": 62,
+            "children": [
+              {
+                "name": "(unspecified sub-type)",
+                "level": 3,
+                "n_records": 51,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1251",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1264",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1313",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "base_rate_schedule",
+                "level": 3,
+                "n_records": 10,
+                "examples": [
+                  {
+                    "document_id": "DOL_1328",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2930",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3504",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3558",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3908",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "recall_rehire",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_1620",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Mobility",
+        "level": 1,
+        "n_records": 64,
+        "children": [
+          {
+            "name": "C_JOB_POSTING_BIDDING_TRANSFER",
+            "level": 2,
+            "n_records": 18,
+            "children": [
+              {
+                "name": "(unspecified sub-type)",
+                "level": 3,
+                "n_records": 15,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2418",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2711",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3100",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3139",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "base_rate_schedule",
+                "level": 3,
+                "n_records": 3,
+                "examples": [
+                  {
+                    "document_id": "DOL_2930",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3908",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_465",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "C_SENIORITY_SYSTEM",
+            "level": 2,
+            "n_records": 46,
+            "children": [
+              {
+                "name": "(unspecified sub-type)",
+                "level": 3,
+                "n_records": 36,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1187",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1287",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1313",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "base_rate_schedule",
+                "level": 3,
+                "n_records": 10,
+                "examples": [
+                  {
+                    "document_id": "DOL_2589",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2930",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3504",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3506",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3558",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Severance & Bridge",
+        "level": 1,
+        "n_records": 53,
+        "children": [
+          {
+            "name": "C_JOB_SECURITY_BENEFIT_CONTINUATION",
+            "level": 2,
+            "n_records": 25,
+            "children": [
+              {
+                "name": "(unspecified sub-type)",
+                "level": 3,
+                "n_records": 23,
+                "examples": [
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1251",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_188",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1910",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_2346",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "base_rate_schedule",
+                "level": 3,
+                "n_records": 2,
+                "examples": [
+                  {
+                    "document_id": "DOL_413",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_593",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "C_JOB_SECURITY_SEVERANCE",
+            "level": 2,
+            "n_records": 28,
+            "children": [
+              {
+                "name": "(unspecified sub-type)",
+                "level": 3,
+                "n_records": 20,
+                "examples": [
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1316",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1625",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_188",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "severance_rate_hrs_per_year",
+                        "value": "40",
+                        "unit": "hours per year of credited service"
+                      }
+                    ]
+                  },
+                  {
+                    "document_id": "DOL_233",
+                    "description": "",
+                    "status": "",
+                    "fields": [
+                      {
+                        "name": "weekly_benefit_amount_2_to_19yr_wk1_26",
+                        "value": "150",
+                        "unit": "USD/week"
+                      },
+                      {
+                        "name": "weekly_benefit_amount_2_to_19yr_wk27_plus",
+                        "value": "235",
+                        "unit": "USD/week"
+                      },
+                      {
+                        "name": "weekly_benefit_amount_20yr_plus_wk1_26",
+                        "value": "180",
+                        "unit": "USD/week"
+                      },
+                      {
+                        "name": "weekly_benefit_amount_20yr_plus_wk27_plus",
+                        "value": "235",
+                        "unit": "USD/week"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "base_rate_schedule",
+                "level": 3,
+                "n_records": 8,
+                "examples": [
+                  {
+                    "document_id": "DOL_2930",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3506",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3558",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_3908",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_4005",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Work Preservation",
+        "level": 1,
+        "n_records": 31,
+        "children": [
+          {
+            "name": "C_SUBCONTRACTING_WORK_PRESERVATION",
+            "level": 2,
+            "n_records": 31,
+            "children": [
+              {
+                "name": "(unspecified sub-type)",
+                "level": 3,
+                "n_records": 30,
+                "examples": [
+                  {
+                    "document_id": "DOL_1080",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1126",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1151",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_116",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  },
+                  {
+                    "document_id": "DOL_1187",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              },
+              {
+                "name": "base_rate_schedule",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_3558",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Miscellany",
+    "label": "Miscellany",
+    "level": 0,
+    "n_records": 1,
+    "children": [
+      {
+        "name": "Records & Privacy",
+        "level": 1,
+        "n_records": 1,
+        "children": [
+          {
+            "name": "C_EMPLOYEE_RECORDS_PRIVACY",
+            "level": 2,
+            "n_records": 1,
+            "children": [
+              {
+                "name": "(unspecified sub-type)",
+                "level": 3,
+                "n_records": 1,
+                "examples": [
+                  {
+                    "document_id": "DOL_3139",
+                    "description": "",
+                    "status": "",
+                    "fields": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

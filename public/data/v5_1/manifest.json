@@ -1,0 +1,18 @@
+{
+  "generated_from": "codex_PG/scalable_v4/runs/2026-05-17_v4_native_wave1",
+  "as_of": "2026-05-18",
+  "n_contracts_total": 100,
+  "n_contracts_scored": 100,
+  "n_cells": 857,
+  "n_provision_areas": 9,
+  "n_sectors": 14,
+  "validation": {
+    "davidson_pairwise_mean_rho": 0.77,
+    "bone_external_mean_rho": 0.3,
+    "hand_reread_pooled_rho": 0.83,
+    "test_retest_rho": 0.85
+  },
+  "uncertainty_per_cell_sd": 0.13,
+  "marginal_cost_usd_per_contract_estimate": 0.1,
+  "calibration_method": "anchor-document intercept calibration (10 stratified docs scored across all 9 categories in one session)"
+}
