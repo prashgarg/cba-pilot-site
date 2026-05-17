@@ -1,0 +1,112 @@
+{
+  "status": "comparison_design_only",
+  "source": "Matthew ACL camera-ready draft reviewed 2026-05-15",
+  "message": "Per-document Matthew category scores are not yet included in this site. This tab shows the planned crosswalk for comparing the broad category pipeline with the v3 provision-level pipeline.",
+  "needed_file": "matthew_category_outputs.csv with document_id, category, category_present, chunk_count, category_summary, elo_score or standardized_score, and run_id.",
+  "rows": [
+    {
+      "category": "Recognition",
+      "matthew_object": "Bargaining-unit recognition, scope, union security, and coverage language",
+      "v3_area": "Scope/seniority/mobility; union rights",
+      "v3_concepts": ["C_RECOGNITION_COVERAGE_SCOPE", "C_UNION_SECURITY_DUES_CHECKOFF"],
+      "comparison_level": "Presence/profile",
+      "note": "Mostly context in v3 unless tied to worker-facing scope or enforceable access."
+    },
+    {
+      "category": "Duration",
+      "matthew_object": "Agreement duration, expiration, reopening, and renewal terms",
+      "v3_area": "Agreement metadata; possible novelty",
+      "v3_concepts": [],
+      "comparison_level": "Presence/profile",
+      "note": "No stable v3 generosity concept yet."
+    },
+    {
+      "category": "Management",
+      "matthew_object": "Management rights, retained discretion, and employer authority",
+      "v3_area": "Management rights; scope/context",
+      "v3_concepts": [],
+      "comparison_level": "Presence/profile",
+      "note": "Needs decomposition because broad management-rights clauses can reduce generosity in several domains."
+    },
+    {
+      "category": "Compensation",
+      "matthew_object": "Wages, pay increases, wage schedules, premiums, allowances, and pay-related provisions",
+      "v3_area": "Wages; premium pay; external funds",
+      "v3_concepts": ["C_WAGE_BASE_RATE", "C_WAGE_PROGRESSION", "C_WAGE_INCREASES_COLA", "C_PREMIUM_OVERTIME", "C_PREMIUM_SHIFT", "C_PREMIUM_CALL_IN_REPORTING", "C_PREMIUM_STANDBY_ON_CALL", "C_PREMIUM_RESPONSIBILITY_SPECIALTY"],
+      "comparison_level": "Presence, relative metrics, and local scores",
+      "note": "Direct comparison should separate base wages, growth, and premium rules."
+    },
+    {
+      "category": "Scheduling",
+      "matthew_object": "Regular hours, schedule notice, rest periods, overtime assignment, cancellations, and workload timing",
+      "v3_area": "Scheduling/workload; premium pay",
+      "v3_concepts": ["C_TIME_REGULAR_SCHEDULE", "C_TIME_SCHEDULE_NOTICE_CHANGE", "C_TIME_REST_MEAL_PERIODS", "C_TIME_NO_CANCELLATION_SECURITY", "C_WORKLOAD_CLASS_SIZE_STAFFING", "C_PREMIUM_OVERTIME"],
+      "comparison_level": "Presence/profile and local scores where available",
+      "note": "Some scheduling protections need common-unit rules or sector-specific anchors."
+    },
+    {
+      "category": "Leave",
+      "matthew_object": "Vacation, sick, holidays, parental/family, personal, civic, union, and other leave",
+      "v3_area": "Leave",
+      "v3_concepts": ["C_LEAVE_VACATION", "C_LEAVE_HOLIDAYS", "C_LEAVE_SICK", "C_LEAVE_PARENTAL_FAMILY", "C_LEAVE_PERSONAL_MISC"],
+      "comparison_level": "Presence and local scores",
+      "note": "Good overlap category, though v3 avoids rewarding documents merely for naming many leave types."
+    },
+    {
+      "category": "Healthcare",
+      "matthew_object": "Active health benefits, plan design, employee contributions, retiree health, dental, vision, life, disability",
+      "v3_area": "Health/welfare",
+      "v3_concepts": ["C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION", "C_HEALTH_MEDICAL_ACTIVE_PLAN_DESIGN", "C_HEALTH_DENTAL", "C_HEALTH_VISION", "C_HEALTH_LIFE_AD_D", "C_HEALTH_DISABILITY_INCOME", "C_HEALTH_RETIREE"],
+      "comparison_level": "Presence, local scores, and relative/proxy metrics",
+      "note": "Direct comparison must separate contribution burden from plan design and external plan references."
+    },
+    {
+      "category": "Ancillary",
+      "matthew_object": "Non-health benefits such as pension, annuity, training funds, child care, legal, and other welfare funds",
+      "v3_area": "Retirement/external funds; training; family support",
+      "v3_concepts": ["C_RETIREMENT_PENSION", "C_RETIREMENT_SAVINGS_ANNUITY", "C_TRAINING_TUITION_CERTIFICATION", "C_CHILD_DEPENDENT_CARE"],
+      "comparison_level": "Presence and proxy/profile metrics",
+      "note": "Many values are external-fund proxies rather than directly comparable worker benefits."
+    },
+    {
+      "category": "Security",
+      "matthew_object": "Layoff, recall, severance, seniority, subcontracting, work preservation, and job-security protections",
+      "v3_area": "Job security; mobility; work preservation",
+      "v3_concepts": ["C_JOB_SECURITY_LAYOFF_ORDER", "C_JOB_SECURITY_RECALL", "C_JOB_SECURITY_SEVERANCE", "C_JOB_SECURITY_BENEFIT_CONTINUATION", "C_SENIORITY_SYSTEM", "C_SUBCONTRACTING_WORK_PRESERVATION", "C_JOB_POSTING_BIDDING_TRANSFER"],
+      "comparison_level": "Presence and local scores where available",
+      "note": "Good overlap, but v3 splits security into distinct worker-protection mechanisms."
+    },
+    {
+      "category": "Training",
+      "matthew_object": "Training, tuition, certification, apprenticeship, and professional development",
+      "v3_area": "Training; mobility",
+      "v3_concepts": ["C_TRAINING_TUITION_CERTIFICATION", "C_JOB_POSTING_BIDDING_TRANSFER"],
+      "comparison_level": "Presence/profile",
+      "note": "Currently more profile than score-ready in v3."
+    },
+    {
+      "category": "Disputes",
+      "matthew_object": "Grievance, arbitration, discipline, appeal, just cause, and dispute-resolution rights",
+      "v3_area": "Due process",
+      "v3_concepts": ["C_GRIEVANCE_PROCEDURE", "C_ARBITRATION", "C_DISCIPLINE_JUST_CAUSE", "C_DISCIPLINE_PROGRESSIVE", "C_DISCIPLINE_INVESTIGATION_APPEAL"],
+      "comparison_level": "Presence and local scores",
+      "note": "Strong overlap category; v3 can explain whether generosity comes from access, timelines, representation, or arbitration."
+    },
+    {
+      "category": "Safety",
+      "matthew_object": "PPE, unsafe-work rights, safety committees, violence/assault, hazard response, and safety standards",
+      "v3_area": "Safety; worker voice",
+      "v3_concepts": ["C_SAFETY_PPE_UNSAFE_WORK", "C_SAFETY_ASSAULT_VIOLENCE", "C_LABOR_MANAGEMENT_COMMITTEE"],
+      "comparison_level": "Presence/profile and local scores where available",
+      "note": "Needs care because high safety text can reflect job hazard exposure, not only more generous protection."
+    },
+    {
+      "category": "Miscellany",
+      "matthew_object": "Other provisions not assigned to a main category",
+      "v3_area": "Novelty queue; optional context",
+      "v3_concepts": [],
+      "comparison_level": "Diagnostic only",
+      "note": "Useful for discovering missing concepts, not for direct generosity comparison."
+    }
+  ]
+}

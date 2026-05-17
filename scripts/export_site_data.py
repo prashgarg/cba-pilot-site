@@ -65,6 +65,79 @@ def read_jsonl(path: Path) -> list[dict]:
     return rows
 
 
+def load_score_corrections() -> dict[tuple[str, str], dict]:
+    """Analysis-layer corrections applied when exporting public diagnostics.
+
+    The raw worker outputs remain untouched in the run directory. This overlay
+    only changes the presentation/analysis layer where a later boundary audit
+    determined that a local score should be withheld.
+    """
+    corrections = {}
+    paths = [
+        (REVIEW / "external_proxy_score_correction_worklist.csv", "external_proxy_boundary"),
+        (REVIEW / "accepted_field_source_reread_score_correction_worklist.csv", "source_reread_blocker"),
+    ]
+    for path, correction_type in paths:
+        if not path.exists():
+            continue
+        with path.open(newline="", encoding="utf-8") as f:
+            for row in csv.DictReader(f):
+                if str(row.get("active_correction", "")).lower() in {"false", "0", "no"}:
+                    continue
+                if str(row.get("adjudication_status", "")).startswith("resolved_restore"):
+                    continue
+                output_id = row.get("document_id")
+                record_id = row.get("concept_record_id")
+                if output_id and record_id:
+                    enriched = dict(row)
+                    enriched["correction_type"] = correction_type
+                    corrections[(output_id, record_id)] = enriched
+    return corrections
+
+
+def apply_score_correction(score: dict, correction: dict | None) -> dict:
+    if not correction:
+        return score
+    out = dict(score)
+    flags = out.get("missingness_or_flags")
+    if not isinstance(flags, list):
+        flags = [] if flags in (None, "") else [str(flags)]
+    for flag in ["external_contribution_proxy_only", "local_score_withheld_after_boundary_audit"]:
+        if flag not in flags:
+            flags.append(flag)
+    out["analysis_original_draft_score"] = out.get("draft_score")
+    out["analysis_original_scoreability"] = out.get("scoreability")
+    correction_type = correction.get("correction_type") or "external_proxy_boundary"
+    out["analysis_correction_applied"] = correction_type
+    out["draft_score"] = None
+    if correction_type == "source_reread_blocker":
+        out["scoreability"] = "requires_agentic_review"
+        for flag in ["source_reread_required", "local_score_withheld_after_accepted_field_audit"]:
+            if flag not in flags:
+                flags.append(flag)
+        out["scoreability_reason"] = (
+            "High-impact accepted-field audit found a blank, ambiguous, or wrong-object-risk source pointer; "
+            "local score withheld until source text is reread."
+        )
+        out["explanation"] = (
+            str(out.get("explanation") or "").rstrip()
+            + " Analysis-layer correction: local score withheld because accepted-field audit requires source reread."
+        ).strip()
+    else:
+        out["scoreability"] = "not_scoreable_external"
+        out["scoreability_reason"] = (
+            "Boundary audit classifies this as a health/welfare contribution proxy without direct "
+            "worker premium or cost-sharing terms; local active-health contribution score withheld."
+        )
+        out["explanation"] = (
+            str(out.get("explanation") or "").rstrip()
+            + " Analysis-layer correction: retained as a contribution/proxy provision, but excluded from local active-health scoring."
+        ).strip()
+    out["missingness_or_flags"] = flags
+    out["recommended_repair"] = correction.get("recommended_repair")
+    return out
+
+
 def scrub_public_text(value):
     """Keep internal run artifacts intact while avoiding draft jargon on the site."""
     if isinstance(value, dict):
@@ -349,6 +422,7 @@ def main() -> None:
     duplicate_docs = {row["document_id"] for row in read_csv(DUPLICATES) if row.get("document_id")}
     batch_summary = read_json(REVIEW / "batch_acceptance_summary.json", {})
     duplicate_summary = read_json(REVIEW / "duplicate_qc_measurement_consequence_summary.json", {})
+    score_corrections = load_score_corrections()
 
     documents = []
     records_by_document = {}
@@ -362,7 +436,14 @@ def main() -> None:
         if doc_dir is None:
             continue
         records = read_jsonl(doc_dir / "concept_records.jsonl")
-        scores = read_jsonl(doc_dir / "module_scores.jsonl")
+        scores = [
+            apply_score_correction(
+                score,
+                score_corrections.get((doc_dir.name, str(score.get("concept_record_id"))))
+                or score_corrections.get((document_id, str(score.get("concept_record_id")))),
+            )
+            for score in read_jsonl(doc_dir / "module_scores.jsonl")
+        ]
         rejected = read_jsonl(doc_dir / "rejected_values.jsonl")
         novelty = read_jsonl(doc_dir / "novelty_queue.jsonl")
         metadata = read_json(INPUT_TEXT / document_id / "metadata.json", {})

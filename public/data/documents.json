@@ -289,8 +289,8 @@
     "length_stratum": "long",
     "duplicate_read": false,
     "record_count": 16,
-    "scored_record_count": 9,
-    "scored_with_flags_count": 9,
+    "scored_record_count": 8,
+    "scored_with_flags_count": 8,
     "structured_no_score_count": 0,
     "rejected_value_count": 6,
     "novelty_count": 3,
@@ -879,8 +879,8 @@
     "length_stratum": "very_short",
     "duplicate_read": false,
     "record_count": 18,
-    "scored_record_count": 8,
-    "scored_with_flags_count": 8,
+    "scored_record_count": 7,
+    "scored_with_flags_count": 7,
     "structured_no_score_count": 0,
     "rejected_value_count": 12,
     "novelty_count": 0,
@@ -917,10 +917,10 @@
       },
       {
         "domain": "Health",
-        "available_score": 3.0,
-        "scored_concepts": 1,
+        "available_score": null,
+        "scored_concepts": 0,
         "record_count": 2,
-        "coverage_share": 0.5
+        "coverage_share": 0.0
       },
       {
         "domain": "Union voice",
@@ -975,8 +975,8 @@
     "length_stratum": "very_long",
     "duplicate_read": false,
     "record_count": 24,
-    "scored_record_count": 10,
-    "scored_with_flags_count": 10,
+    "scored_record_count": 9,
+    "scored_with_flags_count": 9,
     "structured_no_score_count": 0,
     "rejected_value_count": 12,
     "novelty_count": 1,
@@ -1572,8 +1572,8 @@
     "length_stratum": "medium",
     "duplicate_read": false,
     "record_count": 19,
-    "scored_record_count": 11,
-    "scored_with_flags_count": 11,
+    "scored_record_count": 10,
+    "scored_with_flags_count": 10,
     "structured_no_score_count": 0,
     "rejected_value_count": 5,
     "novelty_count": 2,
@@ -1610,10 +1610,10 @@
       },
       {
         "domain": "Health",
-        "available_score": 3.0,
-        "scored_concepts": 1,
+        "available_score": null,
+        "scored_concepts": 0,
         "record_count": 2,
-        "coverage_share": 0.5
+        "coverage_share": 0.0
       },
       {
         "domain": "Job security",
@@ -2134,8 +2134,8 @@
     "length_stratum": "long",
     "duplicate_read": true,
     "record_count": 18,
-    "scored_record_count": 12,
-    "scored_with_flags_count": 12,
+    "scored_record_count": 11,
+    "scored_with_flags_count": 11,
     "structured_no_score_count": 0,
     "rejected_value_count": 5,
     "novelty_count": 0,
@@ -2172,10 +2172,10 @@
       },
       {
         "domain": "Health",
-        "available_score": 3.0,
-        "scored_concepts": 1,
+        "available_score": null,
+        "scored_concepts": 0,
         "record_count": 2,
-        "coverage_share": 0.5
+        "coverage_share": 0.0
       },
       {
         "domain": "Job security",
@@ -3724,8 +3724,8 @@
     "length_stratum": "long",
     "duplicate_read": false,
     "record_count": 22,
-    "scored_record_count": 13,
-    "scored_with_flags_count": 13,
+    "scored_record_count": 12,
+    "scored_with_flags_count": 12,
     "structured_no_score_count": 0,
     "rejected_value_count": 6,
     "novelty_count": 2,
@@ -3762,10 +3762,10 @@
       },
       {
         "domain": "Health",
-        "available_score": 3.0,
-        "scored_concepts": 1,
+        "available_score": null,
+        "scored_concepts": 0,
         "record_count": 2,
-        "coverage_share": 0.5
+        "coverage_share": 0.0
       },
       {
         "domain": "Job security",
@@ -5537,8 +5537,8 @@
     "length_stratum": "very_long",
     "duplicate_read": true,
     "record_count": 18,
-    "scored_record_count": 15,
-    "scored_with_flags_count": 15,
+    "scored_record_count": 14,
+    "scored_with_flags_count": 14,
     "structured_no_score_count": 0,
     "rejected_value_count": 10,
     "novelty_count": 0,
@@ -5575,10 +5575,10 @@
       },
       {
         "domain": "Health",
-        "available_score": 4.0,
-        "scored_concepts": 1,
+        "available_score": null,
+        "scored_concepts": 0,
         "record_count": 1,
-        "coverage_share": 1.0
+        "coverage_share": 0.0
       },
       {
         "domain": "Job security",
@@ -5804,8 +5804,8 @@
     "length_stratum": "very_short",
     "duplicate_read": false,
     "record_count": 26,
-    "scored_record_count": 15,
-    "scored_with_flags_count": 11,
+    "scored_record_count": 14,
+    "scored_with_flags_count": 10,
     "structured_no_score_count": 0,
     "rejected_value_count": 8,
     "novelty_count": 1,
@@ -6797,8 +6797,8 @@
     "length_stratum": "very_short",
     "duplicate_read": false,
     "record_count": 18,
-    "scored_record_count": 12,
-    "scored_with_flags_count": 12,
+    "scored_record_count": 11,
+    "scored_with_flags_count": 11,
     "structured_no_score_count": 0,
     "rejected_value_count": 9,
     "novelty_count": 1,
@@ -6828,10 +6828,10 @@
       },
       {
         "domain": "Health",
-        "available_score": 4.0,
-        "scored_concepts": 1,
+        "available_score": null,
+        "scored_concepts": 0,
         "record_count": 2,
-        "coverage_share": 0.5
+        "coverage_share": 0.0
       },
       {
         "domain": "Job security",
@@ -8872,8 +8872,8 @@
     "length_stratum": "very_long",
     "duplicate_read": false,
     "record_count": 10,
-    "scored_record_count": 7,
-    "scored_with_flags_count": 7,
+    "scored_record_count": 6,
+    "scored_with_flags_count": 6,
     "structured_no_score_count": 0,
     "rejected_value_count": 9,
     "novelty_count": 0,
@@ -8940,8 +8940,8 @@
     "length_stratum": "long",
     "duplicate_read": false,
     "record_count": 18,
-    "scored_record_count": 11,
-    "scored_with_flags_count": 11,
+    "scored_record_count": 10,
+    "scored_with_flags_count": 10,
     "structured_no_score_count": 0,
     "rejected_value_count": 7,
     "novelty_count": 0,
@@ -8978,10 +8978,10 @@
       },
       {
         "domain": "Health",
-        "available_score": 3.0,
-        "scored_concepts": 1,
+        "available_score": null,
+        "scored_concepts": 0,
         "record_count": 2,
-        "coverage_share": 0.5
+        "coverage_share": 0.0
       },
       {
         "domain": "Union voice",

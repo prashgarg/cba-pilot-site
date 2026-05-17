@@ -5,7 +5,7 @@
   "intended_output_count": 110,
   "duplicate_read_document_count": 10,
   "record_count": 2207,
-  "scored_record_count": 1312,
+  "scored_record_count": 1301,
   "rejected_value_count": 771,
   "pdf_count": 0,
   "batch_decision": "accepted_with_flags"

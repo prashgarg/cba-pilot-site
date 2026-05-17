@@ -2150,9 +2150,9 @@
       "statutory_baseline_relation": "not_statutory",
       "health_score_layer": "contribution_terms",
       "rubric_version": "health_benefits_rubric_v0_1.md",
-      "scoreability": "scoreable_with_flags",
-      "scoreability_reason": "CBA-contained employer contribution is clear, but plan design is external and the object is a proxy rather than full active-medical design.",
-      "draft_score": 4,
+      "scoreability": "not_scoreable_external",
+      "scoreability_reason": "Boundary audit classifies this as a health/welfare contribution proxy without direct worker premium or cost-sharing terms; local active-health contribution score withheld.",
+      "draft_score": null,
       "scale": "v0_1_bridge_1_5",
       "relative_score_assigned": false,
       "evidence_basis": [
@@ -2179,12 +2179,18 @@
       ],
       "missingness_or_flags": [
         "active medical plan design withheld as external",
-        "proxy score only"
+        "proxy score only",
+        "external_contribution_proxy_only",
+        "local_score_withheld_after_boundary_audit"
       ],
       "population_scope": "Covered active employees; plan design withheld as external.",
       "subgroup_score_treatment": "no_material_subgroup_variation",
-      "explanation": "Use as a contribution proxy only: the agreement states a clear hourly employer contribution into the health and welfare fund for covered employees, but the medical design itself is external.",
-      "review_status": "ready_for_central_review"
+      "explanation": "Use as a contribution proxy only: the agreement states a clear hourly employer contribution into the health and welfare fund for covered employees, but the medical design itself is external. Analysis-layer correction: retained as a contribution/proxy provision, but excluded from local active-health scoring.",
+      "review_status": "ready_for_central_review",
+      "analysis_original_draft_score": 4,
+      "analysis_original_scoreability": "scoreable_with_flags",
+      "analysis_correction_applied": "external_proxy_boundary",
+      "recommended_repair": "withhold local active-health contribution score; keep as external/contribution proxy or central total-compensation candidate"
     },
     {
       "schema_version": "module_score_v0_1",
@@ -6538,9 +6544,9 @@
       "statutory_baseline_relation": "not_statutory",
       "health_score_layer": "contribution_terms",
       "rubric_version": "health_benefits_rubric_v0_1",
-      "scoreability": "scoreable_with_flags",
-      "scoreability_reason": "The CBA states real health-and-welfare contribution obligations, but the operative medical plan terms are external and the document contains multiple classification/location variants. This is a contribution proxy only.",
-      "draft_score": 3,
+      "scoreability": "not_scoreable_external",
+      "scoreability_reason": "Boundary audit classifies this as a health/welfare contribution proxy without direct worker premium or cost-sharing terms; local active-health contribution score withheld.",
+      "draft_score": null,
       "scale": "v0_1_bridge_1_5",
       "relative_score_assigned": false,
       "evidence_basis": [
@@ -6562,12 +6568,18 @@
       ],
       "missingness_or_flags": [
         "external_plan_terms_missing",
-        "proxy_only"
+        "proxy_only",
+        "external_contribution_proxy_only",
+        "local_score_withheld_after_boundary_audit"
       ],
       "population_scope": "covered workers across the main, apprentice, repair/maintenance, and four-county schedules",
       "subgroup_score_treatment": "subgroup_variation_flagged",
-      "explanation": "Employer health-and-welfare contributions are stated in the tables, so the contribution layer is scoreable as a proxy; the plan design remains external.",
-      "review_status": "ready_for_central_review"
+      "explanation": "Employer health-and-welfare contributions are stated in the tables, so the contribution layer is scoreable as a proxy; the plan design remains external. Analysis-layer correction: retained as a contribution/proxy provision, but excluded from local active-health scoring.",
+      "review_status": "ready_for_central_review",
+      "analysis_original_draft_score": 3,
+      "analysis_original_scoreability": "scoreable_with_flags",
+      "analysis_correction_applied": "external_proxy_boundary",
+      "recommended_repair": "withhold local active-health contribution score; keep as external/contribution proxy or central total-compensation candidate"
     },
     {
       "schema_version": "module_score_v0_1",
@@ -7656,9 +7668,9 @@
       "statutory_baseline_relation": "not_statutory",
       "health_score_layer": "contribution_terms",
       "rubric_version": "health_benefits_rubric_v0_1",
-      "scoreability": "scoreable_with_flags",
-      "scoreability_reason": "The contribution proxy is CBA-contained and repeated, but the operative medical plan design remains external.",
-      "draft_score": 4,
+      "scoreability": "not_scoreable_external",
+      "scoreability_reason": "Boundary audit classifies this as a health/welfare contribution proxy without direct worker premium or cost-sharing terms; local active-health contribution score withheld.",
+      "draft_score": null,
       "scale": "v0_1_bridge_1_5",
       "relative_score_assigned": false,
       "evidence_basis": [
@@ -7680,12 +7692,18 @@
       ],
       "missingness_or_flags": [
         "proxy_only",
-        "plan_design_external"
+        "plan_design_external",
+        "external_contribution_proxy_only",
+        "local_score_withheld_after_boundary_audit"
       ],
       "population_scope": "document_wide",
       "subgroup_score_treatment": "subgroup_variation_flagged",
-      "explanation": "This is a real health contribution proxy, but it is not the full active-medical plan.",
-      "review_status": "ready_for_central_review"
+      "explanation": "This is a real health contribution proxy, but it is not the full active-medical plan. Analysis-layer correction: retained as a contribution/proxy provision, but excluded from local active-health scoring.",
+      "review_status": "ready_for_central_review",
+      "analysis_original_draft_score": 4,
+      "analysis_original_scoreability": "scoreable_with_flags",
+      "analysis_correction_applied": "external_proxy_boundary",
+      "recommended_repair": "withhold local active-health contribution score; keep as external/contribution proxy or central total-compensation candidate"
     },
     {
       "schema_version": "module_score_v0_1",
@@ -11979,9 +11997,9 @@
       "concept_reporting_class": "required_core",
       "health_score_layer": "contribution_terms",
       "rubric_version": "health_benefits_rubric_v0_1.md",
-      "scoreability": "scoreable_with_flags",
-      "scoreability_reason": "The CBA directly states medical contribution amounts and the covered worker group, but the operative plan design is external.",
-      "draft_score": 3,
+      "scoreability": "not_scoreable_external",
+      "scoreability_reason": "Boundary audit classifies this as a health/welfare contribution proxy without direct worker premium or cost-sharing terms; local active-health contribution score withheld.",
+      "draft_score": null,
       "scale": "v0_1_bridge_1_5",
       "relative_score_assigned": false,
       "evidence_basis": [
@@ -12003,12 +12021,18 @@
       ],
       "missingness_or_flags": [
         "external_plan_design",
-        "local_basis_variation"
+        "local_basis_variation",
+        "external_contribution_proxy_only",
+        "local_score_withheld_after_boundary_audit"
       ],
       "population_scope": "bargaining-unit employees",
       "subgroup_score_treatment": "subgroup_variation_included",
-      "explanation": "This is a CBA-contained contribution proxy, not full medical plan design, but it is still a real employer financing term.",
-      "review_status": "ready_for_central_review"
+      "explanation": "This is a CBA-contained contribution proxy, not full medical plan design, but it is still a real employer financing term. Analysis-layer correction: retained as a contribution/proxy provision, but excluded from local active-health scoring.",
+      "review_status": "ready_for_central_review",
+      "analysis_original_draft_score": 3,
+      "analysis_original_scoreability": "scoreable_with_flags",
+      "analysis_correction_applied": "external_proxy_boundary",
+      "recommended_repair": "withhold local active-health contribution score; keep as external/contribution proxy or central total-compensation candidate"
     },
     {
       "schema_version": "module_score_v0_1",
@@ -16107,9 +16131,9 @@
       "statutory_baseline_relation": "not_statutory",
       "health_score_layer": "contribution_terms",
       "rubric_version": "health_benefits_rubric_v0_1",
-      "scoreability": "scoreable_with_flags",
-      "scoreability_reason": "Hourly health-contribution terms are explicit, but the active plan design is external and the package varies by classification.",
-      "draft_score": 3,
+      "scoreability": "not_scoreable_external",
+      "scoreability_reason": "Boundary audit classifies this as a health/welfare contribution proxy without direct worker premium or cost-sharing terms; local active-health contribution score withheld.",
+      "draft_score": null,
       "scale": "v0_1_bridge_1_5",
       "relative_score_assigned": false,
       "evidence_basis": [
@@ -16131,12 +16155,18 @@
       ],
       "missingness_or_flags": [
         "external plan design",
-        "classification-specific package variation"
+        "classification-specific package variation",
+        "external_contribution_proxy_only",
+        "local_score_withheld_after_boundary_audit"
       ],
       "population_scope": "Local 449 bargaining-unit employees across the main, supplemental, and service packages",
       "subgroup_score_treatment": "subgroup_variation_included",
-      "explanation": "The CBA states a real hourly health-contribution object, but the substantive plan design lives in incorporated trust agreements.",
-      "review_status": "ready_for_central_review"
+      "explanation": "The CBA states a real hourly health-contribution object, but the substantive plan design lives in incorporated trust agreements. Analysis-layer correction: retained as a contribution/proxy provision, but excluded from local active-health scoring.",
+      "review_status": "ready_for_central_review",
+      "analysis_original_draft_score": 3,
+      "analysis_original_scoreability": "scoreable_with_flags",
+      "analysis_correction_applied": "external_proxy_boundary",
+      "recommended_repair": "withhold local active-health contribution score; keep as external/contribution proxy or central total-compensation candidate"
     },
     {
       "schema_version": "module_score_v0_1",
@@ -29199,9 +29229,9 @@
       "statutory_baseline_relation": "not_statutory",
       "health_score_layer": "contribution_terms",
       "rubric_version": "health_benefits_rubric_v0_1",
-      "scoreability": "scoreable_with_flags",
-      "scoreability_reason": "The CBA states a per-enrolled-employee employer contribution for the IAFF plan, but the operative health design and any worker premium share live outside the text.",
-      "draft_score": 3,
+      "scoreability": "not_scoreable_external",
+      "scoreability_reason": "Boundary audit classifies this as a health/welfare contribution proxy without direct worker premium or cost-sharing terms; local active-health contribution score withheld.",
+      "draft_score": null,
       "scale": "v0_1_bridge_1_5",
       "relative_score_assigned": false,
       "evidence_basis": [
@@ -29223,12 +29253,18 @@
       ],
       "missingness_or_flags": [
         "external plan design",
-        "worker premium share not stated"
+        "worker premium share not stated",
+        "external_contribution_proxy_only",
+        "local_score_withheld_after_boundary_audit"
       ],
       "population_scope": "Employees who enroll and participate in the IAFF-sponsored health plan",
       "subgroup_score_treatment": "subgroup_variation_included",
-      "explanation": "This is a contribution-proxy record only; it should not be converted into full medical plan design.",
-      "review_status": "ready_for_central_review"
+      "explanation": "This is a contribution-proxy record only; it should not be converted into full medical plan design. Analysis-layer correction: retained as a contribution/proxy provision, but excluded from local active-health scoring.",
+      "review_status": "ready_for_central_review",
+      "analysis_original_draft_score": 3,
+      "analysis_original_scoreability": "scoreable_with_flags",
+      "analysis_correction_applied": "external_proxy_boundary",
+      "recommended_repair": "withhold local active-health contribution score; keep as external/contribution proxy or central total-compensation candidate"
     },
     {
       "schema_version": "module_score_v0_1",
@@ -46663,9 +46699,9 @@
       "concept_record_id": "CR01",
       "concept_id": "C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION",
       "rubric_version": "health_benefits_rubric_v0_1",
-      "scoreability": "scoreable_with_flags",
-      "scoreability_reason": "CBA-contained active-medical contribution proxy; FEHBP plan design remains external and cohort variation is material.",
-      "draft_score": 4,
+      "scoreability": "not_scoreable_external",
+      "scoreability_reason": "Boundary audit classifies this as a health/welfare contribution proxy without direct worker premium or cost-sharing terms; local active-health contribution score withheld.",
+      "draft_score": null,
       "scale": "v0_1_bridge_1_5",
       "relative_score_assigned": false,
       "evidence_basis": [
@@ -46682,12 +46718,18 @@
       ],
       "missingness_or_flags": [
         "FEHBP plan design withheld",
-        "hire-cohort variation"
+        "hire-cohort variation",
+        "external_contribution_proxy_only",
+        "local_score_withheld_after_boundary_audit"
       ],
       "population_scope": "career employees and CCAs covered by Article 21 contribution terms",
       "subgroup_score_treatment": "subgroup_variation_flagged",
-      "explanation": "The document gives a clear contribution proxy, but the underlying plan design is external and the contribution limits vary by hire cohort.",
-      "review_status": "ready_for_central_review"
+      "explanation": "The document gives a clear contribution proxy, but the underlying plan design is external and the contribution limits vary by hire cohort. Analysis-layer correction: retained as a contribution/proxy provision, but excluded from local active-health scoring.",
+      "review_status": "ready_for_central_review",
+      "analysis_original_draft_score": 4,
+      "analysis_original_scoreability": "scoreable_with_flags",
+      "analysis_correction_applied": "external_proxy_boundary",
+      "recommended_repair": "withhold local active-health contribution score; keep as external/contribution proxy or central total-compensation candidate"
     },
     {
       "schema_version": "module_score_v0_1",
@@ -48803,9 +48845,9 @@
       "statutory_baseline_relation": null,
       "health_score_layer": null,
       "rubric_version": "contribution_terms",
-      "scoreability": "scoreable_with_flags",
-      "scoreability_reason": "The contribution rule is CBA-contained, but the full medical plan terms are external or missing.",
-      "draft_score": 3,
+      "scoreability": "not_scoreable_external",
+      "scoreability_reason": "Boundary audit classifies this as a health/welfare contribution proxy without direct worker premium or cost-sharing terms; local active-health contribution score withheld.",
+      "draft_score": null,
       "scale": "v0_1_bridge_1_5",
       "relative_score_assigned": false,
       "evidence_basis": [
@@ -48822,12 +48864,18 @@
       ],
       "missingness_or_flags": [
         "external_plan_main_terms",
-        "proxy_only"
+        "proxy_only",
+        "external_contribution_proxy_only",
+        "local_score_withheld_after_boundary_audit"
       ],
       "population_scope": "covered employees",
       "subgroup_score_treatment": "no_material_subgroup_variation",
-      "explanation": "This is a funding proxy, not a full active-medical plan-design score.",
-      "review_status": "ready_for_central_review"
+      "explanation": "This is a funding proxy, not a full active-medical plan-design score. Analysis-layer correction: retained as a contribution/proxy provision, but excluded from local active-health scoring.",
+      "review_status": "ready_for_central_review",
+      "analysis_original_draft_score": 3,
+      "analysis_original_scoreability": "scoreable_with_flags",
+      "analysis_correction_applied": "external_proxy_boundary",
+      "recommended_repair": "withhold local active-health contribution score; keep as external/contribution proxy or central total-compensation candidate"
     },
     {
       "schema_version": "module_score_v0_1",
@@ -57744,9 +57792,9 @@
       "statutory_baseline_relation": "not_statutory",
       "health_score_layer": "contribution_terms",
       "rubric_version": "health_benefits_rubric_v0_1",
-      "scoreability": "scoreable_with_flags",
-      "scoreability_reason": "The agreement states a clear weekly employer contribution and eligibility rule, but the plan design is external and part-time workers are excluded.",
-      "draft_score": 4,
+      "scoreability": "not_scoreable_external",
+      "scoreability_reason": "Boundary audit classifies this as a health/welfare contribution proxy without direct worker premium or cost-sharing terms; local active-health contribution score withheld.",
+      "draft_score": null,
       "scale": "v0_1_bridge_1_5",
       "relative_score_assigned": false,
       "evidence_basis": [
@@ -57769,12 +57817,18 @@
       "missingness_or_flags": [
         "external plan design",
         "no worker premium share stated",
-        "part-time exclusion"
+        "part-time exclusion",
+        "external_contribution_proxy_only",
+        "local_score_withheld_after_boundary_audit"
       ],
       "population_scope": "Regular full-time employees with 31+ days on payroll",
       "subgroup_score_treatment": "subgroup_variation_flagged",
-      "explanation": "This is a strong contribution-financing record: $435 per week for eligible regular full-time employees, but the substantive medical plan remains external.",
-      "review_status": "ready_for_central_review"
+      "explanation": "This is a strong contribution-financing record: $435 per week for eligible regular full-time employees, but the substantive medical plan remains external. Analysis-layer correction: retained as a contribution/proxy provision, but excluded from local active-health scoring.",
+      "review_status": "ready_for_central_review",
+      "analysis_original_draft_score": 4,
+      "analysis_original_scoreability": "scoreable_with_flags",
+      "analysis_correction_applied": "external_proxy_boundary",
+      "recommended_repair": "withhold local active-health contribution score; keep as external/contribution proxy or central total-compensation candidate"
     },
     {
       "schema_version": "module_score_v0_1",
@@ -76152,9 +76206,9 @@
       "statutory_baseline_relation": "not_statutory",
       "health_score_layer": "contribution_terms",
       "rubric_version": "health_benefits_rubric_v0_1.md",
-      "scoreability": "scoreable_with_flags",
-      "scoreability_reason": "The contribution layer is CBA-contained, but the underlying medical plan design is external.",
-      "draft_score": 3,
+      "scoreability": "not_scoreable_external",
+      "scoreability_reason": "Boundary audit classifies this as a health/welfare contribution proxy without direct worker premium or cost-sharing terms; local active-health contribution score withheld.",
+      "draft_score": null,
       "scale": "v0_1_bridge_1_5",
       "relative_score_assigned": false,
       "evidence_basis": [
@@ -76186,12 +76240,18 @@
       ],
       "missingness_or_flags": [
         "external medical plan design",
-        "ancillary dental and vision items excluded from this layer"
+        "ancillary dental and vision items excluded from this layer",
+        "external_contribution_proxy_only",
+        "local_score_withheld_after_boundary_audit"
       ],
       "population_scope": "Musicians covered by the Health Plan, including low-budget-film musicians under Paragraph 61",
       "subgroup_score_treatment": "subgroup_variation_included",
-      "explanation": "Strong CBA-contained contribution obligation with credited-hour rules, but the substantive plan design lives in the incorporated Health Plan rather than in the OCR text.",
-      "review_status": "ready_for_central_review"
+      "explanation": "Strong CBA-contained contribution obligation with credited-hour rules, but the substantive plan design lives in the incorporated Health Plan rather than in the OCR text. Analysis-layer correction: retained as a contribution/proxy provision, but excluded from local active-health scoring.",
+      "review_status": "ready_for_central_review",
+      "analysis_original_draft_score": 3,
+      "analysis_original_scoreability": "scoreable_with_flags",
+      "analysis_correction_applied": "external_proxy_boundary",
+      "recommended_repair": "withhold local active-health contribution score; keep as external/contribution proxy or central total-compensation candidate"
     },
     {
       "schema_version": "module_score_v0_1",
@@ -76566,9 +76626,9 @@
       "statutory_baseline_relation": "not_statutory",
       "health_score_layer": "contribution_terms",
       "rubric_version": "health_benefits_rubric_v0_1",
-      "scoreability": "scoreable_with_flags",
-      "scoreability_reason": "A direct employer health/welfare contribution rate is stated, but the medical plan design remains external.",
-      "draft_score": 3,
+      "scoreability": "not_scoreable_external",
+      "scoreability_reason": "Boundary audit classifies this as a health/welfare contribution proxy without direct worker premium or cost-sharing terms; local active-health contribution score withheld.",
+      "draft_score": null,
       "scale": "v0_1_bridge_1_5",
       "relative_score_assigned": false,
       "evidence_basis": [
@@ -76585,12 +76645,18 @@
       ],
       "missingness_or_flags": [
         "medical_plan_design_is_external",
-        "worker_premium_share_not_stated"
+        "worker_premium_share_not_stated",
+        "external_contribution_proxy_only",
+        "local_score_withheld_after_boundary_audit"
       ],
       "population_scope": "Covered employees under the agreement and appendix-specific wage/fringe tables",
       "subgroup_score_treatment": "subgroup_variation_included",
-      "explanation": "The record captures a real CBA-contained health contribution object, but only the contribution layer is scoreable locally.",
-      "review_status": "ready_for_central_review"
+      "explanation": "The record captures a real CBA-contained health contribution object, but only the contribution layer is scoreable locally. Analysis-layer correction: retained as a contribution/proxy provision, but excluded from local active-health scoring.",
+      "review_status": "ready_for_central_review",
+      "analysis_original_draft_score": 3,
+      "analysis_original_scoreability": "scoreable_with_flags",
+      "analysis_correction_applied": "external_proxy_boundary",
+      "recommended_repair": "withhold local active-health contribution score; keep as external/contribution proxy or central total-compensation candidate"
     },
     {
       "schema_version": "module_score_v0_1",
