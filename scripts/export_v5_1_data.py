@@ -232,8 +232,8 @@ def build_ontology():
 
 
 def build_validation():
-    """Three reference validations: Davidson pairwise (20-doc), Bone external
-    (20-doc), and Hand re-read (4 cats × 10 docs)."""
+    """Three reference validations: Davidson pairwise (20-doc), Earlier 13-category Davidson
+    (20-doc), and Agentic re-read (4 cats × 10 docs)."""
     def sp(pairs):
         if len(pairs) < 4: return None
         xs = [p[0] for p in pairs]; ys = [p[1] for p in pairs]
@@ -264,12 +264,12 @@ def build_validation():
 
     id_map = json.load(open(COMP / "inputs" / "_matthew_id_mapping.json"))
     mat = json.load(open(COMP / "davidson_rankings.json"))
-    bone = defaultdict(dict)
+    earlier_dav = defaultdict(dict)
     for cat, rs in mat["rankings_by_category"].items():
         for mid, payload in rs.items():
             if payload.get("log_strength") is None: continue
             our = next((k for k, v in id_map.items() if v == mid), None)
-            if our: bone[cat][our] = payload["log_strength"]
+            if our: earlier_dav[cat][our] = payload["log_strength"]
 
     hand = defaultdict(dict)
     for r in csv.DictReader(open(WAVE1 / "hand_ratings" / "hand_ratings.csv")):
@@ -282,24 +282,24 @@ def build_validation():
     by_cat = []
     for cat in CATS:
         dav_cat = dav.get(cat, {}).get("log_strength", {})
-        bone_cat = bone.get(cat, {})
+        earlier_cat = earlier_dav.get(cat, {})
         hand_cat = hand.get(cat, {})
         p1 = [(dav_cat[d], abs_20[cat][d]) for d in dav_cat if d in abs_20.get(cat, {})]
-        p2 = [(bone_cat[d], abs_20[cat][d]) for d in bone_cat if d in abs_20.get(cat, {})]
+        p2 = [(earlier_cat[d], abs_20[cat][d]) for d in earlier_cat if d in abs_20.get(cat, {})]
         p3 = [(hand_cat[d], abs_w1[cat][d]) for d in hand_cat if d in abs_w1.get(cat, {})]
         by_cat.append({
             "category": cat,
             "category_label": CAT_LABELS.get(cat, cat),
             "davidson": {"rho": sp(p1), "n": len(p1)},
-            "bone": {"rho": sp(p2), "n": len(p2)},
-            "hand_reread": {"rho": sp(p3), "n": len(p3)},
+            "earlier_davidson": {"rho": sp(p2), "n": len(p2)},
+            "agentic_reread": {"rho": sp(p3), "n": len(p3)},
         })
     return {
         "per_category": by_cat,
         "summary": {
             "davidson_mean_rho": 0.77,
-            "bone_mean_rho": 0.30,
-            "hand_reread_pooled_rho": 0.83,
+            "earlier_davidson_mean_rho": 0.30,
+            "agentic_reread_pooled_rho": 0.83,
             "test_retest_rho": 0.85,
             "test_retest_n": 20,
             "anchor_calibration_shift_range": "-0.05 to +0.13",
@@ -326,8 +326,8 @@ def build_manifest(cells, docs):
         "n_sectors": len(sectors),
         "validation": {
             "davidson_pairwise_mean_rho": 0.77,
-            "bone_external_mean_rho": 0.30,
-            "hand_reread_pooled_rho": 0.83,
+            "earlier_davidson_mean_rho": 0.30,
+            "agentic_reread_pooled_rho": 0.83,
             "test_retest_rho": 0.85,
         },
         "uncertainty_per_cell_sd": 0.13,

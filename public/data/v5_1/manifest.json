@@ -8,8 +8,8 @@
   "n_sectors": 14,
   "validation": {
     "davidson_pairwise_mean_rho": 0.77,
-    "bone_external_mean_rho": 0.3,
-    "hand_reread_pooled_rho": 0.83,
+    "earlier_davidson_mean_rho": 0.3,
+    "agentic_reread_pooled_rho": 0.83,
     "test_retest_rho": 0.85
   },
   "uncertainty_per_cell_sd": 0.13,

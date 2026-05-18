@@ -312,7 +312,7 @@ const NAV_GROUPS = [
     key: "method",
     label: "Method",
     items: [
-      ["validation_v51", "Validation"],
+      ["validation_v51", "Agentic validation"],
       ["reliability_v51", "Reliability"],
       ["ontology_v51", "Ontology"],
     ],
@@ -417,12 +417,12 @@ function App() {
         <div>
           <p className="smallcaps">CBA generosity measurement, v5.1 pipeline</p>
           <h1>Scoring U.S. collective bargaining agreement generosity at scale</h1>
-          <p className="mastCopy">A language-model pipeline that assigns each contract a 0–1 generosity score on nine provision areas, validated against three independent references. 100-contract wave-1 results below; the v3 document explorer is retained as a separate tab.</p>
+          <p className="mastCopy">A language-model pipeline that assigns each contract a 0–1 generosity score on nine provision areas, with agentic validation against three reference points. 100-contract wave-1 results below; the v3 document explorer is retained as a separate tab.</p>
         </div>
         <div className="mastStats">
           <Stat label="Contracts" value={100} />
           <Stat label="Scored cells" value="857" />
-          <Stat label="Validation ρ" value="0.77–0.85" />
+          <Stat label="Agentic ρ" value="0.77–0.85" />
         </div>
       </header>
 

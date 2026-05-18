@@ -7,11 +7,11 @@
         "rho": 0.585887637901259,
         "n": 19
       },
-      "bone": {
+      "earlier_davidson": {
         "rho": 0.11541535137552539,
         "n": 20
       },
-      "hand_reread": {
+      "agentic_reread": {
         "rho": 0.5157232704402517,
         "n": 10
       }
@@ -23,11 +23,11 @@
         "rho": 0.8620278448574246,
         "n": 19
       },
-      "bone": {
+      "earlier_davidson": {
         "rho": 0.06580973149803557,
         "n": 20
       },
-      "hand_reread": {
+      "agentic_reread": {
         "rho": null,
         "n": 0
       }
@@ -39,11 +39,11 @@
         "rho": 0.7898605899163598,
         "n": 20
       },
-      "bone": {
+      "earlier_davidson": {
         "rho": 0.22829840710514707,
         "n": 20
       },
-      "hand_reread": {
+      "agentic_reread": {
         "rho": 0.9357841922508399,
         "n": 10
       }
@@ -55,11 +55,11 @@
         "rho": 0.7606144921597284,
         "n": 19
       },
-      "bone": {
+      "earlier_davidson": {
         "rho": 0.7032386098986877,
         "n": 20
       },
-      "hand_reread": {
+      "agentic_reread": {
         "rho": 0.6459751934999393,
         "n": 10
       }
@@ -71,11 +71,11 @@
         "rho": 0.8680710011726349,
         "n": 20
       },
-      "bone": {
+      "earlier_davidson": {
         "rho": 0.32790412051306367,
         "n": 20
       },
-      "hand_reread": {
+      "agentic_reread": {
         "rho": 0.5883412873352295,
         "n": 10
       }
@@ -87,11 +87,11 @@
         "rho": 0.6382046389499525,
         "n": 19
       },
-      "bone": {
+      "earlier_davidson": {
         "rho": 0.13615782897015402,
         "n": 20
       },
-      "hand_reread": {
+      "agentic_reread": {
         "rho": null,
         "n": 0
       }
@@ -103,11 +103,11 @@
         "rho": 0.7975527452314375,
         "n": 17
       },
-      "bone": {
+      "earlier_davidson": {
         "rho": 0.550632390670621,
         "n": 17
       },
-      "hand_reread": {
+      "agentic_reread": {
         "rho": null,
         "n": 0
       }
@@ -119,11 +119,11 @@
         "rho": 0.8391112800484469,
         "n": 20
       },
-      "bone": {
+      "earlier_davidson": {
         "rho": 0.08280616330809051,
         "n": 20
       },
-      "hand_reread": {
+      "agentic_reread": {
         "rho": null,
         "n": 0
       }
@@ -135,11 +135,11 @@
         "rho": 0.8173957462578996,
         "n": 19
       },
-      "bone": {
+      "earlier_davidson": {
         "rho": 0.4465815363960825,
         "n": 19
       },
-      "hand_reread": {
+      "agentic_reread": {
         "rho": null,
         "n": 0
       }
@@ -147,8 +147,8 @@
   ],
   "summary": {
     "davidson_mean_rho": 0.77,
-    "bone_mean_rho": 0.3,
-    "hand_reread_pooled_rho": 0.83,
+    "earlier_davidson_mean_rho": 0.3,
+    "agentic_reread_pooled_rho": 0.83,
     "test_retest_rho": 0.85,
     "test_retest_n": 20,
     "anchor_calibration_shift_range": "-0.05 to +0.13",

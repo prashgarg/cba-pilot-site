@@ -46,9 +46,10 @@ const GLOSSARY = {
   "spearman_rho": "Spearman rank correlation between two rankings. Ranges from −1 to +1. We use it because the underlying scores live on different scales.",
   "anchor_calibration": "Per-area intercept shift derived from re-scoring 10 stratified contracts across all 9 provision areas in a single LLM session. Rank-preserving; harmonizes cross-area means.",
   "provision_summary": "Deterministic textual layout of all extracted provisions for one (contract, provision-area) cell, with their numeric fields. The only input the LLM scorer sees.",
-  "davidson_pairwise": "Bradley-Terry / Davidson MLE on LLM-judged pairwise comparisons across all ${n \\choose 2}$ pairs. Separately-built reference here, sharing only the 4-sub-criterion prompt.",
-  "bone_external": "Bone (2024) — separately-built Davidson scoring scheme on the same Cornell BLS collection. Uses a 13-category ontology rather than our 9-area one.",
-  "hand_reread": "Iterative full-OCR re-rating by the same model that runs the pipeline. 40 cells across 4 areas and 10 contracts. Not human gold — bounded above by shared-model-prior variance.",
+  "davidson_pairwise": "Bradley-Terry / Davidson MLE on LLM-judged pairwise comparisons across all ${n \\choose 2}$ pairs. An in-house reference built for cross-method comparison, sharing the same 4-sub-criterion prompt structure as this pipeline.",
+  "earlier_davidson": "An earlier in-house team pipeline that ran Davidson pairwise scoring on the same Cornell BLS corpus using a different 13-category ontology. Same authors, different framing.",
+  "agentic_reread": "Iterative full-OCR re-rating by the same model that runs the pipeline. 40 cells across 4 areas and 10 contracts. Not human gold; bounded above by shared-model-prior variance.",
+  "agentic_validation": "Validation against agent-generated reference points rather than human gold-standard labels. All three reference points here use Claude Sonnet 4.6 at some stage; ρ values are bounded above by shared-model-prior variance.",
   "test_retest": "Spearman ρ between two independent LLM scoring sessions on the same provision summary. Sets the within-method noise ceiling for any other ρ comparison.",
   "source_flag": "How the cell was scored. Values: 'absolute' (LLM), 'rubric' (Python rule, currently always demoted to diagnostic), 'unscored' (records exist but neither layer fired), 'absent' (no records).",
   "rule_based_scoring": "Deterministic Python rules over extracted typed fields. Reproducible and auditable; retained as a diagnostic layer because LLM scoring dominates on validation against external references.",
@@ -190,8 +191,8 @@ export function OverviewV51({ data, onNavigate }) {
   const cards = [
     {
       key: "validation_v51",
-      title: "Validation",
-      teaser: "How the pipeline scores compare to three independent reference points, per provision area.",
+      title: "Agentic validation",
+      teaser: "How the pipeline scores compare to three agent-generated reference points, per provision area.",
       stat: `mean ρ = ${fmt2(manifest.validation.davidson_pairwise_mean_rho)} – ${fmt2(manifest.validation.test_retest_rho)}`,
       statLabel: "across nine areas",
     },
@@ -239,7 +240,8 @@ export function OverviewV51({ data, onNavigate }) {
           A language-model pipeline that scores collective bargaining agreements on
           nine substantive provision areas. <TermInfo term="wave1">Wave-1</TermInfo>{" "}
           covers {manifest.n_contracts_scored} U.S. CBAs from the DOL archive,
-          validated against three independent reference points.
+          with <TermInfo term="agentic_validation">agentic validation</TermInfo>{" "}
+          against three reference points.
         </p>
         <div className="v51StatsRow">
           <V51Stat big={manifest.n_contracts_scored} label="contracts scored" />
@@ -296,11 +298,11 @@ export function OverviewV51({ data, onNavigate }) {
         <p className="v51Note">
           All three validation references — the{" "}
           <TermInfo term="davidson_pairwise">Davidson pairwise</TermInfo> baseline,
-          the iterative <TermInfo term="hand_reread">hand re-read</TermInfo>, and
+          the iterative <TermInfo term="agentic_reread">agentic re-read</TermInfo>, and
           the within-method <TermInfo term="test_retest">test-retest</TermInfo> —
           use the same Claude Sonnet 4.6 model that runs the pipeline. Shared
           model priors inflate the reported correlations relative to a
-          human-graded gold standard. A human-rater study on a small subsample
+          human-graded gold standard. A agentic re-rater study on a small subsample
           is the highest-priority follow-up.
         </p>
       </ExpandableCard>
@@ -484,10 +486,14 @@ export function ValidationPanel({ data }) {
   const { per_category, summary } = data.validation;
   return (
     <section className="v51Page">
-      <h2>Validation against three independent references</h2>
+      <h2>Agentic validation against three reference points</h2>
       <p className="v51HeroSub">
         <TermInfo term="spearman_rho">Spearman ρ</TermInfo> between
-        pipeline scores and three reference points, by provision area.
+        pipeline scores and three <TermInfo term="agentic_validation">agent-generated reference points</TermInfo>,
+        by provision area. We call this <em>agentic validation</em>:
+        every reference here uses a language model at some stage, so the
+        ρ values are bounded above by shared-model-prior variance rather
+        than measuring agreement with human ground truth.
       </p>
 
       <div className="v51Card">
@@ -496,12 +502,12 @@ export function ValidationPanel({ data }) {
           <li><TermInfo term="davidson_pairwise"><strong>Davidson pairwise</strong></TermInfo>{" "}
               (separately-built MLE on LLM-judged pairs, 20-contract validation set):
               mean ρ across nine areas = <strong>{fmt2(summary.davidson_mean_rho)}</strong>.</li>
-          <li><TermInfo term="bone_external"><strong>Bone external</strong></TermInfo>{" "}
-              (Bone 2024, 13-category Davidson on the same Cornell BLS collection):
-              mean ρ across nine comparable areas = <strong>{fmt2(summary.bone_mean_rho)}</strong>.</li>
-          <li><TermInfo term="hand_reread"><strong>Hand re-read</strong></TermInfo>{" "}
+          <li><TermInfo term="earlier_davidson"><strong>Earlier 13-category Davidson</strong></TermInfo>{" "}
+              (an earlier in-house team pipeline using a 13-category ontology on the same Cornell BLS corpus):
+              mean ρ across nine comparable areas = <strong>{fmt2(summary.earlier_davidson_mean_rho)}</strong>.</li>
+          <li><TermInfo term="agentic_reread"><strong>Agentic re-read</strong></TermInfo>{" "}
               (iterative full-OCR re-rating on 40 cells, 4 areas × 10 contracts):
-              pooled ρ = <strong>{fmt2(summary.hand_reread_pooled_rho)}</strong>.</li>
+              pooled ρ = <strong>{fmt2(summary.agentic_reread_pooled_rho)}</strong>.</li>
           <li><TermInfo term="test_retest"><strong>Test-retest noise ceiling</strong></TermInfo>:
               ρ = <strong>{fmt2(summary.test_retest_rho)}</strong> (n = {summary.test_retest_n}{" "}
               Compensation cells, two independent LLM sessions).</li>
@@ -516,8 +522,8 @@ export function ValidationPanel({ data }) {
               <tr>
                 <th rowSpan={2}>Provision area</th>
                 <th colSpan={2}>Davidson pairwise</th>
-                <th colSpan={2}>Bone external</th>
-                <th colSpan={2}>Hand re-read</th>
+                <th colSpan={2}>Earlier 13-category Davidson</th>
+                <th colSpan={2}>Agentic re-read</th>
               </tr>
               <tr>
                 <th>ρ</th><th>n</th>
@@ -531,10 +537,10 @@ export function ValidationPanel({ data }) {
                   <td>{c.category_label}</td>
                   <td className="num">{fmt2(c.davidson.rho)}</td>
                   <td className="num">{c.davidson.n}</td>
-                  <td className="num">{fmt2(c.bone.rho)}</td>
-                  <td className="num">{c.bone.n}</td>
-                  <td className="num">{c.hand_reread.rho !== null ? fmt2(c.hand_reread.rho) : "—"}</td>
-                  <td className="num">{c.hand_reread.n >= 4 ? c.hand_reread.n : "—"}</td>
+                  <td className="num">{fmt2(c.earlier_davidson.rho)}</td>
+                  <td className="num">{c.earlier_davidson.n}</td>
+                  <td className="num">{c.agentic_reread.rho !== null ? fmt2(c.agentic_reread.rho) : "—"}</td>
+                  <td className="num">{c.agentic_reread.n >= 4 ? c.agentic_reread.n : "—"}</td>
                 </tr>
               ))}
             </tbody>
@@ -597,8 +603,8 @@ export function ReliabilityPanel({ data }) {
       <div className="v51Card">
         <h3><TermInfo term="anchor_calibration">Anchor calibration outcomes</TermInfo></h3>
         <ul className="v51Bullets">
-          <li>Per-area means on the four hand-rated areas match the iterative-reading means within 0.03–0.05 after calibration.</li>
-          <li>Pooled mean absolute deviation against hand re-read dropped 22% (0.125 → 0.098 across 40 cells).</li>
+          <li>Per-area means on the four agentic re-rated areas match the iterative-reading means within 0.03–0.05 after calibration.</li>
+          <li>Pooled mean absolute deviation against agentic re-read dropped 22% (0.125 → 0.098 across 40 cells).</li>
           <li>Contract-level rankings unchanged: ρ between pre- and post-calibration mean rankings = 0.9995 on the 100-contract sample. Max rank shift: 3 positions of 94.</li>
         </ul>
       </div>
