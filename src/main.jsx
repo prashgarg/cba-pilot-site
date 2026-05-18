@@ -430,8 +430,8 @@ function App() {
             rel="noreferrer"
             aria-label="Read the working paper"
           >
-            <span className="mastStatBig">📄</span>
-            <span className="mastStatLabel">Paper draft</span>
+            <span className="mastStatLabel">Read the</span>
+            <span className="v51PaperLinkBig">paper draft →</span>
           </a>
         </div>
       </header>

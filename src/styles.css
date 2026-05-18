@@ -2306,28 +2306,70 @@ mark {
 .v51PaperLink {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  min-width: 86px;
-  padding: 6px 10px;
-  border: 1px solid rgba(255,255,255,.72);
+  min-width: 130px;
+  padding: 8px 14px;
+  border: 1.5px solid #1f4e79;
   border-radius: 14px;
-  background: rgba(31,78,121,.08);
+  background: #1f4e79;
   text-decoration: none;
-  color: inherit;
-  transition: background 0.12s;
+  color: #fff;
+  transition: background 0.12s, transform 0.12s;
   font: inherit;
 }
 .v51PaperLink:hover {
-  background: rgba(31,78,121,.18);
+  background: #163a5c;
+  transform: translateY(-1px);
 }
-.v51PaperLink .mastStatBig {
-  font-size: 21px;
+.v51PaperLink .v51PaperLinkBig {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
   line-height: 1.15;
+  color: #fff;
 }
 .v51PaperLink .mastStatLabel {
   display: block;
-  color: var(--muted);
+  color: rgba(255,255,255,.78);
   font-size: 11px;
-  margin-top: 1px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  margin-bottom: 2px;
 }
+
+/* Areas strip on Overview (issue: 9 categories not visible without click) */
+.v51AreasStrip {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+  padding: 10px 14px;
+  background: rgba(255,255,252,.5);
+  border: 1px solid rgba(91,82,58,.14);
+  border-radius: 10px;
+  font-size: 12.5px;
+}
+.v51AreasStripLabel {
+  color: #555;
+  font-weight: 600;
+}
+.v51AreasStripList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.v51AreasStripList span {
+  background: #1f4e79;
+  color: #fff;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 11.5px;
+  letter-spacing: 0.2px;
+}
+
+/* Heatmap legend — wider color bar */
+.v51HeatmapLegendBar { flex: 0 0 340px !important; height: 16px !important; }
+.v51HeatmapLegendLabels { flex: 0 0 340px !important; }

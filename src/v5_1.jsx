@@ -196,9 +196,9 @@ export function OverviewV51({ data, onNavigate }) {
     {
       key: "sector_v51",
       title: "Sector × area",
-      teaser: "Mean generosity scores by sector and provision area. Reproduces the classic Freeman–Medoff contrast.",
-      stat: "Construction wages 0.76, leave 0.31",
-      statLabel: "vs public-sector wages 0.57, leave 0.77",
+      teaser: "Mean generosity by sector × area. Construction is cash-heavy (wages 0.76, leave 0.31); public sector is the inverse (wages 0.57, leave 0.77).",
+      stat: "9 sectors × 9 areas",
+      statLabel: "interactive heatmap",
     },
     {
       key: "composite_v51",
@@ -238,24 +238,13 @@ export function OverviewV51({ data, onNavigate }) {
   ];
   return (
     <section className="v51Page">
-      <div className="v51Hero">
-        <h2>Results on 100 U.S. CBAs</h2>
-        <p className="v51HeroSub">
-          A language-model pipeline that scores collective bargaining agreements on
-          nine substantive provision areas. This page summarizes results on the
-          first round of {manifest.n_contracts_scored} U.S. CBAs from the
-          Department of Labor archive, with <TermInfo term="agentic_validation">
-          agentic validation</TermInfo> against three reference points.
-        </p>
-        <div className="v51StatsRow">
-          <V51Stat big={manifest.n_contracts_scored} label="contracts scored" />
-          <V51Stat big={manifest.n_cells.toLocaleString()}
-                   label={<>scored (contract, area) pairs</>} />
-          <V51Stat big={manifest.n_provision_areas}
-                   label={<TermInfo term="provision_area">provision areas</TermInfo>} />
-          <V51Stat big={`$${manifest.marginal_cost_usd_per_contract_estimate.toFixed(2)}`}
-                   label="compute cost / contract" />
-        </div>
+      <div className="v51AreasStrip">
+        <span className="v51AreasStripLabel">Nine provision areas scored per contract:</span>
+        <span className="v51AreasStripList">
+          <span>Wages</span><span>Disputes</span><span>Leave</span>
+          <span>Healthcare</span><span>Security</span><span>Recognition</span>
+          <span>Safety</span><span>Scheduling</span><span>Ancillary</span>
+        </span>
       </div>
 
       <div className="v51StartHere">
