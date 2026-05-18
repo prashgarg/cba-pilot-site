@@ -321,7 +321,7 @@ const NAV_GROUPS = [
     key: "browse",
     label: "Browse contracts",
     items: [
-      ["documents", "Documents (v3 explorer)"],
+      ["documents", "Document explorer"],
       ["domains", "Domains"],
       ["relative", "Relative metrics"],
       ["parallel", "Parallel comparison"],
@@ -415,14 +415,24 @@ function App() {
     <main>
       <header className="masthead">
         <div>
-          <p className="smallcaps">CBA generosity measurement, v5.1 pipeline</p>
+          <p className="smallcaps">Working paper · 2026</p>
           <h1>Scoring U.S. collective bargaining agreement generosity at scale</h1>
-          <p className="mastCopy">A language-model pipeline that assigns each contract a 0–1 generosity score on nine provision areas, with agentic validation against three reference points. 100-contract wave-1 results below; the v3 document explorer is retained as a separate tab.</p>
+          <p className="mastCopy">A language-model pipeline that assigns each contract a 0–1 generosity score on nine provision areas, with agentic validation against three reference points. First-round results on 100 U.S. CBAs below; a document-level explorer of the underlying extracted provisions is available under <em>Browse contracts</em>.</p>
         </div>
         <div className="mastStats">
           <Stat label="Contracts" value={100} />
+          <Stat label="Provision areas" value={9} />
           <Stat label="Scored cells" value="857" />
-          <Stat label="Agentic ρ" value="0.77–0.85" />
+          <a
+            className="v51PaperLink"
+            href="https://github.com/prashgarg/cba-pilot-site#readme"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Read the working paper"
+          >
+            <span className="mastStatBig">📄</span>
+            <span className="mastStatLabel">Paper draft</span>
+          </a>
         </div>
       </header>
 
@@ -437,13 +447,13 @@ function App() {
             />
           ))}
         </nav>
-        <details className="readGuide">
+        {!view.endsWith("_v51") && <details className="readGuide">
           <summary>Measurement guide</summary>
           <p>
             Provisions are extracted contract objects. Some receive draft local scores. Others are retained as profile evidence, external-source
             cases, common-unit cases, or review cases. Relative metrics rank only values with comparable units.
           </p>
-        </details>
+        </details>}
 
         {view.endsWith("_v51") && <V51Router view={view} onNavigate={setView} />}
 
@@ -540,6 +550,21 @@ function App() {
             batch={data.batch}
             duplicateQc={data.duplicateQc}
           />
+        )}
+        {view.endsWith("_v51") && (
+          <footer className="v51AuthorsFooter">
+            <strong>Authors and affiliations</strong> are listed in the working paper.{" "}
+            <a href="https://github.com/prashgarg/cba-pilot-site" target="_blank" rel="noreferrer">
+              Source code on GitHub
+            </a>{" · "}
+            <a href="https://github.com/prashgarg/cba-pilot-site#readme" target="_blank" rel="noreferrer">
+              Paper draft
+            </a>
+            <br />
+            Pipeline: Claude Sonnet 4.6 throughout. Per-cell uncertainty ±0.13.
+            All three validation references involve a language model; see the
+            Reliability page for the within-method noise ceiling.
+          </footer>
         )}
       </div>
     </main>

@@ -154,6 +154,7 @@ export function SearchInput({ value, onChange, placeholder, label }) {
 
 export function DistributionStrip({ values, highlight = null, width = 480, height = 40 }) {
   // Simple SVG strip plot showing 1-D distribution of `values` with optional `highlight` set.
+  // When highlight is null, all dots render in the neutral color.
   if (!values || values.length === 0) return null;
   const min = Math.min(...values);
   const max = Math.max(...values);
@@ -164,7 +165,8 @@ export function DistributionStrip({ values, highlight = null, width = 480, heigh
       <line x1={10} y1={height / 2} x2={width - 10} y2={height / 2}
             stroke="#e1e5ee" strokeWidth={1} />
       {values.map((v, i) => {
-        const isHi = highlight && highlight.has(v);
+        const isHi = highlight !== null && highlight.has(v);
+        const isNeutral = highlight === null;
         return (
           <circle
             key={i}
@@ -172,7 +174,7 @@ export function DistributionStrip({ values, highlight = null, width = 480, heigh
             cy={height / 2}
             r={isHi ? 4 : 2.5}
             fill={isHi ? "#c8533d" : "#1f4e79"}
-            opacity={isHi ? 0.95 : 0.5}
+            opacity={isHi ? 0.95 : (isNeutral ? 0.7 : 0.18)}
           />
         );
       })}
@@ -187,21 +189,16 @@ export function DistributionStrip({ values, highlight = null, width = 480, heigh
 // ============================================================
 
 export function OverviewV51({ data, onNavigate }) {
-  const { manifest } = data;
+  const { manifest, composite } = data;
+  const top5 = composite.slice(0, 5);
+  const bottom5 = composite.slice(-5).reverse();
   const cards = [
-    {
-      key: "validation_v51",
-      title: "Agentic validation",
-      teaser: "How the pipeline scores compare to three agent-generated reference points, per provision area.",
-      stat: `mean ρ = ${fmt2(manifest.validation.davidson_pairwise_mean_rho)} – ${fmt2(manifest.validation.test_retest_rho)}`,
-      statLabel: "across nine areas",
-    },
     {
       key: "sector_v51",
       title: "Sector × area",
       teaser: "Mean generosity scores by sector and provision area. Reproduces the classic Freeman–Medoff contrast.",
-      stat: "construction 0.76 vs public 0.57 on wages",
-      statLabel: "headline contrast",
+      stat: "Construction wages 0.76, leave 0.31",
+      statLabel: "vs public-sector wages 0.57, leave 0.77",
     },
     {
       key: "composite_v51",
@@ -211,8 +208,15 @@ export function OverviewV51({ data, onNavigate }) {
       statLabel: "ranked",
     },
     {
+      key: "validation_v51",
+      title: "Agentic validation",
+      teaser: "How the pipeline scores compare to three agent-generated reference points, per provision area.",
+      stat: `mean ρ = ${fmt2(manifest.validation.davidson_pairwise_mean_rho)} – ${fmt2(manifest.validation.test_retest_rho)}`,
+      statLabel: "across nine areas",
+    },
+    {
       key: "ontology_v51",
-      title: "Ontology",
+      title: "Provision ontology",
       teaser: "Interactive four-level browser of the provision taxonomy with extracted-field examples at each leaf.",
       stat: `${manifest.n_provision_areas} areas → 50 types`,
       statLabel: "with examples",
@@ -226,8 +230,8 @@ export function OverviewV51({ data, onNavigate }) {
     },
     {
       key: "documents",
-      title: "Browse contracts (v3 explorer)",
-      teaser: "Document-by-document explorer of the underlying extracted provisions and rejected values.",
+      title: "Document explorer",
+      teaser: "Document-by-document browser of the underlying extracted provisions and rejected values.",
       stat: "record-level",
       statLabel: "details",
     },
@@ -235,22 +239,64 @@ export function OverviewV51({ data, onNavigate }) {
   return (
     <section className="v51Page">
       <div className="v51Hero">
-        <h2>Wave-1 measurement results</h2>
+        <h2>Results on 100 U.S. CBAs</h2>
         <p className="v51HeroSub">
           A language-model pipeline that scores collective bargaining agreements on
-          nine substantive provision areas. <TermInfo term="wave1">Wave-1</TermInfo>{" "}
-          covers {manifest.n_contracts_scored} U.S. CBAs from the DOL archive,
-          with <TermInfo term="agentic_validation">agentic validation</TermInfo>{" "}
-          against three reference points.
+          nine substantive provision areas. This page summarizes results on the
+          first round of {manifest.n_contracts_scored} U.S. CBAs from the
+          Department of Labor archive, with <TermInfo term="agentic_validation">
+          agentic validation</TermInfo> against three reference points.
         </p>
         <div className="v51StatsRow">
           <V51Stat big={manifest.n_contracts_scored} label="contracts scored" />
           <V51Stat big={manifest.n_cells.toLocaleString()}
-                   label={<>scored <TermInfo term="cell">cells</TermInfo></>} />
+                   label={<>scored (contract, area) pairs</>} />
           <V51Stat big={manifest.n_provision_areas}
                    label={<TermInfo term="provision_area">provision areas</TermInfo>} />
           <V51Stat big={`$${manifest.marginal_cost_usd_per_contract_estimate.toFixed(2)}`}
                    label="compute cost / contract" />
+        </div>
+      </div>
+
+      <div className="v51StartHere">
+        <div className="v51StartHereLabel">Start here</div>
+        <div className="v51StartHereGrid">
+          <div className="v51StartHereItem">
+            <div className="v51StartHereItemTitle">What the scores mean</div>
+            <p>
+              For each contract and each provision area we assemble all extracted
+              provisions into a summary block and have a language model rate four
+              sub-criteria on a 1–5 anchor scale. The four ratings sum to a 0–20
+              total, divided by 20 to give a 0–1 cell score.
+            </p>
+            <div className="v51ScaleStrip">
+              <span style={{ background: "#4678b4", color: "#fff" }}>0.2 thin</span>
+              <span style={{ background: "#f0d878", color: "#222" }}>0.5 typical</span>
+              <span style={{ background: "#ee8830", color: "#fff" }}>0.7 strong</span>
+              <span style={{ background: "#d04020", color: "#fff" }}>0.8+ rich</span>
+            </div>
+            <p className="v51StartHereFootnote">
+              Per-cell uncertainty is approximately ±0.13. Two cells whose scores
+              differ by ≤0.10 are not distinguishable from re-run noise.
+            </p>
+          </div>
+          <div className="v51StartHereItem">
+            <div className="v51StartHereItemTitle">What "agentic validation" means</div>
+            <p>
+              The three reference points we use to validate the pipeline (a
+              separately-built pairwise Davidson scoring scheme, an earlier
+              in-house 13-category Davidson, and iterative re-rating of full OCR
+              by a language-model agent) all involve a language model at some
+              stage. We report agreement between the pipeline and these
+              references, not against human gold-standard labels.
+            </p>
+            <p className="v51StartHereFootnote">
+              ρ values are bounded above by shared-model-prior variance.
+              The within-method noise ceiling is ρ ≈ 0.85 (Reliability page).
+              A human-rater validation on a small subsample is the
+              highest-priority follow-up.
+            </p>
+          </div>
         </div>
       </div>
 
@@ -270,42 +316,38 @@ export function OverviewV51({ data, onNavigate }) {
         ))}
       </div>
 
-      <ExpandableCard
-        title="What the scores mean"
-        hint="how to read the 0–1 scale"
-        defaultOpen={false}
-      >
-        <p className="v51Note">
-          Each (<TermInfo term="cell">cell</TermInfo>) gets a 0–1 score from four
-          1-5 <span className="v51Term">sub-criterion</span> ratings that sum to a
-          0-20 total, then divided by 20. A 0.65 on Compensation means the
-          contract sits in the upper third of the corpus on its combination of
-          wage levels, growth schedule, premium-pay menu, and tenure progression.
-          A 0.30 on Safety means a thin, statutory-minimum-leaning treatment of
-          PPE, the right to refuse unsafe work, joint health-and-safety committees,
-          and hazard-assault language.{" "}
-          <TermInfo term="cell_uncertainty">Per-cell uncertainty</TermInfo> is
-          approximately ±0.13 after{" "}
-          <TermInfo term="anchor_calibration">anchor calibration</TermInfo>.
-        </p>
-      </ExpandableCard>
-
-      <ExpandableCard
-        title="LLM-vs-LLM caveat"
-        hint="why ρ values are bounded above"
-        defaultOpen={false}
-      >
-        <p className="v51Note">
-          All three validation references — the{" "}
-          <TermInfo term="davidson_pairwise">Davidson pairwise</TermInfo> baseline,
-          the iterative <TermInfo term="agentic_reread">agentic re-read</TermInfo>, and
-          the within-method <TermInfo term="test_retest">test-retest</TermInfo> —
-          use the same Claude Sonnet 4.6 model that runs the pipeline. Shared
-          model priors inflate the reported correlations relative to a
-          human-graded gold standard. A agentic re-rater study on a small subsample
-          is the highest-priority follow-up.
-        </p>
-      </ExpandableCard>
+      <div className="v51TwoCol">
+        <div className="v51Card">
+          <h3>Most generous contracts in the sample</h3>
+          <table className="v51DocTable">
+            <thead><tr><th>Composite</th><th>Employer / union</th><th>Sector</th></tr></thead>
+            <tbody>
+              {top5.map(d => (
+                <tr key={d.document_id}>
+                  <td className="num"><strong>{fmt2(d.composite)}</strong></td>
+                  <td>{d.employer || d.document_id} {d.union ? <em className="muted">/ {d.union}</em> : null}</td>
+                  <td>{d.sector_label}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="v51Card">
+          <h3>Least generous contracts in the sample</h3>
+          <table className="v51DocTable">
+            <thead><tr><th>Composite</th><th>Employer / union</th><th>Sector</th></tr></thead>
+            <tbody>
+              {bottom5.map(d => (
+                <tr key={d.document_id}>
+                  <td className="num"><strong>{fmt2(d.composite)}</strong></td>
+                  <td>{d.employer || d.document_id} {d.union ? <em className="muted">/ {d.union}</em> : null}</td>
+                  <td>{d.sector_label}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </section>
   );
 }
@@ -421,13 +463,27 @@ export function SectorPage({ data }) {
     <section className="v51Page">
       <h2>Sector × provision-area generosity</h2>
       <p className="v51HeroSub">
-        Mean <TermInfo term="cell">cell</TermInfo> score by sector (rows) and{" "}
-        <TermInfo term="provision_area">provision area</TermInfo> (columns) on
-        the 100-contract <TermInfo term="wave1">wave-1</TermInfo> sample, after{" "}
-        <TermInfo term="anchor_calibration">anchor calibration</TermInfo>. Click
-        any cell to see the contracts in that sector × area.
+        Mean 0–1 score for each (contract, provision-area) pair, averaged across
+        contracts within a sector (rows) and provision area (columns), on the
+        100-contract sample. Anchor-calibrated so the per-area means are
+        comparable on a single scale.
       </p>
+      <div className="v51ScaleStrip" style={{ maxWidth: 520 }}>
+        <span style={{ background: "#4678b4", color: "#fff" }}>0.2 thin</span>
+        <span style={{ background: "#f0d878", color: "#222" }}>0.5 typical</span>
+        <span style={{ background: "#ee8830", color: "#fff" }}>0.7 strong</span>
+        <span style={{ background: "#d04020", color: "#fff" }}>0.8+ rich</span>
+      </div>
       <div className="v51Card">
+        <div className="v51HeatmapLegend">
+          <div className="v51HeatmapClickHint">👆 Click a cell for contracts</div>
+          <div>
+            <div className="v51HeatmapLegendBar"></div>
+            <div className="v51HeatmapLegendLabels">
+              <span>0.20</span><span>0.50</span><span>0.80+</span>
+            </div>
+          </div>
+        </div>
         <SectorCategoryHeatmap data={data.sectorCategory} onCellClick={handleCellClick} />
       </div>
 
@@ -505,9 +561,10 @@ export function ValidationPanel({ data }) {
           <li><TermInfo term="earlier_davidson"><strong>Earlier 13-category Davidson</strong></TermInfo>{" "}
               (an earlier in-house team pipeline using a 13-category ontology on the same Cornell BLS corpus):
               mean ρ across nine comparable areas = <strong>{fmt2(summary.earlier_davidson_mean_rho)}</strong>.</li>
-          <li><TermInfo term="agentic_reread"><strong>Agentic re-read</strong></TermInfo>{" "}
-              (iterative full-OCR re-rating on 40 cells, 4 areas × 10 contracts):
-              pooled ρ = <strong>{fmt2(summary.agentic_reread_pooled_rho)}</strong>.</li>
+          <li><TermInfo term="agentic_reread"><strong>Iterative re-rating by an LLM agent</strong></TermInfo>{" "}
+              (the same model rates each cell again, this time with full OCR access, on 40 cells / 4 areas × 10 contracts):
+              pooled ρ = <strong>{fmt2(summary.agentic_reread_pooled_rho)}</strong>.
+              We label this column "Agentic re-read" in the per-area table below.</li>
           <li><TermInfo term="test_retest"><strong>Test-retest noise ceiling</strong></TermInfo>:
               ρ = <strong>{fmt2(summary.test_retest_rho)}</strong> (n = {summary.test_retest_n}{" "}
               Compensation cells, two independent LLM sessions).</li>
@@ -727,7 +784,7 @@ function OntologyNode({ node, query = "", forceOpen = false }) {
       >
         <span className="v51OntoChevron">{open ? "▼" : "▶"}</span>
         <span className="v51OntoName">{highlightMatch(node.label || node.name, query)}</span>
-        <span className="v51OntoCount">{node.n_records.toLocaleString()} {node.n_records === 1 ? "record" : "records"}</span>
+        <span className="v51OntoCount">{node.n_records.toLocaleString()} extracted {node.n_records === 1 ? "provision" : "provisions"}</span>
       </button>
       {open && hasChildren && (
         <div className="v51OntoChildren">
@@ -809,7 +866,8 @@ export function CompositeRanking({ data }) {
 
   const visible = showAll ? filtered : filtered.slice(0, 20);
   const allValues = composite.map(d => d.composite);
-  const filteredValues = new Set(filtered.map(d => d.composite));
+  const filterActive = sectorFilter !== "All" || query.length > 0;
+  const filteredValues = filterActive ? new Set(filtered.map(d => d.composite)) : null;
 
   return (
     <section className="v51Page">
