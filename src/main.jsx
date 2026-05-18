@@ -6,8 +6,10 @@ import {
   OverviewV51,
   OntologyBrowser,
   ValidationPanel,
+  ReliabilityPanel,
   CompositeRanking,
   SectorCategoryHeatmap,
+  SectorPage,
 } from "./v5_1.jsx";
 
 const DATASETS = {
@@ -282,40 +284,92 @@ function useSiteData() {
   return state;
 }
 
-function V51Router({ view }) {
+function V51Router({ view, onNavigate }) {
   const { loading, error, data } = useV51Data();
-  if (loading) return <div className="loading">Loading v5.1 data…</div>;
-  if (error) return <div className="error">Error loading v5.1 data: {error}</div>;
-  if (view === "overview_v51") return <OverviewV51 data={data} />;
+  if (loading) return <div className="loading" style={{ padding: 40, textAlign: "center" }}>Loading v5.1 data…</div>;
+  if (error) return <div className="error" style={{ padding: 40, color: "#c8533d" }}>Error loading v5.1 data: {error}</div>;
+  if (view === "overview_v51") return <OverviewV51 data={data} onNavigate={onNavigate} />;
   if (view === "validation_v51") return <ValidationPanel data={data} />;
-  if (view === "sector_v51") return (
-    <section className="v51Page">
-      <h2>Sector × provision-area generosity</h2>
-      <p className="v51HeroSub">
-        Mean cell score by sector (rows) and provision area (columns) on
-        the 100-contract sample. Anchor-calibrated. Sectors with fewer
-        than three contracts are omitted. Hover a cell for n.
-      </p>
-      <div className="v51Card">
-        <SectorCategoryHeatmapWrapper data={data} />
-      </div>
-      <div className="v51Card">
-        <h3>Stylized patterns the table reproduces</h3>
-        <ul className="v51Bullets">
-          <li><strong>Construction</strong> is cash-heavy with thin protections: highest wage score (0.76), lowest leave (0.31) and lowest job security (0.26).</li>
-          <li><strong>Public sector</strong> is deferred-comp-heavy: highest leave score (0.77), strong disputes (0.65), moderate wages (0.57).</li>
-          <li><strong>Utilities</strong> tops wages (0.81) — gas/electric workers earn premium wages.</li>
-        </ul>
-      </div>
-    </section>
-  );
+  if (view === "reliability_v51") return <ReliabilityPanel data={data} />;
+  if (view === "sector_v51") return <SectorPage data={data} />;
   if (view === "composite_v51") return <CompositeRanking data={data} />;
   if (view === "ontology_v51") return <OntologyBrowser data={data} />;
   return null;
 }
 
-function SectorCategoryHeatmapWrapper({ data }) {
-  return <SectorCategoryHeatmap data={data.sectorCategory} />;
+// Grouped nav: 3 top-level groups, each with a dropdown of view options.
+const NAV_GROUPS = [
+  {
+    key: "results",
+    label: "Results",
+    items: [
+      ["overview_v51", "Overview"],
+      ["sector_v51", "Sector × area"],
+      ["composite_v51", "Composite ranking"],
+    ],
+  },
+  {
+    key: "method",
+    label: "Method",
+    items: [
+      ["validation_v51", "Validation"],
+      ["reliability_v51", "Reliability"],
+      ["ontology_v51", "Ontology"],
+    ],
+  },
+  {
+    key: "browse",
+    label: "Browse contracts",
+    items: [
+      ["documents", "Documents (v3 explorer)"],
+      ["domains", "Domains"],
+      ["relative", "Relative metrics"],
+      ["parallel", "Parallel comparison"],
+      ["diagnostics", "Diagnostics"],
+    ],
+  },
+];
+
+function NavGroup({ group, currentView, onSelect }) {
+  const [open, setOpen] = useState(false);
+  const ref = React.useRef(null);
+  useEffect(() => {
+    const onClick = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+    };
+    document.addEventListener("mousedown", onClick);
+    return () => document.removeEventListener("mousedown", onClick);
+  }, []);
+  const isActive = group.items.some(([id]) => id === currentView);
+  const activeLabel = group.items.find(([id]) => id === currentView)?.[1];
+  return (
+    <div className="v51NavGroup" ref={ref}>
+      <button
+        className={`v51NavGroupTrigger ${isActive ? "active" : ""}`}
+        onClick={() => setOpen(!open)}
+        aria-haspopup="menu"
+        aria-expanded={open}
+      >
+        {group.label}
+        {isActive && activeLabel && <span style={{ opacity: 0.85, marginLeft: 6 }}>· {activeLabel}</span>}
+        <span className="navChevron">{open ? "▲" : "▼"}</span>
+      </button>
+      {open && (
+        <div className="v51NavDropdown" role="menu">
+          {group.items.map(([id, label]) => (
+            <button
+              key={id}
+              role="menuitem"
+              className={currentView === id ? "active" : ""}
+              onClick={() => { onSelect(id); setOpen(false); }}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
 }
 
 function App() {
@@ -373,22 +427,14 @@ function App() {
       </header>
 
       <div className="shell">
-        <nav className="tabs" aria-label="Main views">
-          {[
-            ["overview_v51", "Overview (v5.1)"],
-            ["validation_v51", "Validation"],
-            ["sector_v51", "Sector × area"],
-            ["composite_v51", "Composite ranking"],
-            ["ontology_v51", "Ontology"],
-            ["documents", "Documents (v3 explorer)"],
-            ["domains", "Domains"],
-            ["relative", "Relative metrics"],
-            ["parallel", "Parallel comparison"],
-            ["diagnostics", "Diagnostics"]
-          ].map(([id, label]) => (
-            <button key={id} className={view === id ? "active" : ""} onClick={() => setView(id)}>
-              {label}
-            </button>
+        <nav className="tabs" aria-label="Main views" style={{ display: "flex", gap: 6 }}>
+          {NAV_GROUPS.map(group => (
+            <NavGroup
+              key={group.key}
+              group={group}
+              currentView={view}
+              onSelect={setView}
+            />
           ))}
         </nav>
         <details className="readGuide">
@@ -399,7 +445,7 @@ function App() {
           </p>
         </details>
 
-        {view.endsWith("_v51") && <V51Router view={view} />}
+        {view.endsWith("_v51") && <V51Router view={view} onNavigate={setView} />}
 
         {view === "documents" && (
         <section className="workspace">

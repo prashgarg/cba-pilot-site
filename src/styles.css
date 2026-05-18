@@ -1466,9 +1466,16 @@ td small {
 /* ============================================================ */
 
 .v51Page {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
   padding: 24px 28px 60px;
+  width: 100%;
+}
+.v51Page > * {
   max-width: 1320px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .v51Hero {
@@ -1769,4 +1776,392 @@ td small {
 @media (max-width: 900px) {
   .v51StatsRow { grid-template-columns: repeat(2, 1fr); }
   .v51TwoCol { grid-template-columns: 1fr; }
+}
+
+/* ============================================================ */
+/* v5.1 v2 — shared primitives                                    */
+/* ============================================================ */
+
+/* Tooltip (CSS hover) */
+.v51Tooltip { position: relative; display: inline; }
+.v51Tooltip .v51TooltipContent {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  z-index: 1000;
+  width: 280px;
+  bottom: 100%; left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  background: #222; color: #fff;
+  padding: 8px 10px; border-radius: 4px;
+  font-size: 12.5px; font-weight: 400; line-height: 1.5;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+  transition: opacity 0.12s, visibility 0s 0.12s;
+  pointer-events: none;
+  white-space: normal;
+}
+.v51Tooltip .v51TooltipContent::after {
+  content: "";
+  position: absolute;
+  top: 100%; left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #222;
+}
+.v51Tooltip:hover .v51TooltipContent {
+  visibility: visible; opacity: 1; transition: opacity 0.18s;
+}
+.v51Tooltip.side-top .v51TooltipContent { bottom: 100%; top: auto; }
+
+.v51Term { display: inline; }
+.v51TermLabel {
+  border-bottom: 1px dotted #1f4e79;
+  cursor: help;
+  color: #1f4e79;
+}
+
+/* Expandable card */
+.v51Expandable .v51ExpandableHeader {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  text-align: left;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+.v51Expandable .v51ExpandableHeader h3 {
+  margin: 0;
+  flex: 1;
+}
+.v51ExpandChevron {
+  width: 14px;
+  font-size: 10px;
+  color: #888;
+}
+.v51ExpandHint {
+  font-size: 11.5px;
+  color: #888;
+  font-weight: 400;
+  font-style: italic;
+}
+.v51ExpandableBody {
+  margin-top: 12px;
+}
+
+/* Modal */
+.v51ModalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 32px;
+}
+.v51ModalBox {
+  background: #fff;
+  border-radius: 8px;
+  max-width: 880px;
+  width: 100%;
+  max-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.25);
+}
+.v51ModalHeader {
+  display: flex;
+  align-items: center;
+  padding: 16px 22px 14px;
+  border-bottom: 1px solid #eef0f5;
+}
+.v51ModalHeader h3 {
+  margin: 0;
+  font-size: 15px;
+  color: #1f4e79;
+  flex: 1;
+}
+.v51ModalClose {
+  background: transparent;
+  border: 0;
+  font-size: 26px;
+  cursor: pointer;
+  color: #888;
+  line-height: 1;
+  padding: 0 4px;
+}
+.v51ModalClose:hover { color: #222; }
+.v51ModalBody {
+  padding: 16px 22px 22px;
+  overflow: auto;
+}
+
+/* Search input */
+.v51SearchWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+.v51SearchWrap label {
+  font-size: 13px;
+  color: #555;
+}
+.v51SearchInput {
+  flex: 1;
+  padding: 7px 28px 7px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 13.5px;
+  min-width: 320px;
+}
+.v51SearchInput:focus {
+  outline: none;
+  border-color: #1f4e79;
+  box-shadow: 0 0 0 3px rgba(31, 78, 121, 0.12);
+}
+.v51SearchClear {
+  position: absolute;
+  right: 6px;
+  background: transparent;
+  border: 0;
+  font-size: 17px;
+  color: #888;
+  cursor: pointer;
+  padding: 0 6px;
+}
+
+/* Distribution strip */
+.v51DistStrip { display: block; }
+.v51DistRow {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.v51DistLabel {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+.v51DistStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 13px;
+  color: #333;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Landing grid */
+.v51LandingGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.v51LandingCard {
+  text-align: left;
+  background: #fff;
+  border: 1px solid #e1e5ee;
+  border-radius: 8px;
+  padding: 18px 20px;
+  cursor: pointer;
+  transition: border-color 0.12s, transform 0.12s, box-shadow 0.12s;
+  position: relative;
+  font: inherit;
+  color: inherit;
+}
+.v51LandingCard:hover {
+  border-color: #1f4e79;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(31, 78, 121, 0.08);
+}
+.v51LandingCardTitle {
+  font-weight: 600;
+  font-size: 15px;
+  color: #1f4e79;
+  margin-bottom: 6px;
+}
+.v51LandingCardTeaser {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 14px;
+  min-height: 56px;
+}
+.v51LandingCardStat {
+  font-size: 18px;
+  font-weight: 700;
+  color: #222;
+  font-variant-numeric: tabular-nums;
+}
+.v51LandingCardStatLabel {
+  font-size: 11.5px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.v51LandingCardArrow {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  font-size: 16px;
+  color: #1f4e79;
+  opacity: 0;
+  transition: opacity 0.12s;
+}
+.v51LandingCard:hover .v51LandingCardArrow { opacity: 1; }
+
+/* Pagination */
+.v51PaginationFooter {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 13px;
+  color: #666;
+}
+.v51LinkBtn {
+  background: transparent;
+  border: 0;
+  color: #1f4e79;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 0;
+}
+
+/* Ontology v2 */
+.v51OntologyControls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.v51OntoMatchCount {
+  color: #888;
+  font-size: 12px;
+}
+mark {
+  background: #fff3a0;
+  color: inherit;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+.v51Empty {
+  padding: 28px;
+  text-align: center;
+  color: #888;
+  font-style: italic;
+}
+
+/* Heatmap v2 */
+.v51HeatmapScroll {
+  overflow-x: auto;
+  margin: 0 -4px;
+}
+.v51Heatmap th.hmHeaderHi {
+  background: #d9e3ee;
+  color: #1f4e79;
+}
+.v51Heatmap td.hmCellHi {
+  outline: 2px solid rgba(31, 78, 121, 0.45);
+  outline-offset: -2px;
+}
+.v51Heatmap td.hmCell {
+  cursor: pointer;
+}
+
+/* Table scroll wrapper */
+.v51TableScroll {
+  overflow-x: auto;
+  margin: 0 -4px;
+}
+
+/* Inline label */
+.v51InlineLabel {
+  font-size: 13px;
+  color: #555;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.v51InlineLabel select {
+  padding: 5px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+/* Grouped nav (dropdown) */
+.v51NavGroup {
+  position: relative;
+  display: inline-block;
+}
+.v51NavGroupTrigger {
+  background: transparent;
+  border: 0;
+  padding: 8px 16px;
+  cursor: pointer;
+  font: inherit;
+  color: #333;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.v51NavGroupTrigger:hover { background: #f5f7fb; }
+.v51NavGroupTrigger.active {
+  background: #1f4e79;
+  color: #fff;
+}
+.v51NavGroupTrigger .navChevron {
+  font-size: 10px;
+  opacity: 0.7;
+}
+.v51NavDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background: #fff;
+  border: 1px solid #e1e5ee;
+  border-radius: 6px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.10);
+  padding: 6px 0;
+  z-index: 1500;
+  margin-top: 2px;
+}
+.v51NavDropdown button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  padding: 8px 16px;
+  cursor: pointer;
+  font: inherit;
+  color: #333;
+  font-size: 13.5px;
+}
+.v51NavDropdown button:hover { background: #f5f7fb; color: #1f4e79; }
+.v51NavDropdown button.active {
+  background: #1f4e79;
+  color: #fff;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .v51LandingGrid { grid-template-columns: 1fr; }
+  .v51DistRow { flex-direction: column; align-items: flex-start; }
+  .v51DistStats { gap: 10px; }
+  .v51SearchInput { min-width: 200px; }
 }
