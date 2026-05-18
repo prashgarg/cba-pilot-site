@@ -121,6 +121,8 @@ h4 { margin-bottom: 6px; }
   border-radius: 999px;
   background: rgba(255,255,252,.42);
   backdrop-filter: blur(16px);
+  position: relative;
+  z-index: 100;
 }
 .tabs button,
 .panelTabs button,
