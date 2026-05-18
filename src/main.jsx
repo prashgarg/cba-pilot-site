@@ -425,7 +425,7 @@ function App() {
           <Stat label="Scored cells" value="857" />
           <a
             className="v51PaperLink"
-            href="https://github.com/prashgarg/cba-pilot-site#readme"
+            href="paper.html"
             target="_blank"
             rel="noreferrer"
             aria-label="Read the working paper"
@@ -557,7 +557,7 @@ function App() {
             <a href="https://github.com/prashgarg/cba-pilot-site" target="_blank" rel="noreferrer">
               Source code on GitHub
             </a>{" · "}
-            <a href="https://github.com/prashgarg/cba-pilot-site#readme" target="_blank" rel="noreferrer">
+            <a href="paper.html" target="_blank" rel="noreferrer">
               Paper draft
             </a>
             <br />

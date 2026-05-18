@@ -1,0 +1,1137 @@
+<!doctype html><html lang='en'><head><title>Paper draft — Scoring U.S. CBA generosity</title><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><style>
+html, body { background: #ffffff !important; }
+body { max-width: 820px; margin: 30px auto; font: 15px/1.65 'Charter', 'Georgia', serif; color: #1a1a1a; padding: 0 22px 80px; }
+nav.toc { background: #f5f7fb; border: 1px solid #d8dee8; padding: 14px 20px; border-radius: 6px; margin: 0 0 32px; font: 13px/1.5 ui-sans-serif, system-ui, sans-serif; position: sticky; top: 0; z-index: 10; box-shadow: 0 1px 8px rgba(0,0,0,0.05); }
+nav.toc a { display: inline-block; margin: 0 14px 0 0; color: #1f4e79; text-decoration: none; font-weight: 500; }
+nav.toc a:hover { text-decoration: underline; }
+nav.toc strong { margin-right: 10px; }
+h1 { font-size: 28px; line-height: 1.18; color: #111; margin-bottom: 10px; }
+h2 { font-size: 22px; border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 38px; color: #111; scroll-margin-top: 70px; }
+h3 { font-size: 17px; margin-top: 24px; color: #1f4e79; scroll-margin-top: 70px; }
+p { margin: 0 0 14px; }
+table { border-collapse: collapse; margin: 16px 0; font-size: 13px; font-family: ui-sans-serif, system-ui, sans-serif; }
+th, td { padding: 6px 11px; border-bottom: 1px solid #ddd; text-align: left; }
+th { background: #f5f5f5; font-weight: 600; }
+td[align=right], td.num, th[align=right] { text-align: right; font-variant-numeric: tabular-nums; }
+blockquote { background: #fff8e0; border-left: 4px solid #c89a3d; padding: 12px 16px; margin: 18px 0; font-size: 13.5px; }
+blockquote ol { padding-left: 18px; }
+blockquote li { margin: 3px 0; }
+code { background: #f1f3f7; padding: 1px 5px; border-radius: 3px; font-size: 13px; font-family: ui-monospace, monospace; }
+pre code { background: #f5f7fb; padding: 10px 14px; border-radius: 6px; display: block; overflow: auto; }
+strong { color: #111; }
+em { color: #555; }
+hr { border: none; border-top: 1px solid #ddd; margin: 32px 0; }
+.figures-gallery { margin: 28px 0; padding: 18px 22px; background: #f9fafc; border: 1px solid #d8dee8; border-radius: 8px; scroll-margin-top: 70px; }
+.figures-gallery h2 { margin-top: 0; border-bottom: none; font-size: 17px; color: #1f4e79; }
+.figures-gallery .muted { font-size: 12.5px; color: #666; margin-bottom: 16px; }
+.figures-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.figures-grid figure { margin: 0; scroll-margin-top: 70px; }
+.figures-grid img { width: 100%; border: 1px solid #ddd; border-radius: 3px; transition: opacity 0.12s; }
+.figures-grid img:hover { opacity: 0.85; }
+.figures-grid figcaption { font-size: 12.5px; color: #555; margin-top: 8px; line-height: 1.4; font-family: ui-sans-serif, system-ui, sans-serif; }
+@media (max-width: 700px) { .figures-grid { grid-template-columns: 1fr; } }
+</style></head><body><nav class="toc"><strong>Contents:</strong>
+<a href="#abstract">Abstract</a>
+<a href="#figures">Figures</a>
+<a href="#introduction">Intro</a>
+<a href="#method">Method</a>
+<a href="#three-validations">Validation</a>
+<a href="#reliability">Reliability</a>
+<a href="#cross-sector-picture-of-us-union-contracts">Results</a>
+<a href="#discussion">Discussion</a>
+<a href="#conclusion">Conclusion</a>
+<a href="#appendices">Appendices</a>
+<a href="#references">References</a>
+<a href="index.html">← Site</a>
+</nav><h1 id="scoring-collective-bargaining-agreement-generosity-with-language-models-a-validated-pipeline-and-first-cross-sector-picture-of-us-union-contracts">Scoring Collective Bargaining Agreement Generosity with Language Models: A Validated Pipeline and First Cross-Sector Picture of U.S. Union Contracts</h1>
+<p><strong>Authors:</strong> [TODO — list authors and affiliations in submission order]</p>
+<p>Draft v1, 2026-05-18.</p>
+<p><strong>Keywords:</strong> collective bargaining, labor contracts, language models, measurement, automation, union wage premium.</p>
+<p><strong>JEL codes:</strong> J51, J52, J31, C81, C18.</p>
+<blockquote>
+<p><strong>TODO list before submission:</strong></p>
+<ol>
+<li>Verify the following citations (year, author, journal) — placeholders carried through from the draft regex:</li>
+<li>Freeman and Medoff (1984), <em>What Do Unions Do?</em></li>
+<li>Slichter, Healy, and Livernash (1960), <em>The Impact of Collective Bargaining on Management</em></li>
+<li>Card (1996) on union wage effects</li>
+<li>Hirsch and Macpherson (2003) on union wage premium measurement</li>
+<li>Davidson (1970) on the pairwise method (cross-reference with the canonical Bradley-Terry / Davidson source)</li>
+<li>Ludwig, Mullainathan, and Rambachan (2025) and Angelopoulos et al. (2024) on LLM-as-measurement-instrument discipline</li>
+<li>Zheng et al. (2023) on LLM-as-judge</li>
+<li>Convert markdown to LaTeX (booktabs tables; figures; cross-references).</li>
+<li>Add author affiliations and acknowledgements.</li>
+<li>Update <a href="#appendix-f--human-rater-validation-planned-not-done">Appendix F</a> once the human-rater study is run.</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="abstract">Abstract</h2>
+<p>Collective bargaining agreements determine what unionized U.S. workers actually receive, but only a few hundred of the thousands of agreements in the Cornell ILR BLS Contract Collection have been read end-to-end. We build and validate a language-model pipeline that takes raw OCR'd contract text and assigns each contract a 0–1 generosity score on nine substantive provision areas — wages, healthcare, leave, disputes, safety, security, recognition, scheduling, and ancillary benefits. Applied to 100 contracts from the U.S. Department of Labor archive, the pipeline reproduces three reference points: an in-house pairwise Davidson scoring scheme at mean Spearman ρ = 0.77 across the nine areas; iterative re-rating of full OCR by the same model at pooled ρ = 0.83 on 40 cells; and classic sector contrasts from the labor literature without being told them (construction wages 0.76 vs leave 0.31; public-sector leave 0.77 vs wages 0.57). Per-contract uncertainty is approximately ±0.13 after a one-time anchor calibration. Marginal cost is roughly $0.10 per contract; the pipeline is linear in corpus size.</p>
+<hr />
+
+<section class="figures-gallery">
+  <h2 id="figures">Figures (clickable)</h2>
+  <p class="muted">The three main-text figures and the landing infographic. Each is also cited inline below.</p>
+  <div class="figures-grid">
+    <figure id="fig-heatmap">
+      <a href="paper-assets/fig1_sector_category_heatmap.png" target="_blank"><img src="paper-assets/fig1_sector_category_heatmap.png" alt="Figure 1"></a>
+      <figcaption><b>Figure 1</b>. Sector × provision-area mean scores.</figcaption>
+    </figure>
+    <figure id="fig-validation">
+      <a href="paper-assets/fig2_validation_summary.png" target="_blank"><img src="paper-assets/fig2_validation_summary.png" alt="Figure 2"></a>
+      <figcaption><b>Figure 2</b>. Validation against three reference points, with bootstrap 95% CIs.</figcaption>
+    </figure>
+    <figure id="fig-testretest">
+      <a href="paper-assets/fig3_test_retest_scatter.png" target="_blank"><img src="paper-assets/fig3_test_retest_scatter.png" alt="Figure 3"></a>
+      <figcaption><b>Figure 3</b>. Test-retest agreement on 20 Compensation cells.</figcaption>
+    </figure>
+    <figure>
+      <a href="paper-assets/infographic.png" target="_blank"><img src="paper-assets/infographic.png" alt="Infographic"></a>
+      <figcaption>Landing infographic (scope · validation · sector contrast).</figcaption>
+    </figure>
+  </div>
+</section>
+<h2 id="introduction">1. Introduction</h2>
+<p>The text of a collective bargaining agreement (CBA) is what unionized workers actually get. The contract specifies which classifications earn what hourly rate, how vacation accrues with tenure, what fraction of health-premium cost the employer bears, the order and notice required for a layoff, and the procedure that resolves a discharge dispute. Yet the empirical literature on union contracts has had to work around the document rather than from it. The standard data sources for U.S. union analysis (the Current Population Survey, the National Longitudinal Survey of Youth, employer-level panels) record union <em>coverage</em> but not contract <em>content</em>. The richest available source of the documents themselves, the Cornell ILR Catherwood Library's BLS Contract Collection, contains over five thousand digitized agreements but has been read in full for only a few hundred at most. Each new research question on CBA substance typically requires another round of hand-coding by graduate students. Whether sectors differ in wage-growth structure, whether healthcare provisions diverged after the Affordable Care Act, whether public-sector agreements buffer recession layoffs differently than private ones — each requires going back to the contracts.</p>
+<p>Concretely: given the 102-page agreement between Verizon North and IBEW Locals 1451, 1635, and 1637, the pipeline outputs nine numbers between 0 and 1, one per provision area, that a labor economist reading the contract would broadly recognize as ordering it correctly against other agreements. A 0.65 on Compensation indicates the contract sits in the upper third of the 100-agreement corpus on its combination of wage levels, growth schedule, premium-pay menu, and tenure progression. A 0.30 on Safety indicates a thin and statutory-minimum-leaning treatment of personal protective equipment, the right to refuse unsafe work, joint health-and-safety committees, and hazard-assault language. The pipeline scores each contract in each area separately; no composite is forced unless the researcher wants one.</p>
+<p>This paper introduces a pipeline for that scoring task. The pipeline takes raw OCR'd contract text and produces a per-(contract, provision-area) score on a 0–1 scale. It runs at marginal compute cost on the order of $0.10 per fully-scored contract, scales linearly in the corpus, and parallelizes trivially because no inter-contract context is required. We document its construction in Section 2, validate it three ways in Section 3, characterize its reliability in Section 4, and apply it to a 100-contract sample drawn from the U.S. Department of Labor archive in Section 5.</p>
+<p>The pipeline produces three results worth previewing. First, it tracks an independently-engineered pairwise Davidson scoring scheme (built for cross-method comparison on the same 20-contract validation set) at mean Spearman ρ = 0.77 across all nine provision areas, while costing linearly rather than quadratically in corpus size. Second, on 40 (contract, provision-area) cells we re-read by hand with full access to the OCR'd text, the pipeline's single-shot scoring agrees with the iterative re-read at pooled ρ = 0.83 (Leave: ρ = 0.94; Healthcare: 0.65; Security: 0.59; Compensation: 0.52). Third, applied to the 100-contract sample, the pipeline reproduces the standard sector contrasts of the U.S. union literature without being trained on or told about them: building-trades agreements score 0.76 on wages but only 0.31 on leave and 0.26 on job security, while public-sector agreements score 0.77 on leave, 0.65 on disputes, and 0.45 on job security at a more modest 0.57 wage score. This is the classic Freeman and Medoff (1984) contrast between cash-and-thin-protection trades agreements and deferred-compensation public-sector agreements.</p>
+<p>We position the contribution as follows. Most existing measurements of union-contract content can be read as partial projections of a single underlying object: the per-(contract, provision-area) matrix of substantive worker-facing entitlements. Wage-premium estimates from individual-level survey data (Card 1996; Hirsch and Macpherson 2003) collapse this matrix onto a single scalar (the price of the bundle) by integrating out the provision-area and contract dimensions through equilibrium wage data. Aggregate-coverage measures (the share of workers covered by <em>some</em> CBA in a given sector) collapse the matrix onto a binary along the contract dimension. Hand-coded scholarly indices going back to Slichter, Healy, and Livernash (1960) and continuing through small-sample work using the BLS collection preserve provision-area structure at small <em>N</em> but cannot reach the corpus. Pairwise scoring schemes — the team's earlier in-house pipeline applied LLM-judged pairwise comparisons aggregated through a Davidson model to the same Cornell BLS collection — preserve provision-area structure at corpus scale, but at quadratic cost in corpus size and without per-sub-criterion interpretability. Our pipeline produces the full matrix at linear cost, with per-sub-criterion sub-scores that can be re-aggregated for different research questions, and with cell-level uncertainty quantified.</p>
+<p>Said as a typology, prior work on measuring U.S. union-contract content falls into four families. (i) <em>Wage-aggregate proxies</em> (Card 1996; Hirsch and Macpherson 2003; Freeman and Medoff 1984) use individual or establishment survey data to estimate the average price effect of being in a CBA, without ever opening the contract. (ii) <em>Scholarly hand-coding</em> (Slichter, Healy, and Livernash 1960, and later researchers working with the BLS collection in limited samples) reads contracts and produces qualitative or small-sample quantitative descriptions of provision content. (iii) <em>LLM-judged pairwise scoring</em> (an earlier in-house team build) scales the contract-reading step to the full corpus by automating the comparison, but commits the analyst to the pairwise judging design and to corpus-quadratic cost. (iv) <em>LLM-judged absolute scoring</em>: the family this paper introduces, which scales the contract-reading step at linear cost by separating provision extraction from scoring, retains per-sub-criterion interpretability, and validates against a separately-built version of family (iii) on the same corpus. The first three families recover increasingly fine projections of the underlying contract-content object; the fourth recovers the object itself at corpus scale.</p>
+<p>Within the broader literature on language models as measurement instruments (Ludwig, Mullainathan, and Rambachan 2025; Zheng et al. 2023), the methodological novelty here is the four-step pipeline that combines: (i) deterministic extraction by an LLM worker step, (ii) deterministic Python rule-based scoring as an audit layer, (iii) single-shot LLM scoring on deterministically-assembled provision summaries, and (iv) anchor-document intercept calibration that removes the largest source of cross-batch noise. Each ingredient has precedent in the LLM-as-judge literature; the contribution is the combination as a complete measurement system with documented per-cell uncertainty.</p>
+<p>What the per-cell scores capture, stated at a higher level than the field list above, is the <em>substantive material content</em> of a union contract: the worker-facing entitlements actually written into the legal agreement, as distinct from (i) the wage premium those entitlements generate in the labor market, (ii) the union coverage rate that the contract sits within, and (iii) the institutional features (recognition procedures, bargaining unit definitions) that produced the contract. Each provision area is a dimension along which contracts encode worker rights; the 0–1 cell score is a positioning of each contract on each dimension. The substantive findings of Section 5 are findings about that object; the validations of Section 3 are tests of whether the pipeline recovers it; the reliability characterization of Section 4 is the standard error on the recovery.</p>
+<p>The pipeline does not solve every problem in CBA measurement. Compensation is the weakest of the nine provision areas on every validation we run, with pooled iterative-re-read agreement of ρ = 0.52 versus ρ = 0.94 on Leave, because compensation generosity is a structural property of the contract (two-tier wage scales, employer-discretion clauses on increases, partial-pass-through cost-of-living adjustments) that our deterministically-assembled provision summary captures only partially. Section 6 returns to this. We also lack a human-graded gold-standard for any of our validation correlations, so the ρ values we report are bounded above by shared-model-prior variance between the pipeline and the validation reference; Appendix F flags this and outlines the human-rater study that would close the gap.</p>
+<p>The remainder of the paper proceeds as follows. Section 2 walks through the four steps of the pipeline, provision extraction, deterministic rule-based scoring, LLM scoring, and anchor calibration, and the rationale for the headline-score source choice. Section 3 presents three validations against an external pairwise method, against careful agentic re-reading, and against known sector patterns. Section 4 documents the within-method noise floor of ρ ≈ 0.85 and the per-contract score uncertainty of ±0.13. Section 5 reports the substantive descriptive content of the 100-contract sample, anchored by a sector × provision-area table that reproduces standard labor-economics contrasts. Section 6 discusses what the pipeline measures well, what it misses, and how to close the gaps. Appendices document the provision ontology and rule library, the pairwise comparison, head-to-head against three earlier pipeline iterations, the threshold sweep that demoted the rule-based scoring to a diagnostic layer, a root-cause analysis of why Compensation is the hardest provision area to score from a provision summary, a red placeholder for the human-rater validation we have not yet conducted, and a reproducibility appendix with code and data locations.</p>
+<p>A companion website serves the full wave-1 results, including the sector × provision-area heatmap, the validation panel, a sortable composite ranking of contracts, and an interactive four-level browser of the provision ontology with example extracted provisions at each leaf. Code, prompts, and the 100-contract sample are available with the paper.</p>
+<hr />
+<h2 id="method">2. Method</h2>
+<h3 id="setting-and-data">2.1 Setting and data</h3>
+<p>The corpus comes from the U.S. Department of Labor's archive of collective bargaining agreements filed under the Labor Management Reporting and Disclosure Act. We work with a 100-contract sample stratified loosely across sectors, years (1903–2024, median 2007), and contract lengths (4 to 438 OCR'd pages). The unit of observation throughout is the (contract, provision-area) cell: one contract has scores in nine areas, so the corpus produces up to 900 cells. After accounting for the residual <em>Miscellany</em> area, which captures provisions our ontology does not cleanly categorize, and a handful of contracts where a particular area has no extractable provisions, we have 857 substantive cells.</p>
+<p>The provision-area taxonomy is aligned to the team's earlier thirteen-category scheme on the same archive, restricted to the nine areas with sufficient extractable content in our sample: Compensation, Healthcare, Leave, Disputes, Safety, Security, Recognition, Scheduling, and Ancillary benefits. We drop Duration, Management Rights, and Training because the worker extraction step (Section 2.2) did not produce systematic records for these in this sample.</p>
+<p>Throughout the paper we use one canonical unit — the (contract, provision-area) cell — and one canonical score, a 0–1 number. Within each cell, the LLM scoring step described below produces four 1–5 sub-criterion scores that sum to a 0–20 total; the 0–1 cell score is total / 20. The sub-criteria differ by provision area: Compensation has wage level, wage growth, premium pay, and tenure progression; Leave has vacation, sick leave, holidays, and other leave; and so on. The full list is in Appendix A.</p>
+<h3 id="step-1-provision-extraction">2.2 Step 1 — Provision extraction</h3>
+<p>The pipeline critically hinges on labels produced by a large language model. We follow the discipline proposed in recent econometric work on language models as measurement instruments (Ludwig, Mullainathan, and Rambachan 2025; Angelopoulos et al. 2024), which argues that prompt design, model choice, validation reference, and per-cell uncertainty should be reported as part of the design rather than as supplementary material; Sections 3 and 4 do that explicitly.</p>
+<p>To get from raw OCR'd contract text to typed provision records that downstream scoring can consume, we use a single Claude Sonnet 4.6 worker per contract (low-temperature configuration). The worker reads the OCR'd text and emits a set of typed tables. The output is, for each contract:</p>
+<ul>
+<li>A list of provisions identified in the contract, each tagged with its provision area, sub-area, provision type, and fine-grained sub-type (a four-level hierarchy with nine, twenty-six, fifty, and sixty-two values respectively in our sample).</li>
+<li>For each provision, a set of typed numeric and categorical fields (vacation weeks, COLA cap, severance per-year-of-service rate, etc.) extracted from the contract text.</li>
+<li>A small number of supporting tables (rejected values that failed validation; novelty queue for provisions we have not yet classified; per-record relative metrics for cross-contract normalization).</li>
+</ul>
+<p>Each worker call processes a single contract in isolation: no cross-contract context, no batching, strict single-document scope. On the 100-contract sample, the full extraction step took roughly two hours of wall time across twenty parallel workers and produced approximately 2,800 provision records and 5,000 typed fields. The marginal cost is one LLM call per contract, linear in corpus size.</p>
+<h3 id="steps-2-and-3-two-scoring-layers">2.3 Steps 2 and 3 — Two scoring layers</h3>
+<p>The extracted typed tables can be scored two ways, and we run both: a deterministic Python rule-based layer that is reproducible and auditable, and a single-shot LLM layer that can integrate structural features the rule-based layer cannot detect. The rule-based layer is the cheaper of the two and was originally intended as the headline source; the threshold-sweep evidence in Section 3 below moved the LLM layer to the headline role and demoted the rule-based layer to a diagnostic. Both layers remain in the output for auditability.</p>
+<p><strong>Rule-based scoring</strong> (Step 2). A library of twenty hand-built Python rules consumes the extracted fields and emits per-record local scores on a 1–5 anchor scale. Each rule is keyed to a specific provision type (e.g. <code>C_LEAVE_VACATION</code>, <code>C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION</code>) and uses regular-expression aliases to handle worker-side field-naming variance. A few wage-related rules use percentile rankings against the cross-contract distribution rather than absolute thresholds. Coverage of the four sub-criteria per provision area ranges from full (4 of 4 sub-criteria for Compensation) through partial (3 of 4 for Disputes and Leave) to none (0 of 4 for Scheduling); see Appendix A.</p>
+<p><strong>LLM scoring</strong> (Step 3). To produce a single 0–1 score for each cell from the extracted provisions, we deterministically assemble a <em>provision summary</em>: a one-block textual layout of the extracted provisions for that cell, with their associated numeric fields and covered-group annotations, free of worker free-text reasoning, free of OCR text, and free of other-area provisions. This summary is the only input the LLM scorer sees. A second Claude Sonnet 4.6 agent then scores the cell by reading the summary and assigning a 1–5 integer to each of the four sub-criteria for that provision area, per a fixed anchor scale, with 0 reserved for "no evidence in the summary." The total /20 becomes the cell's 0–1 score.</p>
+<p>We originally intended the rule-based layer to be the headline score, with LLM scoring used only where the rules did not cover. The threshold sweep in Section 3 and Appendix D shows that the headline ρ against external references rises monotonically as we use the rules less. We therefore default to <strong>LLM scoring as the headline source for every cell</strong>, with the rule-based scores preserved as a separate diagnostic column. The rule-based layer remains valuable as a deterministic, reproducible audit on the LLM layer, but it is not the published score.</p>
+<p>We considered and rejected a pairwise Bradley-Terry/Davidson approach (Davidson 1970) that would compare every pair of contracts within an area and fit per-contract strength parameters from LLM-judged outcomes. Empirically, on the 20-contract validation set, pairwise and LLM scoring agree at mean Spearman ρ = 0.77 across all nine areas (Appendix B). The pairwise method costs <i>O(n²)</i> comparisons (quadratic in corpus size) versus our <i>O(n)</i> (linear), so the cost-benefit favors LLM scoring decisively. We document the pairwise comparison in Appendix B and use it as one of our three validation reference points in Section 3.</p>
+<h3 id="step-4-anchor-document-intercept-calibration">2.4 Step 4 — Anchor-document intercept calibration</h3>
+<p>Different LLM scoring sessions calibrate their 1–5 anchors slightly differently, one session's "a 3" may be another session's "a 4", which introduces a category-level intercept artifact when the nine provision areas are scored in nine independent batches. To remove this artifact, we re-score ten anchor contracts (stratified across the corpus by pre-calibration mean score) on <em>all nine</em> provision areas in a single LLM session, producing a unified anchor frame. Each provision area's wave-1 scores are then shifted by the mean difference between that session's anchor scores and the production batch's anchor scores. The shifts ranged from −0.05 (Recognition) to +0.13 (Compensation and Scheduling), with eight of nine areas systematically under-scored in their original batches.</p>
+<p>The calibration is a pure intercept adjustment. It preserves within-area rankings (Spearman ρ between pre- and post-calibration contract-level means is 0.9995 on the 100-contract sample; maximum rank shift is three positions) and harmonizes cross-area means so that "Compensation = 0.65" and "Leave = 0.65" sit on the same scale. Per-contract mean absolute deviation against the iterative-re-read reference cells dropped 22% (0.125 → 0.098 pooled across 40 cells) after applying calibration.</p>
+<h3 id="cost">2.5 Cost</h3>
+<p>For the 100-contract sample: 100 extraction calls (Step 1) plus approximately 900 production LLM scoring calls (Step 3) plus 90 anchor-frame calls (Step 4, one combined session) totals approximately 1,090 LLM calls. At current Sonnet 4.6 pricing, marginal cost per fully-scored contract is on the order of $0.10. The cost is linear in the corpus size, so a 1,000-contract extension projects to roughly 10,000 calls; nothing in the pipeline introduces super-linear scaling.</p>
+<hr />
+<h2 id="three-validations">3. Three validations</h2>
+<p>We triangulate the pipeline against three independent reference points. None of the three is a human-graded gold standard, both the pairwise reference and the agentic re-rating reference are themselves Claude Sonnet 4.6, and the sector-pattern reference is a qualitative match against the labor-economics literature rather than a numerical ground truth. We are explicit about what each comparison establishes and what it does not. <a href="#fig-validation">Figure 2</a> summarizes the per-area Spearman correlations against all three references with bootstrap 95\% confidence intervals; <a href="#tab-validation">Table 3</a> reports the same numbers in tabular form.</p>
+<h3 id="against-a-separately-built-pairwise-scoring-scheme">3.1 Against a separately-built pairwise scoring scheme</h3>
+<p>Davidson pairwise scoring (Davidson 1970) fits a per-contract log-strength parameter per provision area from LLM-judged pairwise comparisons across all C(20,2) = 190 pairs. We built a separate pairwise pipeline using the same four-sub-criterion prompt structure as our LLM scoring, so the substantive target is held fixed; only the aggregation differs. Spearman correlation between the pipeline's contract-level scores and the Davidson log-strength on the 20-contract validation set:</p>
+<table>
+<thead>
+<tr>
+<th>Provision area</th>
+<th style="text-align: right;">ρ(LLM, Davidson)</th>
+<th style="text-align: right;">n</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Disputes</td>
+<td style="text-align: right;">+0.86</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr>
+<td>Security</td>
+<td style="text-align: right;">+0.87</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr>
+<td>Scheduling</td>
+<td style="text-align: right;">+0.84</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr>
+<td>Ancillary</td>
+<td style="text-align: right;">+0.82</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr>
+<td>Safety</td>
+<td style="text-align: right;">+0.80</td>
+<td style="text-align: right;">17</td>
+</tr>
+<tr>
+<td>Leave</td>
+<td style="text-align: right;">+0.79</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr>
+<td>Healthcare</td>
+<td style="text-align: right;">+0.76</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr>
+<td>Recognition</td>
+<td style="text-align: right;">+0.64</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr>
+<td>Compensation</td>
+<td style="text-align: right;">+0.59</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr>
+<td><strong>Mean across nine areas</strong></td>
+<td style="text-align: right;"><strong>+0.77</strong></td>
+<td style="text-align: right;">—</td>
+</tr>
+</tbody>
+</table>
+<p>Mean ρ across all nine provision areas is +0.77; even the weakest area (Compensation) is substantively meaningful. Because pairwise and LLM scoring share Sonnet 4.6 as the judging engine and share the four-sub-criterion prompt vocabulary, this validation does <em>not</em> certify accuracy against human judgment, but the methods differ in aggregation, sampling design, and many other implementation details, so shared LLM-prompt artifacts are partially netted out. The substantive read: the cheaper linear-cost method recovers essentially the rankings of the more expensive quadratic-cost method on the same substantive inputs.</p>
+<p>The team's earlier 13-category rankings, which use a different thirteen-area ontology and an LLM judging pipeline different from ours, also align in direction with our scores: Healthcare ρ = +0.70, Safety ρ = +0.55, Ancillary ρ = +0.45 against the 13-category log-strength. Mean ρ across the nine areas where coverage is comparable is +0.30, modest because the earlier 13-category ontology slices provisions differently from ours.</p>
+<h3 id="against-careful-page-by-page-re-reading">3.2 Against careful page-by-page re-reading</h3>
+<p>We selected ten contracts from the 100-contract sample stratified across the pipeline's mean-score distribution and re-rated each on four heavily-validated provision areas — Compensation, Healthcare, Leave, and Security — using the same four-sub-criterion 1–5 anchor scale the pipeline uses. The re-rater was the same Claude Sonnet 4.6 model that runs the production pipeline, but given two affordances the production scorer does not have: full OCR access to the relevant three to five pages per area per contract, and the ability to iterate (re-read pages, cross-check fields, revise scores before committing).</p>
+<p>The setup is therefore not a human-versus-machine validation. It is the same model under two different conditions: production (deterministically-assembled provision summary, single-shot scoring) versus careful (full OCR text, iterative scoring). The gap between the two correlations measures (i) information lost in moving from full OCR to the provision summary, and (ii) the value of iteration over single-shot judgment. Both gaps are bounded above by the within-method noise ceiling we report in Section 4. Pooled and per-area correlations on 40 cells (10 contracts × 4 areas):</p>
+<table>
+<thead>
+<tr>
+<th>Provision area</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">ρ(LLM pipeline, iterative re-read)</th>
+<th style="text-align: right;">MAE</th>
+<th style="text-align: right;">mean(re-read)</th>
+<th style="text-align: right;">mean(LLM)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Leave</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;"><strong>+0.94</strong></td>
+<td style="text-align: right;">0.062</td>
+<td style="text-align: right;">0.485</td>
+<td style="text-align: right;">0.475</td>
+</tr>
+<tr>
+<td>Healthcare</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">+0.65</td>
+<td style="text-align: right;">0.095</td>
+<td style="text-align: right;">0.500</td>
+<td style="text-align: right;">0.405</td>
+</tr>
+<tr>
+<td>Security</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">+0.59</td>
+<td style="text-align: right;">0.129</td>
+<td style="text-align: right;">0.420</td>
+<td style="text-align: right;">0.375</td>
+</tr>
+<tr>
+<td>Compensation</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">+0.52</td>
+<td style="text-align: right;">0.105</td>
+<td style="text-align: right;">0.635</td>
+<td style="text-align: right;">0.670</td>
+</tr>
+<tr>
+<td><strong>Pooled (n=40)</strong></td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;"><strong>+0.83</strong></td>
+<td style="text-align: right;"><strong>0.098</strong></td>
+<td style="text-align: right;">0.510</td>
+<td style="text-align: right;">0.481</td>
+</tr>
+</tbody>
+</table>
+<p>Pooled ρ = +0.83. Per-area, Leave is highest at +0.94 — at the within-method noise ceiling — while Compensation is the weakest at +0.52, consistent with the pattern in §3.1 above and with the rule-based-versus-13-category disagreement we root-cause in Appendix E. The pooled MAE of 0.098 means the pipeline differs from a careful re-read by less than ten percentage points of generosity on average. The pipeline also under-rates relative to iterative reading by about three percentage points on the mean. A small residual after the anchor calibration of §2.4.</p>
+<p>Section 4 shows that the within-method noise ceiling on the pipeline is ρ ≈ 0.85; the +0.83 iterative re-read ρ is at that ceiling, meaning the pipeline tracks careful iterative reading about as well as it tracks itself on a re-run. Whether this represents true substantive agreement with human judgment is the question Appendix F's planned human-rater study would answer.</p>
+<h3 id="against-documented-sector-contrasts-in-the-labor-literature">3.3 Against documented sector contrasts in the labor literature</h3>
+<p>The cleanest substantive check is whether the pipeline, applied to the 100-contract sample, reproduces the cross-sector patterns the labor-economics literature has documented qualitatively. Three patterns from Freeman and Medoff (1984) and successors are particularly clean and testable on our sample size:</p>
+<ul>
+<li><em>Building-trades agreements deliver high wages but thin worker-facing protections.</em> Construction-trades agreements use the hiring-hall structure, which moves wage delivery into the contract but delivers vacation, healthcare, and layoff/recall through external multi-employer trust funds and dispatch systems.</li>
+<li><em>Public-sector agreements front-load deferred compensation rather than current wages.</em> Municipal, county, state, and school-district agreements typically pair moderate wage levels with rich vacation, sick leave, holidays, dispute-resolution rights, and job-security protections.</li>
+<li><em>Utility-sector workers earn premium wages.</em> Gas and electric utility contracts have well-documented premium wage levels relative to other private-sector union contracts.</li>
+</ul>
+<p>The sector × provision-area mean scores on the 100-contract sample reproduce each of these patterns:</p>
+<table>
+<thead>
+<tr>
+<th>Sector</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">Wages</th>
+<th style="text-align: right;">Disputes</th>
+<th style="text-align: right;">Health</th>
+<th style="text-align: right;">Leave</th>
+<th style="text-align: right;">Recog</th>
+<th style="text-align: right;">Safety</th>
+<th style="text-align: right;">Sched</th>
+<th style="text-align: right;">Security</th>
+<th style="text-align: right;">Ancil</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Construction</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;"><strong>0.76</strong></td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">0.32</td>
+<td style="text-align: right;"><strong>0.31</strong></td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.37</td>
+<td style="text-align: right;">0.35</td>
+<td style="text-align: right;"><strong>0.26</strong></td>
+<td style="text-align: right;">0.39</td>
+</tr>
+<tr>
+<td>Public sector</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0.57</td>
+<td style="text-align: right;">0.65</td>
+<td style="text-align: right;">0.46</td>
+<td style="text-align: right;"><strong>0.77</strong></td>
+<td style="text-align: right;">0.43</td>
+<td style="text-align: right;">0.35</td>
+<td style="text-align: right;">0.35</td>
+<td style="text-align: right;">0.45</td>
+<td style="text-align: right;">0.30</td>
+</tr>
+<tr>
+<td>Manufacturing</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0.64</td>
+<td style="text-align: right;">0.63</td>
+<td style="text-align: right;">0.45</td>
+<td style="text-align: right;">0.61</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">0.41</td>
+<td style="text-align: right;">0.31</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">0.36</td>
+</tr>
+<tr>
+<td>Education</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.48</td>
+<td style="text-align: right;">0.63</td>
+<td style="text-align: right;">0.41</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">0.45</td>
+<td style="text-align: right;">0.41</td>
+<td style="text-align: right;">0.37</td>
+<td style="text-align: right;">0.49</td>
+<td style="text-align: right;">0.34</td>
+</tr>
+<tr>
+<td>Utilities</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;"><strong>0.81</strong></td>
+<td style="text-align: right;">0.66</td>
+<td style="text-align: right;">0.34</td>
+<td style="text-align: right;">0.69</td>
+<td style="text-align: right;">0.56</td>
+<td style="text-align: right;">0.41</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">0.55</td>
+<td style="text-align: right;">0.32</td>
+</tr>
+<tr>
+<td>Services</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.45</td>
+<td style="text-align: right;"><strong>0.77</strong></td>
+<td style="text-align: right;">0.38</td>
+<td style="text-align: right;">0.59</td>
+<td style="text-align: right;">0.38</td>
+<td style="text-align: right;">0.26</td>
+<td style="text-align: right;">0.33</td>
+<td style="text-align: right;">0.48</td>
+<td style="text-align: right;">0.30</td>
+</tr>
+<tr>
+<td>Healthcare</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.68</td>
+<td style="text-align: right;">0.68</td>
+<td style="text-align: right;">0.37</td>
+<td style="text-align: right;">0.64</td>
+<td style="text-align: right;">0.48</td>
+<td style="text-align: right;">0.35</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">0.43</td>
+<td style="text-align: right;">0.32</td>
+</tr>
+<tr>
+<td>Retail/wholesale</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">0.63</td>
+<td style="text-align: right;">0.43</td>
+<td style="text-align: right;">0.59</td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.36</td>
+<td style="text-align: right;">0.54</td>
+<td style="text-align: right;">0.33</td>
+</tr>
+</tbody>
+</table>
+<p>Construction tops Wages (0.76) and bottoms Leave (0.31) and Security (0.26). Public sector tops Leave (0.77) at a more modest Wage score (0.57). Utilities tops Wages (0.81). These are precisely the patterns the literature predicts; the pipeline was not trained on or told about them. The wave-1 sample is too small for inferential claims about sector effects, utilities has n = 4 and the standard error on a four-contract cell mean is large, but as a validity check on whether the measurement is detecting real contract structure rather than artifacts of the scoring procedure, the reproduction of stylized facts is the strongest evidence we have.</p>
+<h3 id="llm-versus-llm-caveat">3.4 LLM-versus-LLM caveat</h3>
+<p>These three validations triangulate the pipeline, but two of the three (Sections 3.1 and 3.2) involve Claude Sonnet 4.6 at multiple stages. Shared model priors between the pipeline's scoring step and the validation reference inflate the agreement metrics relative to a true human-graded gold standard. The agreement between pipeline and reference cannot exceed the agreement between two independent runs of the same model on the same input, which Section 4 measures at ρ ≈ 0.85. The +0.83 pooled iterative-re-read ρ is therefore at, not above, the within-method noise ceiling. A human-rater validation on a small subsample would distinguish "the pipeline tracks careful reading because it captures something real about the contract" from "the pipeline tracks careful reading because the same model is doing both." We treat this as the most important single follow-up and outline the experiment in Appendix F.</p>
+<hr />
+<h2 id="reliability">4. Reliability</h2>
+<p>Three reliability questions matter for downstream use of the scores: how much do they move under prompt-identical re-runs, how much of that movement is systematic per-batch versus random per-cell, and what is the standard error on a typical score after the calibration in Section 2.4.</p>
+<h3 id="test-retest">4.1 Test-retest</h3>
+<p>We re-scored 20 Compensation cells from the 100-contract sample in a second, independent LLM session, using the same provision summary and the same prompt. Spearman rank correlation between the two runs was +0.85; Pearson +0.94. Mean scores differed by +0.12. The second run systematically scored every contract higher, but ordering was preserved. <a href="#fig-testretest">Figure 3</a> plots the two runs against each other; the offset between the 45-degree line and the data is the per-batch intercept shift the calibration of § 2.4 corrects.</p>
+<p>The variance has two components. A per-batch <em>intercept</em> shift is common within a run and random across runs; on this 20-contract test it accounted for almost the entire mean shift of +0.12. A per-cell <em>residual</em> is random across cells once the intercept is removed; this contributes a standard deviation of approximately 0.10 to per-cell scores.</p>
+<p>In practice: a 0.65 versus 0.70 comparison between two cells within the same scoring batch is informative; a 0.65 versus 0.55 comparison across batches scored at different times without calibration is not. The anchor calibration of Section 2.4 directly addresses the intercept shift.</p>
+<h3 id="anchor-calibration-outcomes">4.2 Anchor calibration outcomes</h3>
+<p>After applying per-area shifts from the ten-contract unified-frame re-score:</p>
+<ul>
+<li>Per-area means on the four heavily-validated areas (§3.2) match the iterative-reading means within 0.03 to 0.05.</li>
+<li>Pooled MAE between pipeline scores and iterative re-read drops 22% (0.125 → 0.098).</li>
+<li>Contract-level mean rankings are essentially unchanged: ρ between pre-calibration and post-calibration contract-level mean scores is 0.9995 on the 100-contract sample, with a maximum rank shift of three positions out of 94 contracts that have at least eight provision-area scores.</li>
+</ul>
+<p>The calibration acts only on per-area intercepts. It does not change within-area ordering and does not interact with within-area variance.</p>
+<h3 id="residual-per-cell-uncertainty">4.3 Residual per-cell uncertainty</h3>
+<p>After calibration, a reasonable summary for a published cell score is "X ± 0.13" where 0.13 is the test-retest cell-level RMSE measured in §4.1. Two cells whose calibrated scores differ by 0.10 or less are not distinguishable from re-run noise. Sector-level means computed over 10 or more contracts have standard error roughly 0.13/√n ≈ 0.04, comfortably below the largest sector × area differences in the table of §3.3. The sector contrasts in that table are therefore well above the cell-level noise floor.</p>
+<h3 id="what-we-do-not-measure">4.4 What we do not measure</h3>
+<p>We do not separately estimate extraction-stage noise: the variance introduced if a second set of workers re-extracted the contract tables from OCR. That number bounds the total noise budget of the pipeline and is a natural follow-up at the next scale-up. We also do not measure worker recall, whether the workers systematically miss a class of provisions, so the pipeline's scores reflect what the workers extracted, not what is in the OCR. The roughly +0.10 systematic under-rating against iterative reading before calibration is consistent with mild under-extraction by the workers; calibration closes most of it, but the underlying issue would benefit from a re-extraction reliability study.</p>
+<hr />
+<h2 id="cross-sector-picture-of-us-union-contracts">5. Cross-sector picture of U.S. union contracts</h2>
+<p>This section reports our substantive findings on the 100-contract sample. In order: Section 5.1 describes the marginal distribution of cell scores within each provision area; Section 5.2 turns to the sector × provision-area structure that is the cleanest headline result; Section 5.3 reports the contract-level composite distribution and the contracts at the tails; Section 5.4 documents the small time-trend and state-geography correlations. The 100-contract sample is a proof-of-concept rather than a representative sample of U.S. CBAs, and we make no distributional-inference claims from it; a planned 1,000-contract extension (Section 6.3) is where such claims become possible.</p>
+<h3 id="per-provision-area-distributions">5.1 Per-provision-area distributions</h3>
+<p>Cell-level mean and standard deviation across the 100-contract sample, for cells with a defined LLM score (<a href="#tab-distrib">Table 2</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Provision area</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">std</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Compensation</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">0.63</td>
+<td style="text-align: right;">0.19</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.90</td>
+</tr>
+<tr>
+<td>Disputes</td>
+<td style="text-align: right;">97</td>
+<td style="text-align: right;">0.64</td>
+<td style="text-align: right;">0.14</td>
+<td style="text-align: right;">0.25</td>
+<td style="text-align: right;">0.85</td>
+</tr>
+<tr>
+<td>Leave</td>
+<td style="text-align: right;">96</td>
+<td style="text-align: right;">0.56</td>
+<td style="text-align: right;">0.23</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.95</td>
+</tr>
+<tr>
+<td>Recognition</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">0.45</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.75</td>
+</tr>
+<tr>
+<td>Security</td>
+<td style="text-align: right;">92</td>
+<td style="text-align: right;">0.42</td>
+<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.90</td>
+</tr>
+<tr>
+<td>Healthcare</td>
+<td style="text-align: right;">98</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">0.60</td>
+</tr>
+<tr>
+<td>Safety</td>
+<td style="text-align: right;">87</td>
+<td style="text-align: right;">0.37</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.60</td>
+</tr>
+<tr>
+<td>Scheduling</td>
+<td style="text-align: right;">94</td>
+<td style="text-align: right;">0.35</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.50</td>
+</tr>
+<tr>
+<td>Ancillary</td>
+<td style="text-align: right;">95</td>
+<td style="text-align: right;">0.34</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">0.50</td>
+</tr>
+</tbody>
+</table>
+<p>Three observations on the marginals.</p>
+<p><em>Compensation, Disputes, and Leave have the highest means</em>. These are the provision areas where a typical agreement encodes the most substantive content. Compensation and Leave have wide spreads (σ ≈ 0.20), reflecting genuine cross-sector and within-sector variation in wage packages and leave generosity.</p>
+<p><em>Ancillary has the narrowest spread</em> (σ = 0.06). Most agreements cluster around pension presence plus a savings-or-annuity provision; the area does not distinguish agreements strongly because the contents are either present with similar dollar contributions (in trust-fund-anchored contracts) or absent.</p>
+<p><em>Safety and Scheduling have the lowest means</em> (0.37 and 0.35). Both areas frequently delegate substance to joint committees or to past practice rather than encoding it explicitly in the contract; the pipeline reads these as thin-on-substance.</p>
+<h3 id="the-sector-provision-area-structure">5.2 The sector × provision-area structure</h3>
+<p>The headline descriptive result is the sector × provision-area matrix shown in <a href="#fig-heatmap">Figure 1</a> and <a href="#tab-sector">Table 1</a>. Mean v5.1 cell scores by sector and provision area, for sectors with at least four contracts in the sample:</p>
+<table>
+<thead>
+<tr>
+<th>Sector</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">Wages</th>
+<th style="text-align: right;">Disputes</th>
+<th style="text-align: right;">Health</th>
+<th style="text-align: right;">Leave</th>
+<th style="text-align: right;">Recog</th>
+<th style="text-align: right;">Safety</th>
+<th style="text-align: right;">Sched</th>
+<th style="text-align: right;">Security</th>
+<th style="text-align: right;">Ancil</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Construction</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;"><strong>0.76</strong></td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">0.32</td>
+<td style="text-align: right;"><strong>0.31</strong></td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.37</td>
+<td style="text-align: right;">0.35</td>
+<td style="text-align: right;"><strong>0.26</strong></td>
+<td style="text-align: right;">0.39</td>
+</tr>
+<tr>
+<td>Public sector</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0.57</td>
+<td style="text-align: right;">0.65</td>
+<td style="text-align: right;">0.46</td>
+<td style="text-align: right;"><strong>0.77</strong></td>
+<td style="text-align: right;">0.43</td>
+<td style="text-align: right;">0.35</td>
+<td style="text-align: right;">0.35</td>
+<td style="text-align: right;">0.45</td>
+<td style="text-align: right;">0.30</td>
+</tr>
+<tr>
+<td>Manufacturing</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0.64</td>
+<td style="text-align: right;">0.63</td>
+<td style="text-align: right;">0.45</td>
+<td style="text-align: right;">0.61</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">0.41</td>
+<td style="text-align: right;">0.31</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">0.36</td>
+</tr>
+<tr>
+<td>Education</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.48</td>
+<td style="text-align: right;">0.63</td>
+<td style="text-align: right;">0.41</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">0.45</td>
+<td style="text-align: right;">0.41</td>
+<td style="text-align: right;">0.37</td>
+<td style="text-align: right;">0.49</td>
+<td style="text-align: right;">0.34</td>
+</tr>
+<tr>
+<td>Utilities</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;"><strong>0.81</strong></td>
+<td style="text-align: right;">0.66</td>
+<td style="text-align: right;">0.34</td>
+<td style="text-align: right;">0.69</td>
+<td style="text-align: right;">0.56</td>
+<td style="text-align: right;">0.41</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">0.55</td>
+<td style="text-align: right;">0.32</td>
+</tr>
+<tr>
+<td>Services</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.45</td>
+<td style="text-align: right;"><strong>0.77</strong></td>
+<td style="text-align: right;">0.38</td>
+<td style="text-align: right;">0.59</td>
+<td style="text-align: right;">0.38</td>
+<td style="text-align: right;">0.26</td>
+<td style="text-align: right;">0.33</td>
+<td style="text-align: right;">0.48</td>
+<td style="text-align: right;">0.30</td>
+</tr>
+<tr>
+<td>Healthcare</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.68</td>
+<td style="text-align: right;">0.68</td>
+<td style="text-align: right;">0.37</td>
+<td style="text-align: right;">0.64</td>
+<td style="text-align: right;">0.48</td>
+<td style="text-align: right;">0.35</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">0.43</td>
+<td style="text-align: right;">0.32</td>
+</tr>
+<tr>
+<td>Retail / wholesale</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">0.63</td>
+<td style="text-align: right;">0.43</td>
+<td style="text-align: right;">0.59</td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.36</td>
+<td style="text-align: right;">0.54</td>
+<td style="text-align: right;">0.33</td>
+</tr>
+</tbody>
+</table>
+<p>Three patterns reproduce canonical contrasts from the U.S. union literature, and Section 3.3 already used them as a validity check on the pipeline. We restate them here as substantive findings.</p>
+<p>The construction-versus-public-sector contrast is the largest in the corpus. A construction agreement in this sample is approximately 0.20 higher on Wages than a public-sector agreement (0.76 versus 0.57) and approximately 0.46 lower on Leave (0.31 versus 0.77). The magnitude is large relative to within-sector spread, both differences point in the directions the labor literature predicts (Freeman and Medoff 1984 "exit-voice" taxonomy), and Wages and Leave are the two provision areas with the most extractable content. Within construction, the standard deviation of Wages is only about 0.10. The sector is internally homogeneous on wages because building-trades agreements follow similar trust-fund-anchored patterns. Public-sector Wages has a wider within-sector standard deviation (≈ 0.15), reflecting the variety of municipal, county, and state employer arrangements in the sample.</p>
+<p>Utilities top the wage score at 0.81, although the cell n = 4 is too small to support strong claims; the result is reported here for completeness rather than as an inferential finding.</p>
+<p>The pipeline does not test the exit-voice reading; what it does is recover a measurement that the reading could be tested with, at corpus scale rather than from hand-coded subsamples.</p>
+<h3 id="composite-generosity-and-the-contracts-at-the-tails">5.3 Composite generosity and the contracts at the tails</h3>
+<p>For each contract with at least eight provision-area scores, we compute the mean across the eight substantive areas (excluding <em>Miscellany</em>). The resulting distribution on 94 contracts:</p>
+<table>
+<thead>
+<tr>
+<th>Statistic</th>
+<th style="text-align: right;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Minimum</td>
+<td style="text-align: right;">0.27</td>
+</tr>
+<tr>
+<td>25th percentile</td>
+<td style="text-align: right;">0.43</td>
+</tr>
+<tr>
+<td>Median</td>
+<td style="text-align: right;">0.48</td>
+</tr>
+<tr>
+<td>75th percentile</td>
+<td style="text-align: right;">0.52</td>
+</tr>
+<tr>
+<td>Maximum</td>
+<td style="text-align: right;">0.62</td>
+</tr>
+</tbody>
+</table>
+<p>Most contracts fall in a relatively narrow [0.43, 0.52] interquartile band. The composite is useful primarily for ranking contracts in the tails; for substantive analyses we recommend reporting per-area cells rather than the composite, which compresses the meaningful per-area heterogeneity.</p>
+<p>The top five contracts by composite, with sector:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Composite</th>
+<th>Contract</th>
+<th>Sector</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0.62</td>
+<td>Owens-Brockway Glass Container Inc. / GMP&amp;AW International Union</td>
+<td>Manufacturing</td>
+</tr>
+<tr>
+<td style="text-align: right;">0.58</td>
+<td>City of Lake Stevens, WA / Public, Professional &amp; Office-Clerical Employees Local 763 (IBT)</td>
+<td>Public sector</td>
+</tr>
+<tr>
+<td style="text-align: right;">0.57</td>
+<td>Town of Spencer / Teamsters Local 170 (Town Hall Clerks)</td>
+<td>Public sector</td>
+</tr>
+<tr>
+<td style="text-align: right;">0.57</td>
+<td>Arconic Corporation / United Steelworkers</td>
+<td>Manufacturing</td>
+</tr>
+<tr>
+<td style="text-align: right;">0.56</td>
+<td>City of Boston / AFSCME Council 93</td>
+<td>Public sector</td>
+</tr>
+</tbody>
+</table>
+<p>The bottom five:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Composite</th>
+<th>Contract</th>
+<th>Sector</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0.24</td>
+<td>City of Buffalo / IAFF Local 282 (2-page MOA only)</td>
+<td>Public sector</td>
+</tr>
+<tr>
+<td style="text-align: right;">0.34</td>
+<td>Plasterers &amp; Cement Mason Local 692 / area contractors (light commercial / residential)</td>
+<td>Construction</td>
+</tr>
+<tr>
+<td style="text-align: right;">0.34</td>
+<td>AK Steel Corporation (Ashland Works) / United Steelworkers Local 1865</td>
+<td>Manufacturing</td>
+</tr>
+<tr>
+<td style="text-align: right;">0.35</td>
+<td>Great Lakes Stevedore Employers / ILA-ACD (per-shape-up work)</td>
+<td>Transportation</td>
+</tr>
+<tr>
+<td style="text-align: right;">0.37</td>
+<td>Torrent Resources, Inc. / IUOE Local 428</td>
+<td>Construction</td>
+</tr>
+</tbody>
+</table>
+<p>The bottom is dominated by building-trades hiring-hall agreements whose generosity is structurally low in our framework because worker-facing entitlement is delivered outside the contract (through trust funds and dispatch systems). The contract at the very bottom is a partial-document artifact: it is a two-page Memorandum of Agreement that references its underlying full agreement without reproducing it. Production applications should flag thin-document outliers separately.</p>
+<h3 id="time-and-geography">5.4 Time and geography</h3>
+<p>Within-area Spearman correlations between the per-cell score and the agreement's effective start year (n ≈ 95 per area):</p>
+<table>
+<thead>
+<tr>
+<th>Provision area</th>
+<th style="text-align: right;">ρ(score, year)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Disputes</td>
+<td style="text-align: right;">+0.26</td>
+</tr>
+<tr>
+<td>Leave</td>
+<td style="text-align: right;">+0.26</td>
+</tr>
+<tr>
+<td>Scheduling</td>
+<td style="text-align: right;">+0.19</td>
+</tr>
+<tr>
+<td>Security</td>
+<td style="text-align: right;">+0.12</td>
+</tr>
+<tr>
+<td>Healthcare</td>
+<td style="text-align: right;">+0.11</td>
+</tr>
+<tr>
+<td>Compensation</td>
+<td style="text-align: right;">+0.07</td>
+</tr>
+<tr>
+<td>Safety</td>
+<td style="text-align: right;">−0.04</td>
+</tr>
+<tr>
+<td>Ancillary</td>
+<td style="text-align: right;">−0.07</td>
+</tr>
+<tr>
+<td>Recognition</td>
+<td style="text-align: right;">−0.09</td>
+</tr>
+</tbody>
+</table>
+<p>Year effects are small. The largest positive correlations (Disputes, Leave) are consistent with the labor literature's documentation of deferred-compensation drift in recent contracts, but the sample is cross-sectional and inferential claims about secular trends are not appropriate here. Compensation in particular is flat (ρ = +0.07), which directly addresses a potential concern from §3.1 — that the rule-based layer's negative correlation with the earlier 13-category Davidson reference on Compensation might be explained by vintage drift. It cannot: there is no vintage drift in the pipeline's Compensation scores.</p>
+<p>State-level variation in Wages by contract count: Massachusetts and Pennsylvania (each n ≤ 6) top the list at 0.66–0.67, with California, New York, and Washington (n = 10–13) clustering between 0.47 and 0.50. The east-coast / Rust Belt premium is on the order of the within-sector spread, plausibly reflecting industry-mix differences rather than a true geographic effect. Sample sizes do not support stronger claims.</p>
+<hr />
+<h2 id="discussion">6. Discussion</h2>
+<h3 id="what-the-pipeline-does">6.1 What the pipeline does</h3>
+<p>The strongest claims this paper supports are three.</p>
+<p>The pipeline produces cell-level scores that track careful iterative re-reading of full OCR'd contract text at pooled ρ = 0.83 across four heavily-validated provision areas, with Leave at +0.94 (at the within-method noise ceiling) and Compensation at +0.52. These correlations are at or near the within-method noise ceiling of approximately 0.85, meaning the pipeline approximates careful re-reading about as well as the pipeline approximates itself on a re-run.</p>
+<p>The pipeline reproduces the standard cross-sector patterns of the U.S. union literature without being trained on them. Building-trades agreements score high on wages (0.76) and low on leave and security (0.31 and 0.26); public-sector agreements show the inverse profile (wages 0.57, leave 0.77, disputes 0.65). These patterns are exactly the Freeman and Medoff (1984) taxonomy and emerge purely from the cell-level scoring.</p>
+<p>The pipeline matches an independently-engineered Davidson pairwise scoring scheme at mean Spearman ρ = 0.77 across all nine provision areas, at linear cost rather than quadratic. The pairwise method was the workhorse for recent automated CBA scoring; our result that the cheaper method recovers essentially the same rankings is the methodological contribution most relevant to other research groups.</p>
+<h3 id="compensation-is-the-hardest-area-and-why">6.2 Compensation is the hardest area, and why</h3>
+<p>Compensation is the weakest provision area on every validation we run: ρ = 0.59 against the Davidson reference, ρ = 0.52 against iterative reading, and a deterministic rule-based layer that anti-correlates with both external references at ρ = −0.19 and ρ = −0.34 respectively. The root cause is substantive rather than mechanical: compensation generosity is a structural property of the contract that the deterministically-assembled provision summary captures only partially. The structural features that matter most, and that we read directly from the OCR'd text when investigating the hardest disagreement cases in Appendix E, are: two-tier wage scales that pay post-cutoff hires a reduced percentage of the class rate; employer-discretion clauses on annual increase percentages; partial-pass-through cost-of-living formulas (for example "50% of CPI excess over threshold"); and work-year normalization for teacher and seasonal contracts where raw days-per-year fields are not comparable to year-round agreements.</p>
+<p>We attempted two brief-stage augmentation passes that pre-pended explicit structural-feature flags to the Compensation provision summary before LLM scoring. Both either over-corrected the LLM scoring (the first attempt dropped ρ to +0.30) or collapsed the within-area variance and erased the sector signal (the second attempt halved the standard deviation and erased the construction-versus-public-sector wage contrast). Appendix E documents both attempts honestly. The conclusion we draw is that Compensation improvement requires upstream work, richer extraction of structural fields by the worker step, rather than downstream prompting fixes. This is the most important methodological extension we plan.</p>
+<p>For substantive use of the existing scores, the Compensation ceiling matters less than it might appear. The cell-level ranking is still informative (top contracts are sensibly the highest-wage agreements in the corpus). The sector-level pattern is substantively correct (construction beats public-sector beats services on wages). And most labor-economics applications care about cross-area patterns and cross-sector contrasts more than precise per-cell Compensation calibration.</p>
+<h3 id="where-the-pipeline-goes-next">6.3 Where the pipeline goes next</h3>
+<p>In rough priority order.</p>
+<p>A human-rater validation on 30–50 contracts from the sample, even at the area level rather than the sub-criterion level, would close the LLM-versus-LLM caveat that limits every validation in Section 3. Appendix F outlines the experiment design and budget. This is the most impactful single follow-up.</p>
+<p>Upstream improvements to provision extraction targeted at the structural-feature gaps Section 6.2 identifies, two-tier flags, employer-discretion flags, COLA pass-through coding, work-year normalization, restriction-density counts. With these fields the rule-based scoring layer becomes more useful and Compensation should reach the level the other areas are at.</p>
+<p>A 1,000-contract extension with proper sector and temporal stratification would support distributional inference, regression-based analysis of contract structure as a function of bargaining context, and within-employer time-series analysis where multiple consecutive agreements are available.</p>
+<p>We are not pursuing the deterministic rule-based scoring layer further as a headline source. The threshold sweep in Appendix D showed that LLM scoring dominates rule-based scoring on every external reference we have. The rule-based layer is preserved as a diagnostic check on flagrant LLM-scoring errors, not as the primary measurement.</p>
+<hr />
+<h2 id="conclusion">7. Conclusion</h2>
+<p>We have built and validated a scalable pipeline for measuring the substantive generosity of collective bargaining agreements at the provision-area level. The pipeline takes raw OCR'd contract text, extracts provisions into typed tables via a single LLM call per contract, scores each (contract, provision-area) cell on a 0–1 scale via a second LLM call on a deterministically-assembled provision summary, and harmonizes the per-area intercepts with a single anchor-document calibration session. The marginal cost per fully-scored contract is on the order of $0.10, and the cost is linear in the corpus.</p>
+<p>These three validations triangulate the scores. The pipeline agrees with a separately-built pairwise Davidson scoring scheme at mean Spearman ρ = 0.77 across nine provision areas, with careful iterative re-reading at pooled ρ = 0.83 across 40 iteratively re-read cells, and with the cross-sector patterns documented qualitatively in the U.S. union literature since Freeman and Medoff (1984). Per-contract score uncertainty is approximately ±0.13 after anchor calibration, and the cross-sector patterns are well above this cell-level noise.</p>
+<p>Applied to a 100-contract sample from the U.S. Department of Labor archive, the pipeline reproduces the classic construction-versus-public-sector contrast (construction wages 0.76 vs. leave 0.31; public-sector leave 0.77 vs. wages 0.57) without being trained on it. The substantive content is interpretable cell-by-cell and supports the kind of provision-level cross-sector descriptive analysis that hand-coding could not deliver at this scale.</p>
+<p>The most important caveat is that we lack human-graded gold-standard labels: our validations are model-against-model with shared priors. A human-rater study on a small subsample is the highest-priority follow-up and is outlined in Appendix F. Compensation is also the hardest provision area to score from a deterministically-assembled summary because compensation generosity is structural rather than level-based; closing this gap requires upstream improvements to provision extraction. We make the pipeline, the 100-contract sample, the rule library, and the prompts publicly available, and we expect the 1,000-contract extension to be straightforward at current marginal cost.</p>
+<hr />
+<h2 id="appendices">Appendices</h2>
+<h3 id="appendix-a-provision-ontology-and-the-rule-library">Appendix A — Provision ontology and the rule library</h3>
+<p>The provision ontology has four levels.</p>
+<p>The top level, nine <em>provision areas</em> aligned to the team's earlier 13-category scheme, restricted to areas with sufficient extractable content: Compensation, Disputes, Healthcare, Leave, Security, Safety, Scheduling, Recognition, and Ancillary benefits. We exclude Duration, Management Rights, and Training from headline analysis because the worker extraction step does not produce systematic records in these areas in our sample, and we use a residual <em>Miscellany</em> bucket for provisions our taxonomy does not cleanly categorize.</p>
+<p>The second level, 26 <em>sub-areas</em>. For example, under Compensation: wage_base, wage_progression, wage_growth, premium_pay, responsibility_premium. Sub-areas group conceptually-related provisions for diagnostic display but do not carry their own scoring rules.</p>
+<p>The third level, 50 <em>provision types</em> in our sample, drawn from a library of approximately 75 defined types. For example: <code>C_WAGE_BASE_RATE</code>, <code>C_LEAVE_VACATION</code>, <code>C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION</code>, <code>C_JOB_SECURITY_LAYOFF_ORDER</code>. This is the level at which the deterministic rule-based scoring is keyed.</p>
+<p>The fourth level, 62 <em>fine-grained sub-types</em>. For example, under <code>C_LEAVE_VACATION</code>: <code>vacation_weeks_max_or_tier</code>, <code>vacation_carryover_cap_weeks</code>. Used by the worker step to give the typed fields a stable name space within a provision type.</p>
+<p><strong>Rule library coverage by area</strong> (20 rules across 21 provision types):</p>
+<table>
+<thead>
+<tr>
+<th>Provision area</th>
+<th>Rules in library</th>
+<th style="text-align: right;">Sub-criteria covered (of 4)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Compensation</td>
+<td>C_WAGE_BASE_RATE (percentile), C_WAGE_PROGRESSION (percentile), C_WAGE_INCREASES_COLA (percentile), C_PREMIUM_OVERTIME, C_PREMIUM_SHIFT, C_PREMIUM_CALL_IN_REPORTING</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr>
+<td>Disputes</td>
+<td>C_DISCIPLINE_JUST_CAUSE, C_DISCIPLINE_PROGRESSIVE, C_GRIEVANCE_PROCEDURE, C_ARBITRATION</td>
+<td style="text-align: right;">3 (missing investigation/appeal)</td>
+</tr>
+<tr>
+<td>Leave</td>
+<td>C_LEAVE_VACATION, C_LEAVE_SICK, C_LEAVE_HOLIDAYS</td>
+<td style="text-align: right;">3 (missing other_leave)</td>
+</tr>
+<tr>
+<td>Healthcare</td>
+<td>C_HEALTH_MEDICAL_ACTIVE_CONTRIBUTION</td>
+<td style="text-align: right;">1 (employer contribution only)</td>
+</tr>
+<tr>
+<td>Security</td>
+<td>C_JOB_SECURITY_LAYOFF_ORDER, C_JOB_SECURITY_SEVERANCE</td>
+<td style="text-align: right;">2 (missing recall, continuation)</td>
+</tr>
+<tr>
+<td>Safety</td>
+<td>C_SAFETY_PPE_UNSAFE_WORK</td>
+<td style="text-align: right;">2 (PPE + refuse-unsafe combined)</td>
+</tr>
+<tr>
+<td>Ancillary</td>
+<td>C_RETIREMENT_PENSION, C_RETIREMENT_SAVINGS_ANNUITY</td>
+<td style="text-align: right;">2 (missing training, other_benefits)</td>
+</tr>
+<tr>
+<td>Recognition</td>
+<td>C_UNION_ACCESS_BUSINESS</td>
+<td style="text-align: right;">1 (missing 3 of 4)</td>
+</tr>
+<tr>
+<td>Scheduling</td>
+<td>—</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p>Each rule is a Python function over the extracted typed fields, with regular-expression aliases for worker-side field-naming variants and explicit anchor bands. Wage rules use cross-contract percentile ranks rather than absolute thresholds. The full rule source is <code>apply_score_rubrics.py</code> (~1,000 lines).</p>
+<h3 id="appendix-b-pairwise-versus-llm-scoring">Appendix B — Pairwise versus LLM scoring</h3>
+<p>We built a Davidson MLE pairwise scoring pipeline on the 20-contract validation set with LLM-judged comparisons across all C(20,2) = 190 pairs per provision area. Both methods used the identical four-sub-criterion prompt structure so the substantive target is held fixed.</p>
+<p>Per-area Spearman ρ between Davidson log-strength and LLM scoring 0–1 scores:</p>
+<table>
+<thead>
+<tr>
+<th>Provision area</th>
+<th style="text-align: right;">ρ</th>
+<th style="text-align: right;">n</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Disputes</td>
+<td style="text-align: right;">+0.86</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr>
+<td>Security</td>
+<td style="text-align: right;">+0.87</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr>
+<td>Scheduling</td>
+<td style="text-align: right;">+0.84</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr>
+<td>Ancillary</td>
+<td style="text-align: right;">+0.82</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr>
+<td>Safety</td>
+<td style="text-align: right;">+0.80</td>
+<td style="text-align: right;">17</td>
+</tr>
+<tr>
+<td>Leave</td>
+<td style="text-align: right;">+0.79</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr>
+<td>Healthcare</td>
+<td style="text-align: right;">+0.76</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr>
+<td>Recognition</td>
+<td style="text-align: right;">+0.64</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr>
+<td>Compensation</td>
+<td style="text-align: right;">+0.59</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr>
+<td><strong>Mean</strong></td>
+<td style="text-align: right;"><strong>+0.77</strong></td>
+<td style="text-align: right;">—</td>
+</tr>
+</tbody>
+</table>
+<p>Davidson was implemented in pure numpy: gradient ascent on the Davidson log-likelihood with a tie parameter ν, converging in approximately 200 iterations per area.</p>
+<p><strong>Cost at scale.</strong> At 100 contracts the gap is 900 LLM scoring calls versus 4,950 pairwise judging calls (depending on subsampling). At 1,000 contracts the gap widens to 9,000 versus more than 100,000. A linear-versus-quadratic problem that pairwise loses decisively. Both methods share Sonnet 4.6 as the judging engine, so the ρ = 0.77 convergence partly reflects shared priors; the substantive ranking signal is nevertheless recovered.</p>
+<h3 id="appendix-c-three-earlier-pipeline-iterations">Appendix C — Three earlier pipeline iterations</h3>
+<p>The pipeline evolved through three earlier generations before settling on the current design. Each was tested on the same 20-contract validation set used elsewhere in the paper. We summarize them here so other research groups can see the cumulative methodology choices.</p>
+<p>The agentic v3 pipeline used multi-step worker processing with internal LLM bridge-scoring of provision records. High extraction recall, high worker-to-worker variance, expensive (roughly 2× the current per-contract cost).</p>
+<p>The v4 pipeline reshaped worker output into the typed tables described in §2.2 and scored from the typed fields via the rule-based library described in §2.3 and Appendix A. Interpretable, reproducible, but coverage-limited where rules do not fire.</p>
+<p>The current pipeline (v5.1 internally) builds on v4 worker extraction, retains the rule-based layer as a diagnostic, and adds LLM scoring on deterministically-assembled provision summaries plus anchor calibration as the headline measurement.</p>
+<p>Per-area Spearman ρ versus the team's earlier 13-category Davidson log-strength reference, each pipeline against the same external benchmark:</p>
+<table>
+<thead>
+<tr>
+<th>Provision area</th>
+<th style="text-align: right;">v3 (agentic)</th>
+<th style="text-align: right;">v4 (rule-based)</th>
+<th style="text-align: right;">Current (LLM + calibration)</th>
+<th style="text-align: right;">n</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Compensation</td>
+<td style="text-align: right;">+0.31</td>
+<td style="text-align: right;">−0.19</td>
+<td style="text-align: right;">+0.12</td>
+<td style="text-align: right;">18–20</td>
+</tr>
+<tr>
+<td>Disputes</td>
+<td style="text-align: right;">+0.32</td>
+<td style="text-align: right;">+0.35</td>
+<td style="text-align: right;">+0.07</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr>
+<td>Healthcare</td>
+<td style="text-align: right;">+0.37</td>
+<td style="text-align: right;">+0.35</td>
+<td style="text-align: right;">+0.70</td>
+<td style="text-align: right;">9–20</td>
+</tr>
+<tr>
+<td>Leave</td>
+<td style="text-align: right;">+0.44</td>
+<td style="text-align: right;">−0.48</td>
+<td style="text-align: right;">+0.23</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr>
+<td>Security</td>
+<td style="text-align: right;">−0.29</td>
+<td style="text-align: right;">+0.32</td>
+<td style="text-align: right;">+0.33</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr>
+<td>Safety</td>
+<td style="text-align: right;">+0.50</td>
+<td style="text-align: right;">+0.05</td>
+<td style="text-align: right;">+0.55</td>
+<td style="text-align: right;">17</td>
+</tr>
+<tr>
+<td>Recognition</td>
+<td style="text-align: right;">−0.05</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">+0.14</td>
+<td style="text-align: right;">7–17</td>
+</tr>
+<tr>
+<td>Ancillary</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">+0.45</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr>
+<td>Scheduling</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">+0.08</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr>
+<td><strong>Mean (areas with all three)</strong></td>
+<td style="text-align: right;">+0.23</td>
+<td style="text-align: right;">+0.04</td>
+<td style="text-align: right;">+0.30</td>
+<td style="text-align: right;">—</td>
+</tr>
+</tbody>
+</table>
+<p>The current pipeline dominates the earlier two on most areas where comparison is possible, and adds coverage on Ancillary and Scheduling that the earlier pipelines could not score. The v4 rule-based column anti-correlates with the earlier 13-category Davidson on Compensation (−0.19) and Leave (−0.48), which was the empirical evidence that triggered the threshold sweep in Appendix D and the demotion of rule-based scoring to a diagnostic layer.</p>
+<h3 id="appendix-d-the-threshold-sweep-that-demoted-rule-based-scoring">Appendix D — The threshold sweep that demoted rule-based scoring</h3>
+<p>The combiner originally used the rule-based score whenever any rule fired (threshold = 1). To check whether this default was correct, we swept a coverage threshold: use the rule-based layer only if it covers at least the threshold-many of the four sub-criteria for the area, otherwise fall back to LLM scoring. Mean Spearman ρ against the earlier 13-category Davidson on the 20-contract set, swept from 1 (legacy) through 99 (LLM scoring only):</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Coverage threshold</th>
+<th style="text-align: right;">Mean ρ vs the earlier 13-category Davidson</th>
+<th>Cells: rule / LLM / unscored / absent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1 (legacy)</td>
+<td style="text-align: right;">+0.121</td>
+<td>477 / 380 / 1 / 142</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">+0.124</td>
+<td>453 / 404 / 1 / 142</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">+0.199</td>
+<td>271 / 586 / 1 / 142</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">+0.245</td>
+<td>95 / 762 / 1 / 142</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong>99 (LLM only)</strong></td>
+<td style="text-align: right;"><strong>+0.295</strong></td>
+<td>0 / 857 / 1 / 142</td>
+</tr>
+</tbody>
+</table>
+<p>Mean ρ rises monotonically as we use the rules less. On the only external reference we have, the rule-based layer was dragging the headline score. We therefore default to threshold = 99, LLM scoring is the sole headline source, and preserve the rule-based scores in separate columns of the per-cell output for diagnostic and sensitivity use.</p>
+<p>This was the largest single methodological improvement in the current pipeline relative to v4, and it was identified directly from the sweep table rather than from theoretical considerations.</p>
+<h3 id="appendix-e-why-compensation-is-hardest-and-two-failed-augmentation-attempts">Appendix E — Why Compensation is hardest, and two failed augmentation attempts</h3>
+<p>We selected the three contracts in the 20-contract validation set where the v4 rule-based layer and the earlier 13-category Davidson reference disagreed most on Compensation (and the analogous three for Leave) and read each contract's OCR to decide which method was substantively closer.</p>
+<p>On all six disagreement cases the rule-based layer was substantively wrong and the earlier 13-category Davidson was substantively right. The disagreement pattern is consistent.</p>
+<p>The Compensation rule-based layer scores wage <em>level</em> (percentile-rank base rate, premium count, fixed annual increase totals) but misses contract <em>structure</em>: two-tier wage scales that systematically reduce new-hire wages, employer-discretion clauses on increase percentages, partial-pass-through cost-of-living formulas, and probation-length differences.</p>
+<p>The Leave rule-based layer scores raw accrual maxima but misses tenure-progression speed (a 7-year-to-3-week vacation schedule is substantively worse than a 5-year-to-3-week schedule), restriction density ("subject to needs of business" gates, narrow carryover caps), and work-year normalization (a 185-day teacher contract with 9 sick days is not less generous than a 250-day office contract with 12 sick days).</p>
+<p>We attempted two brief-stage augmentation passes that pre-pended explicit structural-feature flags to the Compensation provision summary before LLM scoring. Both failed in net.</p>
+<p>The first attempt detected and flagged two-tier presence, employer discretion, COLA cap and floor percentages, premium type count, probation period, and work-year length. Spearman ρ against iterative re-reading <em>dropped</em> from baseline +0.52 to +0.30. Three problems explained the failure: the OCR-missing-wage-schedule flag over-fired on thin Memoranda of Agreement that have no underlying wage table at all (not the same as a missing OCR appendix); the premium-count boost over-pushed scores toward the top of the dimension scale; and multi-year increase totals were misread as annual increases by the LLM.</p>
+<p>The second attempt fixed all three issues: added an MOA detector to suppress the OCR-missing exemption, tightened the OCR trigger to true appendix gaps only, presented increase totals as per-year means with explicit counts, and capped the premium-count boost at the "rich menu" threshold rather than the maximum. The regression test on ten iteratively re-read contracts passed at ρ = +0.64 against iterative reading. But the full 100-contract rescore, run in a different LLM session that applied the structural flags as per-bucket deterministic rules rather than as informative inputs, <em>collapsed</em> the Compensation standard deviation from 0.19 to 0.09, erasing the construction-versus-public-sector wage contrast that is the headline result of §3.3. A small Spearman uplift was not worth losing a substantive validity claim that big.</p>
+<p>We reverted both attempts. The conclusion we draw is that brief-stage augmentation is not the right lever for Compensation improvement. The improvement has to happen upstream, richer extraction of structural fields by the worker step, rather than downstream prompting fixes. With fields like <code>two_tier_present</code>, <code>wage_increase_mechanism ∈ {fixed, formula, discretionary}</code>, <code>cola_pass_through_fraction</code>, and <code>work_year_days</code> extracted directly from the OCR text, the existing rule-based layer becomes structurally informed and the LLM scorer can read explicit structural cues without flag-guidance over-correction. We defer this to a follow-up.</p>
+<p>The two augmentation attempts are kept on disk as diagnostic artifacts.</p>
+<h3 id="appendix-f-human-rater-validation-planned-not-done">Appendix F — Human-rater validation [planned, not done]</h3>
+<p>We have not run a human-graded gold-standard validation on this corpus. All validations in Section 3 use Claude Sonnet 4.6 at multiple stages, so cross-validation between them is partially circular and the ρ values we report are bounded above by shared-model-prior variance between the pipeline and the validation reference.</p>
+<p>The minimum useful version of this experiment is the following. Sample 30 contracts from the 100-contract corpus stratified by composite generosity decile. Recruit two raters per contract, labor economists, labor-relations attorneys, or graduate students with substantial bargaining-context coursework, and have each rate the four most heavily-validated provision areas (Compensation, Healthcare, Leave, Security) on a 1–5 scale per sub-criterion using the same anchor scale the LLM scoring uses. Compute inter-rater agreement (Krippendorff's α or weighted κ), then per-area Spearman ρ between the pipeline's scores and the rater consensus.</p>
+<p>Budget estimate: $1,500–3,000 in rater compensation (approximately one hour per contract × 30 contracts × 2 raters × $25–50 per hour) plus a few researcher-hours to assemble materials and analyze.</p>
+<p>Expected outcome: if the pipeline's ρ against human consensus on Leave is in the range +0.7 to +0.8, the LLM-versus-LLM claim that "the pipeline tracks careful reading at ρ = 0.83" is confirmed as substantively meaningful rather than artifact of shared priors. If ρ drops substantially (say to +0.4), the same number reveals the true ceiling and the paper's framing would shift.</p>
+<p>We treat this experiment as the most important single follow-up for the next iteration of this work. It is not in the current paper because of recruitment lead time.</p>
+<h3 id="appendix-g-reproducibility">Appendix G — Reproducibility</h3>
+<p>All code, prompts, and run artifacts live under <code>codex_PG/scalable_v4/</code>. Key locations:</p>
+<p><strong>Pipeline scripts</strong>, in <code>scripts/</code>:
+- <code>apply_score_rubrics.py</code>, Step 2 deterministic rule-based scoring.
+- <code>build_category_briefs.py</code>, assembles per-cell provision summaries.
+- <code>build_v5_1_final_scores.py</code>, Step 4 combiner.
+- <code>apply_anchor_calibration.py</code>, per-area intercept shifts.
+- <code>aggregate_v2_runs.py</code>, merges per-area LLM-scoring jsonl outputs.
+- <code>compare_judgment_regimes.py</code>, generates the pairwise-versus-LLM comparison of Appendix B.</p>
+<p><strong>Prompts</strong>, in <code>prompts/</code>:
+- <code>v5_absolute_scoring.md</code>. The four-sub-criterion LLM scoring prompt used at Step 3.
+- <code>v5_pairwise_judgment_v2.md</code>. The pairwise prompt used in Appendix B.</p>
+<p><strong>Configuration</strong>, in <code>config/</code>:
+- <code>v5_category_dimensions.json</code>, four sub-criteria per provision area.
+- <code>v5_rubric_dimension_coverage.json</code>, rule-to-sub-criterion map used by the threshold sweep.</p>
+<p><strong>Wave-1 run directory</strong>, in <code>runs/2026-05-17_v4_native_wave1/</code>:
+- <code>documents_enriched.csv</code>, sector / state / year metadata.
+- <code>concept_records_normalized.csv</code>, provision-extraction output.
+- <code>category_briefs.json</code>, provision summaries used as scoring inputs.
+- <code>absolute_scores.csv</code>, LLM scoring output (calibrated; the headline product).
+- <code>v5_1_final_scores.csv</code>, final per-cell scores (the published table).
+- <code>anchor_calibration.jsonl</code>, <code>anchor_calibration_summary.csv</code>, calibration audit trail.
+- <code>v5_1_wave1_summary.md</code>, descriptive summary corresponding to Section 5.
+- <code>hand_ratings/hand_ratings.csv</code>, Section 3.2 iterative re-read data.</p>
+<p><strong>Validation run directory</strong>, in <code>runs/2026-05-17_v4_matthew_20doc/</code>:
+- <code>judgment_regime_findings.md</code>, Section 3.1 and Appendix B material.
+- <code>v5_1_threshold_sweep_findings.md</code>, Appendix D material.
+- <code>matthew_v3_v4_correlation_per_category.csv</code>, Appendix C head-to-head numbers.
+- <code>rubric_matthew_disagreement_root_cause.md</code>, Appendix E case readings.</p>
+<p><strong>Step-by-step reproduction</strong> for a fresh corpus:</p>
+<pre><code class="language-bash">python3 scripts/run_v4_workers.py &lt;input_dir&gt; &lt;run_dir&gt;          # Step 1
+python3 scripts/apply_score_rubrics.py &lt;run_dir&gt;                 # Step 2
+python3 scripts/build_category_briefs.py &lt;run_dir&gt;               # Step 3a (build summaries)
+# Step 3b: launch one batch agent per provision area to score summaries
+python3 scripts/aggregate_v2_runs.py &lt;run_dir&gt;                   # Step 3c (aggregate)
+# Step 3d: anchor calibration — re-score 10 stratified anchors across all 9 areas in one session
+python3 scripts/apply_anchor_calibration.py &lt;run_dir&gt;            # Step 4
+python3 scripts/build_v5_1_final_scores.py &lt;run_dir&gt;             # combiner
+</code></pre>
+<p>Model: Claude Sonnet 4.6 throughout, low-effort/low-temperature for workers and LLM scorers, default settings for the anchor calibration session.</p>
+<p><strong>Companion website and interactive ontology browser.</strong> The wave-1 results, including the sector × provision-area heatmap, the validation panel, a sortable composite ranking, and a four-level interactive browser of the provision ontology with example extracted provisions at each leaf, are served from <code>cba-pilot-site/</code>. The site reads the JSON exports listed above and can be regenerated from a fresh run via <code>python3 scripts/export_v5_1_data.py &amp;&amp; npm run build</code>.</p>
+<p><strong>Figures.</strong> The three main-text figures and the landing-page infographic are generated from the same JSON inputs by <code>scripts/make_paper_figures.py</code> and <code>scripts/make_infographic.py</code>. The three LaTeX tables in the main text are generated by <code>scripts/make_paper_tables.py</code>. All three scripts are deterministic given the run directory.</p>
+<hr /></body></html>
